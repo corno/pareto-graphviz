@@ -8,7 +8,7 @@ import { $$ as op_serialize_string } from "../../operations/impure/text/serializ
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
-export const Graph: _et.Transformer<d_out.Group, d_in.Graph> = ($) => {
+export const Graph: _et.Transformer_New<d_in.Graph, d_out.Group> = ($) => {
     return sh.group([
         sh.g.nested_block([
             sh.b.snippet(`digraph {`),
