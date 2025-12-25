@@ -4,7 +4,7 @@ import * as _et from 'exupery-core-types'
 import * as d_in from "../../../../interface/generated/pareto/schemas/graphviz/data_types/source"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
 
-import { $$ as op_serialize_string } from "../../../operations/impure/text/serialize_string"
+import { $$ as op_serialize_string } from "../../../serializers/primitives/text/quoted"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
