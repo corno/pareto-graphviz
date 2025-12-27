@@ -15,8 +15,8 @@ export const Graph: _et.Transformer<d_in.Graph, d_out.Group> = ($) => {
             sh.b.indent([
                 sh.g.simple_block(``),
                 sh.g.simple_block(`// nodes`),
-                sh.g.sub($.nodes.deprecated_to_array(() => 1).map(($) => sh.g.nested_block([
-                    sh.b.snippet(`${s_quoted($.key)};`),
+                sh.g.sub($.nodes.to_list(($, key) => sh.g.nested_block([
+                    sh.b.snippet(`${s_quoted(key)};`),
                 ]))),
                 sh.g.simple_block(``),
                 sh.g.simple_block(`// edges`),
