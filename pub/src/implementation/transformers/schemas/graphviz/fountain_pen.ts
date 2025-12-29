@@ -1,5 +1,5 @@
-import * as _ea from 'exupery-core-alg'
-import * as _et from 'exupery-core-types'
+import * as _pt from 'pareto-core-transformer'
+import * as _pi from 'pareto-core-interface'
 
 import * as d_in from "../../../../interface/generated/pareto/schemas/graphviz/data_types/source"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
@@ -8,7 +8,7 @@ import { $$ as s_quoted } from "../../../serializers/primitives/text/quoted"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
-export const Graph: _et.Transformer<d_in.Graph, d_out.Group> = ($) => {
+export const Graph: _pi.Transformer<d_in.Graph, d_out.Group> = ($) => {
     return sh.group([
         sh.g.nested_block([
             sh.b.snippet(`digraph {`),
