@@ -27,6 +27,6 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "pareto-fountain-pen": "^0.3.20"
+    "pareto-fountain-pen": "^0.3.22"
   }
 }
