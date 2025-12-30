@@ -4,8 +4,10 @@ import * as _pi from 'pareto-core-interface'
 import * as d_in from "../../../../interface/generated/pareto/schemas/graphviz/data_types/source"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
 
+//dependencies
 import { $$ as s_quoted } from "../../../serializers/primitives/text/quoted"
 
+//shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
 export const Graph: _pi.Transformer<d_in.Graph, d_out.Group> = ($) => {
