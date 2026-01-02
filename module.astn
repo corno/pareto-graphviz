@@ -1,0 +1,61 @@
+(
+    'operations': {
+    }
+    'schema tree': | 'set' {
+        `graphviz`: | 'schema' (
+            'complexity': | 'unconstrained' ~
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'number types': {
+                    `Position`: (
+                        'precision': | 'exact' (
+                            'decimal separator offset': ~
+                            'type': | 'natural' ~
+                        )
+                    )
+                }
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
+            )
+            'imports': {
+            }
+            'types': {
+                `Graph`: (
+                    'node': | 'group' {
+                        `nodes`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'nothing' ~
+                                'ordered': `false`
+                            )
+                        )
+                        `edges`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'group' {
+                                    `from`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `to`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+            }
+        )
+    }
+)
