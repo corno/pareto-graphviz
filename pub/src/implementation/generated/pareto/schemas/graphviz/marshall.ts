@@ -5,9 +5,9 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 
 
-export const Graph: _i_signatures._T_Graph = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Graph: _i_signatures._T_Graph = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'nodes': _pa.cc($['nodes'], ($) => ['dictionary', $.map(($) => ['nothing', null])]),
-    'edges': _pa.cc($['edges'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+    'edges': _pa.cc($['edges'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
         'from': _pa.cc($['from'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
