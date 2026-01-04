@@ -3,12 +3,16 @@ import * as _p from 'pareto-core-serializer'
 
 import { $$ as s_escaped_character } from "pareto-standard-operations/dist/implementation/manual/primitives/text/serializers/escaped_character"
 
-export const $$ = ($: string): string => '"'
-    + s_escaped_character(
+type signature = _pi.Text_Serializer
+
+export const $$: signature = ($) => _p.text.build(($i) => {
+    $i['add character'](34)
+    $i['add snippet'](s_escaped_character(
         $,
         {
             'character code': 34, // "
             'escape character code': 92, // \
         }
-    )
-    + '"'
+    ))
+    $i['add character'](34)
+})
