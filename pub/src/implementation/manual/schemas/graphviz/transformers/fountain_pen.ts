@@ -10,24 +10,22 @@ import { $$ as s_quoted } from "../../../primitives/text/serializers/quoted"
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
-export const Graph: _pi.Transformer<d_in.Graph, d_out.Group> = ($) => {
-    return sh.group([
-        sh.g.nested_block([
-            sh.b.snippet(`digraph {`),
-            sh.b.indent([
-                sh.g.simple_block(``),
-                sh.g.simple_block(`// nodes`),
-                sh.g.sub($.nodes.to_list(($, key) => sh.g.nested_block([
-                    sh.b.snippet(`${s_quoted(key)};`),
-                ]))),
-                sh.g.simple_block(``),
-                sh.g.simple_block(`// edges`),
-                sh.g.sub($.edges.map(($) => sh.g.nested_block([
-                    sh.b.snippet(`${s_quoted($.from)} -> ${s_quoted($.to)} ;`),
-                ]))),
-                sh.g.simple_block(``),
-            ]),
-            sh.b.snippet(`}`),
-        ])
+export const Graph: _pi.Transformer<d_in.Graph, d_out.Group> = ($) => sh.group([
+    sh.g.nested_block([
+        sh.b.snippet(`digraph {`),
+        sh.b.indent([
+            sh.g.simple_block(``),
+            sh.g.simple_block(`// nodes`),
+            sh.g.sub($.nodes.to_list(($, key) => sh.g.nested_block([
+                sh.b.snippet(`${s_quoted(key)};`),
+            ]))),
+            sh.g.simple_block(``),
+            sh.g.simple_block(`// edges`),
+            sh.g.sub($.edges.map(($) => sh.g.nested_block([
+                sh.b.snippet(`${s_quoted($.from)} -> ${s_quoted($.to)} ;`),
+            ]))),
+            sh.g.simple_block(``),
+        ]),
+        sh.b.snippet(`}`),
     ])
-}
+])
