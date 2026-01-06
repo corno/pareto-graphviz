@@ -18,9 +18,13 @@ export const Graph: signature = ($) => sh.group([
         sh.b.indent([
             sh.g.simple_block(``),
             sh.g.simple_block(`// nodes`),
-            sh.g.sub($.nodes.to_list(($, key) => sh.g.nested_block([
-                sh.b.snippet(`${s_quoted(key)};`),
-            ]))),
+            sh.g.sub(
+                _p.list.from_dictionary(
+                    $.nodes,
+                    ($, key) => sh.g.nested_block([
+                        sh.b.snippet(`${s_quoted(key)};`),
+                    ]))
+            ),
             sh.g.simple_block(``),
             sh.g.simple_block(`// edges`),
             sh.g.sub($.edges.map(($) => sh.g.nested_block([

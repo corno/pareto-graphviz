@@ -5,7 +5,7 @@ import { $$ as s_escaped_character } from "pareto-standard-operations/dist/imple
 
 type signature = _pi.Text_Serializer
 
-export const $$: signature = ($) => _p.text.build(($i) => {
+export const $$: signature = ($) => _p.text.deprecated_build(($i) => {
     $i['add character'](34)
     $i['add snippet'](s_escaped_character(
         $,
