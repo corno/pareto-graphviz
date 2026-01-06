@@ -6,13 +6,13 @@ import * as _i_out from "../../../../../interface/generated/pareto/core/astn_tar
 
 
 export const Graph: _i_signatures._T_Graph = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'nodes': _pa.cc($['nodes'], ($) => ['dictionary', $.map(($) => ['nothing', null])]),
-    'edges': _pa.cc($['edges'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
-        'from': _pa.cc($['from'], ($) => ['text', ({
+    'nodes': _pa.deprecated_cc($['nodes'], ($) => ['dictionary', $.map(($) => ['nothing', null])]),
+    'edges': _pa.deprecated_cc($['edges'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
+        'from': _pa.deprecated_cc($['from'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
         })]),
-        'to': _pa.cc($['to'], ($) => ['text', ({
+        'to': _pa.deprecated_cc($['to'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
         })]),

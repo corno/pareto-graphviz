@@ -11,7 +11,7 @@ export const Graph: _i_signatures._T_Graph = ($, $p) => _i_generic.process_group
     $,
     {
         'properties': ($) => ({
-            'nodes': _pa.cc(_i_generic.get_entry(
+            'nodes': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "nodes",
@@ -25,7 +25,7 @@ export const Graph: _i_signatures._T_Graph = ($, $p) => _i_generic.process_group
                     ),
                 }
             )),
-            'edges': _pa.cc(_i_generic.get_entry(
+            'edges': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "edges",
@@ -37,7 +37,7 @@ export const Graph: _i_signatures._T_Graph = ($, $p) => _i_generic.process_group
                         $,
                         {
                             'properties': ($) => ({
-                                'from': _pa.cc(_i_generic.get_entry(
+                                'from': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "from",
@@ -46,7 +46,7 @@ export const Graph: _i_signatures._T_Graph = ($, $p) => _i_generic.process_group
                                     $,
                                     null
                                 )),
-                                'to': _pa.cc(_i_generic.get_entry(
+                                'to': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "to",
