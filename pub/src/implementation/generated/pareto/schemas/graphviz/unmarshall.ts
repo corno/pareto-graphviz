@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/graphviz/unmarshall"
@@ -11,7 +11,7 @@ export const Graph: _i_signatures._T_Graph = ($, $p) => _i_generic.process_group
     $,
     {
         'properties': ($) => ({
-            'nodes': _pa.deprecated_cc(_i_generic.get_entry(
+            'nodes': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "nodes",
@@ -25,7 +25,7 @@ export const Graph: _i_signatures._T_Graph = ($, $p) => _i_generic.process_group
                     ),
                 }
             )),
-            'edges': _pa.deprecated_cc(_i_generic.get_entry(
+            'edges': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "edges",
@@ -37,7 +37,7 @@ export const Graph: _i_signatures._T_Graph = ($, $p) => _i_generic.process_group
                         $,
                         {
                             'properties': ($) => ({
-                                'from': _pa.deprecated_cc(_i_generic.get_entry(
+                                'from': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "from",
@@ -46,7 +46,7 @@ export const Graph: _i_signatures._T_Graph = ($, $p) => _i_generic.process_group
                                     $,
                                     null
                                 )),
-                                'to': _pa.deprecated_cc(_i_generic.get_entry(
+                                'to': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "to",
