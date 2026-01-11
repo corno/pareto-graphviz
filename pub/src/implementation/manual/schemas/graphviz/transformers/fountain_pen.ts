@@ -27,7 +27,7 @@ export const Graph: signature = ($) => sh.group([
             ),
             sh.g.simple_block(``),
             sh.g.simple_block(`// edges`),
-            sh.g.sub($.edges.map(($) => sh.g.nested_block([
+            sh.g.sub($.edges.__l_map(($) => sh.g.nested_block([
                 sh.b.snippet(`${s_quoted($.from)} -> ${s_quoted($.to)} ;`),
             ]))),
             sh.g.simple_block(``),
