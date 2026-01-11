@@ -6,7 +6,7 @@ import * as _i_out from "../../../../../interface/generated/pareto/core/astn_tar
 
 
 export const Graph: _i_signatures._T_Graph = ($, $p) => ['verbose group', _p.dictionary.literal({
-    'nodes': _p.deprecated_cc($['nodes'], ($) => ['dictionary', $.map(($) => ['nothing', null])]),
+    'nodes': _p.deprecated_cc($['nodes'], ($) => ['dictionary', $.__d_map(($) => ['nothing', null])]),
     'edges': _p.deprecated_cc($['edges'], ($) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
         'from': _p.deprecated_cc($['from'], ($) => ['text', ({
             'delimiter': ['quote', null],
