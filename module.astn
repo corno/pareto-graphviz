@@ -1,11 +1,15 @@
 (
-    'operations': {
-    }
     'schema tree': | 'set' {
         `graphviz`: | 'schema' (
-            'complexity': | 'unconstrained' ~
+            'imports': {
+            }
             'globals': (
                 'complexity': | 'unconstrained' ~
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
                 'number types': {
                     `Position`: (
                         'precision': | 'exact' (
@@ -14,16 +18,11 @@
                         )
                     )
                 }
-                'text types': {
-                    `Text Value`: (
-                        'type': | 'single line' ~
-                    )
-                }
             )
-            'imports': {
-            }
             'types': {
                 `Graph`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `nodes`: (
                             'description': ~
@@ -52,10 +51,11 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
             }
+            'complexity': | 'unconstrained' ~
         )
+    }
+    'operations': {
     }
 )
