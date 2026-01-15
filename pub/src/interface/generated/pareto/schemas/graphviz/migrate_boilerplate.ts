@@ -1,47 +1,26 @@
+
 import * as _pi from "pareto-core-interface"
+
+import * as i_out from "./data"
+
+import * as i_in from "./data"
+
+export namespace Graph_ {
     
-    import * as _i_out from "./data_types/target"
-    import * as _i_in from "./data_types/source"
+    export type I = i_in.Graph
     
-    // **** TYPES
+    export type O = i_out.Graph
     
-    export type _T_Graph = (
-        $$_: _i_in._T_Graph,
-        $$_p: null,
-    ) => _i_out._T_Graph
-    
-    // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
-    
-    export type Graph = _T_Graph
-    
-    // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
-    
-    export namespace _T_Graph {
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Graph
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Graph
     }
     
-    // *** ALIASES FOR NESTED TYPES
-    
-    export namespace Graph {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Graph
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Graph
-    }
+}
+
+export type Graph_ = (
+    $$_: Graph_.I,
+) => Graph_.O
+
+export { 
+    Graph_ as Graph, 
+}
