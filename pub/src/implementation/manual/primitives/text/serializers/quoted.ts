@@ -1,7 +1,7 @@
 import * as _pi from 'pareto-core-interface'
 import * as _p from 'pareto-core-serializer'
 
-import { $$ as s_escaped_character } from "pareto-standard-operations/dist/implementation/manual/primitives/text/serializers/escaped_character"
+import { $$ as s_escaped_character } from "./escaped_character"
 
 type signature = _pi.Text_Serializer
 
