@@ -1,6 +1,6 @@
 {
   "name": "pareto-graphviz",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A TypeScript library for creating Graphviz graphs with pareto",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "astn-core": "^0.5.4",
-    "pareto-fountain-pen": "^0.4.4"
+    "astn-core": "^0.5.5",
+    "pareto-fountain-pen": "^0.4.5"
   }
 }
