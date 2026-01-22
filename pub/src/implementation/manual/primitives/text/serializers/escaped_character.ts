@@ -1,7 +1,7 @@
-import * as _p from 'pareto-core-refiner'
-import * as _pi from 'pareto-core-interface'
-import * as _pd from 'pareto-core-deserializer'
-import * as _ps from 'pareto-core-serializer'
+import * as _p from 'pareto-core/dist/refiner'
+import * as _pi from 'pareto-core/dist/interface'
+import * as _pd from 'pareto-core/dist/deserializer'
+import * as _ps from 'pareto-core/dist/serializer'
 
 const pump = <Iterator_Element>(
     iter: _pi.Iterator<Iterator_Element>,
