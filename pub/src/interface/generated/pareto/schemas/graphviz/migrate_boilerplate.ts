@@ -5,6 +5,22 @@ import * as i_out from "./data"
 
 import * as i_in from "./data"
 
+export namespace Attributes_ {
+    
+    export type I = i_in.Attributes
+    
+    export type O = i_out.Attributes
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Attributes_ = (
+    $$_: Attributes_.I,
+) => Attributes_.O
+
 export namespace Graph_ {
     
     export type I = i_in.Graph
@@ -22,5 +38,6 @@ export type Graph_ = (
 ) => Graph_.O
 
 export { 
+    Attributes_ as Attributes, 
     Graph_ as Graph, 
 }
