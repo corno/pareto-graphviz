@@ -29,13 +29,13 @@ export const $$: _pi.Text_Serializer_With_Parameters<{
                 iter,
                 ($) => {
                     if ($ === $p['escape character code']) { // \
-                        $i['add character']($p['escape character code'])
-                        $i['add character']($p['escape character code'])
+                        $i.add_character($p['escape character code'])
+                        $i.add_character($p['escape character code'])
                     } else if ($ === $p['character code']) {
-                        $i['add character']($p['escape character code'])
-                        $i['add character']($p['character code'])
+                        $i.add_character($p['escape character code'])
+                        $i.add_character($p['character code'])
                     } else {
-                        $i['add character']($)
+                        $i.add_character($)
                     }
 
                 }
