@@ -18,7 +18,7 @@ export namespace Attributes_ {
 }
 
 export type Attributes_ = (
-    $$_: Attributes_.I,
+    context: Attributes_.I,
 ) => Attributes_.O
 
 export namespace Graph_ {
@@ -34,7 +34,7 @@ export namespace Graph_ {
 }
 
 export type Graph_ = (
-    $$_: Graph_.I,
+    context: Graph_.I,
 ) => Graph_.O
 
 export { 
