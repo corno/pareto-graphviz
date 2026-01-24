@@ -27,7 +27,7 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "astn-core": "^0.5.5",
-    "pareto-fountain-pen": "^0.4.5"
+    "astn-core": "^0.5.6",
+    "pareto-fountain-pen": "^0.4.6"
   }
 }
