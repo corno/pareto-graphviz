@@ -49,7 +49,7 @@ export const Graph: Graph = ($) => sh.group([
 
 export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) => 
     sh.g.nested_block([
-        _p.sg($, ($) => {
+        _p.decide.state($, ($) => {
             switch ($[0]) {
                 case 'freeform': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(s_quoted($.key)), sh.b.snippet(`=`), sh.b.snippet(s_quoted($.value))]))
                 case 'color': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`color=`), sh.b.snippet(s_quoted($))]))
@@ -66,7 +66,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                 case 'id': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`id=`), sh.b.snippet(s_quoted($))]))
                 case 'class': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`class=`), sh.b.snippet(s_quoted($))]))
                 case 'comment': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`comment=`), sh.b.snippet(s_quoted($))]))
-                case 'style': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'style': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'filled': return _p.ss($, ($) => sh.b.snippet(`style=filled`))
                         case 'rounded': return _p.ss($, ($) => sh.b.snippet(`style=rounded`))
@@ -83,7 +83,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                         default: return _p.au($[0])
                     }
                 }))
-                case 'layout': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'layout': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'dot': return _p.ss($, ($) => sh.b.snippet(`layout=dot`))
                         case 'neato': return _p.ss($, ($) => sh.b.snippet(`layout=neato`))
@@ -95,7 +95,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                         default: return _p.au($[0])
                     }
                 }))
-                case 'rankdir': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'rankdir': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'TB': return _p.ss($, ($) => sh.b.snippet(`rankdir=TB`))
                         case 'BT': return _p.ss($, ($) => sh.b.snippet(`rankdir=BT`))
@@ -105,14 +105,14 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                     }
                 }))
                 case 'bgcolor': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`bgcolor=`), sh.b.snippet(s_quoted($))]))
-                case 'labelloc': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'labelloc': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 't': return _p.ss($, ($) => sh.b.snippet(`labelloc=t`))
                         case 'b': return _p.ss($, ($) => sh.b.snippet(`labelloc=b`))
                         default: return _p.au($[0])
                     }
                 }))
-                case 'labeljust': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'labeljust': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'l': return _p.ss($, ($) => sh.b.snippet(`labeljust=l`))
                         case 'c': return _p.ss($, ($) => sh.b.snippet(`labeljust=c`))
@@ -126,7 +126,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                 case 'nodesep': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`nodesep=`), sh.b.snippet(s_decimal($))]))
                 case 'ranksep': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`ranksep=`), sh.b.snippet(s_decimal($))]))
                 case 'dpi': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`dpi=`), sh.b.snippet(s_decimal($))]))
-                case 'overlap': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'overlap': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'true': return _p.ss($, ($) => sh.b.snippet(`overlap=true`))
                         case 'false': return _p.ss($, ($) => sh.b.snippet(`overlap=false`))
@@ -141,7 +141,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                         default: return _p.au($[0])
                     }
                 }))
-                case 'pack': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'pack': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'true': return _p.ss($, ($) => sh.b.snippet(`pack=true`))
                         case 'false': return _p.ss($, ($) => sh.b.snippet(`pack=false`))
@@ -149,7 +149,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                         default: return _p.au($[0])
                     }
                 }))
-                case 'packmode': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'packmode': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'node': return _p.ss($, ($) => sh.b.snippet(`packmode=node`))
                         case 'clust': return _p.ss($, ($) => sh.b.snippet(`packmode=clust`))
@@ -162,7 +162,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                 case 'center': return _p.ss($, ($) => sh.b.snippet($ ? `center=true` : `center=false`))
                 case 'normalize': return _p.ss($, ($) => sh.b.snippet($ ? `normalize=true` : `normalize=false`))
                 case 'landscape': return _p.ss($, ($) => sh.b.snippet($ ? `landscape=true` : `landscape=false`))
-                case 'outputorder': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'outputorder': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'breadthfirst': return _p.ss($, ($) => sh.b.snippet(`outputorder=breadthfirst`))
                         case 'nodesfirst': return _p.ss($, ($) => sh.b.snippet(`outputorder=nodesfirst`))
@@ -171,7 +171,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                     }
                 }))
                 case 'charset': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`charset=`), sh.b.snippet(s_quoted($))]))
-                case 'clusterrank': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'clusterrank': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'local': return _p.ss($, ($) => sh.b.snippet(`clusterrank=local`))
                         case 'global': return _p.ss($, ($) => sh.b.snippet(`clusterrank=global`))
@@ -179,7 +179,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                         default: return _p.au($[0])
                     }
                 }))
-                case 'shape': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'shape': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'box': return _p.ss($, ($) => sh.b.snippet(`shape=box`))
                         case 'circle': return _p.ss($, ($) => sh.b.snippet(`shape=circle`))
@@ -216,7 +216,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                 case 'peripheries': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`peripheries=`), sh.b.snippet(s_decimal($))]))
                 case 'pin': return _p.ss($, ($) => sh.b.snippet($ ? `pin=true` : `pin=false`))
                 case 'image': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`image=`), sh.b.snippet(s_quoted($))]))
-                case 'imagepos': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'imagepos': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'tl': return _p.ss($, ($) => sh.b.snippet(`imagepos=tl`))
                         case 'tc': return _p.ss($, ($) => sh.b.snippet(`imagepos=tc`))
@@ -230,7 +230,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                         default: return _p.au($[0])
                     }
                 }))
-                case 'imagescale': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'imagescale': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'false': return _p.ss($, ($) => sh.b.snippet(`imagescale=false`))
                         case 'true': return _p.ss($, ($) => sh.b.snippet(`imagescale=true`))
@@ -245,7 +245,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                 case 'area': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`area=`), sh.b.snippet(s_decimal($))]))
                 case 'z': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`z=`), sh.b.snippet(s_decimal($))]))
                 case 'margin': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`margin=`), sh.b.snippet(s_quoted($))]))
-                case 'arrowhead': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'arrowhead': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'normal': return _p.ss($, ($) => sh.b.snippet(`arrowhead=normal`))
                         case 'box': return _p.ss($, ($) => sh.b.snippet(`arrowhead=box`))
@@ -267,7 +267,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                         default: return _p.au($[0])
                     }
                 }))
-                case 'arrowtail': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'arrowtail': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'normal': return _p.ss($, ($) => sh.b.snippet(`arrowtail=normal`))
                         case 'box': return _p.ss($, ($) => sh.b.snippet(`arrowtail=box`))
@@ -290,7 +290,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                     }
                 }))
                 case 'arrowsize': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`arrowsize=`), sh.b.snippet(s_decimal($))]))
-                case 'dir': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'dir': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'forward': return _p.ss($, ($) => sh.b.snippet(`dir=forward`))
                         case 'back': return _p.ss($, ($) => sh.b.snippet(`dir=back`))
@@ -312,7 +312,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                 case 'minlen': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`minlen=`), sh.b.snippet(s_decimal($))]))
                 case 'constraint': return _p.ss($, ($) => sh.b.snippet($ ? `constraint=true` : `constraint=false`))
                 case 'decorate': return _p.ss($, ($) => sh.b.snippet($ ? `decorate=true` : `decorate=false`))
-                case 'headport': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'headport': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'center': return _p.ss($, ($) => sh.b.snippet(`headport=center`))
                         case 'n': return _p.ss($, ($) => sh.b.snippet(`headport=n`))
@@ -327,7 +327,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                         default: return _p.au($[0])
                     }
                 }))
-                case 'tailport': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'tailport': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'center': return _p.ss($, ($) => sh.b.snippet(`tailport=center`))
                         case 'n': return _p.ss($, ($) => sh.b.snippet(`tailport=n`))
@@ -364,7 +364,7 @@ export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
                 case 'tailtooltip': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`tailtooltip=`), sh.b.snippet(s_quoted($))]))
                 case 'labeltooltip': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`labeltooltip=`), sh.b.snippet(s_quoted($))]))
                 case 'radius': return _p.ss($, ($) => sh.b.sub([sh.b.snippet(`radius=`), sh.b.snippet(s_decimal($))]))
-                case 'splines': return _p.ss($, ($) => _p.sg($, ($) => {
+                case 'splines': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'true': return _p.ss($, ($) => sh.b.snippet(`splines=true`))
                         case 'false': return _p.ss($, ($) => sh.b.snippet(`splines=false`))
