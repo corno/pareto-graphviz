@@ -618,7 +618,7 @@ export const Attributes: t_signatures.Attributes = ($,) => $.__l_map(($,) => _p.
 }))
 export const Graph: t_signatures.Graph = ($,) => ({
     'attributes': _p.deprecated_cc($['attributes'], ($,) => Attributes($)),
-    'nodes': _p.deprecated_cc($['nodes'], ($,) => $.__d_map(($,key,) => ({
+    'nodes': _p.deprecated_cc($['nodes'], ($,) => $.__d_map(($,id,) => ({
         'attributes': _p.deprecated_cc($['attributes'], ($,) => Attributes($)),
     }))),
     'edges': _p.deprecated_cc($['edges'], ($,) => $.__l_map(($,) => ({

@@ -1660,7 +1660,7 @@ export const Attributes: t_signatures.Attributes = ($,) => ['list', $.__l_map(($
 })])]
 export const Graph: t_signatures.Graph = ($,) => ['group', ['verbose', _p.dictionary.literal(({
     'attributes': _p.deprecated_cc($['attributes'], ($,) => Attributes($)),
-    'nodes': _p.deprecated_cc($['nodes'], ($,) => ['dictionary', $.__d_map(($,key,) => ['group', ['verbose', _p.dictionary.literal(({
+    'nodes': _p.deprecated_cc($['nodes'], ($,) => ['dictionary', $.__d_map(($,id,) => ['group', ['verbose', _p.dictionary.literal(({
         'attributes': _p.deprecated_cc($['attributes'], ($,) => Attributes($)),
     }))]])]),
     'edges': _p.deprecated_cc($['edges'], ($,) => ['list', $.__l_map(($,) => ['group', ['verbose', _p.dictionary.literal(({
