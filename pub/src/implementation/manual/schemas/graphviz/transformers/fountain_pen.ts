@@ -24,8 +24,8 @@ export const Graph: Graph = ($) => sh.group([
             sh.g.sub(
                 _p.list.from_dictionary(
                     $.nodes,
-                    ($, key) => sh.g.nested_block([
-                        sh.b.snippet(`${s_quoted(key)} [`),
+                    ($, id) => sh.g.nested_block([
+                        sh.b.snippet(`${s_quoted(id)} [`),
                         sh.b.indent([
                             Attributes($.attributes),
                         ]),
