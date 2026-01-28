@@ -15,6 +15,10 @@ export namespace Attributes_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -22,6 +26,10 @@ export namespace Attributes_ {
 export type Attributes_ = (
     context: Attributes_.I,
     abort: _pi.Abort<Attributes_.E>,
+    parameters: {
+        readonly 'document resource identifier': Attributes_.P.document_resource_identifier
+        readonly 'indentation': Attributes_.P.indentation
+    },
 ) => Attributes_.O
 
 export namespace Graph_ {
@@ -34,6 +42,10 @@ export namespace Graph_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -41,6 +53,10 @@ export namespace Graph_ {
 export type Graph_ = (
     context: Graph_.I,
     abort: _pi.Abort<Graph_.E>,
+    parameters: {
+        readonly 'document resource identifier': Graph_.P.document_resource_identifier
+        readonly 'indentation': Graph_.P.indentation
+    },
 ) => Graph_.O
 
 export { 
