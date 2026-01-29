@@ -1,6 +1,14 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
+import { 
+    _p_unreachable_code_path, 
+} from "pareto-core/dist/unreachable_code_path"
+
+import { 
+    _p_cc, 
+} from "pareto-core/dist/change_context"
+
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/graphviz/migrate_boilerplate"
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/graphviz/data"
@@ -13,11 +21,11 @@ export const Attributes: t_signatures.Attributes = ($) => $.__l_map(
                     return _p.ss(
                         $, 
                         ($) => ['freeform', ({
-                            'key': _p.deprecated_cc(
+                            'key': _p_cc(
                                 $['key'], 
                                 ($) => $
                             ),
-                            'value': _p.deprecated_cc(
+                            'value': _p_cc(
                                 $['value'], 
                                 ($) => $
                             ),
@@ -1487,17 +1495,17 @@ export const Attributes: t_signatures.Attributes = ($) => $.__l_map(
     )
 )
 export const Graph: t_signatures.Graph = ($) => ({
-    'attributes': _p.deprecated_cc(
+    'attributes': _p_cc(
         $['attributes'], 
         ($) => Attributes(
             $
         )
     ),
-    'nodes': _p.deprecated_cc(
+    'nodes': _p_cc(
         $['nodes'], 
         ($) => $.__d_map(
             ($,id) => ({
-                'attributes': _p.deprecated_cc(
+                'attributes': _p_cc(
                     $['attributes'], 
                     ($) => Attributes(
                         $
@@ -1506,19 +1514,19 @@ export const Graph: t_signatures.Graph = ($) => ({
             })
         )
     ),
-    'edges': _p.deprecated_cc(
+    'edges': _p_cc(
         $['edges'], 
         ($) => $.__l_map(
             ($) => ({
-                'from': _p.deprecated_cc(
+                'from': _p_cc(
                     $['from'], 
                     ($) => $
                 ),
-                'to': _p.deprecated_cc(
+                'to': _p_cc(
                     $['to'], 
                     ($) => $
                 ),
-                'attributes': _p.deprecated_cc(
+                'attributes': _p_cc(
                     $['attributes'], 
                     ($) => Attributes(
                         $

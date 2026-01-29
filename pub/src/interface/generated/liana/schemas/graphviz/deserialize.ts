@@ -17,7 +17,7 @@ export namespace Attributes_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -28,7 +28,7 @@ export type Attributes_ = (
     abort: _pi.Abort<Attributes_.E>,
     parameters: {
         readonly 'document resource identifier': Attributes_.P.document_resource_identifier
-        readonly 'indentation': Attributes_.P.indentation
+        readonly 'tab size': Attributes_.P.tab_size
     },
 ) => Attributes_.O
 
@@ -44,7 +44,7 @@ export namespace Graph_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -55,7 +55,7 @@ export type Graph_ = (
     abort: _pi.Abort<Graph_.E>,
     parameters: {
         readonly 'document resource identifier': Graph_.P.document_resource_identifier
-        readonly 'indentation': Graph_.P.indentation
+        readonly 'tab size': Graph_.P.tab_size
     },
 ) => Graph_.O
 
