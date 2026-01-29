@@ -13,10 +13,10 @@ export const Attributes: t_signatures.Attributes = ($, abort, $p) => v_unmarshal
         ($) => abort(
             ['tbd', null]
         ),
-        ({
+        {
             'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
-        })
+        }
     )['content'],
     ($) => abort(
         ['tbd', null]
@@ -29,10 +29,10 @@ export const Graph: t_signatures.Graph = ($, abort, $p) => v_unmarshall.Graph(
         ($) => abort(
             ['tbd', null]
         ),
-        ({
+        {
             'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
-        })
+        }
     )['content'],
     ($) => abort(
         ['tbd', null]

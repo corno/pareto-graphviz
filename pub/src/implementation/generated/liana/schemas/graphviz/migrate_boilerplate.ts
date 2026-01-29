@@ -17,7 +17,7 @@ export const Attributes: t_signatures.Attributes = ($) => $.__l_map(
                 case 'freeform':
                     return _p.ss(
                         $,
-                        ($) => ['freeform', ({
+                        ($) => ['freeform', {
                             'key': _p_cc(
                                 $['key'],
                                 ($) => $
@@ -26,7 +26,7 @@ export const Attributes: t_signatures.Attributes = ($) => $.__l_map(
                                 $['value'],
                                 ($) => $
                             ),
-                        })]
+                        }]
                     )
                 case 'color':
                     return _p.ss(

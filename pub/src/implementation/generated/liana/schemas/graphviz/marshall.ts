@@ -24,22 +24,22 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         ($) => ({
                             'option': 'freeform',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'key': _p_cc(
                                         $['key'],
-                                        ($) => ['text', ({
+                                        ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })]
+                                        }]
                                     ),
                                     'value': _p_cc(
                                         $['value'],
-                                        ($) => ['text', ({
+                                        ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })]
+                                        }]
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -48,10 +48,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'color',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'fillcolor':
@@ -59,10 +59,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'fillcolor',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'penwidth':
@@ -70,12 +70,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'penwidth',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'label':
@@ -83,10 +83,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'label',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'fontcolor':
@@ -94,10 +94,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'fontcolor',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'fontname':
@@ -105,10 +105,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'fontname',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'fontsize':
@@ -116,12 +116,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'fontsize',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'URL':
@@ -129,10 +129,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'URL',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'href':
@@ -140,10 +140,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'href',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'target':
@@ -151,10 +151,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'target',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'tooltip':
@@ -162,10 +162,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'tooltip',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'id':
@@ -173,10 +173,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'id',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'class':
@@ -184,10 +184,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'class',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'comment':
@@ -195,10 +195,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'comment',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'style':
@@ -303,10 +303,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
-                                                    'value': ['text', ({
+                                                    'value': ['text', {
                                                         'delimiter': ['quote', null],
                                                         'value': $,
-                                                    })],
+                                                    }],
                                                 })
                                             )
                                         default:
@@ -380,10 +380,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
-                                                    'value': ['text', ({
+                                                    'value': ['text', {
                                                         'delimiter': ['quote', null],
                                                         'value': $,
-                                                    })],
+                                                    }],
                                                 })
                                             )
                                         default:
@@ -450,10 +450,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'bgcolor',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'labelloc':
@@ -537,10 +537,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'size',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'ratio':
@@ -548,10 +548,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'ratio',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'pad':
@@ -559,10 +559,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'pad',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'nodesep':
@@ -570,12 +570,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'nodesep',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'ranksep':
@@ -583,12 +583,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'ranksep',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'dpi':
@@ -596,12 +596,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'dpi',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'overlap':
@@ -732,12 +732,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
-                                                    'value': ['text', ({
+                                                    'value': ['text', {
                                                         'delimiter': ['none', null],
                                                         'value': v_serialize_number.serialize(
                                                             $
                                                         ),
-                                                    })],
+                                                    }],
                                                 })
                                             )
                                         default:
@@ -796,12 +796,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'concentrate',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'compound':
@@ -809,12 +809,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'compound',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'center':
@@ -822,12 +822,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'center',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'normalize':
@@ -835,12 +835,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'normalize',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'landscape':
@@ -848,12 +848,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'landscape',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'outputorder':
@@ -903,10 +903,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'charset',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'clusterrank':
@@ -1125,10 +1125,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
-                                                    'value': ['text', ({
+                                                    'value': ['text', {
                                                         'delimiter': ['quote', null],
                                                         'value': $,
-                                                    })],
+                                                    }],
                                                 })
                                             )
                                         default:
@@ -1145,12 +1145,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'width',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'height':
@@ -1158,12 +1158,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'height',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'fixedsize':
@@ -1171,12 +1171,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'fixedsize',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'regular':
@@ -1184,12 +1184,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'regular',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'sides':
@@ -1197,12 +1197,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'sides',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'skew':
@@ -1210,12 +1210,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'skew',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'distortion':
@@ -1223,12 +1223,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'distortion',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'orientation':
@@ -1236,12 +1236,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'orientation',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'peripheries':
@@ -1249,12 +1249,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'peripheries',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'pin':
@@ -1262,12 +1262,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'pin',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'image':
@@ -1275,10 +1275,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'image',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'imagepos':
@@ -1434,10 +1434,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'group',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'sortv':
@@ -1445,12 +1445,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'sortv',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'area':
@@ -1458,12 +1458,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'area',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'z':
@@ -1471,12 +1471,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'z',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'margin':
@@ -1484,10 +1484,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'margin',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'arrowhead':
@@ -1632,10 +1632,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
-                                                    'value': ['text', ({
+                                                    'value': ['text', {
                                                         'delimiter': ['quote', null],
                                                         'value': $,
-                                                    })],
+                                                    }],
                                                 })
                                             )
                                         default:
@@ -1789,10 +1789,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
-                                                    'value': ['text', ({
+                                                    'value': ['text', {
                                                         'delimiter': ['quote', null],
                                                         'value': $,
-                                                    })],
+                                                    }],
                                                 })
                                             )
                                         default:
@@ -1809,12 +1809,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'arrowsize',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'dir':
@@ -1872,10 +1872,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'headlabel',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'taillabel':
@@ -1883,10 +1883,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'taillabel',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'labelfontcolor':
@@ -1894,10 +1894,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'labelfontcolor',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'labelfontname':
@@ -1905,10 +1905,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'labelfontname',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'labelfontsize':
@@ -1916,12 +1916,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'labelfontsize',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'labelangle':
@@ -1929,12 +1929,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'labelangle',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'labeldistance':
@@ -1942,12 +1942,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'labeldistance',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'labelfloat':
@@ -1955,12 +1955,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'labelfloat',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'weight':
@@ -1968,12 +1968,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'weight',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'len':
@@ -1981,12 +1981,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'len',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'minlen':
@@ -1994,12 +1994,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'minlen',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'constraint':
@@ -2007,12 +2007,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'constraint',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'decorate':
@@ -2020,12 +2020,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'decorate',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'headport':
@@ -2114,10 +2114,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
-                                                    'value': ['text', ({
+                                                    'value': ['text', {
                                                         'delimiter': ['quote', null],
                                                         'value': $,
-                                                    })],
+                                                    }],
                                                 })
                                             )
                                         default:
@@ -2215,10 +2215,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
-                                                    'value': ['text', ({
+                                                    'value': ['text', {
                                                         'delimiter': ['quote', null],
                                                         'value': $,
-                                                    })],
+                                                    }],
                                                 })
                                             )
                                         default:
@@ -2235,12 +2235,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'headclip',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'tailclip':
@@ -2248,12 +2248,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'tailclip',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'lhead':
@@ -2261,10 +2261,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'lhead',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'ltail':
@@ -2272,10 +2272,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'ltail',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'samehead':
@@ -2283,10 +2283,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'samehead',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'sametail':
@@ -2294,10 +2294,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'sametail',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'edgeURL':
@@ -2305,10 +2305,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'edgeURL',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'headURL':
@@ -2316,10 +2316,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'headURL',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'tailURL':
@@ -2327,10 +2327,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'tailURL',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'labelURL':
@@ -2338,10 +2338,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'labelURL',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'edgehref':
@@ -2349,10 +2349,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'edgehref',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'headhref':
@@ -2360,10 +2360,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'headhref',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'tailhref':
@@ -2371,10 +2371,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'tailhref',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'labelhref':
@@ -2382,10 +2382,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'labelhref',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'edgetarget':
@@ -2393,10 +2393,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'edgetarget',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'headtarget':
@@ -2404,10 +2404,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'headtarget',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'tailtarget':
@@ -2415,10 +2415,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'tailtarget',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'edgetooltip':
@@ -2426,10 +2426,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'edgetooltip',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'headtooltip':
@@ -2437,10 +2437,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'headtooltip',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'tailtooltip':
@@ -2448,10 +2448,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'tailtooltip',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'labeltooltip':
@@ -2459,10 +2459,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'labeltooltip',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'radius':
@@ -2470,12 +2470,12 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'radius',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize(
                                     $
                                 ),
-                            })],
+                            }],
                         })
                     )
                 case 'splines':
@@ -2573,10 +2573,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'pos',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'xlabel':
@@ -2584,10 +2584,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'xlabel',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 case 'layer':
@@ -2595,10 +2595,10 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
                         $,
                         ($) => ({
                             'option': 'layer',
-                            'value': ['text', ({
+                            'value': ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })],
+                            }],
                         })
                     )
                 default:
@@ -2611,7 +2611,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
 )]
 
 export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'attributes': _p_cc(
             $['attributes'],
             ($) => Attributes(
@@ -2622,14 +2622,14 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.diction
             $['nodes'],
             ($) => ['dictionary', $.__d_map(
                 ($, id) => ['group', ['verbose', _p.dictionary.literal(
-                    ({
+                    {
                         'attributes': _p_cc(
                             $['attributes'],
                             ($) => Attributes(
                                 $
                             )
                         ),
-                    })
+                    }
                 )]]
             )]
         ),
@@ -2637,20 +2637,20 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.diction
             $['edges'],
             ($) => ['list', $.__l_map(
                 ($) => ['group', ['verbose', _p.dictionary.literal(
-                    ({
+                    {
                         'from': _p_cc(
                             $['from'],
-                            ($) => ['text', ({
+                            ($) => ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })]
+                            }]
                         ),
                         'to': _p_cc(
                             $['to'],
-                            ($) => ['text', ({
+                            ($) => ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })]
+                            }]
                         ),
                         'attributes': _p_cc(
                             $['attributes'],
@@ -2658,9 +2658,9 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.diction
                                 $
                             )
                         ),
-                    })
+                    }
                 )]]
             )]
         ),
-    })
+    }
 )]]
