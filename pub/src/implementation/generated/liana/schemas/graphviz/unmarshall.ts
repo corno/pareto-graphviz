@@ -1,12 +1,12 @@
 
 import * as _p from "pareto-core/dist/refiner"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/graphviz/unmarshall"
@@ -15,9 +15,12 @@ import * as v_deserialize_number from "liana-core/dist/implementation/manual/pri
 
 import * as v_deserialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/deserializers/true_false"
 
-import * as v_generic from "astn-core/dist/implementation/manual/schemas/unmarshalled/refiners/parse_tree"
-export const Attributes: t_signatures.Attributes = ($,abort) => v_generic.expect_list(
-    $, 
+import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/schemas/unmarshalled/refiners/parse_tree"
+
+import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
+
+export const Attributes: t_signatures.Attributes = ($, abort) => v_unmarshalled_from_parse_tree.List(
+    $,
     ($) => abort(
         ['expected a list', null]
     )
@@ -25,23 +28,24 @@ export const Attributes: t_signatures.Attributes = ($,abort) => v_generic.expect
     ($) => _p_unreachable_code_path(
     )
 )
-export const Graph: t_signatures.Graph = ($,abort) => _p_cc(
-    v_generic.expect_group(
-        $, 
+
+export const Graph: t_signatures.Graph = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.Group(
+        $,
         ($) => abort(
             ['expected a group', null]
         )
-    ), 
+    ),
     ($) => ({
         'attributes': _p_cc(
             $.__get_entry(
-                'attributes', 
+                'attributes',
                 ($) => abort(
                     ['no such entry', "attributes"]
                 )
-            ), 
+            ),
             ($) => Attributes(
-                $, 
+                $,
                 ($) => abort(
                     $
                 )
@@ -49,34 +53,34 @@ export const Graph: t_signatures.Graph = ($,abort) => _p_cc(
         ),
         'nodes': _p_cc(
             $.__get_entry(
-                'nodes', 
+                'nodes',
                 ($) => abort(
                     ['no such entry', "nodes"]
                 )
-            ), 
-            ($) => v_generic.expect_dictionary(
-                $, 
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Dictionary(
+                $,
                 ($) => abort(
                     ['expected a dictionary', null]
                 )
             ).__d_map(
-                ($,id) => _p_cc(
-                    v_generic.expect_group(
-                        $, 
+                ($, id) => _p_cc(
+                    v_unmarshalled_from_parse_tree.Group(
+                        $,
                         ($) => abort(
                             ['expected a group', null]
                         )
-                    ), 
+                    ),
                     ($) => ({
                         'attributes': _p_cc(
                             $.__get_entry(
-                                'attributes', 
+                                'attributes',
                                 ($) => abort(
                                     ['no such entry', "attributes"]
                                 )
-                            ), 
+                            ),
                             ($) => Attributes(
-                                $, 
+                                $,
                                 ($) => abort(
                                     $
                                 )
@@ -88,34 +92,34 @@ export const Graph: t_signatures.Graph = ($,abort) => _p_cc(
         ),
         'edges': _p_cc(
             $.__get_entry(
-                'edges', 
+                'edges',
                 ($) => abort(
                     ['no such entry', "edges"]
                 )
-            ), 
-            ($) => v_generic.expect_list(
-                $, 
+            ),
+            ($) => v_unmarshalled_from_parse_tree.List(
+                $,
                 ($) => abort(
                     ['expected a list', null]
                 )
             ).__l_map(
                 ($) => _p_cc(
-                    v_generic.expect_group(
-                        $, 
+                    v_unmarshalled_from_parse_tree.Group(
+                        $,
                         ($) => abort(
                             ['expected a group', null]
                         )
-                    ), 
+                    ),
                     ($) => ({
                         'from': _p_cc(
                             $.__get_entry(
-                                'from', 
+                                'from',
                                 ($) => abort(
                                     ['no such entry', "from"]
                                 )
-                            ), 
-                            ($) => v_generic.expect_text(
-                                $, 
+                            ),
+                            ($) => v_unmarshalled_from_parse_tree.Text(
+                                $,
                                 ($) => abort(
                                     ['expected a text', null]
                                 )
@@ -123,13 +127,13 @@ export const Graph: t_signatures.Graph = ($,abort) => _p_cc(
                         ),
                         'to': _p_cc(
                             $.__get_entry(
-                                'to', 
+                                'to',
                                 ($) => abort(
                                     ['no such entry', "to"]
                                 )
-                            ), 
-                            ($) => v_generic.expect_text(
-                                $, 
+                            ),
+                            ($) => v_unmarshalled_from_parse_tree.Text(
+                                $,
                                 ($) => abort(
                                     ['expected a text', null]
                                 )
@@ -137,13 +141,13 @@ export const Graph: t_signatures.Graph = ($,abort) => _p_cc(
                         ),
                         'attributes': _p_cc(
                             $.__get_entry(
-                                'attributes', 
+                                'attributes',
                                 ($) => abort(
                                     ['no such entry', "attributes"]
                                 )
-                            ), 
+                            ),
                             ($) => Attributes(
-                                $, 
+                                $,
                                 ($) => abort(
                                     $
                                 )
