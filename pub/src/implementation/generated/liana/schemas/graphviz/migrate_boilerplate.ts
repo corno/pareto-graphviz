@@ -9,7 +9,8 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/graphviz/data"
 
-export const Attributes: t_signatures.Attributes = ($) => $.__l_map(
+export const Attributes: t_signatures.Attributes = ($) => _p.list.map(
+    $,
     ($) => _p.decide.state(
         $,
         ($): t_out.Attributes.L => {
@@ -1501,7 +1502,8 @@ export const Graph: t_signatures.Graph = ($) => ({
     ),
     'nodes': _p_cc(
         $['nodes'],
-        ($) => $.__d_map(
+        ($) => _p.dictionary.map(
+            $,
             ($, id) => ({
                 'attributes': _p_cc(
                     $['attributes'],
@@ -1514,7 +1516,8 @@ export const Graph: t_signatures.Graph = ($) => ({
     ),
     'edges': _p_cc(
         $['edges'],
-        ($) => $.__l_map(
+        ($) => _p.list.map(
+            $,
             ($) => ({
                 'from': _p_cc(
                     $['from'],

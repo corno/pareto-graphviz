@@ -13,7 +13,8 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const Attributes: t_signatures.Attributes = ($) => ['list', $.__l_map(
+export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.map(
+    $,
     ($) => ['state', _p.decide.state(
         $,
         ($): t_out.Value.state => {
@@ -2620,7 +2621,8 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.diction
         ),
         'nodes': _p_cc(
             $['nodes'],
-            ($) => ['dictionary', $.__d_map(
+            ($) => ['dictionary', _p.dictionary.map(
+                $,
                 ($, id) => ['group', ['verbose', _p.dictionary.literal(
                     {
                         'attributes': _p_cc(
@@ -2635,7 +2637,8 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.diction
         ),
         'edges': _p_cc(
             $['edges'],
-            ($) => ['list', $.__l_map(
+            ($) => ['list', _p.list.map(
+                $,
                 ($) => ['group', ['verbose', _p.dictionary.literal(
                     {
                         'from': _p_cc(
