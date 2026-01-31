@@ -3,22 +3,6 @@ import * as _pi from "pareto-core/dist/interface"
 
 import * as i_in from "./data"
 
-export namespace Attributes_ {
-    
-    export type I = i_in.Attributes
-    
-    export type O = string
-    
-    export namespace P {
-        
-    }
-    
-}
-
-export type Attributes_ = (
-    context: Attributes_.I,
-) => Attributes_.O
-
 export namespace Graph_ {
     
     export type I = i_in.Graph
@@ -35,7 +19,23 @@ export type Graph_ = (
     context: Graph_.I,
 ) => Graph_.O
 
+export namespace Attributes_ {
+    
+    export type I = i_in.Attributes
+    
+    export type O = string
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Attributes_ = (
+    context: Attributes_.I,
+) => Attributes_.O
+
 export { 
-    Attributes_ as Attributes, 
     Graph_ as Graph, 
+    Attributes_ as Attributes, 
 }

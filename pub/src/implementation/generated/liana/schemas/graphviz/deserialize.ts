@@ -7,7 +7,7 @@ import * as v_deserialize from "astn-core/dist/implementation/manual/schemas/par
 
 import * as v_unmarshall from "./unmarshall"
 
-export const Attributes: t_signatures.Attributes = ($, abort, $p) => v_unmarshall.Attributes(
+export const Graph: t_signatures.Graph = ($, abort, $p) => v_unmarshall.Graph(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -23,7 +23,7 @@ export const Attributes: t_signatures.Attributes = ($, abort, $p) => v_unmarshal
     )
 )
 
-export const Graph: t_signatures.Graph = ($, abort, $p) => v_unmarshall.Graph(
+export const Attributes: t_signatures.Attributes = ($, abort, $p) => v_unmarshall.Attributes(
     v_deserialize.Document(
         $,
         ($) => abort(

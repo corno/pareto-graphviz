@@ -13,6 +13,63 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
+export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.dictionary.literal(
+    {
+        'attributes': _p_cc(
+            $['attributes'],
+            ($) => Attributes(
+                $
+            )
+        ),
+        'nodes': _p_cc(
+            $['nodes'],
+            ($) => ['dictionary', _p.dictionary.map(
+                $,
+                ($, id) => ['group', ['verbose', _p.dictionary.literal(
+                    {
+                        'attributes': _p_cc(
+                            $['attributes'],
+                            ($) => Attributes(
+                                $
+                            )
+                        ),
+                    }
+                )]]
+            )]
+        ),
+        'edges': _p_cc(
+            $['edges'],
+            ($) => ['list', _p.list.map(
+                $,
+                ($) => ['group', ['verbose', _p.dictionary.literal(
+                    {
+                        'from': _p_cc(
+                            $['from'],
+                            ($) => ['text', {
+                                'delimiter': ['quote', null],
+                                'value': $,
+                            }]
+                        ),
+                        'to': _p_cc(
+                            $['to'],
+                            ($) => ['text', {
+                                'delimiter': ['quote', null],
+                                'value': $,
+                            }]
+                        ),
+                        'attributes': _p_cc(
+                            $['attributes'],
+                            ($) => Attributes(
+                                $
+                            )
+                        ),
+                    }
+                )]]
+            )]
+        ),
+    }
+)]]
+
 export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.map(
     $,
     ($) => ['state', _p.decide.state(
@@ -2610,60 +2667,3 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.map(
         }
     )]
 )]
-
-export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.dictionary.literal(
-    {
-        'attributes': _p_cc(
-            $['attributes'],
-            ($) => Attributes(
-                $
-            )
-        ),
-        'nodes': _p_cc(
-            $['nodes'],
-            ($) => ['dictionary', _p.dictionary.map(
-                $,
-                ($, id) => ['group', ['verbose', _p.dictionary.literal(
-                    {
-                        'attributes': _p_cc(
-                            $['attributes'],
-                            ($) => Attributes(
-                                $
-                            )
-                        ),
-                    }
-                )]]
-            )]
-        ),
-        'edges': _p_cc(
-            $['edges'],
-            ($) => ['list', _p.list.map(
-                $,
-                ($) => ['group', ['verbose', _p.dictionary.literal(
-                    {
-                        'from': _p_cc(
-                            $['from'],
-                            ($) => ['text', {
-                                'delimiter': ['quote', null],
-                                'value': $,
-                            }]
-                        ),
-                        'to': _p_cc(
-                            $['to'],
-                            ($) => ['text', {
-                                'delimiter': ['quote', null],
-                                'value': $,
-                            }]
-                        ),
-                        'attributes': _p_cc(
-                            $['attributes'],
-                            ($) => Attributes(
-                                $
-                            )
-                        ),
-                    }
-                )]]
-            )]
-        ),
-    }
-)]]

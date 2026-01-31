@@ -9,6 +9,51 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/graphviz/data"
 
+export const Graph: t_signatures.Graph = ($) => ({
+    'attributes': _p_cc(
+        $['attributes'],
+        ($) => Attributes(
+            $
+        )
+    ),
+    'nodes': _p_cc(
+        $['nodes'],
+        ($) => _p.dictionary.map(
+            $,
+            ($, id) => ({
+                'attributes': _p_cc(
+                    $['attributes'],
+                    ($) => Attributes(
+                        $
+                    )
+                ),
+            })
+        )
+    ),
+    'edges': _p_cc(
+        $['edges'],
+        ($) => _p.list.map(
+            $,
+            ($) => ({
+                'from': _p_cc(
+                    $['from'],
+                    ($) => $
+                ),
+                'to': _p_cc(
+                    $['to'],
+                    ($) => $
+                ),
+                'attributes': _p_cc(
+                    $['attributes'],
+                    ($) => Attributes(
+                        $
+                    )
+                ),
+            })
+        )
+    ),
+})
+
 export const Attributes: t_signatures.Attributes = ($) => _p.list.map(
     $,
     ($) => _p.decide.state(
@@ -1492,48 +1537,3 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.map(
         }
     )
 )
-
-export const Graph: t_signatures.Graph = ($) => ({
-    'attributes': _p_cc(
-        $['attributes'],
-        ($) => Attributes(
-            $
-        )
-    ),
-    'nodes': _p_cc(
-        $['nodes'],
-        ($) => _p.dictionary.map(
-            $,
-            ($, id) => ({
-                'attributes': _p_cc(
-                    $['attributes'],
-                    ($) => Attributes(
-                        $
-                    )
-                ),
-            })
-        )
-    ),
-    'edges': _p_cc(
-        $['edges'],
-        ($) => _p.list.map(
-            $,
-            ($) => ({
-                'from': _p_cc(
-                    $['from'],
-                    ($) => $
-                ),
-                'to': _p_cc(
-                    $['to'],
-                    ($) => $
-                ),
-                'attributes': _p_cc(
-                    $['attributes'],
-                    ($) => Attributes(
-                        $
-                    )
-                ),
-            })
-        )
-    ),
-})

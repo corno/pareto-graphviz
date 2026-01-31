@@ -1,6 +1,56 @@
 
 import * as _pi from "pareto-core/dist/interface"
 
+export namespace Graph_ {
+    
+    export type attributes = Attributes_
+    
+    export namespace nodes {
+        
+        export namespace D {
+            
+            export type attributes = Attributes_
+            
+        }
+        
+        export type D = {
+            readonly 'attributes': D.attributes
+        }
+        
+    }
+    
+    export type nodes = _pi.Dictionary<nodes.D>
+    
+    export namespace edges {
+        
+        export namespace L {
+            
+            export type from_ = string
+            
+            export type to = string
+            
+            export type attributes = Attributes_
+            
+        }
+        
+        export type L = {
+            readonly 'from': L.from_
+            readonly 'to': L.to
+            readonly 'attributes': L.attributes
+        }
+        
+    }
+    
+    export type edges = _pi.List<edges.L>
+    
+}
+
+export type Graph_ = {
+    readonly 'attributes': Graph_.attributes
+    readonly 'nodes': Graph_.nodes
+    readonly 'edges': Graph_.edges
+}
+
 export namespace Attributes_ {
     
     export namespace L {
@@ -862,57 +912,7 @@ export namespace Attributes_ {
 
 export type Attributes_ = _pi.List<Attributes_.L>
 
-export namespace Graph_ {
-    
-    export type attributes = Attributes_
-    
-    export namespace nodes {
-        
-        export namespace D {
-            
-            export type attributes = Attributes_
-            
-        }
-        
-        export type D = {
-            readonly 'attributes': D.attributes
-        }
-        
-    }
-    
-    export type nodes = _pi.Dictionary<nodes.D>
-    
-    export namespace edges {
-        
-        export namespace L {
-            
-            export type from_ = string
-            
-            export type to = string
-            
-            export type attributes = Attributes_
-            
-        }
-        
-        export type L = {
-            readonly 'from': L.from_
-            readonly 'to': L.to
-            readonly 'attributes': L.attributes
-        }
-        
-    }
-    
-    export type edges = _pi.List<edges.L>
-    
-}
-
-export type Graph_ = {
-    readonly 'attributes': Graph_.attributes
-    readonly 'nodes': Graph_.nodes
-    readonly 'edges': Graph_.edges
-}
-
 export { 
-    Attributes_ as Attributes, 
     Graph_ as Graph, 
+    Attributes_ as Attributes, 
 }
