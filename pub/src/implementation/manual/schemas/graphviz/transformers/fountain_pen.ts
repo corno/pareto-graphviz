@@ -26,6 +26,7 @@ export const Graph: Graph = ($) => sh.group([
                     $.nodes,
                     ($, id) => sh.g.nested_block([
                         sh.b.text(s_quoted(id)),
+                        sh.b.literal("[ "),
                         sh.b.indent([
                             Attributes($.attributes),
                         ]),
@@ -35,10 +36,9 @@ export const Graph: Graph = ($) => sh.group([
             sh.g.simple_block(``),
             sh.g.simple_block(`// edges`),
             sh.g.sub($.edges.__l_map(($) => sh.g.nested_block([
-                                        sh.b.text(s_quoted($.from)),
-                                        sh.b.literal(" -> "),
-                                        sh.b.text(s_quoted($.to)),
-
+                sh.b.text(s_quoted($.from)),
+                sh.b.literal(" -> "),
+                sh.b.text(s_quoted($.to)),
                 sh.b.literal(" ["),
                 sh.b.indent([
                     Attributes($.attributes),
@@ -51,7 +51,7 @@ export const Graph: Graph = ($) => sh.group([
     ])
 ])
 
-export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) => 
+export const Attributes: Attributes = ($) => sh.g.list($.__l_map(($) =>
     sh.g.nested_block([
         _p.decide.state($, ($) => {
             switch ($[0]) {
