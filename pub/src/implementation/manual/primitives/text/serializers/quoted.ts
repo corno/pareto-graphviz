@@ -1,11 +1,11 @@
 import * as _pi from 'pareto-core/dist/interface'
-import * as _p from 'pareto-core/dist/serializer'
+import _p_text_build_deprecated from 'pareto-core/dist/_p_text_build_deprecated'
 
 import { $$ as s_escaped_character } from "./escaped_character"
 
 type signature = _pi.Text_Serializer
 
-export const $$: signature = ($) => _p.text.deprecated_build(($i) => {
+export const $$: signature = ($) => _p_text_build_deprecated(($i) => {
     $i.add_character(34)
     $i.add_snippet(s_escaped_character(
         $,
