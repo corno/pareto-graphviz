@@ -25,7 +25,7 @@ export const Graph: Graph = ($) => sh.group([
                 _p.list.from_dictionary(
                     $.nodes,
                     ($, id) => sh.g.nested_block([
-                        sh.b.literal("${s_quoted(id)} ["),
+                        sh.b.text(s_quoted(id)),
                         sh.b.indent([
                             Attributes($.attributes),
                         ]),
@@ -35,7 +35,11 @@ export const Graph: Graph = ($) => sh.group([
             sh.g.simple_block(``),
             sh.g.simple_block(`// edges`),
             sh.g.sub($.edges.__l_map(($) => sh.g.nested_block([
-                sh.b.literal("${s_quoted($.from)} -> ${s_quoted($.to)} ["),
+                                        sh.b.text(s_quoted($.from)),
+                                        sh.b.literal(" -> "),
+                                        sh.b.text(s_quoted($.to)),
+
+                sh.b.literal(" ["),
                 sh.b.indent([
                     Attributes($.attributes),
                 ]),
