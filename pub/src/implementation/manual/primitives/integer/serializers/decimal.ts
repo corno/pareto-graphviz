@@ -1,7 +1,6 @@
 import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
-import _p_text_build_deprecated from 'pareto-core/dist/_p_text_build_deprecated'
 import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
 
 import * as d_out from "pareto-fountain-pen/dist/interface/to_be_generated/text"
