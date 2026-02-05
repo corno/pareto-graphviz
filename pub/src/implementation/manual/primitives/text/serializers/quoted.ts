@@ -8,7 +8,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/to_be_generated/list_
 import { $$ as s_escaped_character } from "./escaped_character"
 
 
-type signature = _pi.Transformer<string, d_out.Text>
+type signature = _pi.Transformer<string, d_out.List_of_Characters>
 
 export const $$: signature = ($) => _p_list_build_deprecated(($i) => {
     $i['add item'](34)

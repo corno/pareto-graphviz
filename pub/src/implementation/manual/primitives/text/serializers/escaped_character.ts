@@ -25,7 +25,7 @@ const pump = <Iterator_Element>(
 
 export const $$: _pi.Transformer_With_Parameters<
     string,
-    d_out.Text,
+    d_out.List_of_Characters,
     {
         'escape character code': number
         'character code': number
