@@ -19,8 +19,10 @@ export const Graph: Graph = ($) => sh.pg.sentences([
         sh.ph.literal("digraph {"),
         sh.ph.indent(sh.pg.composed([
             Attributes($.attributes),
-            sh.pg.single_line(``),
-            sh.pg.single_line(`// nodes`),
+            sh.pg.sentences([
+                sh.ph.literal(``),
+                sh.ph.literal(`// nodes`),
+            ]),
             sh.pg.sentences(
                 _p.list.from_dictionary(
                     $.nodes,
@@ -33,8 +35,10 @@ export const Graph: Graph = ($) => sh.pg.sentences([
                         sh.ph.literal("];")
                     ]))
             ),
-            sh.pg.single_line(``),
-            sh.pg.single_line(`// edges`),
+            sh.pg.sentences([
+                sh.ph.literal(``),
+                sh.ph.literal(`// edges`),
+            ]),
             sh.pg.sentences($.edges.__l_map(($) => sh.ph.composed([
                 sh.ph.serialize(s_quoted($.from)),
                 sh.ph.literal(" -> "),
@@ -45,7 +49,9 @@ export const Graph: Graph = ($) => sh.pg.sentences([
                 ),
                 sh.ph.literal("];")
             ]))),
-            sh.pg.single_line(``),
+            sh.pg.sentences([
+                sh.ph.literal(``),
+            ]),
         ])),
         sh.ph.literal("}"),
     ])

@@ -1,9 +1,9 @@
     
-    import * as _p from "pareto-core/dist/expression"
+    import * as _p from 'pareto-core/dist/expression'
     
-    import _p_change_context from "pareto-core/dist/_p_change_context"
+    import _p_change_context from 'pareto-core/dist/_p_change_context'
     
-    import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+    import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
     
     import * as t_signatures from "../../../../../../interface/generated/liana/schemas/graphviz/marshall"
     
@@ -15,19 +15,19 @@
     
     export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'attributes': _p_change_context(
+            "attributes": _p_change_context(
                 $['attributes'],
                 ($) => Attributes(
                     $,
                 ),
             ),
-            'nodes': _p_change_context(
+            "nodes": _p_change_context(
                 $['nodes'],
                 ($) => ['dictionary', _p.dictionary.map(
                     $,
                     ($, id) => ['group', ['verbose', _p.dictionary.literal(
                         {
-                            'attributes': _p_change_context(
+                            "attributes": _p_change_context(
                                 $['attributes'],
                                 ($) => Attributes(
                                     $,
@@ -37,27 +37,27 @@
                     )]],
                 )],
             ),
-            'edges': _p_change_context(
+            "edges": _p_change_context(
                 $['edges'],
                 ($) => ['list', _p.list.map(
                     $,
                     ($) => ['group', ['verbose', _p.dictionary.literal(
                         {
-                            'from': _p_change_context(
+                            "from": _p_change_context(
                                 $['from'],
                                 ($) => ['text', {
                                     'delimiter': ['quote', null],
                                     'value': $,
                                 }],
                             ),
-                            'to': _p_change_context(
+                            "to": _p_change_context(
                                 $['to'],
                                 ($) => ['text', {
                                     'delimiter': ['quote', null],
                                     'value': $,
                                 }],
                             ),
-                            'attributes': _p_change_context(
+                            "attributes": _p_change_context(
                                 $['attributes'],
                                 ($) => Attributes(
                                     $,
@@ -83,14 +83,14 @@
                                 'option': 'freeform',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'key': _p_change_context(
+                                        "key": _p_change_context(
                                             $['key'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
                                                 'value': $,
                                             }],
                                         ),
-                                        'value': _p_change_context(
+                                        "value": _p_change_context(
                                             $['value'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
