@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_in from "../../../../../interface/generated/liana/schemas/graphviz/data"
@@ -20,12 +20,13 @@ export const Graph: Graph = ($) => sh.pg.sentences([
         sh.ph.indent(sh.pg.composed([
             Attributes($.attributes),
             sh.pg.sentences([
-                sh.ph.literal(``),
-                sh.ph.literal(`// nodes`),
+                sh.ph.literal(""),
+                sh.ph.literal("// nodes"),
             ]),
             sh.pg.sentences(
-                _p.list.from_dictionary(
+                _p.list.from.dictionary(
                     $.nodes,
+                ).convert(
                     ($, id) => sh.ph.composed([
                         sh.ph.serialize(s_quoted(id)),
                         sh.ph.literal("[ "),
@@ -36,8 +37,8 @@ export const Graph: Graph = ($) => sh.pg.sentences([
                     ]))
             ),
             sh.pg.sentences([
-                sh.ph.literal(``),
-                sh.ph.literal(`// edges`),
+                sh.ph.literal(""),
+                sh.ph.literal("// edges"),
             ]),
             sh.pg.sentences($.edges.__l_map(($) => sh.ph.composed([
                 sh.ph.serialize(s_quoted($.from)),
@@ -50,7 +51,7 @@ export const Graph: Graph = ($) => sh.pg.sentences([
                 sh.ph.literal("];")
             ]))),
             sh.pg.sentences([
-                sh.ph.literal(``),
+                sh.ph.literal(""),
             ]),
         ])),
         sh.ph.literal("}"),
@@ -218,11 +219,11 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => _p
                 default: return _p.au($[0])
             }
         }))
-        case 'concentrate': return _p.ss($, ($) => sh.ph.literal($ ? `concentrate=true` : `concentrate=false`))
-        case 'compound': return _p.ss($, ($) => sh.ph.literal($ ? `compound=true` : `compound=false`))
-        case 'center': return _p.ss($, ($) => sh.ph.literal($ ? `center=true` : `center=false`))
-        case 'normalize': return _p.ss($, ($) => sh.ph.literal($ ? `normalize=true` : `normalize=false`))
-        case 'landscape': return _p.ss($, ($) => sh.ph.literal($ ? `landscape=true` : `landscape=false`))
+        case 'concentrate': return _p.ss($, ($) => sh.ph.literal($ ? "concentrate=true" : "concentrate=false"))
+        case 'compound': return _p.ss($, ($) => sh.ph.literal($ ? "compound=true" : "compound=false"))
+        case 'center': return _p.ss($, ($) => sh.ph.literal($ ? "center=true" : "center=false"))
+        case 'normalize': return _p.ss($, ($) => sh.ph.literal($ ? "normalize=true" : "normalize=false"))
+        case 'landscape': return _p.ss($, ($) => sh.ph.literal($ ? "landscape=true" : "landscape=false"))
         case 'outputorder': return _p.ss($, ($) => _p.decide.state($, ($) => {
             switch ($[0]) {
                 case 'breadthfirst': return _p.ss($, ($) => sh.ph.literal("outputorder=breadthfirst"))
@@ -276,8 +277,8 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => _p
         case 'height': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("height="),
             sh.ph.serialize(s_decimal($))]))
-        case 'fixedsize': return _p.ss($, ($) => sh.ph.literal($ ? `fixedsize=true` : `fixedsize=false`))
-        case 'regular': return _p.ss($, ($) => sh.ph.literal($ ? `regular=true` : `regular=false`))
+        case 'fixedsize': return _p.ss($, ($) => sh.ph.literal($ ? "fixedsize=true" : "fixedsize=false"))
+        case 'regular': return _p.ss($, ($) => sh.ph.literal($ ? "regular=true" : "regular=false"))
         case 'sides': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("sides="),
             sh.ph.serialize(s_decimal($))]))
@@ -293,7 +294,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => _p
         case 'peripheries': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("peripheries="),
             sh.ph.serialize(s_decimal($))]))
-        case 'pin': return _p.ss($, ($) => sh.ph.literal($ ? `pin=true` : `pin=false`))
+        case 'pin': return _p.ss($, ($) => sh.ph.literal($ ? "pin=true" : "pin=false"))
         case 'image': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("image="),
             sh.ph.serialize(s_quoted($))]))
@@ -417,7 +418,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => _p
         case 'labeldistance': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("labeldistance="),
             sh.ph.serialize(s_decimal($))]))
-        case 'labelfloat': return _p.ss($, ($) => sh.ph.literal($ ? `labelfloat=true` : `labelfloat=false`))
+        case 'labelfloat': return _p.ss($, ($) => sh.ph.literal($ ? "labelfloat=true" : "labelfloat=false"))
         case 'weight': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("weight="),
             sh.ph.serialize(s_decimal($))]))
@@ -427,8 +428,8 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => _p
         case 'minlen': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("minlen="),
             sh.ph.serialize(s_decimal($))]))
-        case 'constraint': return _p.ss($, ($) => sh.ph.literal($ ? `constraint=true` : `constraint=false`))
-        case 'decorate': return _p.ss($, ($) => sh.ph.literal($ ? `decorate=true` : `decorate=false`))
+        case 'constraint': return _p.ss($, ($) => sh.ph.literal($ ? "constraint=true" : "constraint=false"))
+        case 'decorate': return _p.ss($, ($) => sh.ph.literal($ ? "decorate=true" : "decorate=false"))
         case 'headport': return _p.ss($, ($) => _p.decide.state($, ($) => {
             switch ($[0]) {
                 case 'center': return _p.ss($, ($) => sh.ph.literal("headport=center"))
@@ -463,8 +464,8 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => _p
                 default: return _p.au($[0])
             }
         }))
-        case 'headclip': return _p.ss($, ($) => sh.ph.literal($ ? `headclip=true` : `headclip=false`))
-        case 'tailclip': return _p.ss($, ($) => sh.ph.literal($ ? `tailclip=true` : `tailclip=false`))
+        case 'headclip': return _p.ss($, ($) => sh.ph.literal($ ? "headclip=true" : "headclip=false"))
+        case 'tailclip': return _p.ss($, ($) => sh.ph.literal($ ? "tailclip=true" : "tailclip=false"))
         case 'lhead': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("lhead="),
             sh.ph.serialize(s_quoted($))]))

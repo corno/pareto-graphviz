@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -16,8 +16,9 @@ export const Graph: t_signatures.Graph = ($) => ({
     ),
     'nodes': _p_change_context(
         $['nodes'],
-        ($) => _p.dictionary.map(
+        ($) => _p.dictionary.from.dictionary(
             $,
+        ).map(
             ($, id) => ({
                 'attributes': _p_change_context(
                     $['attributes'],
@@ -30,8 +31,9 @@ export const Graph: t_signatures.Graph = ($) => ({
     ),
     'edges': _p_change_context(
         $['edges'],
-        ($) => _p.list.map(
+        ($) => _p.list.from.list(
             $,
+        ).map(
             ($) => ({
                 'from': _p_change_context(
                     $['from'],
@@ -52,8 +54,9 @@ export const Graph: t_signatures.Graph = ($) => ({
     ),
 })
 
-export const Attributes: t_signatures.Attributes = ($) => _p.list.map(
+export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
     $,
+).map(
     ($) => _p.decide.state(
         $,
         ($): t_out.Attributes.L => {
