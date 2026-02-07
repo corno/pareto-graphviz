@@ -23,7 +23,7 @@ const pump = <Iterator_Element>(
     }
 }
 
-export const $$: _pi.Transformer_With_Parameters<
+export const $$: _pi.Transformer_With_Parameter<
     string,
     d_out.List_of_Characters,
     {
