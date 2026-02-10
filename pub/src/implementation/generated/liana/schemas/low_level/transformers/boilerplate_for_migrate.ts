@@ -7,6 +7,8 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/low_level/data"
 
+import * as v_attributes from "../../attributes/transformers/boilerplate_for_migrate"
+
 export const Graph: t_signatures.Graph = ($) => ({
     'strict': _p_change_context(
         $['strict'],
@@ -71,9 +73,9 @@ export const Statement_List: t_signatures.Statement_List = ($) => _p.list.from.l
                                     $,
                                 ),
                             ),
-                            'attribute list': _p_change_context(
-                                $['attribute list'],
-                                ($) => Attribute_List(
+                            'attributes': _p_change_context(
+                                $['attributes'],
+                                ($) => v_attributes.Attributes(
                                     $,
                                 ),
                             ),
@@ -145,7 +147,7 @@ export const Statement_List: t_signatures.Statement_List = ($) => _p.list.from.l
                             ),
                             'attributes': _p_change_context(
                                 $['attributes'],
-                                ($) => Attribute_List(
+                                ($) => v_attributes.Attributes(
                                     $,
                                 ),
                             ),
@@ -186,7 +188,7 @@ export const Statement_List: t_signatures.Statement_List = ($) => _p.list.from.l
                             ),
                             'attributes': _p_change_context(
                                 $['attributes'],
-                                ($) => Attribute_List(
+                                ($) => v_attributes.Attributes(
                                     $,
                                 ),
                             ),

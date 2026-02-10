@@ -1,6 +1,8 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
+import * as i__imports_attributes from "../attributes/data"
+
 export namespace Graph_ {
     
     export type strict = boolean
@@ -44,13 +46,13 @@ export namespace Statement_List_ {
             
             export type node = Node_ID_
             
-            export type attribute_list = Attribute_List_
+            export type attributes = i__imports_attributes.Attributes
             
         }
         
         export type node = {
             readonly 'node': node.node
-            readonly 'attribute list': node.attribute_list
+            readonly 'attributes': node.attributes
         }
         
         export namespace edge {
@@ -85,7 +87,7 @@ export namespace Statement_List_ {
             
             export type right = _pi.List<right.L>
             
-            export type attributes = Attribute_List_
+            export type attributes = i__imports_attributes.Attributes
             
         }
         
@@ -112,7 +114,7 @@ export namespace Statement_List_ {
                 | readonly ['node', type_.node]
                 | readonly ['edge', type_.edge]
             
-            export type attributes = Attribute_List_
+            export type attributes = i__imports_attributes.Attributes
             
         }
         

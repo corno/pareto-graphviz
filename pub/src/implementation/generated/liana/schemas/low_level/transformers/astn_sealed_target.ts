@@ -13,6 +13,8 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
+import * as v_external_attributes from "../../attributes/transformers/astn_sealed_target"
+
 export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
         "strict": _p_change_context(
@@ -96,9 +98,9 @@ export const Statement_List: t_signatures.Statement_List = ($) => ['list', _p.li
                                             $,
                                         ),
                                     ),
-                                    "attribute list": _p_change_context(
-                                        $['attribute list'],
-                                        ($) => Attribute_List(
+                                    "attributes": _p_change_context(
+                                        $['attributes'],
+                                        ($) => v_external_attributes.Attributes(
                                             $,
                                         ),
                                     ),
@@ -187,7 +189,7 @@ export const Statement_List: t_signatures.Statement_List = ($) => ['list', _p.li
                                     ),
                                     "attributes": _p_change_context(
                                         $['attributes'],
-                                        ($) => Attribute_List(
+                                        ($) => v_external_attributes.Attributes(
                                             $,
                                         ),
                                     ),
@@ -242,7 +244,7 @@ export const Statement_List: t_signatures.Statement_List = ($) => ['list', _p.li
                                     ),
                                     "attributes": _p_change_context(
                                         $['attributes'],
-                                        ($) => Attribute_List(
+                                        ($) => v_external_attributes.Attributes(
                                             $,
                                         ),
                                     ),

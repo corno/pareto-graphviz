@@ -17,6 +17,8 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/location"
 
+import * as v_external_attributes from "../../attributes/refiners/astn_parse_tree"
+
 export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
@@ -188,16 +190,16 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
                                             ),
                                         ),
                                     ),
-                                    'attribute list': _p_change_context(
+                                    'attributes': _p_change_context(
                                         $.__get_entry_deprecated(
-                                            'attribute list',
+                                            'attributes',
                                             {
                                                 no_such_entry: ($) => abort(
-                                                    ['no such entry', "attribute list"],
+                                                    ['no such entry', "attributes"],
                                                 ),
                                             },
                                         ),
-                                        ($) => Attribute_List(
+                                        ($) => v_external_attributes.Attributes(
                                             $,
                                             ($) => abort(
                                                 $,
@@ -334,7 +336,7 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
                                                 ),
                                             },
                                         ),
-                                        ($) => Attribute_List(
+                                        ($) => v_external_attributes.Attributes(
                                             $,
                                             ($) => abort(
                                                 $,
@@ -423,7 +425,7 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
                                                 ),
                                             },
                                         ),
-                                        ($) => Attribute_List(
+                                        ($) => v_external_attributes.Attributes(
                                             $,
                                             ($) => abort(
                                                 $,
