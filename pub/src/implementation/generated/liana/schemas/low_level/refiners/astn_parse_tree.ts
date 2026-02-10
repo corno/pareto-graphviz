@@ -134,7 +134,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                     ),
                 },
             ),
-            ($) => Statement_List(
+            ($) => Statements(
                 $,
                 ($) => abort(
                     $,
@@ -144,7 +144,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
     }),
 )
 
-export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list.from.list(
+export const Statements: t_signatures.Statements = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
@@ -161,7 +161,7 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
         ),
         ($) => _p.decide.text(
             $['option']['value'],
-            ($t): t_out.Statement_List.L => {
+            ($t): t_out.Statements.L => {
                 switch ($t) {
                     case 'node':
                         return _p_change_context(
@@ -199,7 +199,7 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
                                                 ),
                                             },
                                         ),
-                                        ($) => v_external_attributes.Attributes(
+                                        ($) => Attributes(
                                             $,
                                             ($) => abort(
                                                 $,
@@ -229,43 +229,10 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
                                                 ),
                                             },
                                         ),
-                                        ($) => _p_change_context(
-                                            v_unmarshalled_from_parse_tree.State(
+                                        ($) => End_Point(
+                                            $,
+                                            ($) => abort(
                                                 $,
-                                                ($) => abort(
-                                                    ['expected a state', null],
-                                                ),
-                                            ),
-                                            ($) => _p.decide.text(
-                                                $['option']['value'],
-                                                ($t): t_out.Statement_List.L.edge.left => {
-                                                    switch ($t) {
-                                                        case 'node':
-                                                            return _p_change_context(
-                                                                $['value'],
-                                                                ($) => ['node', Node_ID(
-                                                                    $,
-                                                                    ($) => abort(
-                                                                        $,
-                                                                    ),
-                                                                )],
-                                                            )
-                                                        case 'subgraph':
-                                                            return _p_change_context(
-                                                                $['value'],
-                                                                ($) => ['subgraph', Subgraph(
-                                                                    $,
-                                                                    ($) => abort(
-                                                                        $,
-                                                                    ),
-                                                                )],
-                                                            )
-                                                        default:
-                                                            return abort(
-                                                                ['unknown option', $['option']['value']],
-                                                            )
-                                                    }
-                                                },
                                             ),
                                         ),
                                     ),
@@ -286,43 +253,10 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
                                                 ),
                                             ),
                                         ).map(
-                                            ($) => _p_change_context(
-                                                v_unmarshalled_from_parse_tree.State(
+                                            ($) => End_Point(
+                                                $,
+                                                ($) => abort(
                                                     $,
-                                                    ($) => abort(
-                                                        ['expected a state', null],
-                                                    ),
-                                                ),
-                                                ($) => _p.decide.text(
-                                                    $['option']['value'],
-                                                    ($t): t_out.Statement_List.L.edge.right.L => {
-                                                        switch ($t) {
-                                                            case 'node':
-                                                                return _p_change_context(
-                                                                    $['value'],
-                                                                    ($) => ['node', Node_ID(
-                                                                        $,
-                                                                        ($) => abort(
-                                                                            $,
-                                                                        ),
-                                                                    )],
-                                                                )
-                                                            case 'subgraph':
-                                                                return _p_change_context(
-                                                                    $['value'],
-                                                                    ($) => ['subgraph', Subgraph(
-                                                                        $,
-                                                                        ($) => abort(
-                                                                            $,
-                                                                        ),
-                                                                    )],
-                                                                )
-                                                            default:
-                                                                return abort(
-                                                                    ['unknown option', $['option']['value']],
-                                                                )
-                                                        }
-                                                    },
                                                 ),
                                             ),
                                         ),
@@ -336,7 +270,7 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
                                                 ),
                                             },
                                         ),
-                                        ($) => v_external_attributes.Attributes(
+                                        ($) => Attributes(
                                             $,
                                             ($) => abort(
                                                 $,
@@ -346,10 +280,10 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
                                 }),
                             )],
                         )
-                    case 'attribute list':
+                    case 'attributes':
                         return _p_change_context(
                             $['value'],
-                            ($) => ['attribute list', _p_change_context(
+                            ($) => ['attributes', _p_change_context(
                                 v_unmarshalled_from_parse_tree.Group(
                                     $,
                                     ($) => abort(
@@ -375,7 +309,7 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
                                             ),
                                             ($) => _p.decide.text(
                                                 $['option']['value'],
-                                                ($t): t_out.Statement_List.L.attribute_list.type_ => {
+                                                ($t): t_out.Statements.L.attributes.type_ => {
                                                     switch ($t) {
                                                         case 'graph':
                                                             return _p_change_context(
@@ -425,7 +359,7 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
                                                 ),
                                             },
                                         ),
-                                        ($) => v_external_attributes.Attributes(
+                                        ($) => Attributes(
                                             $,
                                             ($) => abort(
                                                 $,
@@ -501,7 +435,47 @@ export const Statement_List: t_signatures.Statement_List = ($, abort) => _p.list
     ),
 )
 
-export const Attribute_List: t_signatures.Attribute_List = ($, abort) => _p.list.from.list(
+export const End_Point: t_signatures.End_Point = ($, abort) => _p_change_context(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null],
+        ),
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.End_Point => {
+            switch ($t) {
+                case 'node':
+                    return _p_change_context(
+                        $['value'],
+                        ($) => ['node', Node_ID(
+                            $,
+                            ($) => abort(
+                                $,
+                            ),
+                        )],
+                    )
+                case 'subgraph':
+                    return _p_change_context(
+                        $['value'],
+                        ($) => ['subgraph', Subgraph(
+                            $,
+                            ($) => abort(
+                                $,
+                            ),
+                        )],
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']],
+                    )
+            }
+        },
+    ),
+)
+
+export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
@@ -769,7 +743,7 @@ export const Subgraph: t_signatures.Subgraph = ($, abort) => _p_change_context(
                     ),
                 },
             ),
-            ($) => Statement_List(
+            ($) => Statements(
                 $,
                 ($) => abort(
                     $,

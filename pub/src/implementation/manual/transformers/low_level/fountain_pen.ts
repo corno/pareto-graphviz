@@ -10,9 +10,9 @@ type Parameters = {
 
 namespace signatures {
     export type Graph = _pi.Transformer<d_in.Graph, d_out.Paragraph>
-    export type Statement_List = _pi.Transformer_With_Parameter<d_in.Statement_List, d_out.Phrase, Parameters>
+    export type Statements = _pi.Transformer_With_Parameter<d_in.Statements, d_out.Phrase, Parameters>
     export type ID = _pi.Transformer<d_in.ID, d_out.Phrase>
-    export type Attribute_List = _pi.Transformer<d_in.Attribute_List, d_out.Phrase>
+    export type Attributes = _pi.Transformer<d_in.Attributes, d_out.Phrase>
     export type Node_ID = _pi.Transformer<d_in.Node_ID, d_out.Phrase>
     export type Subgraph = _pi.Transformer_With_Parameter<d_in.Subgraph, d_out.Phrase, Parameters>
 }
@@ -25,8 +25,8 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 import { $$ as s_quoted } from "../../primitives/text/serializers/quoted"
 
 
-export const Graph: signatures.Graph = ($) => sh.group([
-    sh.g.nested_block([
+export const Graph: signatures.Graph = ($) => sh.pg.sentences([
+    sh.sentence([
         $.strict
             ? sh.ph.literal("strict ")
             : sh.ph.nothing(),
@@ -50,10 +50,10 @@ export const Graph: signatures.Graph = ($) => sh.group([
     ]),
 ])
 
-export const Statement_List: signatures.Statement_List = ($, $p) => sh.ph.composed([
+export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
     sh.ph.literal("{"),
-    sh.ph.indent([
-        sh.g.sub($.__l_map(($) => sh.g.nested_block([
+    sh.ph.indent(
+        sh.pg.sentences($.__l_map(($) => sh.sentence([
             _p.decide.state($, ($) => {
                 switch ($[0]) {
                     case 'attribute assignment': return _p.ss($, ($) => sh.ph.composed([
@@ -62,7 +62,7 @@ export const Statement_List: signatures.Statement_List = ($, $p) => sh.ph.compos
                         ID($.value),
                         sh.ph.literal(";"),
                     ]))
-                    case 'attribute list': return _p.ss($, ($) => sh.ph.composed([
+                    case 'attributes': return _p.ss($, ($) => sh.ph.composed([
                         _p.decide.state($.type, ($) => {
                             switch ($[0]) {
                                 case 'edge': return _p.ss($, () => sh.ph.literal("edge "))
@@ -71,7 +71,7 @@ export const Statement_List: signatures.Statement_List = ($, $p) => sh.ph.compos
                                 default: return _p.au($[0])
                             }
                         }),
-                        Attribute_List($.attributes),
+                        Attributes($.attributes),
                         sh.ph.literal(";"),
                     ]))
                     case 'edge': return _p.ss($, ($) => sh.ph.composed([
@@ -89,25 +89,33 @@ export const Statement_List: signatures.Statement_List = ($, $p) => sh.ph.compos
                                 default: return _p.au($[0])
                             }
                         }),
-                        sh.ph.composed(op_enrich_list_elements_with_position_information($.right).__l_map(($) => sh.ph.composed([
-                            _p.decide.state($.value, ($) => {
-                                switch ($[0]) {
-                                    case 'node': return _p.ss($, ($) => Node_ID($))
-                                    case 'subgraph': return _p.ss($, ($) => Subgraph($, $p))
-                                    default: return _p.au($[0])
-                                }
-                            }),
-                            $['is last']
-                                ? sh.ph.nothing()
-                                : sh.ph.literal(", "),
-                        ]))),
-                        Attribute_List($.attributes),
+                        sh.ph.rich(
+                            _p.list.from.list(
+                                $.right,
+                            ).map(
+                                ($) => sh.ph.composed([
+                                    _p.decide.state($, ($) => {
+                                        switch ($[0]) {
+                                            case 'node': return _p.ss($, ($) => Node_ID($))
+                                            case 'subgraph': return _p.ss($, ($) => Subgraph($, $p))
+                                            default: return _p.au($[0])
+                                        }
+                                    }),
+
+                                ]),
+                            ),
+                            sh.ph.nothing(),
+                            sh.ph.nothing(),
+                            sh.ph.literal(", "),
+                            sh.ph.nothing(),
+                        ),
+                        Attributes($.attributes),
                     ]))
                     case 'node': return _p.ss($, ($) => sh.ph.composed([
                         Node_ID($.node),
-                        _p.boolean.list_is_empty($['attribute list'])
+                        _p.boolean.from.list($['attributes']).is_empty()
                             ? sh.ph.nothing()
-                            : Attribute_List($['attribute list']),
+                            : Attributes($['attributes']),
                         sh.ph.literal(";"),
                     ]))
                     case 'subgraph': return _p.ss($, ($) => Subgraph($, $p))
@@ -115,21 +123,21 @@ export const Statement_List: signatures.Statement_List = ($, $p) => sh.ph.compos
                 }
             })
         ]))),
-    ]),
+    ),
     sh.ph.literal("}"),
 ])
 
 export const ID: signatures.ID = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
-        case 'id': return _p.ss($, ($) => sh.b.snippet($)) //FIX escaping
-        case 'string': return _p.ss($, ($) => sh.b.snippet(s_quoted($)))
-        case 'html': return _p.ss($, ($) => sh.b.snippet($))
+        case 'id': return _p.ss($, ($) => sh.ph.literal($)) //FIX escaping
+        case 'string': return _p.ss($, ($) => sh.ph.serialize(s_quoted($)))
+        case 'html': return _p.ss($, ($) => sh.ph.literal($))
         case 'number': return _p.ss($, ($) => sh.ph.literal("FIXME NUMBER"))
         default: return _p.au($[0])
     }
 })
 
-export const Attribute_List: signatures.Attribute_List = ($) => sh.ph.composed([
+export const Attributes: signatures.Attributes = ($) => sh.ph.composed([
     sh.ph.literal(" [ "),
     sh.ph.composed($.__l_map(($) => sh.ph.composed([
         ID($.name),

@@ -22,3 +22,35 @@ export const Graph: t_signatures.Graph = ($, abort, $p) => v_unmarshall.Graph(
         ['unmarshall error', $],
     ),
 )
+
+export const Tree: t_signatures.Tree = ($, abort, $p) => v_unmarshall.Tree(
+    v_deserialize.Document(
+        $,
+        ($) => abort(
+            ['parse error', $],
+        ),
+        {
+            'document resource identifier': $p['document resource identifier'],
+            'tab size': $p['tab size'],
+        },
+    )['content'],
+    ($) => abort(
+        ['unmarshall error', $],
+    ),
+)
+
+export const End_Point_Specification: t_signatures.End_Point_Specification = ($, abort, $p) => v_unmarshall.End_Point_Specification(
+    v_deserialize.Document(
+        $,
+        ($) => abort(
+            ['parse error', $],
+        ),
+        {
+            'document resource identifier': $p['document resource identifier'],
+            'tab size': $p['tab size'],
+        },
+    )['content'],
+    ($) => abort(
+        ['unmarshall error', $],
+    ),
+)

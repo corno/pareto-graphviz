@@ -12,3 +12,15 @@ export const Graph: t_signatures.Graph = ($) => v_serialize.Document(
         $,
     ),
 )
+
+export const Tree: t_signatures.Tree = ($) => v_serialize.Document(
+    v_marshall.Tree(
+        $,
+    ),
+)
+
+export const End_Point_Specification: t_signatures.End_Point_Specification = ($) => v_serialize.Document(
+    v_marshall.End_Point_Specification(
+        $,
+    ),
+)

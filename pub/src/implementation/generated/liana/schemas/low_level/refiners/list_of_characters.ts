@@ -23,7 +23,7 @@ export const Graph: t_signatures.Graph = ($, abort, $p) => v_unmarshall.Graph(
     ),
 )
 
-export const Statement_List: t_signatures.Statement_List = ($, abort, $p) => v_unmarshall.Statement_List(
+export const Statements: t_signatures.Statements = ($, abort, $p) => v_unmarshall.Statements(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -39,7 +39,23 @@ export const Statement_List: t_signatures.Statement_List = ($, abort, $p) => v_u
     ),
 )
 
-export const Attribute_List: t_signatures.Attribute_List = ($, abort, $p) => v_unmarshall.Attribute_List(
+export const End_Point: t_signatures.End_Point = ($, abort, $p) => v_unmarshall.End_Point(
+    v_deserialize.Document(
+        $,
+        ($) => abort(
+            ['parse error', $],
+        ),
+        {
+            'document resource identifier': $p['document resource identifier'],
+            'tab size': $p['tab size'],
+        },
+    )['content'],
+    ($) => abort(
+        ['unmarshall error', $],
+    ),
+)
+
+export const Attributes: t_signatures.Attributes = ($, abort, $p) => v_unmarshall.Attributes(
     v_deserialize.Document(
         $,
         ($) => abort(

@@ -34,11 +34,11 @@ export type Graph_ = (
     },
 ) => Graph_.O
 
-export namespace Statement_List_ {
+export namespace Statements_ {
     
     export type I = i_in.List_of_Characters
     
-    export type O = i_out.Statement_List
+    export type O = i_out.Statements
     
     export type E = i_generic.Error
     
@@ -52,20 +52,20 @@ export namespace Statement_List_ {
     
 }
 
-export type Statement_List_ = (
-    context: Statement_List_.I,
-    abort: _pi.Abort<Statement_List_.E>,
+export type Statements_ = (
+    context: Statements_.I,
+    abort: _pi.Abort<Statements_.E>,
     parameters: {
-        readonly 'document resource identifier': Statement_List_.P.document_resource_identifier
-        readonly 'tab size': Statement_List_.P.tab_size
+        readonly 'document resource identifier': Statements_.P.document_resource_identifier
+        readonly 'tab size': Statements_.P.tab_size
     },
-) => Statement_List_.O
+) => Statements_.O
 
-export namespace Attribute_List_ {
+export namespace End_Point_ {
     
     export type I = i_in.List_of_Characters
     
-    export type O = i_out.Attribute_List
+    export type O = i_out.End_Point
     
     export type E = i_generic.Error
     
@@ -79,14 +79,41 @@ export namespace Attribute_List_ {
     
 }
 
-export type Attribute_List_ = (
-    context: Attribute_List_.I,
-    abort: _pi.Abort<Attribute_List_.E>,
+export type End_Point_ = (
+    context: End_Point_.I,
+    abort: _pi.Abort<End_Point_.E>,
     parameters: {
-        readonly 'document resource identifier': Attribute_List_.P.document_resource_identifier
-        readonly 'tab size': Attribute_List_.P.tab_size
+        readonly 'document resource identifier': End_Point_.P.document_resource_identifier
+        readonly 'tab size': End_Point_.P.tab_size
     },
-) => Attribute_List_.O
+) => End_Point_.O
+
+export namespace Attributes_ {
+    
+    export type I = i_in.List_of_Characters
+    
+    export type O = i_out.Attributes
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+        export type document_resource_identifier = string
+        
+        export type tab_size = number
+        
+    }
+    
+}
+
+export type Attributes_ = (
+    context: Attributes_.I,
+    abort: _pi.Abort<Attributes_.E>,
+    parameters: {
+        readonly 'document resource identifier': Attributes_.P.document_resource_identifier
+        readonly 'tab size': Attributes_.P.tab_size
+    },
+) => Attributes_.O
 
 export namespace Node_ID_ {
     
@@ -171,8 +198,9 @@ export type Subgraph_ = (
 
 export { 
     Graph_ as Graph, 
-    Statement_List_ as Statement_List, 
-    Attribute_List_ as Attribute_List, 
+    Statements_ as Statements, 
+    End_Point_ as End_Point, 
+    Attributes_ as Attributes, 
     Node_ID_ as Node_ID, 
     ID_ as ID, 
     Subgraph_ as Subgraph, 

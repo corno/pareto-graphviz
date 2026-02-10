@@ -27,7 +27,7 @@ export namespace Graph_ {
     
     export type name = _pi.Optional_Value<name.O>
     
-    export type statements = Statement_List_
+    export type statements = Statements_
     
 }
 
@@ -38,7 +38,7 @@ export type Graph_ = {
     readonly 'statements': Graph_.statements
 }
 
-export namespace Statement_List_ {
+export namespace Statements_ {
     
     export namespace L {
         
@@ -46,7 +46,7 @@ export namespace Statement_List_ {
             
             export type node = Node_ID_
             
-            export type attributes = i__imports_attributes.Attributes
+            export type attributes = Attributes_
             
         }
         
@@ -57,37 +57,17 @@ export namespace Statement_List_ {
         
         export namespace edge {
             
-            export namespace left {
-                
-                export type node = Node_ID_
-                
-                export type subgraph = Subgraph_
-                
-            }
-            
-            export type left = 
-                | readonly ['node', left.node]
-                | readonly ['subgraph', left.subgraph]
+            export type left = End_Point_
             
             export namespace right {
                 
-                export namespace L {
-                    
-                    export type node = Node_ID_
-                    
-                    export type subgraph = Subgraph_
-                    
-                }
-                
-                export type L = 
-                    | readonly ['node', L.node]
-                    | readonly ['subgraph', L.subgraph]
+                export type L = End_Point_
                 
             }
             
             export type right = _pi.List<right.L>
             
-            export type attributes = i__imports_attributes.Attributes
+            export type attributes = Attributes_
             
         }
         
@@ -97,7 +77,7 @@ export namespace Statement_List_ {
             readonly 'attributes': edge.attributes
         }
         
-        export namespace attribute_list {
+        export namespace attributes {
             
             export namespace type_ {
                 
@@ -114,13 +94,13 @@ export namespace Statement_List_ {
                 | readonly ['node', type_.node]
                 | readonly ['edge', type_.edge]
             
-            export type attributes = i__imports_attributes.Attributes
+            export type attributes = Attributes_
             
         }
         
-        export type attribute_list = {
-            readonly 'type': attribute_list.type_
-            readonly 'attributes': attribute_list.attributes
+        export type attributes = {
+            readonly 'type': attributes.type_
+            readonly 'attributes': attributes.attributes
         }
         
         export namespace attribute_assignment {
@@ -143,15 +123,27 @@ export namespace Statement_List_ {
     export type L = 
         | readonly ['node', L.node]
         | readonly ['edge', L.edge]
-        | readonly ['attribute list', L.attribute_list]
+        | readonly ['attributes', L.attributes]
         | readonly ['attribute assignment', L.attribute_assignment]
         | readonly ['subgraph', L.subgraph]
     
 }
 
-export type Statement_List_ = _pi.List<Statement_List_.L>
+export type Statements_ = _pi.List<Statements_.L>
 
-export namespace Attribute_List_ {
+export namespace End_Point_ {
+    
+    export type node = Node_ID_
+    
+    export type subgraph = Subgraph_
+    
+}
+
+export type End_Point_ = 
+    | readonly ['node', End_Point_.node]
+    | readonly ['subgraph', End_Point_.subgraph]
+
+export namespace Attributes_ {
     
     export namespace L {
         
@@ -168,7 +160,7 @@ export namespace Attribute_List_ {
     
 }
 
-export type Attribute_List_ = _pi.List<Attribute_List_.L>
+export type Attributes_ = _pi.List<Attributes_.L>
 
 export namespace Node_ID_ {
     
@@ -240,7 +232,7 @@ export namespace Subgraph_ {
     
     export type subgraph = _pi.Optional_Value<subgraph.O>
     
-    export type statements = Statement_List_
+    export type statements = Statements_
     
 }
 
@@ -251,8 +243,9 @@ export type Subgraph_ = {
 
 export { 
     Graph_ as Graph, 
-    Statement_List_ as Statement_List, 
-    Attribute_List_ as Attribute_List, 
+    Statements_ as Statements, 
+    End_Point_ as End_Point, 
+    Attributes_ as Attributes, 
     Node_ID_ as Node_ID, 
     ID_ as ID, 
     Subgraph_ as Subgraph, 

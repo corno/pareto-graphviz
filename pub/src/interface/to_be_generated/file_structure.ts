@@ -1,6 +1,6 @@
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as d_graphviz from "../generated/liana/schemas/high_level/data"
+import * as d_graphviz from "../generated/liana/schemas/high_level_simple/data"
 
 export type Directory = _pi.Dictionary<Node>
 

@@ -13,14 +13,20 @@ export const Graph: t_signatures.Graph = ($) => v_serialize.Document(
     ),
 )
 
-export const Statement_List: t_signatures.Statement_List = ($) => v_serialize.Document(
-    v_marshall.Statement_List(
+export const Statements: t_signatures.Statements = ($) => v_serialize.Document(
+    v_marshall.Statements(
         $,
     ),
 )
 
-export const Attribute_List: t_signatures.Attribute_List = ($) => v_serialize.Document(
-    v_marshall.Attribute_List(
+export const End_Point: t_signatures.End_Point = ($) => v_serialize.Document(
+    v_marshall.End_Point(
+        $,
+    ),
+)
+
+export const Attributes: t_signatures.Attributes = ($) => v_serialize.Document(
+    v_marshall.Attributes(
         $,
     ),
 )

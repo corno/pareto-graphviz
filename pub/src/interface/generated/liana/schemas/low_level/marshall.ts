@@ -21,25 +21,9 @@ export type Graph_ = (
     context: Graph_.I,
 ) => Graph_.O
 
-export namespace Statement_List_ {
+export namespace Statements_ {
     
-    export type I = i_in.Statement_List
-    
-    export type O = i_out.Value
-    
-    export namespace P {
-        
-    }
-    
-}
-
-export type Statement_List_ = (
-    context: Statement_List_.I,
-) => Statement_List_.O
-
-export namespace Attribute_List_ {
-    
-    export type I = i_in.Attribute_List
+    export type I = i_in.Statements
     
     export type O = i_out.Value
     
@@ -49,9 +33,41 @@ export namespace Attribute_List_ {
     
 }
 
-export type Attribute_List_ = (
-    context: Attribute_List_.I,
-) => Attribute_List_.O
+export type Statements_ = (
+    context: Statements_.I,
+) => Statements_.O
+
+export namespace End_Point_ {
+    
+    export type I = i_in.End_Point
+    
+    export type O = i_out.Value
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type End_Point_ = (
+    context: End_Point_.I,
+) => End_Point_.O
+
+export namespace Attributes_ {
+    
+    export type I = i_in.Attributes
+    
+    export type O = i_out.Value
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Attributes_ = (
+    context: Attributes_.I,
+) => Attributes_.O
 
 export namespace Node_ID_ {
     
@@ -103,8 +119,9 @@ export type Subgraph_ = (
 
 export { 
     Graph_ as Graph, 
-    Statement_List_ as Statement_List, 
-    Attribute_List_ as Attribute_List, 
+    Statements_ as Statements, 
+    End_Point_ as End_Point, 
+    Attributes_ as Attributes, 
     Node_ID_ as Node_ID, 
     ID_ as ID, 
     Subgraph_ as Subgraph, 
