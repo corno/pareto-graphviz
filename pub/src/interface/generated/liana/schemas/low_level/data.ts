@@ -1,7 +1,7 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_attributes from "../attributes/data"
+import * as i__imports_html from "../html/data"
 
 export namespace Graph_ {
     
@@ -204,7 +204,7 @@ export namespace ID_ {
     
     export type string_ = string
     
-    export type html = string
+    export type html = i__imports_html.Phrasing_Element
     
     export type number_ = number
     

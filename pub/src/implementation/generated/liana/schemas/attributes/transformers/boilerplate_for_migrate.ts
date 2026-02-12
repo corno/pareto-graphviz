@@ -7,6 +7,8 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/attributes/data"
 
+import * as v_html from "../../html/transformers/boilerplate_for_migrate"
+
 export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
     $,
 ).map(

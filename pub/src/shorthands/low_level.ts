@@ -2,6 +2,7 @@ import * as _pi from 'pareto-core/dist/interface'
 import * as _p from 'pareto-core-shorthands/dist/unconstrained'
 
 import * as d_target from "../interface/generated/liana/schemas/low_level/data"
+import * as d_target_html from "../interface/generated/liana/schemas/html/data"
 
 
 export const Graph = (
@@ -31,7 +32,7 @@ export namespace id {
     ): d_target.ID => ['number', value]
 
     export const html = (
-        value: string,
+        value: d_target_html.Phrasing_Element,
     ): d_target.ID => ['html', value]   
 
 }

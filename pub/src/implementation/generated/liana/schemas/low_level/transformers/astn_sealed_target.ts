@@ -13,7 +13,7 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-import * as v_external_attributes from "../../attributes/transformers/astn_sealed_target"
+import * as v_external_html from "../../html/transformers/astn_sealed_target"
 
 export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
@@ -360,10 +360,9 @@ export const ID: t_signatures.ID = ($) => ['state', _p.decide.state(
                     $,
                     ($) => ({
                         'option': 'html',
-                        'value': ['text', {
-                            'delimiter': ['quote', null],
-                            'value': $,
-                        }],
+                        'value': v_external_html.Phrasing_Element(
+                            $,
+                        ),
                     }),
                 )
             case 'number':

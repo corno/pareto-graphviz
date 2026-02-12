@@ -9,35 +9,28 @@ import * as d_out from "../../../../interface/generated/liana/schemas/low_level/
 
 //dependencies
 import * as t_attributes_to_low_level from "../attributes/low_level"
+import * as t_fp_to_loc from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 
 //shorthands
 import * as sh from "../../../../shorthands/low_level"
+import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose"
 
-const temp_text_from_list_of_separated_texts = (list: _pi.List<string>, params: { 'separator': string }): string => {
-    let is_first = true
-
-    const xx: _pi.List<string> = _p.list.from.list(
-        list
-    ).flatten(
-        ($): _pi.List<string> => {
-            if (is_first) {
-                is_first = false
-                return _p.list.literal([])
-            }
-            return _p.list.literal([
-                params.separator,
-                $
-            ])
-        }
-    )
-    const yy: _pi.List<number> = _p.list.from.list(
-        xx
-    ).flatten(
-        ($) => _p_list_from_text($, ($) => $)
-    )
+const temp_text_from_list_of_separated_texts = ($: _pi.List<string>, $p: { 'separator': string }): string => {
 
     return _p_text_from_list(
-        yy,
+        t_fp_to_loc.Phrase(
+            sh_fp.ph.rich(
+                _p.list.from.list($).map(($) => sh_fp.ph.literal($)),
+                sh_fp.ph.nothing(),
+                sh_fp.ph.nothing(),
+                sh_fp.ph.literal($p.separator),
+                sh_fp.ph.nothing(),
+            ),
+            {
+                'indentation': "    ",
+                'newline': "\n",
+            }
+        ),
         ($) => $
     )
 }

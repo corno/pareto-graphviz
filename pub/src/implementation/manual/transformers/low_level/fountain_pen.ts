@@ -23,6 +23,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 //dependencies
 import { $$ as s_quoted } from "../../primitives/text/serializers/quoted"
+import * as t_html_to_fountain_pen from "pareto-static-html/dist/implementation/manual/transformers/static_html/fountain_pen"
 
 
 export const Graph: signatures.Graph = ($) => sh.pg.sentences([
@@ -131,7 +132,7 @@ export const ID: signatures.ID = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'id': return _p.ss($, ($) => sh.ph.literal($)) //FIX escaping
         case 'string': return _p.ss($, ($) => sh.ph.serialize(s_quoted($)))
-        case 'html': return _p.ss($, ($) => sh.ph.literal($))
+        case 'html': return _p.ss($, ($) => t_html_to_fountain_pen.Phrasing_Element($))
         case 'number': return _p.ss($, ($) => sh.ph.literal("FIXME NUMBER"))
         default: return _p.au($[0])
     }

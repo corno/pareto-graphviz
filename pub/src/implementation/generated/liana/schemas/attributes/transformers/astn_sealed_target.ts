@@ -13,6 +13,8 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
+import * as v_external_html from "../../html/transformers/astn_sealed_target"
+
 export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.list(
     $,
 ).map(

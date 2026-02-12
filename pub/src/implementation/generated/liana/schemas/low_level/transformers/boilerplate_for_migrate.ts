@@ -7,7 +7,7 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/low_level/data"
 
-import * as v_attributes from "../../attributes/transformers/boilerplate_for_migrate"
+import * as v_html from "../../html/transformers/boilerplate_for_migrate"
 
 export const Graph: t_signatures.Graph = ($) => ({
     'strict': _p_change_context(
@@ -280,7 +280,9 @@ export const ID: t_signatures.ID = ($) => _p.decide.state(
             case 'html':
                 return _p.ss(
                     $,
-                    ($) => ['html', $],
+                    ($) => ['html', v_html.Phrasing_Element(
+                        $,
+                    )],
                 )
             case 'number':
                 return _p.ss(
