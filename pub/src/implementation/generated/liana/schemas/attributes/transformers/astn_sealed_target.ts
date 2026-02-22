@@ -9,9 +9,7 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
 
-import * as v_serialize_number from "liana-core/dist/implementation/manual/primitives/integer/serializers/decimal"
-
-import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
+import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
 import * as v_external_html from "../../html/transformers/astn_sealed_target"
 
@@ -76,11 +74,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'penwidth',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -125,11 +123,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'fontsize',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -582,11 +580,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'nodesep',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -598,11 +596,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'ranksep',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -614,11 +612,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'dpi',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -753,11 +751,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                     'option': 'custom',
                                                     'value': ['text', {
                                                         'delimiter': ['none', null],
-                                                        'value': _p_text_from_list(
-                                                            v_serialize_number.serialize(
-                                                                $,
-                                                            ),
-                                                            ($) => $,
+                                                        'value': v_primitives_to_text.decimal(
+                                                            $,
                                                         ),
                                                     }],
                                                 }),
@@ -820,11 +815,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'concentrate',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -836,11 +828,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'compound',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -852,11 +841,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'center',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -868,11 +854,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'normalize',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -884,11 +867,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'landscape',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -1184,11 +1164,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'width',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -1200,11 +1180,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'height',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -1216,11 +1196,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'fixedsize',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -1232,11 +1209,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'regular',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -1248,11 +1222,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'sides',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.decimal(
+                                    $,
                                 ),
                             }],
                         }),
@@ -1264,11 +1235,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'skew',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -1280,11 +1251,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'distortion',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -1296,11 +1267,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'orientation',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -1312,11 +1283,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'peripheries',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.decimal(
+                                    $,
                                 ),
                             }],
                         }),
@@ -1328,11 +1296,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'pin',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -1514,11 +1479,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'sortv',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.decimal(
+                                    $,
                                 ),
                             }],
                         }),
@@ -1530,11 +1492,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'area',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -1546,11 +1508,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'z',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -1887,11 +1849,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'arrowsize',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -1997,11 +1959,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'labelfontsize',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -2013,11 +1975,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'labelangle',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -2029,11 +1991,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'labeldistance',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -2045,11 +2007,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'labelfloat',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -2061,11 +2020,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'weight',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -2077,11 +2036,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'len',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
@@ -2093,11 +2052,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'minlen',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.decimal(
+                                    $,
                                 ),
                             }],
                         }),
@@ -2109,11 +2065,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'constraint',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -2125,11 +2078,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'decorate',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -2343,11 +2293,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'headclip',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -2359,11 +2306,8 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'tailclip',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_boolean.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.true_false(
+                                    $,
                                 ),
                             }],
                         }),
@@ -2584,11 +2528,11 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                             'option': 'radius',
                             'value': ['text', {
                                 'delimiter': ['none', null],
-                                'value': _p_text_from_list(
-                                    v_serialize_number.serialize(
-                                        $,
-                                    ),
-                                    ($) => $,
+                                'value': v_primitives_to_text.scientific_notation(
+                                    $,
+                                    {
+                                        'digits': 10,
+                                    },
                                 ),
                             }],
                         }),
