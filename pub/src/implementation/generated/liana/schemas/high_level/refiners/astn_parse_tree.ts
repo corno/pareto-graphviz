@@ -439,199 +439,191 @@ export const Tree: t_signatures.Tree = ($, abort) => _p_change_context(
                                 $,
                             ),
                         ),
-                        ($) => _p_variables(
-                            () => {
-                                
-                                const var_dictionary_range = v_parse_tree_to_location.Value(
-                                    $['value'],
-                                )
-                                return _p.dictionary.from.dictionary(
-                                    $['entries'],
-                                ).map(
-                                    ($, id) => _p_change_context(
-                                        v_unmarshalled_from_parse_tree.State(
-                                            $,
-                                            ($) => abort(
-                                                $,
-                                            ),
-                                        ),
-                                        ($) => _p.decide.text(
-                                            $['option']['value'],
-                                            ($t): t_out.Tree.elements.D => {
-                                                switch ($t) {
-                                                    case 'node':
-                                                        return _p_change_context(
-                                                            $['value'],
-                                                            ($) => ['node', _p_change_context(
-                                                                v_unmarshalled_from_parse_tree.Verbose_Group(
-                                                                    $,
-                                                                    ($) => abort(
-                                                                        $,
-                                                                    ),
-                                                                    {
-                                                                        'expected properties': _p.dictionary.literal(
-                                                                            {
-                                                                                "attributes": null,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ($) => _p_variables(
-                                                                    () => {
-                                                                        
-                                                                        const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                                            $['value'],
-                                                                        )
-                                                                        return {
-                                                                            'attributes': _p_change_context(
-                                                                                v_unmarshalled_from_parse_tree.Property(
-                                                                                    $,
-                                                                                    ($) => abort(
-                                                                                        $,
-                                                                                    ),
-                                                                                    {
-                                                                                        'id': 'attributes',
-                                                                                    },
-                                                                                ),
-                                                                                ($) => v_external_attributes.Attributes(
-                                                                                    $,
-                                                                                    ($) => abort(
-                                                                                        $,
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        }
-                                                                    },
-                                                                ),
-                                                            )],
-                                                        )
-                                                    case 'sub':
-                                                        return _p_change_context(
-                                                            $['value'],
-                                                            ($) => ['sub', _p_change_context(
-                                                                v_unmarshalled_from_parse_tree.Verbose_Group(
-                                                                    $,
-                                                                    ($) => abort(
-                                                                        $,
-                                                                    ),
-                                                                    {
-                                                                        'expected properties': _p.dictionary.literal(
-                                                                            {
-                                                                                "type": null,
-                                                                                "tree": null,
-                                                                            },
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ($) => _p_variables(
-                                                                    () => {
-                                                                        
-                                                                        const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                                            $['value'],
-                                                                        )
-                                                                        return {
-                                                                            'type': _p_change_context(
-                                                                                v_unmarshalled_from_parse_tree.Property(
-                                                                                    $,
-                                                                                    ($) => abort(
-                                                                                        $,
-                                                                                    ),
-                                                                                    {
-                                                                                        'id': 'type',
-                                                                                    },
-                                                                                ),
-                                                                                ($) => _p_change_context(
-                                                                                    v_unmarshalled_from_parse_tree.State(
-                                                                                        $,
-                                                                                        ($) => abort(
-                                                                                            $,
-                                                                                        ),
-                                                                                    ),
-                                                                                    ($) => _p.decide.text(
-                                                                                        $['option']['value'],
-                                                                                        ($t): t_out.Tree.elements.D.sub.type_ => {
-                                                                                            switch ($t) {
-                                                                                                case 'group':
-                                                                                                    return _p_change_context(
-                                                                                                        $['value'],
-                                                                                                        ($) => ['group', v_unmarshalled_from_parse_tree.Nothing(
-                                                                                                            $,
-                                                                                                            ($) => abort(
-                                                                                                                $,
-                                                                                                            ),
-                                                                                                        )],
-                                                                                                    )
-                                                                                                case 'cluster':
-                                                                                                    return _p_change_context(
-                                                                                                        $['value'],
-                                                                                                        ($) => ['cluster', v_unmarshalled_from_parse_tree.Nothing(
-                                                                                                            $,
-                                                                                                            ($) => abort(
-                                                                                                                $,
-                                                                                                            ),
-                                                                                                        )],
-                                                                                                    )
-                                                                                                case 'subgraph':
-                                                                                                    return _p_change_context(
-                                                                                                        $['value'],
-                                                                                                        ($) => ['subgraph', v_unmarshalled_from_parse_tree.Nothing(
-                                                                                                            $,
-                                                                                                            ($) => abort(
-                                                                                                                $,
-                                                                                                            ),
-                                                                                                        )],
-                                                                                                    )
-                                                                                                default:
-                                                                                                    return abort(
-                                                                                                        ['liana', {
-                                                                                                            'type': ['state', ['unknown option', $['option']['value']]],
-                                                                                                            'range': v_parse_tree_to_location.Value(
-                                                                                                                $['value'],
-                                                                                                            ),
-                                                                                                        }],
-                                                                                                    )
-                                                                                            }
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                            'tree': _p_change_context(
-                                                                                v_unmarshalled_from_parse_tree.Property(
-                                                                                    $,
-                                                                                    ($) => abort(
-                                                                                        $,
-                                                                                    ),
-                                                                                    {
-                                                                                        'id': 'tree',
-                                                                                    },
-                                                                                ),
-                                                                                ($) => Tree(
-                                                                                    $,
-                                                                                    ($) => abort(
-                                                                                        $,
-                                                                                    ),
-                                                                                ),
-                                                                            ),
-                                                                        }
-                                                                    },
-                                                                ),
-                                                            )],
-                                                        )
-                                                    default:
-                                                        return abort(
-                                                            ['liana', {
-                                                                'type': ['state', ['unknown option', $['option']['value']]],
-                                                                'range': v_parse_tree_to_location.Value(
-                                                                    $['value'],
-                                                                ),
-                                                            }],
-                                                        )
-                                                }
-                                            },
-                                        ),
+                        ($) => _p.dictionary.from.dictionary(
+                            $['entries'],
+                        ).map(
+                            ($, id) => _p_change_context(
+                                v_unmarshalled_from_parse_tree.State(
+                                    $,
+                                    ($) => abort(
+                                        $,
                                     ),
-                                )
-                            },
+                                ),
+                                ($) => _p.decide.text(
+                                    $['option']['value'],
+                                    ($t): t_out.Tree.elements.D => {
+                                        switch ($t) {
+                                            case 'node':
+                                                return _p_change_context(
+                                                    $['value'],
+                                                    ($) => ['node', _p_change_context(
+                                                        v_unmarshalled_from_parse_tree.Verbose_Group(
+                                                            $,
+                                                            ($) => abort(
+                                                                $,
+                                                            ),
+                                                            {
+                                                                'expected properties': _p.dictionary.literal(
+                                                                    {
+                                                                        "attributes": null,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        ),
+                                                        ($) => _p_variables(
+                                                            () => {
+                                                                
+                                                                const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                                                    $['value'],
+                                                                )
+                                                                return {
+                                                                    'attributes': _p_change_context(
+                                                                        v_unmarshalled_from_parse_tree.Property(
+                                                                            $,
+                                                                            ($) => abort(
+                                                                                $,
+                                                                            ),
+                                                                            {
+                                                                                'id': 'attributes',
+                                                                            },
+                                                                        ),
+                                                                        ($) => v_external_attributes.Attributes(
+                                                                            $,
+                                                                            ($) => abort(
+                                                                                $,
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                }
+                                                            },
+                                                        ),
+                                                    )],
+                                                )
+                                            case 'sub':
+                                                return _p_change_context(
+                                                    $['value'],
+                                                    ($) => ['sub', _p_change_context(
+                                                        v_unmarshalled_from_parse_tree.Verbose_Group(
+                                                            $,
+                                                            ($) => abort(
+                                                                $,
+                                                            ),
+                                                            {
+                                                                'expected properties': _p.dictionary.literal(
+                                                                    {
+                                                                        "type": null,
+                                                                        "tree": null,
+                                                                    },
+                                                                ),
+                                                            },
+                                                        ),
+                                                        ($) => _p_variables(
+                                                            () => {
+                                                                
+                                                                const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                                                    $['value'],
+                                                                )
+                                                                return {
+                                                                    'type': _p_change_context(
+                                                                        v_unmarshalled_from_parse_tree.Property(
+                                                                            $,
+                                                                            ($) => abort(
+                                                                                $,
+                                                                            ),
+                                                                            {
+                                                                                'id': 'type',
+                                                                            },
+                                                                        ),
+                                                                        ($) => _p_change_context(
+                                                                            v_unmarshalled_from_parse_tree.State(
+                                                                                $,
+                                                                                ($) => abort(
+                                                                                    $,
+                                                                                ),
+                                                                            ),
+                                                                            ($) => _p.decide.text(
+                                                                                $['option']['value'],
+                                                                                ($t): t_out.Tree.elements.D.sub.type_ => {
+                                                                                    switch ($t) {
+                                                                                        case 'group':
+                                                                                            return _p_change_context(
+                                                                                                $['value'],
+                                                                                                ($) => ['group', v_unmarshalled_from_parse_tree.Nothing(
+                                                                                                    $,
+                                                                                                    ($) => abort(
+                                                                                                        $,
+                                                                                                    ),
+                                                                                                )],
+                                                                                            )
+                                                                                        case 'cluster':
+                                                                                            return _p_change_context(
+                                                                                                $['value'],
+                                                                                                ($) => ['cluster', v_unmarshalled_from_parse_tree.Nothing(
+                                                                                                    $,
+                                                                                                    ($) => abort(
+                                                                                                        $,
+                                                                                                    ),
+                                                                                                )],
+                                                                                            )
+                                                                                        case 'subgraph':
+                                                                                            return _p_change_context(
+                                                                                                $['value'],
+                                                                                                ($) => ['subgraph', v_unmarshalled_from_parse_tree.Nothing(
+                                                                                                    $,
+                                                                                                    ($) => abort(
+                                                                                                        $,
+                                                                                                    ),
+                                                                                                )],
+                                                                                            )
+                                                                                        default:
+                                                                                            return abort(
+                                                                                                ['liana', {
+                                                                                                    'type': ['state', ['unknown option', $['option']['value']]],
+                                                                                                    'range': v_parse_tree_to_location.Value(
+                                                                                                        $['value'],
+                                                                                                    ),
+                                                                                                }],
+                                                                                            )
+                                                                                    }
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                    'tree': _p_change_context(
+                                                                        v_unmarshalled_from_parse_tree.Property(
+                                                                            $,
+                                                                            ($) => abort(
+                                                                                $,
+                                                                            ),
+                                                                            {
+                                                                                'id': 'tree',
+                                                                            },
+                                                                        ),
+                                                                        ($) => Tree(
+                                                                            $,
+                                                                            ($) => abort(
+                                                                                $,
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                }
+                                                            },
+                                                        ),
+                                                    )],
+                                                )
+                                            default:
+                                                return abort(
+                                                    ['liana', {
+                                                        'type': ['state', ['unknown option', $['option']['value']]],
+                                                        'range': v_parse_tree_to_location.Value(
+                                                            $['value'],
+                                                        ),
+                                                    }],
+                                                )
+                                        }
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 ),

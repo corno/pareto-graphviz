@@ -24,60 +24,52 @@ export const Directory: t_signatures.Directory = ($, abort) => _p_change_context
             $,
         ),
     ),
-    ($) => _p_variables(
-        () => {
-            
-            const var_dictionary_range = v_parse_tree_to_location.Value(
-                $['value'],
-            )
-            return _p.dictionary.from.dictionary(
-                $['entries'],
-            ).map(
-                ($, id) => _p_change_context(
-                    v_unmarshalled_from_parse_tree.State(
-                        $,
-                        ($) => abort(
-                            $,
-                        ),
-                    ),
-                    ($) => _p.decide.text(
-                        $['option']['value'],
-                        ($t): t_out.Directory.D => {
-                            switch ($t) {
-                                case 'file':
-                                    return _p_change_context(
-                                        $['value'],
-                                        ($) => ['file', v_external_high_level.Graph(
-                                            $,
-                                            ($) => abort(
-                                                $,
-                                            ),
-                                        )],
-                                    )
-                                case 'directory':
-                                    return _p_change_context(
-                                        $['value'],
-                                        ($) => ['directory', Directory(
-                                            $,
-                                            ($) => abort(
-                                                $,
-                                            ),
-                                        )],
-                                    )
-                                default:
-                                    return abort(
-                                        ['liana', {
-                                            'type': ['state', ['unknown option', $['option']['value']]],
-                                            'range': v_parse_tree_to_location.Value(
-                                                $['value'],
-                                            ),
-                                        }],
-                                    )
-                            }
-                        },
-                    ),
+    ($) => _p.dictionary.from.dictionary(
+        $['entries'],
+    ).map(
+        ($, id) => _p_change_context(
+            v_unmarshalled_from_parse_tree.State(
+                $,
+                ($) => abort(
+                    $,
                 ),
-            )
-        },
+            ),
+            ($) => _p.decide.text(
+                $['option']['value'],
+                ($t): t_out.Directory.D => {
+                    switch ($t) {
+                        case 'file':
+                            return _p_change_context(
+                                $['value'],
+                                ($) => ['file', v_external_high_level.Graph(
+                                    $,
+                                    ($) => abort(
+                                        $,
+                                    ),
+                                )],
+                            )
+                        case 'directory':
+                            return _p_change_context(
+                                $['value'],
+                                ($) => ['directory', Directory(
+                                    $,
+                                    ($) => abort(
+                                        $,
+                                    ),
+                                )],
+                            )
+                        default:
+                            return abort(
+                                ['liana', {
+                                    'type': ['state', ['unknown option', $['option']['value']]],
+                                    'range': v_parse_tree_to_location.Value(
+                                        $['value'],
+                                    ),
+                                }],
+                            )
+                    }
+                },
+            ),
+        ),
     ),
 )

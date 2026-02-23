@@ -74,59 +74,51 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                                 $,
                             ),
                         ),
-                        ($) => _p_variables(
-                            () => {
-                                
-                                const var_dictionary_range = v_parse_tree_to_location.Value(
-                                    $['value'],
-                                )
-                                return _p.dictionary.from.dictionary(
-                                    $['entries'],
-                                ).map(
-                                    ($, id) => _p_change_context(
-                                        v_unmarshalled_from_parse_tree.Verbose_Group(
-                                            $,
-                                            ($) => abort(
-                                                $,
-                                            ),
+                        ($) => _p.dictionary.from.dictionary(
+                            $['entries'],
+                        ).map(
+                            ($, id) => _p_change_context(
+                                v_unmarshalled_from_parse_tree.Verbose_Group(
+                                    $,
+                                    ($) => abort(
+                                        $,
+                                    ),
+                                    {
+                                        'expected properties': _p.dictionary.literal(
                                             {
-                                                'expected properties': _p.dictionary.literal(
+                                                "attributes": null,
+                                            },
+                                        ),
+                                    },
+                                ),
+                                ($) => _p_variables(
+                                    () => {
+                                        
+                                        const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                            $['value'],
+                                        )
+                                        return {
+                                            'attributes': _p_change_context(
+                                                v_unmarshalled_from_parse_tree.Property(
+                                                    $,
+                                                    ($) => abort(
+                                                        $,
+                                                    ),
                                                     {
-                                                        "attributes": null,
+                                                        'id': 'attributes',
                                                     },
                                                 ),
-                                            },
-                                        ),
-                                        ($) => _p_variables(
-                                            () => {
-                                                
-                                                const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                    $['value'],
-                                                )
-                                                return {
-                                                    'attributes': _p_change_context(
-                                                        v_unmarshalled_from_parse_tree.Property(
-                                                            $,
-                                                            ($) => abort(
-                                                                $,
-                                                            ),
-                                                            {
-                                                                'id': 'attributes',
-                                                            },
-                                                        ),
-                                                        ($) => v_external_attributes.Attributes(
-                                                            $,
-                                                            ($) => abort(
-                                                                $,
-                                                            ),
-                                                        ),
+                                                ($) => v_external_attributes.Attributes(
+                                                    $,
+                                                    ($) => abort(
+                                                        $,
                                                     ),
-                                                }
-                                            },
-                                        ),
-                                    ),
-                                )
-                            },
+                                                ),
+                                            ),
+                                        }
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 ),
