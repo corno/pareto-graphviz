@@ -101,7 +101,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                             ),
                         ),
                         ($) => _p.decide.text(
-                            $['option']['value'],
+                            $['option']['token']['value'],
                             ($t): t_out.Graph.type_ => {
                                 switch ($t) {
                                     case 'undirected':
@@ -367,7 +367,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                                     default:
                                         return abort(
                                             ['liana', {
-                                                'type': ['state', ['unknown option', $['option']['value']]],
+                                                'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                 'range': v_parse_tree_to_location.Value(
                                                     $['value'],
                                                 ),
@@ -450,7 +450,7 @@ export const Tree: t_signatures.Tree = ($, abort) => _p_change_context(
                                     ),
                                 ),
                                 ($) => _p.decide.text(
-                                    $['option']['value'],
+                                    $['option']['token']['value'],
                                     ($t): t_out.Tree.elements.D => {
                                         switch ($t) {
                                             case 'node':
@@ -542,7 +542,7 @@ export const Tree: t_signatures.Tree = ($, abort) => _p_change_context(
                                                                                 ),
                                                                             ),
                                                                             ($) => _p.decide.text(
-                                                                                $['option']['value'],
+                                                                                $['option']['token']['value'],
                                                                                 ($t): t_out.Tree.elements.D.sub.type_ => {
                                                                                     switch ($t) {
                                                                                         case 'group':
@@ -578,7 +578,7 @@ export const Tree: t_signatures.Tree = ($, abort) => _p_change_context(
                                                                                         default:
                                                                                             return abort(
                                                                                                 ['liana', {
-                                                                                                    'type': ['state', ['unknown option', $['option']['value']]],
+                                                                                                    'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                     'range': v_parse_tree_to_location.Value(
                                                                                                         $['value'],
                                                                                                     ),
@@ -614,7 +614,7 @@ export const Tree: t_signatures.Tree = ($, abort) => _p_change_context(
                                             default:
                                                 return abort(
                                                     ['liana', {
-                                                        'type': ['state', ['unknown option', $['option']['value']]],
+                                                        'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                         'range': v_parse_tree_to_location.Value(
                                                             $['value'],
                                                         ),
