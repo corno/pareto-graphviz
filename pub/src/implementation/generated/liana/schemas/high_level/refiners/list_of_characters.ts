@@ -14,7 +14,6 @@ export const Graph: t_signatures.Graph = ($, abort, $p) => v_unmarshall.Graph(
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -30,7 +29,6 @@ export const Tree: t_signatures.Tree = ($, abort, $p) => v_unmarshall.Tree(
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -46,7 +44,6 @@ export const End_Point_Specification: t_signatures.End_Point_Specification = ($,
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],

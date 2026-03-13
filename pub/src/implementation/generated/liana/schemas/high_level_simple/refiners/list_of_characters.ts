@@ -14,7 +14,6 @@ export const Graph: t_signatures.Graph = ($, abort, $p) => v_unmarshall.Graph(
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],

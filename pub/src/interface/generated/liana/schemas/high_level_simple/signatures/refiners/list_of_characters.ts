@@ -17,8 +17,6 @@ export namespace Graph_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type Graph_ = (
     context: Graph_.I,
     abort: _pi.Abort<Graph_.E>,
     parameters: {
-        readonly 'document resource identifier': Graph_.P.document_resource_identifier
         readonly 'tab size': Graph_.P.tab_size
     },
 ) => Graph_.O

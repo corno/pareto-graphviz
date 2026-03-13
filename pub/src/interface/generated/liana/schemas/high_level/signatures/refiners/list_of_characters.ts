@@ -17,8 +17,6 @@ export namespace Graph_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type Graph_ = (
     context: Graph_.I,
     abort: _pi.Abort<Graph_.E>,
     parameters: {
-        readonly 'document resource identifier': Graph_.P.document_resource_identifier
         readonly 'tab size': Graph_.P.tab_size
     },
 ) => Graph_.O
@@ -44,8 +41,6 @@ export namespace Tree_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -56,7 +51,6 @@ export type Tree_ = (
     context: Tree_.I,
     abort: _pi.Abort<Tree_.E>,
     parameters: {
-        readonly 'document resource identifier': Tree_.P.document_resource_identifier
         readonly 'tab size': Tree_.P.tab_size
     },
 ) => Tree_.O
@@ -71,8 +65,6 @@ export namespace End_Point_Specification_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -83,7 +75,6 @@ export type End_Point_Specification_ = (
     context: End_Point_Specification_.I,
     abort: _pi.Abort<End_Point_Specification_.E>,
     parameters: {
-        readonly 'document resource identifier': End_Point_Specification_.P.document_resource_identifier
         readonly 'tab size': End_Point_Specification_.P.tab_size
     },
 ) => End_Point_Specification_.O

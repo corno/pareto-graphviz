@@ -17,8 +17,6 @@ export namespace Attributes_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type Attributes_ = (
     context: Attributes_.I,
     abort: _pi.Abort<Attributes_.E>,
     parameters: {
-        readonly 'document resource identifier': Attributes_.P.document_resource_identifier
         readonly 'tab size': Attributes_.P.tab_size
     },
 ) => Attributes_.O

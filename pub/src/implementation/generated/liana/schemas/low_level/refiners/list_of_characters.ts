@@ -14,7 +14,6 @@ export const Graph: t_signatures.Graph = ($, abort, $p) => v_unmarshall.Graph(
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -30,7 +29,6 @@ export const Statements: t_signatures.Statements = ($, abort, $p) => v_unmarshal
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -46,7 +44,6 @@ export const End_Point: t_signatures.End_Point = ($, abort, $p) => v_unmarshall.
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -62,7 +59,6 @@ export const Attributes: t_signatures.Attributes = ($, abort, $p) => v_unmarshal
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -78,7 +74,6 @@ export const Node_ID: t_signatures.Node_ID = ($, abort, $p) => v_unmarshall.Node
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -94,7 +89,6 @@ export const ID: t_signatures.ID = ($, abort, $p) => v_unmarshall.ID(
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -110,7 +104,6 @@ export const Subgraph: t_signatures.Subgraph = ($, abort, $p) => v_unmarshall.Su
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],

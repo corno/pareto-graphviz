@@ -17,8 +17,6 @@ export namespace Graph_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type Graph_ = (
     context: Graph_.I,
     abort: _pi.Abort<Graph_.E>,
     parameters: {
-        readonly 'document resource identifier': Graph_.P.document_resource_identifier
         readonly 'tab size': Graph_.P.tab_size
     },
 ) => Graph_.O
@@ -44,8 +41,6 @@ export namespace Statements_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -56,7 +51,6 @@ export type Statements_ = (
     context: Statements_.I,
     abort: _pi.Abort<Statements_.E>,
     parameters: {
-        readonly 'document resource identifier': Statements_.P.document_resource_identifier
         readonly 'tab size': Statements_.P.tab_size
     },
 ) => Statements_.O
@@ -71,8 +65,6 @@ export namespace End_Point_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -83,7 +75,6 @@ export type End_Point_ = (
     context: End_Point_.I,
     abort: _pi.Abort<End_Point_.E>,
     parameters: {
-        readonly 'document resource identifier': End_Point_.P.document_resource_identifier
         readonly 'tab size': End_Point_.P.tab_size
     },
 ) => End_Point_.O
@@ -98,8 +89,6 @@ export namespace Attributes_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -110,7 +99,6 @@ export type Attributes_ = (
     context: Attributes_.I,
     abort: _pi.Abort<Attributes_.E>,
     parameters: {
-        readonly 'document resource identifier': Attributes_.P.document_resource_identifier
         readonly 'tab size': Attributes_.P.tab_size
     },
 ) => Attributes_.O
@@ -125,8 +113,6 @@ export namespace Node_ID_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -137,7 +123,6 @@ export type Node_ID_ = (
     context: Node_ID_.I,
     abort: _pi.Abort<Node_ID_.E>,
     parameters: {
-        readonly 'document resource identifier': Node_ID_.P.document_resource_identifier
         readonly 'tab size': Node_ID_.P.tab_size
     },
 ) => Node_ID_.O
@@ -152,8 +137,6 @@ export namespace ID_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -164,7 +147,6 @@ export type ID_ = (
     context: ID_.I,
     abort: _pi.Abort<ID_.E>,
     parameters: {
-        readonly 'document resource identifier': ID_.P.document_resource_identifier
         readonly 'tab size': ID_.P.tab_size
     },
 ) => ID_.O
@@ -179,8 +161,6 @@ export namespace Subgraph_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -191,7 +171,6 @@ export type Subgraph_ = (
     context: Subgraph_.I,
     abort: _pi.Abort<Subgraph_.E>,
     parameters: {
-        readonly 'document resource identifier': Subgraph_.P.document_resource_identifier
         readonly 'tab size': Subgraph_.P.tab_size
     },
 ) => Subgraph_.O
