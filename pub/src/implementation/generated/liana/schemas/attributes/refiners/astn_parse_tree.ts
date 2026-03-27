@@ -24,7 +24,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
             $,
         ),
         {
-            'document resource identifier': "dummy dri",
+            'subdocument context': _p.optional.literal.not_set(),
         },
     )['items'],
 ).map(
@@ -57,7 +57,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                     "value": null,
                                                 },
                                             ),
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     ),
                                     ($) => _p_variables(
@@ -66,7 +66,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                 $['value'],
                                                 {
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             )
                                             return {
@@ -78,7 +78,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                         ),
                                                         {
                                                             'id': 'key',
-                                                            'document resource identifier': "dummy dri",
+                                                            'subdocument context': _p.optional.literal.not_set(),
                                                         },
                                                     ),
                                                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -96,7 +96,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                         ),
                                                         {
                                                             'id': 'value',
-                                                            'document resource identifier': "dummy dri",
+                                                            'subdocument context': _p.optional.literal.not_set(),
                                                         },
                                                     ),
                                                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -141,7 +141,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -185,7 +185,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -400,7 +400,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -501,7 +501,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -572,7 +572,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -633,7 +633,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -694,7 +694,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -744,7 +744,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -758,7 +758,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -772,7 +772,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -897,7 +897,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -951,7 +951,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             ),
                                                             {
                                                                 'type': ['decimal', null],
-                                                                'document resource identifier': "dummy dri",
+                                                                'subdocument context': _p.optional.literal.not_set(),
                                                             },
                                                         )],
                                                     )
@@ -962,7 +962,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -1023,7 +1023,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -1043,7 +1043,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1057,7 +1057,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1071,7 +1071,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1085,7 +1085,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1099,7 +1099,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1154,7 +1154,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -1225,7 +1225,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -1466,7 +1466,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -1486,7 +1486,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1500,7 +1500,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1514,7 +1514,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1528,7 +1528,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1542,7 +1542,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1556,7 +1556,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1570,7 +1570,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1584,7 +1584,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1598,7 +1598,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1612,7 +1612,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1737,7 +1737,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -1818,7 +1818,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -1848,7 +1848,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1862,7 +1862,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -1876,7 +1876,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2081,7 +2081,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -2282,7 +2282,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -2302,7 +2302,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2367,7 +2367,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -2427,7 +2427,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2441,7 +2441,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2455,7 +2455,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2469,7 +2469,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2483,7 +2483,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2497,7 +2497,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2511,7 +2511,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2525,7 +2525,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2539,7 +2539,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2664,7 +2664,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -2795,7 +2795,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -2815,7 +2815,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -2829,7 +2829,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['true/false', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -3033,7 +3033,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     ),
                                     {
                                         'type': ['decimal', null],
-                                        'document resource identifier': "dummy dri",
+                                        'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
                             )
@@ -3148,7 +3148,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                                             'range': v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'document resource identifier': "dummy dri",
+                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                 },
                                                             ),
                                                         }],
@@ -3195,7 +3195,7 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                     'range': v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     ),
                                 }],

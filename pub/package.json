@@ -27,8 +27,8 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "liana-core": "^0.1.12",
+    "liana-core": "^0.1.16",
     "pareto-fountain-pen": "^0.4.52",
-    "pareto-static-html": "^0.1.35"
+    "pareto-static-html": "^0.1.36"
   }
 }
