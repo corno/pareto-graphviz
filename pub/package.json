@@ -1,6 +1,6 @@
 {
   "name": "pareto-graphviz",
-  "version": "0.2.29",
+  "version": "0.2.30",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "A TypeScript library for creating Graphviz graphs with pareto",
@@ -27,7 +27,7 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "liana-core": "^0.1.16",
+    "liana-core": "^0.1.17",
     "pareto-fountain-pen": "^0.4.52",
     "pareto-static-html": "^0.1.36"
   }
