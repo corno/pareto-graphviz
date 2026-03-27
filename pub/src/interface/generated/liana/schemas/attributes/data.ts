@@ -1,7 +1,7 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_html from "../html/data"
+import * as i_imports_html from "../html/data"
 
 export namespace Attributes_ {
     

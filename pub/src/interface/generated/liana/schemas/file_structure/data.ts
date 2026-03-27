@@ -1,13 +1,13 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_high_level from "../high_level/data"
+import * as i_imports_high_level from "../high_level/data"
 
 export namespace Directory_ {
     
     export namespace D {
         
-        export type file = i__imports_high_level.Graph
+        export type file = i_imports_high_level.Graph
         
         export type directory = Directory_
         

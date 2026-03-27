@@ -1,7 +1,7 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_attributes from "../attributes/data"
+import * as i_imports_attributes from "../attributes/data"
 
 export namespace Graph_ {
     
@@ -27,7 +27,7 @@ export namespace Graph_ {
                     
                     export type yang = End_Point_Specification_
                     
-                    export type attributes = i__imports_attributes.Attributes
+                    export type attributes = i_imports_attributes.Attributes
                     
                 }
                 
@@ -57,7 +57,7 @@ export namespace Graph_ {
                     
                     export type to = End_Point_Specification_
                     
-                    export type attributes = i__imports_attributes.Attributes
+                    export type attributes = i_imports_attributes.Attributes
                     
                 }
                 
@@ -93,7 +93,7 @@ export type Graph_ = {
 
 export namespace Tree_ {
     
-    export type attributes = i__imports_attributes.Attributes
+    export type attributes = i_imports_attributes.Attributes
     
     export namespace elements {
         
@@ -101,7 +101,7 @@ export namespace Tree_ {
             
             export namespace node {
                 
-                export type attributes = i__imports_attributes.Attributes
+                export type attributes = i_imports_attributes.Attributes
                 
             }
             

@@ -13,7 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/file
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 import * as v_external_high_level from "../../high_level/refiners/astn_parse_tree"
 
@@ -23,6 +23,9 @@ export const Directory: t_signatures.Directory = ($, abort) => _p_change_context
         ($) => abort(
             $,
         ),
+        {
+            'document resource identifier': "dummy dri",
+        },
     ),
     ($) => _p.dictionary.from.dictionary(
         $['entries'],
@@ -64,6 +67,9 @@ export const Directory: t_signatures.Directory = ($, abort) => _p_change_context
                                     'type': ['state', ['unknown option', $['option']['token']['value']]],
                                     'range': v_parse_tree_to_location.Value(
                                         $['value'],
+                                        {
+                                            'document resource identifier': "dummy dri",
+                                        },
                                     ),
                                 }],
                             )
