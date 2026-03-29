@@ -11,7 +11,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {
+                `simple types`: {
                     'Position': (
                         `precision`: | `exact` (
                             `decimal separator offset`: _
@@ -235,8 +235,8 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {
-                    'Position': (
+                `simple types`: {
+                    'Natural': (
                         `precision`: | `exact` (
                             `decimal separator offset`: _
                             `type`: | `natural` ~
@@ -279,21 +279,11 @@
                                 `value`: | `group` {
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                     'content': (
                                         `description`: _
@@ -400,12 +390,7 @@
                                                             )
                                                             'height': (
                                                                 `description`: _
-                                                                `value`: | `optional` | `number` | `local` (
-                                                                    `precision`: | `exact` (
-                                                                        `decimal separator offset`: _
-                                                                        `type`: | `natural` ~
-                                                                    )
-                                                                )
+                                                                `value`: | `optional` | `number` | `global` 'Natural'
                                                             )
                                                             'cells': (
                                                                 `description`: _
@@ -498,21 +483,11 @@
                                     )
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                 }
                             )
@@ -539,21 +514,11 @@
                                     )
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                 }
                             )
@@ -689,11 +654,16 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {
-                    'Position': (
+                `simple types`: {
+                    'Natural': (
                         `precision`: | `exact` (
                             `decimal separator offset`: _
                             `type`: | `natural` ~
+                        )
+                    )
+                    'Approximation': (
+                        `precision`: | `approximation` (
+                            `significant digits`: 10
                         )
                     )
                 }
@@ -738,11 +708,7 @@
                                 'penwidth': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'label': (
                                     `constraints`: _
@@ -768,11 +734,7 @@
                                 'fontsize': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'URL': (
                                     `constraints`: _
@@ -1043,29 +1005,17 @@
                                 'nodesep': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'ranksep': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'dpi': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'overlap': (
                                     `constraints`: _
@@ -1144,12 +1094,7 @@
                                             'custom': (
                                                 `constraints`: _
                                                 `description`: _
-                                                `value`: | `number` | `local` (
-                                                    `precision`: | `exact` (
-                                                        `decimal separator offset`: _
-                                                        `type`: | `natural` ~
-                                                    )
-                                                )
+                                                `value`: | `number` | `global` 'Natural'
                                             )
                                         }
                                         `results`: _
@@ -1378,20 +1323,12 @@
                                 'width': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'height': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'fixedsize': (
                                     `constraints`: _
@@ -1406,49 +1343,27 @@
                                 'sides': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `exact` (
-                                            `decimal separator offset`: _
-                                            `type`: | `natural` ~
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Natural'
                                 )
                                 'skew': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'distortion': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'orientation': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'peripheries': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `exact` (
-                                            `decimal separator offset`: _
-                                            `type`: | `natural` ~
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Natural'
                                 )
                                 'pin': (
                                     `constraints`: _
@@ -1560,30 +1475,17 @@
                                 'sortv': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `exact` (
-                                            `decimal separator offset`: _
-                                            `type`: | `natural` ~
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Natural'
                                 )
                                 'area': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'z': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'margin': (
                                     `constraints`: _
@@ -1787,11 +1689,7 @@
                                 'arrowsize': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'dir': (
                                     `constraints`: _
@@ -1853,29 +1751,17 @@
                                 'labelfontsize': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'labelangle': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'labeldistance': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'labelfloat': (
                                     `constraints`: _
@@ -1885,30 +1771,17 @@
                                 'weight': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'len': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'minlen': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `exact` (
-                                            `decimal separator offset`: _
-                                            `type`: | `natural` ~
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Natural'
                                 )
                                 'constraint': (
                                     `constraints`: _
@@ -2188,11 +2061,7 @@
                                 'radius': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `local` (
-                                        `precision`: | `approximation` (
-                                            `significant digits`: 10
-                                        )
-                                    )
+                                    `value`: | `number` | `global` 'Approximation'
                                 )
                                 'splines': (
                                     `constraints`: _
@@ -2293,7 +2162,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Graph': (
@@ -2517,7 +2386,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Directory': (
@@ -2566,7 +2435,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {
+                `simple types`: {
                     'Position': (
                         `precision`: | `exact` (
                             `decimal separator offset`: _
@@ -2661,7 +2530,14 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {}
+                `simple types`: {
+                    'Integer': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `integer` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'Graph': (
@@ -2929,12 +2805,7 @@
                             'number': (
                                 `constraints`: _
                                 `description`: _
-                                `value`: | `number` | `local` (
-                                    `precision`: | `exact` (
-                                        `decimal separator offset`: _
-                                        `type`: | `integer` ~
-                                    )
-                                )
+                                `value`: | `number` | `global` 'Integer'
                             )
                         }
                         `results`: _
