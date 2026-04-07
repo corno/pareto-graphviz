@@ -10,12 +10,17 @@
                     'Text Value': (
                         `type`: | `single line` ~
                     )
+                    'text': (
+                        `type`: | `single line` ~
+                    )
                 }
                 `simple types`: {
                     'Position': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `natural` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `natural` ~
+                            )
                         )
                     )
                 }
@@ -28,9 +33,7 @@
                             `value`: | `optional` | `group` {
                                 'name': (
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                             }
                         )
@@ -65,9 +68,7 @@
                                     )
                                     'value': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                 }
                                 `results`: _
@@ -88,9 +89,7 @@
                                         `value`: | `group` {
                                             'value': (
                                                 `description`: _
-                                                `value`: | `text` | `local` (
-                                                    `type`: | `single line` ~
-                                                )
+                                                `value`: | `text` | `global` 'text'
                                             )
                                         }
                                     )
@@ -142,9 +141,7 @@
                                     `value`: | `group` {
                                         'value': (
                                             `description`: _
-                                            `value`: | `text` | `local` (
-                                                `type`: | `single line` ~
-                                            )
+                                            `value`: | `text` | `global` 'text'
                                         )
                                     }
                                 )
@@ -158,15 +155,11 @@
                     `root value`: | `group` {
                         'namespace prefix': (
                             `description`: _
-                            `value`: | `optional` | `text` | `local` (
-                                `type`: | `single line` ~
-                            )
+                            `value`: | `optional` | `text` | `global` 'text'
                         )
                         'local name': (
                             `description`: _
-                            `value`: | `text` | `local` (
-                                `type`: | `single line` ~
-                            )
+                            `value`: | `text` | `global` 'text'
                         )
                     }
                 )
@@ -184,16 +177,12 @@
                             'comment': (
                                 `constraints`: _
                                 `description`: _
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                             )
                             'cdata': (
                                 `constraints`: _
                                 `description`: _
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                             )
                             'processing instruction': (
                                 `constraints`: _
@@ -201,15 +190,11 @@
                                 `value`: | `group` {
                                     'target': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'data': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                 }
                             )
@@ -234,12 +219,20 @@
                     'Text Value': (
                         `type`: | `single line` ~
                     )
+                    'multi line text': (
+                        `type`: | `multi line` ~
+                    )
+                    'text': (
+                        `type`: | `single line` ~
+                    )
                 }
                 `simple types`: {
                     'Natural': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `natural` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `natural` ~
+                            )
                         )
                     )
                 }
@@ -249,9 +242,7 @@
                     `root value`: | `group` {
                         'css': (
                             `description`: _
-                            `value`: | `text` | `local` (
-                                `type`: | `multi line` ~
-                            )
+                            `value`: | `text` | `global` 'multi line text'
                         )
                         'root': (
                             `description`: _
@@ -279,11 +270,11 @@
                                 `value`: | `group` {
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                     'content': (
                                         `description`: _
@@ -390,7 +381,7 @@
                                                             )
                                                             'height': (
                                                                 `description`: _
-                                                                `value`: | `optional` | `number` | `global` 'Natural'
+                                                                `value`: | `optional` | `simple` | `global` 'Natural'
                                                             )
                                                             'cells': (
                                                                 `description`: _
@@ -445,9 +436,7 @@
                                     )
                                     'text': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'content': (
                                         `description`: _
@@ -471,23 +460,19 @@
                                     )
                                     'src': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'alt': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                 }
                             )
@@ -514,11 +499,11 @@
                                     )
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                 }
                             )
@@ -537,9 +522,7 @@
                 )
                 'Classes': (
                     `root value`: | `list` (
-                        `value`: | `text` | `local` (
-                            `type`: | `single line` ~
-                        )
+                        `value`: | `text` | `global` 'text'
                         `results`: _
                     )
                 )
@@ -589,9 +572,7 @@
                                 `value`: | `group` {
                                     'title': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'content': (
                                         `description`: _
@@ -608,15 +589,11 @@
                                 `value`: | `group` {
                                     'text': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'href': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                 }
                             )
@@ -626,9 +603,7 @@
                                 `value`: | `group` {
                                     'text': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                 }
                             )
@@ -653,18 +628,31 @@
                     'Text Value': (
                         `type`: | `single line` ~
                     )
+                    'multi line text': (
+                        `type`: | `multi line` ~
+                    )
+                    'text': (
+                        `type`: | `single line` ~
+                    )
                 }
                 `simple types`: {
                     'Natural': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `natural` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `natural` ~
+                            )
                         )
                     )
                     'Approximation': (
-                        `precision`: | `approximation` (
-                            `significant digits`: 10
+                        `type`: | `number` (
+                            `precision`: | `approximation` (
+                                `significant digits`: 10
+                            )
                         )
+                    )
+                    'boolean': (
+                        `type`: | `boolean` ~
                     )
                 }
             )
@@ -679,111 +667,83 @@
                                     `value`: | `group` {
                                         'key': (
                                             `description`: _
-                                            `value`: | `text` | `local` (
-                                                `type`: | `single line` ~
-                                            )
+                                            `value`: | `text` | `global` 'text'
                                         )
                                         'value': (
                                             `description`: _
-                                            `value`: | `text` | `local` (
-                                                `type`: | `single line` ~
-                                            )
+                                            `value`: | `text` | `global` 'text'
                                         )
                                     }
                                 )
                                 'color': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'fillcolor': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'penwidth': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'label': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `multi line` ~
-                                    )
+                                    `value`: | `text` | `global` 'multi line text'
                                 )
                                 'fontcolor': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'fontname': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'fontsize': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'URL': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'href': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'target': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'tooltip': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'id': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'class': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'comment': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `multi line` ~
-                                    )
+                                    `value`: | `text` | `global` 'multi line text'
                                 )
                                 'style': (
                                     `constraints`: _
@@ -848,9 +808,7 @@
                                             'custom': (
                                                 `constraints`: _
                                                 `description`: _
-                                                `value`: | `text` | `local` (
-                                                    `type`: | `single line` ~
-                                                )
+                                                `value`: | `text` | `global` 'text'
                                             )
                                         }
                                         `results`: _
@@ -894,9 +852,7 @@
                                             'custom': (
                                                 `constraints`: _
                                                 `description`: _
-                                                `value`: | `text` | `local` (
-                                                    `type`: | `single line` ~
-                                                )
+                                                `value`: | `text` | `global` 'text'
                                             )
                                         }
                                         `results`: _
@@ -934,9 +890,7 @@
                                 'bgcolor': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'labelloc': (
                                     `constraints`: _
@@ -984,38 +938,32 @@
                                 'size': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'ratio': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'pad': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'nodesep': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'ranksep': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'dpi': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'overlap': (
                                     `constraints`: _
@@ -1094,7 +1042,7 @@
                                             'custom': (
                                                 `constraints`: _
                                                 `description`: _
-                                                `value`: | `number` | `global` 'Natural'
+                                                `value`: | `simple` | `global` 'Natural'
                                             )
                                         }
                                         `results`: _
@@ -1127,27 +1075,27 @@
                                 'concentrate': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'compound': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'center': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'normalize': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'landscape': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'outputorder': (
                                     `constraints`: _
@@ -1176,9 +1124,7 @@
                                 'charset': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'clusterrank': (
                                     `constraints`: _
@@ -1312,9 +1258,7 @@
                                             'custom': (
                                                 `constraints`: _
                                                 `description`: _
-                                                `value`: | `text` | `local` (
-                                                    `type`: | `single line` ~
-                                                )
+                                                `value`: | `text` | `global` 'text'
                                             )
                                         }
                                         `results`: _
@@ -1323,59 +1267,57 @@
                                 'width': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'height': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'fixedsize': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'regular': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'sides': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Natural'
+                                    `value`: | `simple` | `global` 'Natural'
                                 )
                                 'skew': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'distortion': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'orientation': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'peripheries': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Natural'
+                                    `value`: | `simple` | `global` 'Natural'
                                 )
                                 'pin': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'image': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'imagepos': (
                                     `constraints`: _
@@ -1468,31 +1410,27 @@
                                 'group': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'sortv': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Natural'
+                                    `value`: | `simple` | `global` 'Natural'
                                 )
                                 'area': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'z': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'margin': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'arrowhead': (
                                     `constraints`: _
@@ -1582,9 +1520,7 @@
                                             'custom': (
                                                 `constraints`: _
                                                 `description`: _
-                                                `value`: | `text` | `local` (
-                                                    `type`: | `single line` ~
-                                                )
+                                                `value`: | `text` | `global` 'text'
                                             )
                                         }
                                         `results`: _
@@ -1678,9 +1614,7 @@
                                             'custom': (
                                                 `constraints`: _
                                                 `description`: _
-                                                `value`: | `text` | `local` (
-                                                    `type`: | `single line` ~
-                                                )
+                                                `value`: | `text` | `global` 'text'
                                             )
                                         }
                                         `results`: _
@@ -1689,7 +1623,7 @@
                                 'arrowsize': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'dir': (
                                     `constraints`: _
@@ -1723,75 +1657,67 @@
                                 'headlabel': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'taillabel': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'labelfontcolor': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'labelfontname': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'labelfontsize': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'labelangle': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'labeldistance': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'labelfloat': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'weight': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'len': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'minlen': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Natural'
+                                    `value`: | `simple` | `global` 'Natural'
                                 )
                                 'constraint': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'decorate': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'headport': (
                                     `constraints`: _
@@ -1846,9 +1772,7 @@
                                             'custom': (
                                                 `constraints`: _
                                                 `description`: _
-                                                `value`: | `text` | `local` (
-                                                    `type`: | `single line` ~
-                                                )
+                                                `value`: | `text` | `global` 'text'
                                             )
                                         }
                                         `results`: _
@@ -1907,9 +1831,7 @@
                                             'custom': (
                                                 `constraints`: _
                                                 `description`: _
-                                                `value`: | `text` | `local` (
-                                                    `type`: | `single line` ~
-                                                )
+                                                `value`: | `text` | `global` 'text'
                                             )
                                         }
                                         `results`: _
@@ -1918,150 +1840,112 @@
                                 'headclip': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'tailclip': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'lhead': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'ltail': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'samehead': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'sametail': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'edgeURL': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'headURL': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'tailURL': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'labelURL': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'edgehref': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'headhref': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'tailhref': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'labelhref': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'edgetarget': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'headtarget': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'tailtarget': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'edgetooltip': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'headtooltip': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'tailtooltip': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'labeltooltip': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'radius': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `number` | `global` 'Approximation'
+                                    `value`: | `simple` | `global` 'Approximation'
                                 )
                                 'splines': (
                                     `constraints`: _
@@ -2120,23 +2004,17 @@
                                 'pos': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                                 'xlabel': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `multi line` ~
-                                    )
+                                    `value`: | `text` | `global` 'multi line text'
                                 )
                                 'layer': (
                                     `constraints`: _
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                             }
                             `results`: _
@@ -2434,12 +2312,17 @@
                     'Text Value': (
                         `type`: | `single line` ~
                     )
+                    'text': (
+                        `type`: | `single line` ~
+                    )
                 }
                 `simple types`: {
                     'Position': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `natural` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `natural` ~
+                            )
                         )
                     )
                 }
@@ -2480,15 +2363,11 @@
                                 `value`: | `group` {
                                     'from': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'to': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'attributes': (
                                         `description`: _
@@ -2532,10 +2411,15 @@
                 }
                 `simple types`: {
                     'Integer': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `integer` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `integer` ~
+                            )
                         )
+                    )
+                    'boolean': (
+                        `type`: | `boolean` ~
                     )
                 }
             )
@@ -2544,7 +2428,7 @@
                     `root value`: | `group` {
                         'strict': (
                             `description`: _
-                            `value`: | `boolean` ~
+                            `value`: | `simple` | `global` 'boolean'
                         )
                         'type': (
                             `description`: _
@@ -2805,7 +2689,7 @@
                             'number': (
                                 `constraints`: _
                                 `description`: _
-                                `value`: | `number` | `global` 'Integer'
+                                `value`: | `simple` | `global` 'Integer'
                             )
                         }
                         `results`: _

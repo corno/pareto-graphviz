@@ -140,7 +140,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -184,7 +186,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -743,7 +747,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -757,7 +763,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -771,7 +779,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -1485,7 +1495,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -1499,7 +1511,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -1555,7 +1569,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -1569,7 +1585,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -1583,7 +1601,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -1861,7 +1881,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -1875,7 +1897,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -2301,7 +2325,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -2426,7 +2452,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -2440,7 +2468,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -2454,7 +2484,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -2482,7 +2514,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -2496,7 +2530,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
@@ -3032,7 +3068,9 @@ export const Attributes: t_signatures.Attributes = ($, abort) => _p.list.from.li
                                         $,
                                     ),
                                     {
-                                        'type': ['decimal', null],
+                                        'type': ['scientific notation', {
+                                            'precision': 10,
+                                        }],
                                         'subdocument context': _p.optional.literal.not_set(),
                                     },
                                 )],
