@@ -8,20 +8,6 @@ import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
 //dependencies
-const pump = <Iterator_Element>(
-    iter: _pi.Iterator<Iterator_Element>,
-    callback: ($: Iterator_Element) => void
-) => {
-    while (true) {
-        const current = iter.look()
-        if (current === null) {
-            return
-        }
-
-        iter.discard(() => null)
-        callback(current[0])
-    }
-}
 
 export const $$: _pi.Transformer_With_Parameter<
     string,
@@ -32,11 +18,13 @@ export const $$: _pi.Transformer_With_Parameter<
     }
 > = ($, $p) => _p_iterate(
     _p_list_from_text($, ($) => $),
+    null,
     (iter) => _p_list_build_deprecated(
         ($i) => {
-            pump(
-                iter,
-                ($) => {
+            iter.list({
+                has_more_items: () => true,
+                handle: ($) => {
+                    iter.discard(() => null)
                     if ($ === $p['escape character code']) { // \
                         $i['add item']($p['escape character code'])
                         $i['add item']($p['escape character code'])
@@ -48,7 +36,7 @@ export const $$: _pi.Transformer_With_Parameter<
                     }
 
                 }
-            )
+            })
         }
 
     )
