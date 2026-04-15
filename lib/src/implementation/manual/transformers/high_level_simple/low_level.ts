@@ -7,8 +7,6 @@ import * as d_out from "../../../../interface/generated/liana/schemas/low_level/
 type Graph = _pi.Transformer<d_in.Graph, d_out.Graph>
 
 //dependencies
-import { $$ as s_quoted } from "../../primitives/text/serializers/quoted"
-import { $$ as s_decimal } from "../../primitives/integer/serializers/decimal"
 import * as t_attributes_to_low_level from "../attributes/low_level"
 
 //shorthands

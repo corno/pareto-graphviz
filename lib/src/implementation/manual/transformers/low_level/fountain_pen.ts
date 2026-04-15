@@ -22,7 +22,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 
 //dependencies
-import { $$ as s_quoted } from "../../primitives/text/serializers/quoted"
+import * as t_primitives_to_list_of_characters from "../primitives/list_of_characters"
 import * as t_html_to_fountain_pen from "pareto-static-html/dist/implementation/manual/transformers/static_html/fountain_pen"
 
 
@@ -131,7 +131,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
 export const ID: signatures.ID = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'id': return _p.ss($, ($) => sh.ph.literal($)) //FIX escaping
-        case 'string': return _p.ss($, ($) => sh.ph.serialize(s_quoted($)))
+        case 'string': return _p.ss($, ($) => sh.ph.serialize(t_primitives_to_list_of_characters.quoted($)))
         case 'html': return _p.ss($, ($) => t_html_to_fountain_pen.Phrasing_Element($))
         case 'number': return _p.ss($, ($) => sh.ph.literal("FIXME NUMBER"))
         default: return _p.au($[0])

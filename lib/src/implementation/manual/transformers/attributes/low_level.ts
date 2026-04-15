@@ -7,8 +7,6 @@ import * as d_out from "../../../../interface/generated/liana/schemas/low_level/
 type Attributes = _pi.Transformer<d_in.Attributes, d_out.Attributes>
 
 //dependencies
-import { $$ as s_quoted } from "../../primitives/text/serializers/quoted"
-import { $$ as s_decimal } from "../../primitives/integer/serializers/decimal"
 
 //shorthands
 import * as sh from "../../../../shorthands/low_level"
