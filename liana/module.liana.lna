@@ -432,74 +432,26 @@
     } {}< | `unconstrained` ~ {
         'Text Value': < | `single line` ~ >
     } {} > {
-        'Graph': (
-            `root value`: | `group` {
-                'name': (
-                    `description`: _
-                    `value`: | `optional` | `text` | `global` 'Text Value'
-                )
-                'tree': (
-                    `description`: _
-                    `value`: | `component` (
-                        `type`: | `internal` 'Tree'
-                        `results`: _
-                    )
-                )
-                'type': (
-                    `description`: _
-                    `value`: | `state` (
-                        `options`: {
-                            'undirected': (
-                                `constraints`: _
-                                `description`: _
-                                `value`: | `group` {
-                                    'edges': (
-                                        `description`: _
-                                        `value`: | `list` (
-                                            `value`: | `group` {
-                                                'yin': (
-                                                    `description`: _
-                                                    `value`: | `component` (
-                                                        `type`: | `internal` 'End Point Specification'
-                                                        `results`: _
-                                                    )
-                                                )
-                                                'yang': (
-                                                    `description`: _
-                                                    `value`: | `component` (
-                                                        `type`: | `internal` 'End Point Specification'
-                                                        `results`: _
-                                                    )
-                                                )
-                                                'attributes': (
-                                                    `description`: _
-                                                    `value`: | `component` (
-                                                        `type`: | `external` (
-                                                            `import`: 'attributes'
-                                                            `module`: 'Attributes'
-                                                        )
-                                                        `results`: _
-                                                    )
-                                                )
-                                            }
-                                            `results`: _
-                                        )
-                                    )
-                                }
-                            )
-                            'directed': < _ _ | `group` {
-                                'edges': < _ | `list`< | `group` {
-                                    'from': < _ | `component`< | `internal` 'End Point Specification' _ > >
-                                    'to': < _ | `component`< | `internal` 'End Point Specification' _ > >
-                                    'attributes': < _ | `component`< | `external`< 'attributes' 'Attributes' > _ > >
-                                } _ > >
-                            } >
-                        }
-                        `results`: _
-                    )
-                )
-            }
-        )
+        'Graph': < | `group` {
+            'name': < _ | `optional` | `text` | `global` 'Text Value' >
+            'tree': < _ | `component`< | `internal` 'Tree' _ > >
+            'type': < _ | `state`< {
+                'undirected': < _ _ | `group` {
+                    'edges': < _ | `list`< | `group` {
+                        'yin': < _ | `component`< | `internal` 'End Point Specification' _ > >
+                        'yang': < _ | `component`< | `internal` 'End Point Specification' _ > >
+                        'attributes': < _ | `component`< | `external`< 'attributes' 'Attributes' > _ > >
+                    } _ > >
+                } >
+                'directed': < _ _ | `group` {
+                    'edges': < _ | `list`< | `group` {
+                        'from': < _ | `component`< | `internal` 'End Point Specification' _ > >
+                        'to': < _ | `component`< | `internal` 'End Point Specification' _ > >
+                        'attributes': < _ | `component`< | `external`< 'attributes' 'Attributes' > _ > >
+                    } _ > >
+                } >
+            } _ > >
+        } >
         'Tree': < | `group` {
             'attributes': < _ | `component`< | `external`< 'attributes' 'Attributes' > _ > >
             'elements': < _ | `dictionary`< | `state`< {
