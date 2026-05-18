@@ -92,18 +92,6 @@ export namespace Flow_Element_ {
                         
                         export type classes = Classes_
                         
-                        export namespace type_ {
-                            
-                            export type th = null
-                            
-                            export type td = null
-                            
-                        }
-                        
-                        export type type_ = 
-                            | readonly ['th', type_.th]
-                            | readonly ['td', type_.td]
-                        
                         export namespace height {
                             
                             export type O = number
@@ -116,6 +104,26 @@ export namespace Flow_Element_ {
                             
                             export namespace L {
                                 
+                                export namespace type_ {
+                                    
+                                    export type th = null
+                                    
+                                    export type td = null
+                                    
+                                }
+                                
+                                export type type_ = 
+                                    | readonly ['th', type_.th]
+                                    | readonly ['td', type_.td]
+                                
+                                export namespace colspan {
+                                    
+                                    export type O = number
+                                    
+                                }
+                                
+                                export type colspan = _pi.Optional_Value<colspan.O>
+                                
                                 export type classes = Classes_
                                 
                                 export type content = Flow_Content_
@@ -123,6 +131,8 @@ export namespace Flow_Element_ {
                             }
                             
                             export type L = {
+                                readonly 'type': L.type_
+                                readonly 'colspan': L.colspan
                                 readonly 'classes': L.classes
                                 readonly 'content': L.content
                             }
@@ -135,7 +145,6 @@ export namespace Flow_Element_ {
                     
                     export type L = {
                         readonly 'classes': L.classes
-                        readonly 'type': L.type_
                         readonly 'height': L.height
                         readonly 'cells': L.cells
                     }
