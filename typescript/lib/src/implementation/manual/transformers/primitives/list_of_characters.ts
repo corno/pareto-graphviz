@@ -16,7 +16,7 @@ export const decimal: _pi.Transformer<number, d_out.List_of_Characters> = ($) =>
         do {
             const digit = $ % 10
             $i['add item'](digit)
-            $ = _p.number.integer.divide(
+            $ = _p.number.from.number.divide(
                 $,
                 10,
                 {
