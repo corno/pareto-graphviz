@@ -19,6 +19,7 @@ export const decimal: _pi.Transformer<number, d_out.List_of_Characters> = ($) =>
             $ = _p.number.from.number.divide(
                 $,
                 10,
+                ['towards zero', null],
                 {
                     divided_by_zero: () => _p_unreachable_code_path("the divisor is hardcoded to 10")
                 }
