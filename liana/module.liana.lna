@@ -9,9 +9,11 @@
                 `text types`: {
                     'Text Value': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                     'text': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                 }
                 `simple types`: {
@@ -218,12 +220,15 @@
                 `text types`: {
                     'Text Value': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                     'multi line text': (
                         `type`: | `multi line` ~
+                        `link`: | `no` ~
                     )
                     'text': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                 }
                 `simple types`: {
@@ -631,12 +636,15 @@
                 `text types`: {
                     'Text Value': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                     'multi line text': (
                         `type`: | `multi line` ~
+                        `link`: | `no` ~
                     )
                     'text': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                 }
                 `simple types`: {
@@ -2042,6 +2050,7 @@
                 `text types`: {
                     'Text Value': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                 }
                 `simple types`: {}
@@ -2266,6 +2275,7 @@
                 `text types`: {
                     'Text Value': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                 }
                 `simple types`: {}
@@ -2315,9 +2325,11 @@
                 `text types`: {
                     'Text Value': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                     'text': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                 }
                 `simple types`: {
@@ -2405,12 +2417,15 @@
                 `text types`: {
                     'id': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                     'Text Value': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                     '': (
                         `type`: | `single line` ~
+                        `link`: | `no` ~
                     )
                 }
                 `simple types`: {
