@@ -1,5 +1,5 @@
-import * as _pi from 'pareto-core/dist/interface'
-import * as _p from 'pareto-core-shorthands/dist/unconstrained'
+import * as pi from 'pareto-core/dist/interface'
+import * as pt from 'pareto-core-shorthands/dist/unconstrained'
 
 import * as d_target from "../interface/generated/liana/schemas/low_level/data"
 import * as d_target_html from "../interface/generated/liana/schemas/html/data"
@@ -9,12 +9,12 @@ export const Graph = (
     strict: boolean,
     name: null | d_target.ID,
     type: 'directed' | 'undirected',
-    statements: _p.Raw_Or_Normal_List<d_target.Statements.L>,
+    statements: pt.Raw_Or_Normal_List<d_target.Statements.L>,
 ): d_target.Graph => ({
     'strict': strict,
     'type': type === 'directed' ? ['digraph', null] : ['graph', null],
-    'name': _p.optional.literalx(name),
-    'statements': _p.list.literal(statements),
+    'name': pt.optional.literalx(name),
+    'statements': pt.list.literal(statements),
 })
 
 export namespace id {
@@ -41,28 +41,28 @@ export namespace s {
 
     export const node = (
         id: d_target.Node_ID,
-        attributes: _p.Raw_Or_Normal_List<d_target.Attributes.L>,
+        attributes: pt.Raw_Or_Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['node', {
         'node': id,
-        'attributes': _p.list.literal(attributes),
+        'attributes': pt.list.literal(attributes),
     }]
 
     export const edge = (
         left: d_target.End_Point,
-        right: _p.Raw_Or_Normal_List<d_target.End_Point>,
-        attributes: _p.Raw_Or_Normal_List<d_target.Attributes.L>,
+        right: pt.Raw_Or_Normal_List<d_target.End_Point>,
+        attributes: pt.Raw_Or_Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['edge', {
         'left': left,
-        'right': _p.list.literal(right),
-        'attributes': _p.list.literal(attributes),
+        'right': pt.list.literal(right),
+        'attributes': pt.list.literal(attributes),
     }]
 
     export const attributes = (
         type: 'graph' | 'node' | 'edge',
-        attributes: _p.Raw_Or_Normal_List<d_target.Attributes.L>,
+        attributes: pt.Raw_Or_Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['attributes', {
         'type': type === 'graph' ? ['graph', null] : type === 'node' ? ['node', null] : ['edge', null],
-        'attributes': _p.list.literal(attributes),
+        'attributes': pt.list.literal(attributes),
     }]
 
     export const attribute_assignment = (
@@ -104,5 +104,5 @@ export const node_id = (
     port: null | d_target.Node_ID.port.O,
 ): d_target.Node_ID => ({
     'id': id,
-    'port': _p.optional.literalx(port),
+    'port': pt.optional.literalx(port),
 })

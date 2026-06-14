@@ -1,10 +1,10 @@
-import * as _p from 'pareto-core/dist/assign'
-import * as _pi from 'pareto-core/dist/interface'
+import * as pt from 'pareto-core/dist/assign'
+import * as pi from 'pareto-core/dist/interface'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/attributes/data"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
-type Attributes = _pi.Transformer<d_in.Attributes, d_out.Paragraph>
+type Attributes = pi.Transformer<d_in.Attributes, d_out.Paragraph>
 
 //dependencies
 import * as t_primitives_to_list_of_characters from "../primitives/list_of_characters"
@@ -13,498 +13,498 @@ import * as t_primitives_to_list_of_characters from "../primitives/list_of_chara
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh.sentence([
-    _p.decide.state($, ($) => {
+    pt.decide.state($, ($) => {
         switch ($[0]) {
-            case 'freeform': return _p.ss($, ($) => sh.ph.composed([
+            case 'freeform': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($.key)),
                 sh.ph.literal("="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($.value))
             ]))
-            case 'color': return _p.ss($, ($) => sh.ph.composed([
+            case 'color': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("color="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'fillcolor': return _p.ss($, ($) => sh.ph.composed([
+            case 'fillcolor': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("fillcolor="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'penwidth': return _p.ss($, ($) => sh.ph.composed([
+            case 'penwidth': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("penwidth="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'label': return _p.ss($, ($) => sh.ph.composed([
+            case 'label': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("label="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'fontcolor': return _p.ss($, ($) => sh.ph.composed([
+            case 'fontcolor': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("fontcolor="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'fontname': return _p.ss($, ($) => sh.ph.composed([
+            case 'fontname': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("fontname="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'fontsize': return _p.ss($, ($) => sh.ph.composed([
+            case 'fontsize': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("fontsize="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'URL': return _p.ss($, ($) => sh.ph.composed([
+            case 'URL': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("URL="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'href': return _p.ss($, ($) => sh.ph.composed([
+            case 'href': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("href="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'target': return _p.ss($, ($) => sh.ph.composed([
+            case 'target': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("target="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'tooltip': return _p.ss($, ($) => sh.ph.composed([
+            case 'tooltip': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("tooltip="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'id': return _p.ss($, ($) => sh.ph.composed([
+            case 'id': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("id="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'class': return _p.ss($, ($) => sh.ph.composed([
+            case 'class': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("class="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'comment': return _p.ss($, ($) => sh.ph.composed([
+            case 'comment': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("comment="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'style': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'style': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'filled': return _p.ss($, ($) => sh.ph.literal("style=filled"))
-                    case 'rounded': return _p.ss($, ($) => sh.ph.literal("style=rounded"))
-                    case 'bold': return _p.ss($, ($) => sh.ph.literal("style=bold"))
-                    case 'solid': return _p.ss($, ($) => sh.ph.literal("style=solid"))
-                    case 'dashed': return _p.ss($, ($) => sh.ph.literal("style=dashed"))
-                    case 'dotted': return _p.ss($, ($) => sh.ph.literal("style=dotted"))
-                    case 'striped': return _p.ss($, ($) => sh.ph.literal("style=striped"))
-                    case 'wedged': return _p.ss($, ($) => sh.ph.literal("style=wedged"))
-                    case 'diagonals': return _p.ss($, ($) => sh.ph.literal("style=diagonals"))
-                    case 'invis': return _p.ss($, ($) => sh.ph.literal("style=invis"))
-                    case 'tapered': return _p.ss($, ($) => sh.ph.literal("style=tapered"))
-                    case 'custom': return _p.ss($, ($) => sh.ph.composed([
+                    case 'filled': return pt.ss($, ($) => sh.ph.literal("style=filled"))
+                    case 'rounded': return pt.ss($, ($) => sh.ph.literal("style=rounded"))
+                    case 'bold': return pt.ss($, ($) => sh.ph.literal("style=bold"))
+                    case 'solid': return pt.ss($, ($) => sh.ph.literal("style=solid"))
+                    case 'dashed': return pt.ss($, ($) => sh.ph.literal("style=dashed"))
+                    case 'dotted': return pt.ss($, ($) => sh.ph.literal("style=dotted"))
+                    case 'striped': return pt.ss($, ($) => sh.ph.literal("style=striped"))
+                    case 'wedged': return pt.ss($, ($) => sh.ph.literal("style=wedged"))
+                    case 'diagonals': return pt.ss($, ($) => sh.ph.literal("style=diagonals"))
+                    case 'invis': return pt.ss($, ($) => sh.ph.literal("style=invis"))
+                    case 'tapered': return pt.ss($, ($) => sh.ph.literal("style=tapered"))
+                    case 'custom': return pt.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("style="),
                         sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                    default: return _p.au($[0])
+                    default: return pt.au($[0])
                 }
             }))
-            case 'layout': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'layout': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'dot': return _p.ss($, ($) => sh.ph.literal("layout=dot"))
-                    case 'neato': return _p.ss($, ($) => sh.ph.literal("layout=neato"))
-                    case 'fdp': return _p.ss($, ($) => sh.ph.literal("layout=fdp"))
-                    case 'sfdp': return _p.ss($, ($) => sh.ph.literal("layout=sfdp"))
-                    case 'twopi': return _p.ss($, ($) => sh.ph.literal("layout=twopi"))
-                    case 'circo': return _p.ss($, ($) => sh.ph.literal("layout=circo"))
-                    case 'custom': return _p.ss($, ($) => sh.ph.composed([
+                    case 'dot': return pt.ss($, ($) => sh.ph.literal("layout=dot"))
+                    case 'neato': return pt.ss($, ($) => sh.ph.literal("layout=neato"))
+                    case 'fdp': return pt.ss($, ($) => sh.ph.literal("layout=fdp"))
+                    case 'sfdp': return pt.ss($, ($) => sh.ph.literal("layout=sfdp"))
+                    case 'twopi': return pt.ss($, ($) => sh.ph.literal("layout=twopi"))
+                    case 'circo': return pt.ss($, ($) => sh.ph.literal("layout=circo"))
+                    case 'custom': return pt.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("layout="),
                         sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                    default: return _p.au($[0])
+                    default: return pt.au($[0])
                 }
             }))
-            case 'rankdir': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'rankdir': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'TB': return _p.ss($, ($) => sh.ph.literal("rankdir=TB"))
-                    case 'BT': return _p.ss($, ($) => sh.ph.literal("rankdir=BT"))
-                    case 'LR': return _p.ss($, ($) => sh.ph.literal("rankdir=LR"))
-                    case 'RL': return _p.ss($, ($) => sh.ph.literal("rankdir=RL"))
-                    default: return _p.au($[0])
+                    case 'TB': return pt.ss($, ($) => sh.ph.literal("rankdir=TB"))
+                    case 'BT': return pt.ss($, ($) => sh.ph.literal("rankdir=BT"))
+                    case 'LR': return pt.ss($, ($) => sh.ph.literal("rankdir=LR"))
+                    case 'RL': return pt.ss($, ($) => sh.ph.literal("rankdir=RL"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'bgcolor': return _p.ss($, ($) => sh.ph.composed([
+            case 'bgcolor': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("bgcolor="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'labelloc': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'labelloc': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 't': return _p.ss($, ($) => sh.ph.literal("labelloc=t"))
-                    case 'b': return _p.ss($, ($) => sh.ph.literal("labelloc=b"))
-                    default: return _p.au($[0])
+                    case 't': return pt.ss($, ($) => sh.ph.literal("labelloc=t"))
+                    case 'b': return pt.ss($, ($) => sh.ph.literal("labelloc=b"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'labeljust': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'labeljust': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'l': return _p.ss($, ($) => sh.ph.literal("labeljust=l"))
-                    case 'c': return _p.ss($, ($) => sh.ph.literal("labeljust=c"))
-                    case 'r': return _p.ss($, ($) => sh.ph.literal("labeljust=r"))
-                    default: return _p.au($[0])
+                    case 'l': return pt.ss($, ($) => sh.ph.literal("labeljust=l"))
+                    case 'c': return pt.ss($, ($) => sh.ph.literal("labeljust=c"))
+                    case 'r': return pt.ss($, ($) => sh.ph.literal("labeljust=r"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'size': return _p.ss($, ($) => sh.ph.composed([
+            case 'size': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("size="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))
             ]))
-            case 'ratio': return _p.ss($, ($) => sh.ph.composed([
+            case 'ratio': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("ratio="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'pad': return _p.ss($, ($) => sh.ph.composed([
+            case 'pad': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("pad="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'nodesep': return _p.ss($, ($) => sh.ph.composed([
+            case 'nodesep': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("nodesep="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'ranksep': return _p.ss($, ($) => sh.ph.composed([
+            case 'ranksep': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("ranksep="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'dpi': return _p.ss($, ($) => sh.ph.composed([
+            case 'dpi': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("dpi="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'overlap': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'overlap': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'true': return _p.ss($, ($) => sh.ph.literal("overlap=true"))
-                    case 'false': return _p.ss($, ($) => sh.ph.literal("overlap=false"))
-                    case 'scale': return _p.ss($, ($) => sh.ph.literal("overlap=scale"))
-                    case 'scalexy': return _p.ss($, ($) => sh.ph.literal("overlap=scalexy"))
-                    case 'orthoxy': return _p.ss($, ($) => sh.ph.literal("overlap=orthoxy"))
-                    case 'orthoyx': return _p.ss($, ($) => sh.ph.literal("overlap=orthoyx"))
-                    case 'compress': return _p.ss($, ($) => sh.ph.literal("overlap=compress"))
-                    case 'vpsc': return _p.ss($, ($) => sh.ph.literal("overlap=vpsc"))
-                    case 'ipsep': return _p.ss($, ($) => sh.ph.literal("overlap=ipsep"))
-                    case 'prism': return _p.ss($, ($) => sh.ph.literal("overlap=prism"))
-                    default: return _p.au($[0])
+                    case 'true': return pt.ss($, ($) => sh.ph.literal("overlap=true"))
+                    case 'false': return pt.ss($, ($) => sh.ph.literal("overlap=false"))
+                    case 'scale': return pt.ss($, ($) => sh.ph.literal("overlap=scale"))
+                    case 'scalexy': return pt.ss($, ($) => sh.ph.literal("overlap=scalexy"))
+                    case 'orthoxy': return pt.ss($, ($) => sh.ph.literal("overlap=orthoxy"))
+                    case 'orthoyx': return pt.ss($, ($) => sh.ph.literal("overlap=orthoyx"))
+                    case 'compress': return pt.ss($, ($) => sh.ph.literal("overlap=compress"))
+                    case 'vpsc': return pt.ss($, ($) => sh.ph.literal("overlap=vpsc"))
+                    case 'ipsep': return pt.ss($, ($) => sh.ph.literal("overlap=ipsep"))
+                    case 'prism': return pt.ss($, ($) => sh.ph.literal("overlap=prism"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'pack': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'pack': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'true': return _p.ss($, ($) => sh.ph.literal("pack=true"))
-                    case 'false': return _p.ss($, ($) => sh.ph.literal("pack=false"))
-                    case 'custom': return _p.ss($, ($) => sh.ph.composed([
+                    case 'true': return pt.ss($, ($) => sh.ph.literal("pack=true"))
+                    case 'false': return pt.ss($, ($) => sh.ph.literal("pack=false"))
+                    case 'custom': return pt.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("pack="),
                         sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-                    default: return _p.au($[0])
+                    default: return pt.au($[0])
                 }
             }))
-            case 'packmode': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'packmode': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'node': return _p.ss($, ($) => sh.ph.literal("packmode=node"))
-                    case 'clust': return _p.ss($, ($) => sh.ph.literal("packmode=clust"))
-                    case 'graph': return _p.ss($, ($) => sh.ph.literal("packmode=graph"))
-                    default: return _p.au($[0])
+                    case 'node': return pt.ss($, ($) => sh.ph.literal("packmode=node"))
+                    case 'clust': return pt.ss($, ($) => sh.ph.literal("packmode=clust"))
+                    case 'graph': return pt.ss($, ($) => sh.ph.literal("packmode=graph"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'concentrate': return _p.ss($, ($) => sh.ph.literal($ ? "concentrate=true" : "concentrate=false"))
-            case 'compound': return _p.ss($, ($) => sh.ph.literal($ ? "compound=true" : "compound=false"))
-            case 'center': return _p.ss($, ($) => sh.ph.literal($ ? "center=true" : "center=false"))
-            case 'normalize': return _p.ss($, ($) => sh.ph.literal($ ? "normalize=true" : "normalize=false"))
-            case 'landscape': return _p.ss($, ($) => sh.ph.literal($ ? "landscape=true" : "landscape=false"))
-            case 'outputorder': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'concentrate': return pt.ss($, ($) => sh.ph.literal($ ? "concentrate=true" : "concentrate=false"))
+            case 'compound': return pt.ss($, ($) => sh.ph.literal($ ? "compound=true" : "compound=false"))
+            case 'center': return pt.ss($, ($) => sh.ph.literal($ ? "center=true" : "center=false"))
+            case 'normalize': return pt.ss($, ($) => sh.ph.literal($ ? "normalize=true" : "normalize=false"))
+            case 'landscape': return pt.ss($, ($) => sh.ph.literal($ ? "landscape=true" : "landscape=false"))
+            case 'outputorder': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'breadthfirst': return _p.ss($, ($) => sh.ph.literal("outputorder=breadthfirst"))
-                    case 'nodesfirst': return _p.ss($, ($) => sh.ph.literal("outputorder=nodesfirst"))
-                    case 'edgesfirst': return _p.ss($, ($) => sh.ph.literal("outputorder=edgesfirst"))
-                    default: return _p.au($[0])
+                    case 'breadthfirst': return pt.ss($, ($) => sh.ph.literal("outputorder=breadthfirst"))
+                    case 'nodesfirst': return pt.ss($, ($) => sh.ph.literal("outputorder=nodesfirst"))
+                    case 'edgesfirst': return pt.ss($, ($) => sh.ph.literal("outputorder=edgesfirst"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'charset': return _p.ss($, ($) => sh.ph.composed([
+            case 'charset': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("charset="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'clusterrank': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'clusterrank': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'local': return _p.ss($, ($) => sh.ph.literal("clusterrank=local"))
-                    case 'global': return _p.ss($, ($) => sh.ph.literal("clusterrank=global"))
-                    case 'none': return _p.ss($, ($) => sh.ph.literal("clusterrank=none"))
-                    default: return _p.au($[0])
+                    case 'local': return pt.ss($, ($) => sh.ph.literal("clusterrank=local"))
+                    case 'global': return pt.ss($, ($) => sh.ph.literal("clusterrank=global"))
+                    case 'none': return pt.ss($, ($) => sh.ph.literal("clusterrank=none"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'shape': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'shape': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'box': return _p.ss($, ($) => sh.ph.literal("shape=box"))
-                    case 'circle': return _p.ss($, ($) => sh.ph.literal("shape=circle"))
-                    case 'ellipse': return _p.ss($, ($) => sh.ph.literal("shape=ellipse"))
-                    case 'oval': return _p.ss($, ($) => sh.ph.literal("shape=oval"))
-                    case 'point': return _p.ss($, ($) => sh.ph.literal("shape=point"))
-                    case 'egg': return _p.ss($, ($) => sh.ph.literal("shape=egg"))
-                    case 'triangle': return _p.ss($, ($) => sh.ph.literal("shape=triangle"))
-                    case 'plaintext': return _p.ss($, ($) => sh.ph.literal("shape=plaintext"))
-                    case 'plain': return _p.ss($, ($) => sh.ph.literal("shape=plain"))
-                    case 'diamond': return _p.ss($, ($) => sh.ph.literal("shape=diamond"))
-                    case 'trapezium': return _p.ss($, ($) => sh.ph.literal("shape=trapezium"))
-                    case 'parallelogram': return _p.ss($, ($) => sh.ph.literal("shape=parallelogram"))
-                    case 'house': return _p.ss($, ($) => sh.ph.literal("shape=house"))
-                    case 'pentagon': return _p.ss($, ($) => sh.ph.literal("shape=pentagon"))
-                    case 'hexagon': return _p.ss($, ($) => sh.ph.literal("shape=hexagon"))
-                    case 'septagon': return _p.ss($, ($) => sh.ph.literal("shape=septagon"))
-                    case 'octagon': return _p.ss($, ($) => sh.ph.literal("shape=octagon"))
-                    case 'polygon': return _p.ss($, ($) => sh.ph.literal("shape=polygon"))
-                    case 'record': return _p.ss($, ($) => sh.ph.literal("shape=record"))
-                    case 'Mrecord': return _p.ss($, ($) => sh.ph.literal("shape=Mrecord"))
-                    case 'custom': return _p.ss($, ($) => sh.ph.composed([
+                    case 'box': return pt.ss($, ($) => sh.ph.literal("shape=box"))
+                    case 'circle': return pt.ss($, ($) => sh.ph.literal("shape=circle"))
+                    case 'ellipse': return pt.ss($, ($) => sh.ph.literal("shape=ellipse"))
+                    case 'oval': return pt.ss($, ($) => sh.ph.literal("shape=oval"))
+                    case 'point': return pt.ss($, ($) => sh.ph.literal("shape=point"))
+                    case 'egg': return pt.ss($, ($) => sh.ph.literal("shape=egg"))
+                    case 'triangle': return pt.ss($, ($) => sh.ph.literal("shape=triangle"))
+                    case 'plaintext': return pt.ss($, ($) => sh.ph.literal("shape=plaintext"))
+                    case 'plain': return pt.ss($, ($) => sh.ph.literal("shape=plain"))
+                    case 'diamond': return pt.ss($, ($) => sh.ph.literal("shape=diamond"))
+                    case 'trapezium': return pt.ss($, ($) => sh.ph.literal("shape=trapezium"))
+                    case 'parallelogram': return pt.ss($, ($) => sh.ph.literal("shape=parallelogram"))
+                    case 'house': return pt.ss($, ($) => sh.ph.literal("shape=house"))
+                    case 'pentagon': return pt.ss($, ($) => sh.ph.literal("shape=pentagon"))
+                    case 'hexagon': return pt.ss($, ($) => sh.ph.literal("shape=hexagon"))
+                    case 'septagon': return pt.ss($, ($) => sh.ph.literal("shape=septagon"))
+                    case 'octagon': return pt.ss($, ($) => sh.ph.literal("shape=octagon"))
+                    case 'polygon': return pt.ss($, ($) => sh.ph.literal("shape=polygon"))
+                    case 'record': return pt.ss($, ($) => sh.ph.literal("shape=record"))
+                    case 'Mrecord': return pt.ss($, ($) => sh.ph.literal("shape=Mrecord"))
+                    case 'custom': return pt.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("shape="),
                         sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                    default: return _p.au($[0])
+                    default: return pt.au($[0])
                 }
             }))
-            case 'width': return _p.ss($, ($) => sh.ph.composed([
+            case 'width': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("width="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'height': return _p.ss($, ($) => sh.ph.composed([
+            case 'height': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("height="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'fixedsize': return _p.ss($, ($) => sh.ph.literal($ ? "fixedsize=true" : "fixedsize=false"))
-            case 'regular': return _p.ss($, ($) => sh.ph.literal($ ? "regular=true" : "regular=false"))
-            case 'sides': return _p.ss($, ($) => sh.ph.composed([
+            case 'fixedsize': return pt.ss($, ($) => sh.ph.literal($ ? "fixedsize=true" : "fixedsize=false"))
+            case 'regular': return pt.ss($, ($) => sh.ph.literal($ ? "regular=true" : "regular=false"))
+            case 'sides': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("sides="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'skew': return _p.ss($, ($) => sh.ph.composed([
+            case 'skew': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("skew="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'distortion': return _p.ss($, ($) => sh.ph.composed([
+            case 'distortion': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("distortion="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'orientation': return _p.ss($, ($) => sh.ph.composed([
+            case 'orientation': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("orientation="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'peripheries': return _p.ss($, ($) => sh.ph.composed([
+            case 'peripheries': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("peripheries="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'pin': return _p.ss($, ($) => sh.ph.literal($ ? "pin=true" : "pin=false"))
-            case 'image': return _p.ss($, ($) => sh.ph.composed([
+            case 'pin': return pt.ss($, ($) => sh.ph.literal($ ? "pin=true" : "pin=false"))
+            case 'image': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("image="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'imagepos': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'imagepos': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'tl': return _p.ss($, ($) => sh.ph.literal("imagepos=tl"))
-                    case 'tc': return _p.ss($, ($) => sh.ph.literal("imagepos=tc"))
-                    case 'tr': return _p.ss($, ($) => sh.ph.literal("imagepos=tr"))
-                    case 'ml': return _p.ss($, ($) => sh.ph.literal("imagepos=ml"))
-                    case 'mc': return _p.ss($, ($) => sh.ph.literal("imagepos=mc"))
-                    case 'mr': return _p.ss($, ($) => sh.ph.literal("imagepos=mr"))
-                    case 'bl': return _p.ss($, ($) => sh.ph.literal("imagepos=bl"))
-                    case 'bc': return _p.ss($, ($) => sh.ph.literal("imagepos=bc"))
-                    case 'br': return _p.ss($, ($) => sh.ph.literal("imagepos=br"))
-                    default: return _p.au($[0])
+                    case 'tl': return pt.ss($, ($) => sh.ph.literal("imagepos=tl"))
+                    case 'tc': return pt.ss($, ($) => sh.ph.literal("imagepos=tc"))
+                    case 'tr': return pt.ss($, ($) => sh.ph.literal("imagepos=tr"))
+                    case 'ml': return pt.ss($, ($) => sh.ph.literal("imagepos=ml"))
+                    case 'mc': return pt.ss($, ($) => sh.ph.literal("imagepos=mc"))
+                    case 'mr': return pt.ss($, ($) => sh.ph.literal("imagepos=mr"))
+                    case 'bl': return pt.ss($, ($) => sh.ph.literal("imagepos=bl"))
+                    case 'bc': return pt.ss($, ($) => sh.ph.literal("imagepos=bc"))
+                    case 'br': return pt.ss($, ($) => sh.ph.literal("imagepos=br"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'imagescale': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'imagescale': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'false': return _p.ss($, ($) => sh.ph.literal("imagescale=false"))
-                    case 'true': return _p.ss($, ($) => sh.ph.literal("imagescale=true"))
-                    case 'width': return _p.ss($, ($) => sh.ph.literal("imagescale=width"))
-                    case 'height': return _p.ss($, ($) => sh.ph.literal("imagescale=height"))
-                    case 'both': return _p.ss($, ($) => sh.ph.literal("imagescale=both"))
-                    default: return _p.au($[0])
+                    case 'false': return pt.ss($, ($) => sh.ph.literal("imagescale=false"))
+                    case 'true': return pt.ss($, ($) => sh.ph.literal("imagescale=true"))
+                    case 'width': return pt.ss($, ($) => sh.ph.literal("imagescale=width"))
+                    case 'height': return pt.ss($, ($) => sh.ph.literal("imagescale=height"))
+                    case 'both': return pt.ss($, ($) => sh.ph.literal("imagescale=both"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'group': return _p.ss($, ($) => sh.ph.composed([
+            case 'group': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("group="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'sortv': return _p.ss($, ($) => sh.ph.composed([
+            case 'sortv': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("sortv="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'area': return _p.ss($, ($) => sh.ph.composed([
+            case 'area': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("area="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'z': return _p.ss($, ($) => sh.ph.composed([
+            case 'z': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("z="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'margin': return _p.ss($, ($) => sh.ph.composed([
+            case 'margin': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("margin="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'arrowhead': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'arrowhead': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'normal': return _p.ss($, ($) => sh.ph.literal("arrowhead=normal"))
-                    case 'box': return _p.ss($, ($) => sh.ph.literal("arrowhead=box"))
-                    case 'crow': return _p.ss($, ($) => sh.ph.literal("arrowhead=crow"))
-                    case 'diamond': return _p.ss($, ($) => sh.ph.literal("arrowhead=diamond"))
-                    case 'dot': return _p.ss($, ($) => sh.ph.literal("arrowhead=dot"))
-                    case 'inv': return _p.ss($, ($) => sh.ph.literal("arrowhead=inv"))
-                    case 'none': return _p.ss($, ($) => sh.ph.literal("arrowhead=none"))
-                    case 'tee': return _p.ss($, ($) => sh.ph.literal("arrowhead=tee"))
-                    case 'vee': return _p.ss($, ($) => sh.ph.literal("arrowhead=vee"))
-                    case 'open': return _p.ss($, ($) => sh.ph.literal("arrowhead=open"))
-                    case 'halfopen': return _p.ss($, ($) => sh.ph.literal("arrowhead=halfopen"))
-                    case 'empty': return _p.ss($, ($) => sh.ph.literal("arrowhead=empty"))
-                    case 'invempty': return _p.ss($, ($) => sh.ph.literal("arrowhead=invempty"))
-                    case 'odiamond': return _p.ss($, ($) => sh.ph.literal("arrowhead=odiamond"))
-                    case 'odot': return _p.ss($, ($) => sh.ph.literal("arrowhead=odot"))
-                    case 'obox': return _p.ss($, ($) => sh.ph.literal("arrowhead=obox"))
-                    case 'custom': return _p.ss($, ($) => sh.ph.composed([
+                    case 'normal': return pt.ss($, ($) => sh.ph.literal("arrowhead=normal"))
+                    case 'box': return pt.ss($, ($) => sh.ph.literal("arrowhead=box"))
+                    case 'crow': return pt.ss($, ($) => sh.ph.literal("arrowhead=crow"))
+                    case 'diamond': return pt.ss($, ($) => sh.ph.literal("arrowhead=diamond"))
+                    case 'dot': return pt.ss($, ($) => sh.ph.literal("arrowhead=dot"))
+                    case 'inv': return pt.ss($, ($) => sh.ph.literal("arrowhead=inv"))
+                    case 'none': return pt.ss($, ($) => sh.ph.literal("arrowhead=none"))
+                    case 'tee': return pt.ss($, ($) => sh.ph.literal("arrowhead=tee"))
+                    case 'vee': return pt.ss($, ($) => sh.ph.literal("arrowhead=vee"))
+                    case 'open': return pt.ss($, ($) => sh.ph.literal("arrowhead=open"))
+                    case 'halfopen': return pt.ss($, ($) => sh.ph.literal("arrowhead=halfopen"))
+                    case 'empty': return pt.ss($, ($) => sh.ph.literal("arrowhead=empty"))
+                    case 'invempty': return pt.ss($, ($) => sh.ph.literal("arrowhead=invempty"))
+                    case 'odiamond': return pt.ss($, ($) => sh.ph.literal("arrowhead=odiamond"))
+                    case 'odot': return pt.ss($, ($) => sh.ph.literal("arrowhead=odot"))
+                    case 'obox': return pt.ss($, ($) => sh.ph.literal("arrowhead=obox"))
+                    case 'custom': return pt.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("arrowhead="),
                         sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                    default: return _p.au($[0])
+                    default: return pt.au($[0])
                 }
             }))
-            case 'arrowtail': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'arrowtail': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'normal': return _p.ss($, ($) => sh.ph.literal("arrowtail=normal"))
-                    case 'box': return _p.ss($, ($) => sh.ph.literal("arrowtail=box"))
-                    case 'crow': return _p.ss($, ($) => sh.ph.literal("arrowtail=crow"))
-                    case 'diamond': return _p.ss($, ($) => sh.ph.literal("arrowtail=diamond"))
-                    case 'dot': return _p.ss($, ($) => sh.ph.literal("arrowtail=dot"))
-                    case 'inv': return _p.ss($, ($) => sh.ph.literal("arrowtail=inv"))
-                    case 'none': return _p.ss($, ($) => sh.ph.literal("arrowtail=none"))
-                    case 'tee': return _p.ss($, ($) => sh.ph.literal("arrowtail=tee"))
-                    case 'vee': return _p.ss($, ($) => sh.ph.literal("arrowtail=vee"))
-                    case 'open': return _p.ss($, ($) => sh.ph.literal("arrowtail=open"))
-                    case 'halfopen': return _p.ss($, ($) => sh.ph.literal("arrowtail=halfopen"))
-                    case 'empty': return _p.ss($, ($) => sh.ph.literal("arrowtail=empty"))
-                    case 'invempty': return _p.ss($, ($) => sh.ph.literal("arrowtail=invempty"))
-                    case 'odiamond': return _p.ss($, ($) => sh.ph.literal("arrowtail=odiamond"))
-                    case 'odot': return _p.ss($, ($) => sh.ph.literal("arrowtail=odot"))
-                    case 'obox': return _p.ss($, ($) => sh.ph.literal("arrowtail=obox"))
-                    case 'custom': return _p.ss($, ($) => sh.ph.composed([
+                    case 'normal': return pt.ss($, ($) => sh.ph.literal("arrowtail=normal"))
+                    case 'box': return pt.ss($, ($) => sh.ph.literal("arrowtail=box"))
+                    case 'crow': return pt.ss($, ($) => sh.ph.literal("arrowtail=crow"))
+                    case 'diamond': return pt.ss($, ($) => sh.ph.literal("arrowtail=diamond"))
+                    case 'dot': return pt.ss($, ($) => sh.ph.literal("arrowtail=dot"))
+                    case 'inv': return pt.ss($, ($) => sh.ph.literal("arrowtail=inv"))
+                    case 'none': return pt.ss($, ($) => sh.ph.literal("arrowtail=none"))
+                    case 'tee': return pt.ss($, ($) => sh.ph.literal("arrowtail=tee"))
+                    case 'vee': return pt.ss($, ($) => sh.ph.literal("arrowtail=vee"))
+                    case 'open': return pt.ss($, ($) => sh.ph.literal("arrowtail=open"))
+                    case 'halfopen': return pt.ss($, ($) => sh.ph.literal("arrowtail=halfopen"))
+                    case 'empty': return pt.ss($, ($) => sh.ph.literal("arrowtail=empty"))
+                    case 'invempty': return pt.ss($, ($) => sh.ph.literal("arrowtail=invempty"))
+                    case 'odiamond': return pt.ss($, ($) => sh.ph.literal("arrowtail=odiamond"))
+                    case 'odot': return pt.ss($, ($) => sh.ph.literal("arrowtail=odot"))
+                    case 'obox': return pt.ss($, ($) => sh.ph.literal("arrowtail=obox"))
+                    case 'custom': return pt.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("arrowtail="),
                         sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                    default: return _p.au($[0])
+                    default: return pt.au($[0])
                 }
             }))
-            case 'arrowsize': return _p.ss($, ($) => sh.ph.composed([
+            case 'arrowsize': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("arrowsize="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'dir': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'dir': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'forward': return _p.ss($, ($) => sh.ph.literal("dir=forward"))
-                    case 'back': return _p.ss($, ($) => sh.ph.literal("dir=back"))
-                    case 'both': return _p.ss($, ($) => sh.ph.literal("dir=both"))
-                    case 'none': return _p.ss($, ($) => sh.ph.literal("dir=none"))
-                    default: return _p.au($[0])
+                    case 'forward': return pt.ss($, ($) => sh.ph.literal("dir=forward"))
+                    case 'back': return pt.ss($, ($) => sh.ph.literal("dir=back"))
+                    case 'both': return pt.ss($, ($) => sh.ph.literal("dir=both"))
+                    case 'none': return pt.ss($, ($) => sh.ph.literal("dir=none"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'headlabel': return _p.ss($, ($) => sh.ph.composed([
+            case 'headlabel': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("headlabel="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'taillabel': return _p.ss($, ($) => sh.ph.composed([
+            case 'taillabel': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("taillabel="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'labelfontcolor': return _p.ss($, ($) => sh.ph.composed([
+            case 'labelfontcolor': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("labelfontcolor="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'labelfontname': return _p.ss($, ($) => sh.ph.composed([
+            case 'labelfontname': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("labelfontname="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'labelfontsize': return _p.ss($, ($) => sh.ph.composed([
+            case 'labelfontsize': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("labelfontsize="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'labelangle': return _p.ss($, ($) => sh.ph.composed([
+            case 'labelangle': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("labelangle="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'labeldistance': return _p.ss($, ($) => sh.ph.composed([
+            case 'labeldistance': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("labeldistance="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'labelfloat': return _p.ss($, ($) => sh.ph.literal($ ? "labelfloat=true" : "labelfloat=false"))
-            case 'weight': return _p.ss($, ($) => sh.ph.composed([
+            case 'labelfloat': return pt.ss($, ($) => sh.ph.literal($ ? "labelfloat=true" : "labelfloat=false"))
+            case 'weight': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("weight="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'len': return _p.ss($, ($) => sh.ph.composed([
+            case 'len': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("len="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'minlen': return _p.ss($, ($) => sh.ph.composed([
+            case 'minlen': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("minlen="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'constraint': return _p.ss($, ($) => sh.ph.literal($ ? "constraint=true" : "constraint=false"))
-            case 'decorate': return _p.ss($, ($) => sh.ph.literal($ ? "decorate=true" : "decorate=false"))
-            case 'headport': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'constraint': return pt.ss($, ($) => sh.ph.literal($ ? "constraint=true" : "constraint=false"))
+            case 'decorate': return pt.ss($, ($) => sh.ph.literal($ ? "decorate=true" : "decorate=false"))
+            case 'headport': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'center': return _p.ss($, ($) => sh.ph.literal("headport=center"))
-                    case 'n': return _p.ss($, ($) => sh.ph.literal("headport=n"))
-                    case 'ne': return _p.ss($, ($) => sh.ph.literal("headport=ne"))
-                    case 'e': return _p.ss($, ($) => sh.ph.literal("headport=e"))
-                    case 'se': return _p.ss($, ($) => sh.ph.literal("headport=se"))
-                    case 's': return _p.ss($, ($) => sh.ph.literal("headport=s"))
-                    case 'sw': return _p.ss($, ($) => sh.ph.literal("headport=sw"))
-                    case 'w': return _p.ss($, ($) => sh.ph.literal("headport=w"))
-                    case 'nw': return _p.ss($, ($) => sh.ph.literal("headport=nw"))
-                    case 'custom': return _p.ss($, ($) => sh.ph.composed([
+                    case 'center': return pt.ss($, ($) => sh.ph.literal("headport=center"))
+                    case 'n': return pt.ss($, ($) => sh.ph.literal("headport=n"))
+                    case 'ne': return pt.ss($, ($) => sh.ph.literal("headport=ne"))
+                    case 'e': return pt.ss($, ($) => sh.ph.literal("headport=e"))
+                    case 'se': return pt.ss($, ($) => sh.ph.literal("headport=se"))
+                    case 's': return pt.ss($, ($) => sh.ph.literal("headport=s"))
+                    case 'sw': return pt.ss($, ($) => sh.ph.literal("headport=sw"))
+                    case 'w': return pt.ss($, ($) => sh.ph.literal("headport=w"))
+                    case 'nw': return pt.ss($, ($) => sh.ph.literal("headport=nw"))
+                    case 'custom': return pt.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("headport="),
                         sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                    default: return _p.au($[0])
+                    default: return pt.au($[0])
                 }
             }))
-            case 'tailport': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'tailport': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'center': return _p.ss($, ($) => sh.ph.literal("tailport=center"))
-                    case 'n': return _p.ss($, ($) => sh.ph.literal("tailport=n"))
-                    case 'ne': return _p.ss($, ($) => sh.ph.literal("tailport=ne"))
-                    case 'e': return _p.ss($, ($) => sh.ph.literal("tailport=e"))
-                    case 'se': return _p.ss($, ($) => sh.ph.literal("tailport=se"))
-                    case 's': return _p.ss($, ($) => sh.ph.literal("tailport=s"))
-                    case 'sw': return _p.ss($, ($) => sh.ph.literal("tailport=sw"))
-                    case 'w': return _p.ss($, ($) => sh.ph.literal("tailport=w"))
-                    case 'nw': return _p.ss($, ($) => sh.ph.literal("tailport=nw"))
-                    case 'custom': return _p.ss($, ($) => sh.ph.composed([
+                    case 'center': return pt.ss($, ($) => sh.ph.literal("tailport=center"))
+                    case 'n': return pt.ss($, ($) => sh.ph.literal("tailport=n"))
+                    case 'ne': return pt.ss($, ($) => sh.ph.literal("tailport=ne"))
+                    case 'e': return pt.ss($, ($) => sh.ph.literal("tailport=e"))
+                    case 'se': return pt.ss($, ($) => sh.ph.literal("tailport=se"))
+                    case 's': return pt.ss($, ($) => sh.ph.literal("tailport=s"))
+                    case 'sw': return pt.ss($, ($) => sh.ph.literal("tailport=sw"))
+                    case 'w': return pt.ss($, ($) => sh.ph.literal("tailport=w"))
+                    case 'nw': return pt.ss($, ($) => sh.ph.literal("tailport=nw"))
+                    case 'custom': return pt.ss($, ($) => sh.ph.composed([
                         sh.ph.literal("tailport="),
                         sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                    default: return _p.au($[0])
+                    default: return pt.au($[0])
                 }
             }))
-            case 'headclip': return _p.ss($, ($) => sh.ph.literal($ ? "headclip=true" : "headclip=false"))
-            case 'tailclip': return _p.ss($, ($) => sh.ph.literal($ ? "tailclip=true" : "tailclip=false"))
-            case 'lhead': return _p.ss($, ($) => sh.ph.composed([
+            case 'headclip': return pt.ss($, ($) => sh.ph.literal($ ? "headclip=true" : "headclip=false"))
+            case 'tailclip': return pt.ss($, ($) => sh.ph.literal($ ? "tailclip=true" : "tailclip=false"))
+            case 'lhead': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("lhead="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'ltail': return _p.ss($, ($) => sh.ph.composed([
+            case 'ltail': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("ltail="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'samehead': return _p.ss($, ($) => sh.ph.composed([
+            case 'samehead': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("samehead="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'sametail': return _p.ss($, ($) => sh.ph.composed([
+            case 'sametail': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("sametail="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'edgeURL': return _p.ss($, ($) => sh.ph.composed([
+            case 'edgeURL': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("edgeURL="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'headURL': return _p.ss($, ($) => sh.ph.composed([
+            case 'headURL': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("headURL="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'tailURL': return _p.ss($, ($) => sh.ph.composed([
+            case 'tailURL': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("tailURL="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'labelURL': return _p.ss($, ($) => sh.ph.composed([
+            case 'labelURL': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("labelURL="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'edgehref': return _p.ss($, ($) => sh.ph.composed([
+            case 'edgehref': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("edgehref="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'headhref': return _p.ss($, ($) => sh.ph.composed([
+            case 'headhref': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("headhref="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'tailhref': return _p.ss($, ($) => sh.ph.composed([
+            case 'tailhref': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("tailhref="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'labelhref': return _p.ss($, ($) => sh.ph.composed([
+            case 'labelhref': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("labelhref="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'edgetarget': return _p.ss($, ($) => sh.ph.composed([
+            case 'edgetarget': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("edgetarget="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'headtarget': return _p.ss($, ($) => sh.ph.composed([
+            case 'headtarget': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("headtarget="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'tailtarget': return _p.ss($, ($) => sh.ph.composed([
+            case 'tailtarget': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("tailtarget="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'edgetooltip': return _p.ss($, ($) => sh.ph.composed([
+            case 'edgetooltip': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("edgetooltip="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'headtooltip': return _p.ss($, ($) => sh.ph.composed([
+            case 'headtooltip': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("headtooltip="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'tailtooltip': return _p.ss($, ($) => sh.ph.composed([
+            case 'tailtooltip': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("tailtooltip="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'labeltooltip': return _p.ss($, ($) => sh.ph.composed([
+            case 'labeltooltip': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("labeltooltip="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'radius': return _p.ss($, ($) => sh.ph.composed([
+            case 'radius': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("radius="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'splines': return _p.ss($, ($) => _p.decide.state($, ($) => {
+            case 'splines': return pt.ss($, ($) => pt.decide.state($, ($) => {
                 switch ($[0]) {
-                    case 'true': return _p.ss($, ($) => sh.ph.literal("splines=true"))
-                    case 'false': return _p.ss($, ($) => sh.ph.literal("splines=false"))
-                    case 'none': return _p.ss($, ($) => sh.ph.literal("splines=none"))
-                    case 'line': return _p.ss($, ($) => sh.ph.literal("splines=line"))
-                    case 'spline': return _p.ss($, ($) => sh.ph.literal("splines=spline"))
-                    case 'polyline': return _p.ss($, ($) => sh.ph.literal("splines=polyline"))
-                    case 'ortho': return _p.ss($, ($) => sh.ph.literal("splines=ortho"))
-                    case 'curved': return _p.ss($, ($) => sh.ph.literal("splines=curved"))
-                    case 'compound': return _p.ss($, ($) => sh.ph.literal("splines=compound"))
-                    default: return _p.au($[0])
+                    case 'true': return pt.ss($, ($) => sh.ph.literal("splines=true"))
+                    case 'false': return pt.ss($, ($) => sh.ph.literal("splines=false"))
+                    case 'none': return pt.ss($, ($) => sh.ph.literal("splines=none"))
+                    case 'line': return pt.ss($, ($) => sh.ph.literal("splines=line"))
+                    case 'spline': return pt.ss($, ($) => sh.ph.literal("splines=spline"))
+                    case 'polyline': return pt.ss($, ($) => sh.ph.literal("splines=polyline"))
+                    case 'ortho': return pt.ss($, ($) => sh.ph.literal("splines=ortho"))
+                    case 'curved': return pt.ss($, ($) => sh.ph.literal("splines=curved"))
+                    case 'compound': return pt.ss($, ($) => sh.ph.literal("splines=compound"))
+                    default: return pt.au($[0])
                 }
             }))
-            case 'pos': return _p.ss($, ($) => sh.ph.composed([
+            case 'pos': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("pos="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'xlabel': return _p.ss($, ($) => sh.ph.composed([
+            case 'xlabel': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("xlabel="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'layer': return _p.ss($, ($) => sh.ph.composed([
+            case 'layer': return pt.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("layer="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            default: return _p.au($[0])
+            default: return pt.au($[0])
         }
     })
 ])
