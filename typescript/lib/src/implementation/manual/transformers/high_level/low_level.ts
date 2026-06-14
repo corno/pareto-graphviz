@@ -53,19 +53,21 @@ export const Graph = ($: d_in.Graph): d_out.Graph => ({
         Tree($.tree, { 'path': _p.list.literal([]) }),
         _p.decide.state($.type, ($): d_out.Graph.statements => {
             switch ($[0]) {
-                case 'directed': return _p.ss($, ($) => $.edges.__l_map(($): d_out.Statements.L => ['edge', {
-                    "left": ['node', {
-                        'id': ['string', $.from.start],
-                        'port': _p.optional.literal.not_set()
-                    }],
-                    "right": _p.list.literal<d_out.Statements.L.edge.right.L>([
-                        ['node', {
-                            'id': ['string', $.to.start],
+                case 'directed': return _p.ss($, ($) => $.edges.__l_map(
+                    ($): d_out.Statements.L => ['edge', {
+                        "left": ['node', {
+                            'id': ['string', $.from.start],
                             'port': _p.optional.literal.not_set()
-                        }]
-                    ]),
-                    "attributes": t_attributes_to_low_level.Attributes($.attributes),
-                }]))
+                        }],
+                        "right": _p.list.literal<d_out.Statements.L.edge.right.L>([
+                            ['node', {
+                                'id': ['string', $.to.start],
+                                'port': _p.optional.literal.not_set()
+                            }]
+                        ]),
+                        "attributes": t_attributes_to_low_level.Attributes($.attributes),
+                    }]
+                ))
                 case 'undirected': return _p.ss($, ($) => $.edges.__l_map(($): d_out.Statements.L => ['edge', {
                     "left": ['node', {
                         'id': ['string', $.yin.start],

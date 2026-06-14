@@ -62,7 +62,7 @@ export const escaped: _pi.Transformer_With_Parameter<
                     } else {
                         $i['add item']($)
                     }
-
+                    return null
                 }
             })
         }
