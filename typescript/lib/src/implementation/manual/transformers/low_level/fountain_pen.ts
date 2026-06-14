@@ -1,5 +1,6 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/low_level/data"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
@@ -9,12 +10,12 @@ type Parameters = {
 }
 
 namespace signatures {
-    export type Graph = pi.Transformer<d_in.Graph, d_out.Paragraph>
-    export type Statements = pi.Transformer_With_Parameter<d_in.Statements, d_out.Phrase, Parameters>
-    export type ID = pi.Transformer<d_in.ID, d_out.Phrase>
-    export type Attributes = pi.Transformer<d_in.Attributes, d_out.Phrase>
-    export type Node_ID = pi.Transformer<d_in.Node_ID, d_out.Phrase>
-    export type Subgraph = pi.Transformer_With_Parameter<d_in.Subgraph, d_out.Phrase, Parameters>
+    export type Graph = p_ti.Transformer<d_in.Graph, d_out.Paragraph>
+    export type Statements = p_ti.Transformer_With_Parameter<d_in.Statements, d_out.Phrase, Parameters>
+    export type ID = p_ti.Transformer<d_in.ID, d_out.Phrase>
+    export type Attributes = p_ti.Transformer<d_in.Attributes, d_out.Phrase>
+    export type Node_ID = p_ti.Transformer<d_in.Node_ID, d_out.Phrase>
+    export type Subgraph = p_ti.Transformer_With_Parameter<d_in.Subgraph, d_out.Phrase, Parameters>
 }
 
 //shorthands

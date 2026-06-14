@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/deserialize"
 
@@ -25,7 +25,7 @@ export namespace Graph_ {
 
 export type Graph_ = (
     context: Graph_.I,
-    abort: _pi.Abort<Graph_.E>,
+    abort: p_i.Abort<Graph_.E>,
     parameters: {
         readonly 'tab size': Graph_.P.tab_size
     },
@@ -49,7 +49,7 @@ export namespace Statements_ {
 
 export type Statements_ = (
     context: Statements_.I,
-    abort: _pi.Abort<Statements_.E>,
+    abort: p_i.Abort<Statements_.E>,
     parameters: {
         readonly 'tab size': Statements_.P.tab_size
     },
@@ -73,7 +73,7 @@ export namespace End_Point_ {
 
 export type End_Point_ = (
     context: End_Point_.I,
-    abort: _pi.Abort<End_Point_.E>,
+    abort: p_i.Abort<End_Point_.E>,
     parameters: {
         readonly 'tab size': End_Point_.P.tab_size
     },
@@ -97,7 +97,7 @@ export namespace Attributes_ {
 
 export type Attributes_ = (
     context: Attributes_.I,
-    abort: _pi.Abort<Attributes_.E>,
+    abort: p_i.Abort<Attributes_.E>,
     parameters: {
         readonly 'tab size': Attributes_.P.tab_size
     },
@@ -121,7 +121,7 @@ export namespace Node_ID_ {
 
 export type Node_ID_ = (
     context: Node_ID_.I,
-    abort: _pi.Abort<Node_ID_.E>,
+    abort: p_i.Abort<Node_ID_.E>,
     parameters: {
         readonly 'tab size': Node_ID_.P.tab_size
     },
@@ -145,7 +145,7 @@ export namespace ID_ {
 
 export type ID_ = (
     context: ID_.I,
-    abort: _pi.Abort<ID_.E>,
+    abort: p_i.Abort<ID_.E>,
     parameters: {
         readonly 'tab size': ID_.P.tab_size
     },
@@ -169,7 +169,7 @@ export namespace Subgraph_ {
 
 export type Subgraph_ = (
     context: Subgraph_.I,
-    abort: _pi.Abort<Subgraph_.E>,
+    abort: p_i.Abort<Subgraph_.E>,
     parameters: {
         readonly 'tab size': Subgraph_.P.tab_size
     },

@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_html from "../html/data"
 
@@ -862,7 +863,7 @@ export namespace Attributes_ {
     
 }
 
-export type Attributes_ = _pi.List<Attributes_.L>
+export type Attributes_ = p_di.List<Attributes_.L>
 
 export { 
     Attributes_ as Attributes, 

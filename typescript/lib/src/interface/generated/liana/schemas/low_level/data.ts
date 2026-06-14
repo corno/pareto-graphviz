@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_html from "../html/data"
 
@@ -25,7 +26,7 @@ export namespace Graph_ {
         
     }
     
-    export type name = _pi.Optional_Value<name.O>
+    export type name = p_di.Optional_Value<name.O>
     
     export type statements = Statements_
     
@@ -65,7 +66,7 @@ export namespace Statements_ {
                 
             }
             
-            export type right = _pi.List<right.L>
+            export type right = p_di.List<right.L>
             
             export type attributes = Attributes_
             
@@ -129,7 +130,7 @@ export namespace Statements_ {
     
 }
 
-export type Statements_ = _pi.List<Statements_.L>
+export type Statements_ = p_di.List<Statements_.L>
 
 export namespace End_Point_ {
     
@@ -160,7 +161,7 @@ export namespace Attributes_ {
     
 }
 
-export type Attributes_ = _pi.List<Attributes_.L>
+export type Attributes_ = p_di.List<Attributes_.L>
 
 export namespace Node_ID_ {
     
@@ -178,7 +179,7 @@ export namespace Node_ID_ {
                 
             }
             
-            export type compass_point = _pi.Optional_Value<compass_point.O>
+            export type compass_point = p_di.Optional_Value<compass_point.O>
             
         }
         
@@ -189,7 +190,7 @@ export namespace Node_ID_ {
         
     }
     
-    export type port = _pi.Optional_Value<port.O>
+    export type port = p_di.Optional_Value<port.O>
     
 }
 
@@ -226,11 +227,11 @@ export namespace Subgraph_ {
             
         }
         
-        export type O = _pi.Optional_Value<O.O>
+        export type O = p_di.Optional_Value<O.O>
         
     }
     
-    export type subgraph = _pi.Optional_Value<subgraph.O>
+    export type subgraph = p_di.Optional_Value<subgraph.O>
     
     export type statements = Statements_
     

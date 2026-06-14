@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/deserialize"
 
@@ -25,7 +25,7 @@ export namespace Attributes_ {
 
 export type Attributes_ = (
     context: Attributes_.I,
-    abort: _pi.Abort<Attributes_.E>,
+    abort: p_i.Abort<Attributes_.E>,
     parameters: {
         readonly 'tab size': Attributes_.P.tab_size
     },

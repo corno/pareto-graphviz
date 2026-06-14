@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/deserialize"
 
@@ -25,7 +25,7 @@ export namespace Graph_ {
 
 export type Graph_ = (
     context: Graph_.I,
-    abort: _pi.Abort<Graph_.E>,
+    abort: p_i.Abort<Graph_.E>,
     parameters: {
         readonly 'tab size': Graph_.P.tab_size
     },
@@ -49,7 +49,7 @@ export namespace Tree_ {
 
 export type Tree_ = (
     context: Tree_.I,
-    abort: _pi.Abort<Tree_.E>,
+    abort: p_i.Abort<Tree_.E>,
     parameters: {
         readonly 'tab size': Tree_.P.tab_size
     },
@@ -73,7 +73,7 @@ export namespace End_Point_Specification_ {
 
 export type End_Point_Specification_ = (
     context: End_Point_Specification_.I,
-    abort: _pi.Abort<End_Point_Specification_.E>,
+    abort: p_i.Abort<End_Point_Specification_.E>,
     parameters: {
         readonly 'tab size': End_Point_Specification_.P.tab_size
     },

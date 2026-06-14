@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/unmarshall"
 
@@ -23,7 +23,7 @@ export namespace Graph_ {
 
 export type Graph_ = (
     context: Graph_.I,
-    abort: _pi.Abort<Graph_.E>,
+    abort: p_i.Abort<Graph_.E>,
 ) => Graph_.O
 
 export namespace Tree_ {
@@ -42,7 +42,7 @@ export namespace Tree_ {
 
 export type Tree_ = (
     context: Tree_.I,
-    abort: _pi.Abort<Tree_.E>,
+    abort: p_i.Abort<Tree_.E>,
 ) => Tree_.O
 
 export namespace End_Point_Specification_ {
@@ -61,7 +61,7 @@ export namespace End_Point_Specification_ {
 
 export type End_Point_Specification_ = (
     context: End_Point_Specification_.I,
-    abort: _pi.Abort<End_Point_Specification_.E>,
+    abort: p_i.Abort<End_Point_Specification_.E>,
 ) => End_Point_Specification_.O
 
 export { 

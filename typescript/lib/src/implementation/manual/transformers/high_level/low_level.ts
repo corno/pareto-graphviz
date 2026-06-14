@@ -1,7 +1,7 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
-import p_text_from_list from 'pareto-core/dist/_p_text_from_list'
-import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
+import * as p_di from 'pareto-core/dist/data/interface'
+import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
+import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/high_level/data"
@@ -15,7 +15,7 @@ import * as t_fp_to_loc from "pareto-fountain-pen/dist/implementation/manual/tra
 import * as sh from "../../../../shorthands/low_level"
 import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose"
 
-const temp_text_from_list_of_separated_texts = ($: pi.List<string>, $p: { 'separator': string }): string => {
+const temp_text_from_list_of_separated_texts = ($: p_di.List<string>, $p: { 'separator': string }): string => {
 
     return p_text_from_list(
         t_fp_to_loc.Phrase(
@@ -91,7 +91,7 @@ export const Graph = ($: d_in.Graph): d_out.Graph => ({
 export const Tree = (
     $: d_in.Tree,
     $p: {
-        'path': pi.List<string>
+        'path': p_di.List<string>
     }
 ): d_out.Statements => pt.list.from.dictionary(
     $.elements,

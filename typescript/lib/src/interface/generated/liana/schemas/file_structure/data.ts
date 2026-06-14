@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_high_level from "../high_level/data"
 
@@ -19,7 +20,7 @@ export namespace Directory_ {
     
 }
 
-export type Directory_ = _pi.Dictionary<Directory_.D>
+export type Directory_ = p_di.Dictionary<Directory_.D>
 
 export { 
     Directory_ as Directory, 

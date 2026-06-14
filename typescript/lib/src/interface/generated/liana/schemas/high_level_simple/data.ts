@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_attributes from "../attributes/data"
 
@@ -21,7 +22,7 @@ export namespace Graph_ {
         
     }
     
-    export type nodes = _pi.Dictionary<nodes.D>
+    export type nodes = p_di.Dictionary<nodes.D>
     
     export namespace edges {
         
@@ -43,7 +44,7 @@ export namespace Graph_ {
         
     }
     
-    export type edges = _pi.List<edges.L>
+    export type edges = p_di.List<edges.L>
     
 }
 

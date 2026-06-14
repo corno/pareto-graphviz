@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_attributes from "../attributes/data"
 
@@ -11,7 +12,7 @@ export namespace Graph_ {
         
     }
     
-    export type name = _pi.Optional_Value<name.O>
+    export type name = p_di.Optional_Value<name.O>
     
     export type tree = Tree_
     
@@ -39,7 +40,7 @@ export namespace Graph_ {
                 
             }
             
-            export type edges = _pi.List<edges.L>
+            export type edges = p_di.List<edges.L>
             
         }
         
@@ -69,7 +70,7 @@ export namespace Graph_ {
                 
             }
             
-            export type edges = _pi.List<edges.L>
+            export type edges = p_di.List<edges.L>
             
         }
         
@@ -143,7 +144,7 @@ export namespace Tree_ {
         
     }
     
-    export type elements = _pi.Dictionary<elements.D>
+    export type elements = p_di.Dictionary<elements.D>
     
 }
 
@@ -162,7 +163,7 @@ export namespace End_Point_Specification_ {
         
     }
     
-    export type tail = _pi.List<tail.L>
+    export type tail = p_di.List<tail.L>
     
     export namespace port_data {
         
@@ -176,7 +177,7 @@ export namespace End_Point_Specification_ {
                 
             }
             
-            export type compass_direction = _pi.Optional_Value<compass_direction.O>
+            export type compass_direction = p_di.Optional_Value<compass_direction.O>
             
         }
         
@@ -187,7 +188,7 @@ export namespace End_Point_Specification_ {
         
     }
     
-    export type port_data = _pi.Optional_Value<port_data.O>
+    export type port_data = p_di.Optional_Value<port_data.O>
     
 }
 

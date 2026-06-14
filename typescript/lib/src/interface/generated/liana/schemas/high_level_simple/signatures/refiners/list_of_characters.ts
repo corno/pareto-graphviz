@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/deserialize"
 
@@ -25,7 +25,7 @@ export namespace Graph_ {
 
 export type Graph_ = (
     context: Graph_.I,
-    abort: _pi.Abort<Graph_.E>,
+    abort: p_i.Abort<Graph_.E>,
     parameters: {
         readonly 'tab size': Graph_.P.tab_size
     },

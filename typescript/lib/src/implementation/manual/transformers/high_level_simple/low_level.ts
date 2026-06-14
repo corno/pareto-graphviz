@@ -1,10 +1,10 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/high_level_simple/data"
 import * as d_out from "../../../../interface/generated/liana/schemas/low_level/data"
 
-type Graph = pi.Transformer<d_in.Graph, d_out.Graph>
+type Graph = p_ti.Transformer<d_in.Graph, d_out.Graph>
 
 //dependencies
 import * as t_attributes_to_low_level from "../attributes/low_level"
