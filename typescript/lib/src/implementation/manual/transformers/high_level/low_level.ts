@@ -1,7 +1,6 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
 import * as p_di from 'pareto-core/dist/data/interface'
 import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
-import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/high_level/data"
@@ -49,20 +48,20 @@ export const Graph = ($: d_in.Graph): d_out.Graph => ({
     ).map(
         ($) => ['string', $]
     ),
-    'statements': pt.list.nested_literal_old([
-        Tree($.tree, { 'path': pt.list.literal([]) }),
+    'statements': pt.literal.nested_list([
+        Tree($.tree, { 'path': pt.literal.list([]) }),
         pt.decide.state($.type, ($): d_out.Graph.statements => {
             switch ($[0]) {
                 case 'directed': return pt.ss($, ($) => $.edges.__l_map(
                     ($): d_out.Statements.L => ['edge', {
                         "left": ['node', {
                             'id': ['string', $.from.start],
-                            'port': pt.optional.literal.not_set()
+                            'port': pt.literal.not_set()
                         }],
-                        "right": pt.list.literal<d_out.Statements.L.edge.right.L>([
+                        "right": pt.literal.list<d_out.Statements.L.edge.right.L>([
                             ['node', {
                                 'id': ['string', $.to.start],
-                                'port': pt.optional.literal.not_set()
+                                'port': pt.literal.not_set()
                             }]
                         ]),
                         "attributes": t_attributes_to_low_level.Attributes($.attributes),
@@ -71,15 +70,15 @@ export const Graph = ($: d_in.Graph): d_out.Graph => ({
                 case 'undirected': return pt.ss($, ($) => $.edges.__l_map(($): d_out.Statements.L => ['edge', {
                     "left": ['node', {
                         'id': ['string', $.yin.start],
-                        'port': pt.optional.literal.not_set()
+                        'port': pt.literal.not_set()
                     }],
-                    "right": pt.list.literal<d_out.Statements.L.edge.right.L>([
+                    "right": pt.literal.list<d_out.Statements.L.edge.right.L>([
                         ['node', {
                             'id': ['string', $.yang.start],
-                            'port': pt.optional.literal.not_set()
+                            'port': pt.literal.not_set()
                         }]
                     ]),
-                    "attributes": pt.list.literal([]), //FIXME: attributes
+                    "attributes": pt.literal.list([]), //FIXME: attributes
                 }]))
                 default: return pt.au($[0])
             }
@@ -97,7 +96,7 @@ export const Tree = (
     $.elements,
 ).flatten(
     ($, id): d_out.Statements => {
-        const path = pt.list.nested_literal_old([
+        const path = pt.literal.nested_list([
             $p.path,
             [
                 id
@@ -105,10 +104,10 @@ export const Tree = (
         ])
         return pt.decide.state($, ($) => {
             switch ($[0]) {
-                case 'node': return pt.ss($, ($) => pt.list.literal([
+                case 'node': return pt.ss($, ($) => pt.literal.list([
                     sh.s.node(
                         sh.node_id(sh.id.string(temp_text_from_list_of_separated_texts(path, { 'separator': '>' })), null),
-                        pt.list.nested_literal_old([
+                        pt.literal.nested_list([
                             t_attributes_to_low_level.Attributes($.attributes),
                             [
                                 sh.attribute(sh.id.id("label"), sh.id.string(id))
@@ -119,9 +118,9 @@ export const Tree = (
                     // ['node', {
                     //     'node': {
                     //         'id': ['string', s_list_of_separated_texts(path, { 'separator': '>' })],
-                    //         'port': pt.optional.literal.not_set()
+                    //         'port': pt.literal.not_set()
                     //     },
-                    //     'attribute list': pt.list.nested_literal_old([
+                    //     'attribute list': pt.literal.nested_list([
                     //         [
                     //             {
                     //                 'name': ['id', "label"],

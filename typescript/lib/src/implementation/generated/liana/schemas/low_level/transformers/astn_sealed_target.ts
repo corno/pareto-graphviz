@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_html from "../../html/transformers/astn_sealed_target"
 
-export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "strict": _p_change_context(
             $['strict'],
@@ -85,7 +85,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                         $,
                         ($) => ({
                             'option': 'node',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
+                            'value': ['group', ['verbose', _p.literal.dictionary(
                                 {
                                     "node": _p_change_context(
                                         $['node'],
@@ -108,7 +108,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                         $,
                         ($) => ({
                             'option': 'edge',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
+                            'value': ['group', ['verbose', _p.literal.dictionary(
                                 {
                                     "left": _p_change_context(
                                         $['left'],
@@ -141,7 +141,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                         $,
                         ($) => ({
                             'option': 'attributes',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
+                            'value': ['group', ['verbose', _p.literal.dictionary(
                                 {
                                     "type": _p_change_context(
                                         $['type'],
@@ -196,7 +196,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                         $,
                         ($) => ({
                             'option': 'attribute assignment',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
+                            'value': ['group', ['verbose', _p.literal.dictionary(
                                 {
                                     "name": _p_change_context(
                                         $['name'],
@@ -268,7 +268,7 @@ export const End_Point: t_signatures.End_Point = ($) => ['state', _p.decide.stat
 export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.list(
     $,
 ).map(
-    ($) => ['group', ['verbose', _p.dictionary.literal(
+    ($) => ['group', ['verbose', _p.literal.dictionary(
         {
             "name": _p_change_context(
                 $['name'],
@@ -286,7 +286,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
     )]],
 )]
 
-export const Node_ID: t_signatures.Node_ID = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Node_ID: t_signatures.Node_ID = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "id": _p_change_context(
             $['id'],
@@ -298,7 +298,7 @@ export const Node_ID: t_signatures.Node_ID = ($) => ['group', ['verbose', _p.dic
             $['port'],
             ($) => ['optional', _p.decide.optional(
                 $,
-                ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
+                ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.literal.dictionary(
                     {
                         "port": _p_change_context(
                             $['port'],
@@ -381,7 +381,7 @@ export const ID: t_signatures.ID = ($) => ['state', _p.decide.state(
     },
 )]
 
-export const Subgraph: t_signatures.Subgraph = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Subgraph: t_signatures.Subgraph = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "subgraph": _p_change_context(
             $['subgraph'],

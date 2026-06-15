@@ -24,7 +24,7 @@ export const Directory: t_signatures.Directory = ($, abort) => _p_change_context
             $,
         ),
         {
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     ),
     ($) => _p.dictionary.from.dictionary(
@@ -68,7 +68,7 @@ export const Directory: t_signatures.Directory = ($, abort) => _p_change_context
                                     'range': v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     ),
                                 }],

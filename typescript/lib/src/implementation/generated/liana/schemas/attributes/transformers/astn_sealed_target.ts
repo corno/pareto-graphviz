@@ -25,7 +25,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         $,
                         ($) => ({
                             'option': 'freeform',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
+                            'value': ['group', ['verbose', _p.literal.dictionary(
                                 {
                                     "key": _p_change_context(
                                         $['key'],

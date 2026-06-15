@@ -17,7 +17,7 @@ export const Graph: Graph = ($) => sh.Graph(
     true,
     null,
     'directed',
-    pt.list.nested_literal_old([
+    pt.literal.nested_list([
 
         [
             sh.s.attributes('graph', t_attributes_to_low_level.Attributes($.attributes)),
@@ -35,7 +35,7 @@ export const Graph: Graph = ($) => sh.Graph(
         ).map(
             ($) => sh.s.edge(
                 sh.end_point.node(sh.node_id(sh.id.string($.from), null)),
-                pt.list.literal([
+                pt.literal.list([
                     sh.end_point.node(sh.node_id(sh.id.string($.to), null))
                 ]),
                 t_attributes_to_low_level.Attributes($.attributes)

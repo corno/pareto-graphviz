@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_attributes from "../../attributes/transformers/astn_sealed_target"
 
-export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "name": _p_change_context(
             $['name'],
@@ -43,14 +43,14 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.diction
                                 $,
                                 ($) => ({
                                     'option': 'undirected',
-                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                         {
                                             "edges": _p_change_context(
                                                 $['edges'],
                                                 ($) => ['list', _p.list.from.list(
                                                     $,
                                                 ).map(
-                                                    ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                    ($) => ['group', ['verbose', _p.literal.dictionary(
                                                         {
                                                             "yin": _p_change_context(
                                                                 $['yin'],
@@ -83,14 +83,14 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.diction
                                 $,
                                 ($) => ({
                                     'option': 'directed',
-                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                         {
                                             "edges": _p_change_context(
                                                 $['edges'],
                                                 ($) => ['list', _p.list.from.list(
                                                     $,
                                                 ).map(
-                                                    ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                    ($) => ['group', ['verbose', _p.literal.dictionary(
                                                         {
                                                             "from": _p_change_context(
                                                                 $['from'],
@@ -129,7 +129,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.diction
     },
 )]]
 
-export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "attributes": _p_change_context(
             $['attributes'],
@@ -151,7 +151,7 @@ export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', _p.dictionar
                                     $,
                                     ($) => ({
                                         'option': 'node',
-                                        'value': ['group', ['verbose', _p.dictionary.literal(
+                                        'value': ['group', ['verbose', _p.literal.dictionary(
                                             {
                                                 "attributes": _p_change_context(
                                                     $['attributes'],
@@ -168,7 +168,7 @@ export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', _p.dictionar
                                     $,
                                     ($) => ({
                                         'option': 'sub',
-                                        'value': ['group', ['verbose', _p.dictionary.literal(
+                                        'value': ['group', ['verbose', _p.literal.dictionary(
                                             {
                                                 "type": _p_change_context(
                                                     $['type'],
@@ -230,7 +230,7 @@ export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', _p.dictionar
     },
 )]]
 
-export const End_Point_Specification: t_signatures.End_Point_Specification = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const End_Point_Specification: t_signatures.End_Point_Specification = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "start": _p_change_context(
             $['start'],
@@ -254,7 +254,7 @@ export const End_Point_Specification: t_signatures.End_Point_Specification = ($)
             $['port data'],
             ($) => ['optional', _p.decide.optional(
                 $,
-                ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
+                ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.literal.dictionary(
                     {
                         "port": _p_change_context(
                             $['port'],

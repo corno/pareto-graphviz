@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_attributes from "../../attributes/transformers/astn_sealed_target"
 
-export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "attributes": _p_change_context(
             $['attributes'],
@@ -26,7 +26,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.diction
             ($) => ['dictionary', _p.dictionary.from.dictionary(
                 $,
             ).map(
-                ($, id) => ['group', ['verbose', _p.dictionary.literal(
+                ($, id) => ['group', ['verbose', _p.literal.dictionary(
                     {
                         "attributes": _p_change_context(
                             $['attributes'],
@@ -43,7 +43,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.diction
             ($) => ['list', _p.list.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.dictionary.literal(
+                ($) => ['group', ['verbose', _p.literal.dictionary(
                     {
                         "from": _p_change_context(
                             $['from'],

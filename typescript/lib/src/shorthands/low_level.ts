@@ -1,4 +1,3 @@
-import * as p_di from 'pareto-core/dist/data/interface'
 import * as pt from 'pareto-core-shorthands/dist/unconstrained'
 
 import * as d_target from "../interface/generated/liana/schemas/low_level/data"
@@ -13,8 +12,8 @@ export const Graph = (
 ): d_target.Graph => ({
     'strict': strict,
     'type': type === 'directed' ? ['digraph', null] : ['graph', null],
-    'name': pt.optional.literalx(name),
-    'statements': pt.list.literal(statements),
+    'name': pt.optional.null_or_value(name),
+    'statements': pt.list(statements),
 })
 
 export namespace id {
@@ -44,7 +43,7 @@ export namespace s {
         attributes: pt.Raw_Or_Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['node', {
         'node': id,
-        'attributes': pt.list.literal(attributes),
+        'attributes': pt.list(attributes),
     }]
 
     export const edge = (
@@ -53,8 +52,8 @@ export namespace s {
         attributes: pt.Raw_Or_Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['edge', {
         'left': left,
-        'right': pt.list.literal(right),
-        'attributes': pt.list.literal(attributes),
+        'right': pt.list(right),
+        'attributes': pt.list(attributes),
     }]
 
     export const attributes = (
@@ -62,7 +61,7 @@ export namespace s {
         attributes: pt.Raw_Or_Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['attributes', {
         'type': type === 'graph' ? ['graph', null] : type === 'node' ? ['node', null] : ['edge', null],
-        'attributes': pt.list.literal(attributes),
+        'attributes': pt.list(attributes),
     }]
 
     export const attribute_assignment = (
@@ -104,5 +103,5 @@ export const node_id = (
     port: null | d_target.Node_ID.port.O,
 ): d_target.Node_ID => ({
     'id': id,
-    'port': pt.optional.literalx(port),
+    'port': pt.optional.null_or_value(port),
 })
