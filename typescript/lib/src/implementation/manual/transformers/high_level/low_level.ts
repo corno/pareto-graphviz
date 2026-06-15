@@ -1,6 +1,6 @@
-import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_di from 'pareto-core/dist/data/interface'
-import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
+import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/high_level/data"
