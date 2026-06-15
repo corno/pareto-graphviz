@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import p_unreachable_code_path from 'pareto-core/dist/implementation/specials/unreachable_code_path'
 import p_iterate from 'pareto-core/dist/implementation/specials/iterate'
 import p_list_build_deprecated from 'pareto-core/dist/implementation/specials/list_build_deprecated'
@@ -16,7 +16,7 @@ export const decimal: p_i.Transformer<number, d_out.List_of_Characters> = ($) =>
         do {
             const digit = $ % 10
             $i['add item'](digit)
-            $ = pt.number.from.number.divide(
+            $ = p_.number.from.number.divide(
                 $,
                 10,
                 ['towards zero', null],

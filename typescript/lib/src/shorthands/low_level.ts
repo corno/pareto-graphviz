@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core-shorthands/dist/unconstrained'
+import * as p_ from 'pareto-core-shorthands/dist/unconstrained'
 
 import * as d_target from "../interface/generated/liana/schemas/low_level/data"
 import * as d_target_html from "../interface/generated/liana/schemas/html/data"
@@ -8,12 +8,12 @@ export const Graph = (
     strict: boolean,
     name: null | d_target.ID,
     type: 'directed' | 'undirected',
-    statements: pt.Raw_Or_Normal_List<d_target.Statements.L>,
+    statements: p_.Raw_Or_Normal_List<d_target.Statements.L>,
 ): d_target.Graph => ({
     'strict': strict,
     'type': type === 'directed' ? ['digraph', null] : ['graph', null],
-    'name': pt.optional.null_or_value(name),
-    'statements': pt.list(statements),
+    'name': p_.optional.null_or_value(name),
+    'statements': p_.list(statements),
 })
 
 export namespace id {
@@ -40,28 +40,28 @@ export namespace s {
 
     export const node = (
         id: d_target.Node_ID,
-        attributes: pt.Raw_Or_Normal_List<d_target.Attributes.L>,
+        attributes: p_.Raw_Or_Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['node', {
         'node': id,
-        'attributes': pt.list(attributes),
+        'attributes': p_.list(attributes),
     }]
 
     export const edge = (
         left: d_target.End_Point,
-        right: pt.Raw_Or_Normal_List<d_target.End_Point>,
-        attributes: pt.Raw_Or_Normal_List<d_target.Attributes.L>,
+        right: p_.Raw_Or_Normal_List<d_target.End_Point>,
+        attributes: p_.Raw_Or_Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['edge', {
         'left': left,
-        'right': pt.list(right),
-        'attributes': pt.list(attributes),
+        'right': p_.list(right),
+        'attributes': p_.list(attributes),
     }]
 
     export const attributes = (
         type: 'graph' | 'node' | 'edge',
-        attributes: pt.Raw_Or_Normal_List<d_target.Attributes.L>,
+        attributes: p_.Raw_Or_Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['attributes', {
         'type': type === 'graph' ? ['graph', null] : type === 'node' ? ['node', null] : ['edge', null],
-        'attributes': pt.list(attributes),
+        'attributes': p_.list(attributes),
     }]
 
     export const attribute_assignment = (
@@ -103,5 +103,5 @@ export const node_id = (
     port: null | d_target.Node_ID.port.O,
 ): d_target.Node_ID => ({
     'id': id,
-    'port': pt.optional.null_or_value(port),
+    'port': p_.optional.null_or_value(port),
 })

@@ -1,17 +1,17 @@
-import * as pt from 'pareto-core-shorthands/dist/unconstrained'
+import * as p_ from 'pareto-core-shorthands/dist/unconstrained'
 
 import * as d_target from "../interface/generated/liana/schemas/high_level_simple/data"
 import * as d_target_attributes from "../interface/generated/liana/schemas/attributes/data"
 
 
 export const Graph = (
-    attributes: pt.Raw_Or_Normal_List<d_target_attributes.Attributes.L>,
-    nodes: pt.Raw_Or_Normal_Dictionary<d_target.Graph.nodes.D>,
-    edges: pt.Raw_Or_Normal_List<d_target.Graph.edges.L>,
+    attributes: p_.Raw_Or_Normal_List<d_target_attributes.Attributes.L>,
+    nodes: p_.Raw_Or_Normal_Dictionary<d_target.Graph.nodes.D>,
+    edges: p_.Raw_Or_Normal_List<d_target.Graph.edges.L>,
 ): d_target.Graph => ({
-    'attributes': pt.list(attributes),
-    'nodes': pt.dictionary(nodes),
-    'edges': pt.list(edges),
+    'attributes': p_.list(attributes),
+    'nodes': p_.dictionary(nodes),
+    'edges': p_.list(edges),
 })
 
 // export const attribute = (
@@ -20,17 +20,17 @@ export const Graph = (
 // )
 
 export const node = (
-    attributes: pt.Raw_Or_Normal_List<d_target_attributes.Attributes.L>,
+    attributes: p_.Raw_Or_Normal_List<d_target_attributes.Attributes.L>,
 ): d_target.Graph.nodes.D => ({
-    'attributes': pt.list(attributes),
+    'attributes': p_.list(attributes),
 })
 
 export const edge = (
     from: string,
     to: string,
-    attributes: pt.Raw_Or_Normal_List<d_target_attributes.Attributes.L>,
+    attributes: p_.Raw_Or_Normal_List<d_target_attributes.Attributes.L>,
 ): d_target.Graph.edges.L => ({
     'from': from,
     'to': to,
-    'attributes': pt.list(attributes),
+    'attributes': p_.list(attributes),
 })

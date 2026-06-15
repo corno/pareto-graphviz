@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/high_level_simple/data"
@@ -17,12 +17,12 @@ export const Graph: Graph = ($) => sh.Graph(
     true,
     null,
     'directed',
-    pt.literal.nested_list([
+    p_.literal.nested_list([
 
         [
             sh.s.attributes('graph', t_attributes_to_low_level.Attributes($.attributes)),
         ],
-        pt.list.from.dictionary(
+        p_.list.from.dictionary(
             $.nodes
         ).convert(
             ($, id) => sh.s.node(
@@ -30,12 +30,12 @@ export const Graph: Graph = ($) => sh.Graph(
                 t_attributes_to_low_level.Attributes($.attributes)
             )
         ),
-        pt.list.from.list(
+        p_.list.from.list(
             $.edges
         ).map(
             ($) => sh.s.edge(
                 sh.end_point.node(sh.node_id(sh.id.string($.from), null)),
-                pt.literal.list([
+                p_.literal.list([
                     sh.end_point.node(sh.node_id(sh.id.string($.to), null))
                 ]),
                 t_attributes_to_low_level.Attributes($.attributes)

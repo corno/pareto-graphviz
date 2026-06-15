@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_di from 'pareto-core/dist/interface/data'
 import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -19,7 +19,7 @@ const temp_text_from_list_of_separated_texts = ($: p_di.List<string>, $p: { 'sep
     return p_text_from_list(
         t_fp_to_loc.Phrase(
             sh_fp.ph.rich(
-                pt.list.from.list($).map(($) => sh_fp.ph.literal($)),
+                p_.list.from.list($).map(($) => sh_fp.ph.literal($)),
                 sh_fp.ph.nothing(),
                 sh_fp.ph.nothing(),
                 sh_fp.ph.literal($p.separator),
@@ -36,51 +36,51 @@ const temp_text_from_list_of_separated_texts = ($: p_di.List<string>, $p: { 'sep
 
 export const Graph = ($: d_in.Graph): d_out.Graph => ({
     'strict': true,
-    'type': pt.decide.state($.type, ($) => {
+    'type': p_.decide.state($.type, ($) => {
         switch ($[0]) {
-            case 'directed': return pt.ss($, () => ['digraph', null])
-            case 'undirected': return pt.ss($, () => ['graph', null])
-            default: return pt.au($[0])
+            case 'directed': return p_.ss($, () => ['digraph', null])
+            case 'undirected': return p_.ss($, () => ['graph', null])
+            default: return p_.au($[0])
         }
     }),
-    'name': pt.optional.from.optional(
+    'name': p_.optional.from.optional(
         $.name,
     ).map(
         ($) => ['string', $]
     ),
-    'statements': pt.literal.nested_list([
-        Tree($.tree, { 'path': pt.literal.list([]) }),
-        pt.decide.state($.type, ($): d_out.Graph.statements => {
+    'statements': p_.literal.nested_list([
+        Tree($.tree, { 'path': p_.literal.list([]) }),
+        p_.decide.state($.type, ($): d_out.Graph.statements => {
             switch ($[0]) {
-                case 'directed': return pt.ss($, ($) => $.edges.__l_map(
+                case 'directed': return p_.ss($, ($) => $.edges.__l_map(
                     ($): d_out.Statements.L => ['edge', {
                         "left": ['node', {
                             'id': ['string', $.from.start],
-                            'port': pt.literal.not_set()
+                            'port': p_.literal.not_set()
                         }],
-                        "right": pt.literal.list<d_out.Statements.L.edge.right.L>([
+                        "right": p_.literal.list<d_out.Statements.L.edge.right.L>([
                             ['node', {
                                 'id': ['string', $.to.start],
-                                'port': pt.literal.not_set()
+                                'port': p_.literal.not_set()
                             }]
                         ]),
                         "attributes": t_attributes_to_low_level.Attributes($.attributes),
                     }]
                 ))
-                case 'undirected': return pt.ss($, ($) => $.edges.__l_map(($): d_out.Statements.L => ['edge', {
+                case 'undirected': return p_.ss($, ($) => $.edges.__l_map(($): d_out.Statements.L => ['edge', {
                     "left": ['node', {
                         'id': ['string', $.yin.start],
-                        'port': pt.literal.not_set()
+                        'port': p_.literal.not_set()
                     }],
-                    "right": pt.literal.list<d_out.Statements.L.edge.right.L>([
+                    "right": p_.literal.list<d_out.Statements.L.edge.right.L>([
                         ['node', {
                             'id': ['string', $.yang.start],
-                            'port': pt.literal.not_set()
+                            'port': p_.literal.not_set()
                         }]
                     ]),
-                    "attributes": pt.literal.list([]), //FIXME: attributes
+                    "attributes": p_.literal.list([]), //FIXME: attributes
                 }]))
-                default: return pt.au($[0])
+                default: return p_.au($[0])
             }
         })
     ])
@@ -92,22 +92,22 @@ export const Tree = (
     $p: {
         'path': p_di.List<string>
     }
-): d_out.Statements => pt.list.from.dictionary(
+): d_out.Statements => p_.list.from.dictionary(
     $.elements,
 ).flatten(
     ($, id): d_out.Statements => {
-        const path = pt.literal.nested_list([
+        const path = p_.literal.nested_list([
             $p.path,
             [
                 id
             ]
         ])
-        return pt.decide.state($, ($) => {
+        return p_.decide.state($, ($) => {
             switch ($[0]) {
-                case 'node': return pt.ss($, ($) => pt.literal.list([
+                case 'node': return p_.ss($, ($) => p_.literal.list([
                     sh.s.node(
                         sh.node_id(sh.id.string(temp_text_from_list_of_separated_texts(path, { 'separator': '>' })), null),
-                        pt.literal.nested_list([
+                        p_.literal.nested_list([
                             t_attributes_to_low_level.Attributes($.attributes),
                             [
                                 sh.attribute(sh.id.id("label"), sh.id.string(id))
@@ -118,9 +118,9 @@ export const Tree = (
                     // ['node', {
                     //     'node': {
                     //         'id': ['string', s_list_of_separated_texts(path, { 'separator': '>' })],
-                    //         'port': pt.literal.not_set()
+                    //         'port': p_.literal.not_set()
                     //     },
-                    //     'attribute list': pt.literal.nested_list([
+                    //     'attribute list': p_.literal.nested_list([
                     //         [
                     //             {
                     //                 'name': ['id', "label"],
@@ -132,8 +132,8 @@ export const Tree = (
 
                     // }]
                 ]))
-                case 'sub': return pt.ss($, ($) => Tree($.tree, { 'path': path }))
-                default: return pt.au($[0])
+                case 'sub': return p_.ss($, ($) => Tree($.tree, { 'path': path }))
+                default: return p_.au($[0])
             }
         })
     }
