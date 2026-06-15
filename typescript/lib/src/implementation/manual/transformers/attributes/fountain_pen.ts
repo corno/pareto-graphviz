@@ -1,10 +1,10 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_ti from 'pareto-core/dist/transformer/interface'
+import * as p_i from 'pareto-core/dist/transformer/interface'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/attributes/data"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
-type Attributes = p_ti.Transformer<d_in.Attributes, d_out.Paragraph>
+type Attributes = p_i.Transformer<d_in.Attributes, d_out.Paragraph>
 
 //dependencies
 import * as t_primitives_to_list_of_characters from "../primitives/list_of_characters"

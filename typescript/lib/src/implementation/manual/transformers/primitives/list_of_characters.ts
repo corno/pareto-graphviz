@@ -3,11 +3,11 @@ import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_
 import p_iterate from 'pareto-core/dist/specials/iterate'
 import p_list_build_deprecated from 'pareto-core/dist/specials/list_build_deprecated'
 import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
-import * as p_ti from 'pareto-core/dist/transformer/interface'
+import * as p_i from 'pareto-core/dist/transformer/interface'
 
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
-export const decimal: p_ti.Transformer<number, d_out.List_of_Characters> = ($) => p_list_build_deprecated(($i) => {
+export const decimal: p_i.Transformer<number, d_out.List_of_Characters> = ($) => p_list_build_deprecated(($i) => {
     if ($ < 0) {
         $i['add item'](45) // '-'
         $ = -$
@@ -37,7 +37,7 @@ export const decimal: p_ti.Transformer<number, d_out.List_of_Characters> = ($) =
 })
 
 
-export const escaped: p_ti.Transformer_With_Parameter<
+export const escaped: p_i.Transformer_With_Parameter<
     string,
     d_out.List_of_Characters,
     {
@@ -69,7 +69,7 @@ export const escaped: p_ti.Transformer_With_Parameter<
 
     )
 )
-export const quoted: p_ti.Transformer<string, d_out.List_of_Characters> = ($) => p_list_build_deprecated(($i) => {
+export const quoted: p_i.Transformer<string, d_out.List_of_Characters> = ($) => p_list_build_deprecated(($i) => {
     $i['add item'](34)
     $i['add list'](escaped(
         $,

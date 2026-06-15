@@ -1,10 +1,10 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_ti from 'pareto-core/dist/transformer/interface'
+import * as p_i from 'pareto-core/dist/transformer/interface'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/attributes/data"
 import * as d_out from "../../../../interface/generated/liana/schemas/low_level/data"
 
-type Attributes = p_ti.Transformer<d_in.Attributes, d_out.Attributes>
+type Attributes = p_i.Transformer<d_in.Attributes, d_out.Attributes>
 
 //dependencies
 
