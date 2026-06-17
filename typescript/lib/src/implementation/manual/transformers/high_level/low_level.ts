@@ -1,10 +1,28 @@
 import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_i from 'pareto-core/dist/interface/transformer'
 import * as p_di from 'pareto-core/dist/interface/data'
 import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/high_level/data"
 import * as d_out from "../../../../interface/generated/liana/schemas/low_level/data"
+
+namespace interface_ {
+
+    export type Graph = p_i.Transformer<
+        d_in.Graph,
+        d_out.Graph
+    >
+
+    export type Tree = p_i.Transformer_With_Parameter<
+        d_in.Tree,
+        d_out.Statements,
+        {
+            'path': p_di.List<string>
+        }
+    >
+
+}
 
 //dependencies
 import * as t_attributes_to_low_level from "../attributes/low_level"
@@ -14,7 +32,10 @@ import * as t_fp_to_loc from "pareto-fountain-pen/dist/implementation/manual/tra
 import * as sh from "../../../../shorthands/low_level"
 import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose"
 
-const temp_text_from_list_of_separated_texts = ($: p_di.List<string>, $p: { 'separator': string }): string => {
+const temp_text_from_list_of_separated_texts = (
+    $: p_di.List<string>,
+    $p: { 'separator': string }
+): string => {
 
     return p_text_from_list(
         t_fp_to_loc.Phrase(
@@ -34,7 +55,7 @@ const temp_text_from_list_of_separated_texts = ($: p_di.List<string>, $p: { 'sep
     )
 }
 
-export const Graph = ($: d_in.Graph): d_out.Graph => ({
+export const Graph: interface_.Graph = ($) => ({
     'strict': true,
     'type': p_.decide.state($.type, ($) => {
         switch ($[0]) {
@@ -87,12 +108,7 @@ export const Graph = ($: d_in.Graph): d_out.Graph => ({
 
 })
 
-export const Tree = (
-    $: d_in.Tree,
-    $p: {
-        'path': p_di.List<string>
-    }
-): d_out.Statements => p_.list.from.dictionary(
+export const Tree: interface_.Tree = ($, $p) => p_.list.from.dictionary(
     $.elements,
 ).flatten(
     ($, id): d_out.Statements => {
