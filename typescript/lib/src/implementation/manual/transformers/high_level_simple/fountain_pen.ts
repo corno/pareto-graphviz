@@ -1,4 +1,3 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/high_level_simple/data"

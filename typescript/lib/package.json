@@ -3,8 +3,13 @@
   "version": "0.2.41",
   "author": "Corno",
   "license": "Apache-2.0",
-  "description": "A TypeScript library for creating Graphviz graphs with pareto",
-  "keywords": [],
+  "description": "A library that provides a Liana-frontend for Graphviz, allowing you to generate Graphviz diagrams using Liana's syntax and features, both programmatically and manually in a Liana editing environment",
+  "keywords": [
+    "graphviz",
+    "liana",
+    "diagram",
+    "API"
+  ],
   "homepage": "https://github.com/corno/pareto-graphviz#readme",
   "bugs": {
     "url": "https://github.com/corno/pareto-graphviz/issues"
