@@ -45,7 +45,10 @@ export const escaped: p_i.Transformer_With_Parameter<
         'character code': number
     }
 > = ($, $p) => p_iterate(
-    p_list_from_text($, ($) => $),
+    p_list_from_text(
+        $,
+        ($) => $
+    ),
     null,
     (iter) => p_list_build_deprecated(
         ($i) => {
