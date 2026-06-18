@@ -43,8 +43,8 @@ export const Attributes: t_signatures.Attributes = ($, abort) => p_.from.list(
             ),
             ($) => p_.from.text(
                 $['option']['token']['value'],
-            ).state(
-                ($t): t_out.Attributes.L => {
+            ).state($, 
+                ($, $t): t_out.Attributes.L => {
                     switch ($t) {
                         case 'freeform':
                             return p_change_context(
