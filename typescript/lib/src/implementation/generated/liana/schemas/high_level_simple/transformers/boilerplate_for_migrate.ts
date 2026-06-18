@@ -1,7 +1,7 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/high_level_simple/signatures/transformers/boilerplate_for_migrate"
 
@@ -10,19 +10,19 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/high
 import * as v_attributes from "../../attributes/transformers/boilerplate_for_migrate"
 
 export const Graph: t_signatures.Graph = ($) => ({
-    'attributes': _p_change_context(
+    'attributes': p_change_context(
         $['attributes'],
         ($) => v_attributes.Attributes(
             $,
         ),
     ),
-    'nodes': _p_change_context(
+    'nodes': p_change_context(
         $['nodes'],
-        ($) => _p.dictionary.from.dictionary(
+        ($) => p_.from.dictionary(
             $,
         ).map(
             ($, id) => ({
-                'attributes': _p_change_context(
+                'attributes': p_change_context(
                     $['attributes'],
                     ($) => v_attributes.Attributes(
                         $,
@@ -31,21 +31,21 @@ export const Graph: t_signatures.Graph = ($) => ({
             }),
         ),
     ),
-    'edges': _p_change_context(
+    'edges': p_change_context(
         $['edges'],
-        ($) => _p.list.from.list(
+        ($) => p_.from.list(
             $,
         ).map(
             ($) => ({
-                'from': _p_change_context(
+                'from': p_change_context(
                     $['from'],
                     ($) => $,
                 ),
-                'to': _p_change_context(
+                'to': p_change_context(
                     $['to'],
                     ($) => $,
                 ),
-                'attributes': _p_change_context(
+                'attributes': p_change_context(
                     $['attributes'],
                     ($) => v_attributes.Attributes(
                         $,

@@ -40,7 +40,7 @@ const temp_text_from_list_of_separated_texts = (
     return p_text_from_list(
         t_fp_to_loc.Phrase(
             sh_fp.ph.rich(
-                p_.list.from.list($).map(($) => sh_fp.ph.literal($)),
+                p_.from.list($).map(($) => sh_fp.ph.literal($)),
                 sh_fp.ph.nothing(),
                 sh_fp.ph.nothing(),
                 sh_fp.ph.literal($p.separator),
@@ -57,23 +57,23 @@ const temp_text_from_list_of_separated_texts = (
 
 export const Graph: interface_.Graph = ($) => ({
     'strict': true,
-    'type': p_.decide.state($.type, ($) => {
+    'type': p_.from.state($.type).decide(($) => {
         switch ($[0]) {
             case 'directed': return p_.ss($, () => ['digraph', null])
             case 'undirected': return p_.ss($, () => ['graph', null])
             default: return p_.au($[0])
         }
     }),
-    'name': p_.optional.from.optional(
+    'name': p_.from.optional(
         $.name,
     ).map(
         ($) => ['string', $]
     ),
     'statements': p_.literal.nested_list([
         Tree($.tree, { 'path': p_.literal.list([]) }),
-        p_.decide.state($.type, ($): d_out.Graph.statements => {
+        p_.from.state($.type).decide(($): d_out.Graph.statements => {
             switch ($[0]) {
-                case 'directed': return p_.ss($, ($) => $.edges.__l_map(
+                case 'directed': return p_.ss($, ($) => $.edges.__l_map_deprecated(
                     ($): d_out.Statements.L => ['edge', {
                         "left": ['node', {
                             'id': ['string', $.from.start],
@@ -88,7 +88,7 @@ export const Graph: interface_.Graph = ($) => ({
                         "attributes": t_attributes_to_low_level.Attributes($.attributes),
                     }]
                 ))
-                case 'undirected': return p_.ss($, ($) => $.edges.__l_map(($): d_out.Statements.L => ['edge', {
+                case 'undirected': return p_.ss($, ($) => $.edges.__l_map_deprecated(($): d_out.Statements.L => ['edge', {
                     "left": ['node', {
                         'id': ['string', $.yin.start],
                         'port': p_.literal.not_set()
@@ -108,9 +108,9 @@ export const Graph: interface_.Graph = ($) => ({
 
 })
 
-export const Tree: interface_.Tree = ($, $p) => p_.list.from.dictionary(
+export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary(
     $.elements,
-).flatten(
+).flatten_to_list(
     ($, id): d_out.Statements => {
         const path = p_.literal.nested_list([
             $p.path,
@@ -118,7 +118,7 @@ export const Tree: interface_.Tree = ($, $p) => p_.list.from.dictionary(
                 id
             ]
         ])
-        return p_.decide.state($, ($) => {
+        return p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'node': return p_.ss($, ($) => p_.literal.list([
                     sh.s.node(

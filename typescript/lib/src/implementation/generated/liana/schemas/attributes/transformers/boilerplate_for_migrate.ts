@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/attributes/signatures/transformers/boilerplate_for_migrate"
 
@@ -9,166 +13,166 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/attr
 
 import * as v_html from "../../html/transformers/boilerplate_for_migrate"
 
-export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
+export const Attributes: t_signatures.Attributes = ($) => p_.from.list(
     $,
 ).map(
-    ($) => _p.decide.state(
+    ($) => p_decide_state(
         $,
         ($): t_out.Attributes.L => {
             switch ($[0]) {
                 case 'freeform':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['freeform', {
-                            'key': _p_change_context(
+                            'key': p_change_context(
                                 $['key'],
                                 ($) => $,
                             ),
-                            'value': _p_change_context(
+                            'value': p_change_context(
                                 $['value'],
                                 ($) => $,
                             ),
                         }],
                     )
                 case 'color':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['color', $],
                     )
                 case 'fillcolor':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['fillcolor', $],
                     )
                 case 'penwidth':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['penwidth', $],
                     )
                 case 'label':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['label', $],
                     )
                 case 'fontcolor':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['fontcolor', $],
                     )
                 case 'fontname':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['fontname', $],
                     )
                 case 'fontsize':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['fontsize', $],
                     )
                 case 'URL':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['URL', $],
                     )
                 case 'href':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['href', $],
                     )
                 case 'target':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['target', $],
                     )
                 case 'tooltip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['tooltip', $],
                     )
                 case 'id':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['id', $],
                     )
                 case 'class':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['class', $],
                     )
                 case 'comment':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['comment', $],
                     )
                 case 'style':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['style', _p.decide.state(
+                        ($) => ['style', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.style => {
                                 switch ($[0]) {
                                     case 'filled':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['filled', null],
                                         )
                                     case 'rounded':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['rounded', null],
                                         )
                                     case 'bold':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['bold', null],
                                         )
                                     case 'solid':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['solid', null],
                                         )
                                     case 'dashed':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['dashed', null],
                                         )
                                     case 'dotted':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['dotted', null],
                                         )
                                     case 'striped':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['striped', null],
                                         )
                                     case 'wedged':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['wedged', null],
                                         )
                                     case 'diagonals':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['diagonals', null],
                                         )
                                     case 'invis':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['invis', null],
                                         )
                                     case 'tapered':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['tapered', null],
                                         )
                                     case 'custom':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['custom', $],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -176,49 +180,49 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'layout':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['layout', _p.decide.state(
+                        ($) => ['layout', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.layout => {
                                 switch ($[0]) {
                                     case 'dot':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['dot', null],
                                         )
                                     case 'neato':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['neato', null],
                                         )
                                     case 'fdp':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['fdp', null],
                                         )
                                     case 'sfdp':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['sfdp', null],
                                         )
                                     case 'twopi':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['twopi', null],
                                         )
                                     case 'circo':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['circo', null],
                                         )
                                     case 'custom':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['custom', $],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -226,34 +230,34 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'rankdir':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['rankdir', _p.decide.state(
+                        ($) => ['rankdir', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.rankdir => {
                                 switch ($[0]) {
                                     case 'TB':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['TB', null],
                                         )
                                     case 'BT':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['BT', null],
                                         )
                                     case 'LR':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['LR', null],
                                         )
                                     case 'RL':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['RL', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -261,29 +265,29 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'bgcolor':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['bgcolor', $],
                     )
                 case 'labelloc':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['labelloc', _p.decide.state(
+                        ($) => ['labelloc', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.labelloc => {
                                 switch ($[0]) {
                                     case 't':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['t', null],
                                         )
                                     case 'b':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['b', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -291,29 +295,29 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'labeljust':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['labeljust', _p.decide.state(
+                        ($) => ['labeljust', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.labeljust => {
                                 switch ($[0]) {
                                     case 'l':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['l', null],
                                         )
                                     case 'c':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['c', null],
                                         )
                                     case 'r':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['r', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -321,94 +325,94 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'size':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['size', $],
                     )
                 case 'ratio':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['ratio', $],
                     )
                 case 'pad':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['pad', $],
                     )
                 case 'nodesep':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['nodesep', $],
                     )
                 case 'ranksep':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['ranksep', $],
                     )
                 case 'dpi':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['dpi', $],
                     )
                 case 'overlap':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['overlap', _p.decide.state(
+                        ($) => ['overlap', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.overlap => {
                                 switch ($[0]) {
                                     case 'true':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['true', null],
                                         )
                                     case 'false':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['false', null],
                                         )
                                     case 'scale':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['scale', null],
                                         )
                                     case 'scalexy':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['scalexy', null],
                                         )
                                     case 'orthoxy':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['orthoxy', null],
                                         )
                                     case 'orthoyx':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['orthoyx', null],
                                         )
                                     case 'compress':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['compress', null],
                                         )
                                     case 'vpsc':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['vpsc', null],
                                         )
                                     case 'ipsep':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['ipsep', null],
                                         )
                                     case 'prism':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['prism', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -416,29 +420,29 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'pack':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['pack', _p.decide.state(
+                        ($) => ['pack', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.pack => {
                                 switch ($[0]) {
                                     case 'true':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['true', null],
                                         )
                                     case 'false':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['false', null],
                                         )
                                     case 'custom':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['custom', $],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -446,29 +450,29 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'packmode':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['packmode', _p.decide.state(
+                        ($) => ['packmode', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.packmode => {
                                 switch ($[0]) {
                                     case 'node':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['node', null],
                                         )
                                     case 'clust':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['clust', null],
                                         )
                                     case 'graph':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['graph', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -476,54 +480,54 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'concentrate':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['concentrate', $],
                     )
                 case 'compound':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['compound', $],
                     )
                 case 'center':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['center', $],
                     )
                 case 'normalize':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['normalize', $],
                     )
                 case 'landscape':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['landscape', $],
                     )
                 case 'outputorder':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['outputorder', _p.decide.state(
+                        ($) => ['outputorder', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.outputorder => {
                                 switch ($[0]) {
                                     case 'breadthfirst':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['breadthfirst', null],
                                         )
                                     case 'nodesfirst':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['nodesfirst', null],
                                         )
                                     case 'edgesfirst':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['edgesfirst', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -531,34 +535,34 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'charset':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['charset', $],
                     )
                 case 'clusterrank':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['clusterrank', _p.decide.state(
+                        ($) => ['clusterrank', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.clusterrank => {
                                 switch ($[0]) {
                                     case 'local':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['local', null],
                                         )
                                     case 'global':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['global', null],
                                         )
                                     case 'none':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['none', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -566,119 +570,119 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'shape':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['shape', _p.decide.state(
+                        ($) => ['shape', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.shape => {
                                 switch ($[0]) {
                                     case 'box':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['box', null],
                                         )
                                     case 'circle':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['circle', null],
                                         )
                                     case 'ellipse':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['ellipse', null],
                                         )
                                     case 'oval':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['oval', null],
                                         )
                                     case 'point':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['point', null],
                                         )
                                     case 'egg':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['egg', null],
                                         )
                                     case 'triangle':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['triangle', null],
                                         )
                                     case 'plaintext':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['plaintext', null],
                                         )
                                     case 'plain':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['plain', null],
                                         )
                                     case 'diamond':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['diamond', null],
                                         )
                                     case 'trapezium':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['trapezium', null],
                                         )
                                     case 'parallelogram':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['parallelogram', null],
                                         )
                                     case 'house':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['house', null],
                                         )
                                     case 'pentagon':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['pentagon', null],
                                         )
                                     case 'hexagon':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['hexagon', null],
                                         )
                                     case 'septagon':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['septagon', null],
                                         )
                                     case 'octagon':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['octagon', null],
                                         )
                                     case 'polygon':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['polygon', null],
                                         )
                                     case 'record':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['record', null],
                                         )
                                     case 'Mrecord':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['Mrecord', null],
                                         )
                                     case 'custom':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['custom', $],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -686,114 +690,114 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'width':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['width', $],
                     )
                 case 'height':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['height', $],
                     )
                 case 'fixedsize':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['fixedsize', $],
                     )
                 case 'regular':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['regular', $],
                     )
                 case 'sides':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['sides', $],
                     )
                 case 'skew':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['skew', $],
                     )
                 case 'distortion':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['distortion', $],
                     )
                 case 'orientation':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['orientation', $],
                     )
                 case 'peripheries':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['peripheries', $],
                     )
                 case 'pin':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['pin', $],
                     )
                 case 'image':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['image', $],
                     )
                 case 'imagepos':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['imagepos', _p.decide.state(
+                        ($) => ['imagepos', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.imagepos => {
                                 switch ($[0]) {
                                     case 'tl':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['tl', null],
                                         )
                                     case 'tc':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['tc', null],
                                         )
                                     case 'tr':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['tr', null],
                                         )
                                     case 'ml':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['ml', null],
                                         )
                                     case 'mc':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['mc', null],
                                         )
                                     case 'mr':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['mr', null],
                                         )
                                     case 'bl':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['bl', null],
                                         )
                                     case 'bc':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['bc', null],
                                         )
                                     case 'br':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['br', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -801,39 +805,39 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'imagescale':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['imagescale', _p.decide.state(
+                        ($) => ['imagescale', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.imagescale => {
                                 switch ($[0]) {
                                     case 'false':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['false', null],
                                         )
                                     case 'true':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['true', null],
                                         )
                                     case 'width':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['width', null],
                                         )
                                     case 'height':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['height', null],
                                         )
                                     case 'both':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['both', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -841,124 +845,124 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'group':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['group', $],
                     )
                 case 'sortv':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['sortv', $],
                     )
                 case 'area':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['area', $],
                     )
                 case 'z':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['z', $],
                     )
                 case 'margin':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['margin', $],
                     )
                 case 'arrowhead':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['arrowhead', _p.decide.state(
+                        ($) => ['arrowhead', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.arrowhead => {
                                 switch ($[0]) {
                                     case 'normal':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['normal', null],
                                         )
                                     case 'box':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['box', null],
                                         )
                                     case 'crow':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['crow', null],
                                         )
                                     case 'diamond':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['diamond', null],
                                         )
                                     case 'dot':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['dot', null],
                                         )
                                     case 'inv':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['inv', null],
                                         )
                                     case 'none':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['none', null],
                                         )
                                     case 'tee':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['tee', null],
                                         )
                                     case 'vee':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['vee', null],
                                         )
                                     case 'open':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['open', null],
                                         )
                                     case 'halfopen':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['halfopen', null],
                                         )
                                     case 'empty':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['empty', null],
                                         )
                                     case 'invempty':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['invempty', null],
                                         )
                                     case 'odiamond':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['odiamond', null],
                                         )
                                     case 'odot':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['odot', null],
                                         )
                                     case 'obox':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['obox', null],
                                         )
                                     case 'custom':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['custom', $],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -966,99 +970,99 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'arrowtail':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['arrowtail', _p.decide.state(
+                        ($) => ['arrowtail', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.arrowtail => {
                                 switch ($[0]) {
                                     case 'normal':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['normal', null],
                                         )
                                     case 'box':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['box', null],
                                         )
                                     case 'crow':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['crow', null],
                                         )
                                     case 'diamond':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['diamond', null],
                                         )
                                     case 'dot':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['dot', null],
                                         )
                                     case 'inv':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['inv', null],
                                         )
                                     case 'none':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['none', null],
                                         )
                                     case 'tee':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['tee', null],
                                         )
                                     case 'vee':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['vee', null],
                                         )
                                     case 'open':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['open', null],
                                         )
                                     case 'halfopen':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['halfopen', null],
                                         )
                                     case 'empty':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['empty', null],
                                         )
                                     case 'invempty':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['invempty', null],
                                         )
                                     case 'odiamond':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['odiamond', null],
                                         )
                                     case 'odot':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['odot', null],
                                         )
                                     case 'obox':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['obox', null],
                                         )
                                     case 'custom':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['custom', $],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -1066,39 +1070,39 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'arrowsize':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['arrowsize', $],
                     )
                 case 'dir':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['dir', _p.decide.state(
+                        ($) => ['dir', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.dir => {
                                 switch ($[0]) {
                                     case 'forward':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['forward', null],
                                         )
                                     case 'back':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['back', null],
                                         )
                                     case 'both':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['both', null],
                                         )
                                     case 'none':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['none', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -1106,129 +1110,129 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'headlabel':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['headlabel', $],
                     )
                 case 'taillabel':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['taillabel', $],
                     )
                 case 'labelfontcolor':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['labelfontcolor', $],
                     )
                 case 'labelfontname':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['labelfontname', $],
                     )
                 case 'labelfontsize':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['labelfontsize', $],
                     )
                 case 'labelangle':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['labelangle', $],
                     )
                 case 'labeldistance':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['labeldistance', $],
                     )
                 case 'labelfloat':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['labelfloat', $],
                     )
                 case 'weight':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['weight', $],
                     )
                 case 'len':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['len', $],
                     )
                 case 'minlen':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['minlen', $],
                     )
                 case 'constraint':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['constraint', $],
                     )
                 case 'decorate':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['decorate', $],
                     )
                 case 'headport':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['headport', _p.decide.state(
+                        ($) => ['headport', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.headport => {
                                 switch ($[0]) {
                                     case 'center':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['center', null],
                                         )
                                     case 'n':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['n', null],
                                         )
                                     case 'ne':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['ne', null],
                                         )
                                     case 'e':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['e', null],
                                         )
                                     case 'se':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['se', null],
                                         )
                                     case 's':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['s', null],
                                         )
                                     case 'sw':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['sw', null],
                                         )
                                     case 'w':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['w', null],
                                         )
                                     case 'nw':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['nw', null],
                                         )
                                     case 'custom':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['custom', $],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -1236,64 +1240,64 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'tailport':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['tailport', _p.decide.state(
+                        ($) => ['tailport', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.tailport => {
                                 switch ($[0]) {
                                     case 'center':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['center', null],
                                         )
                                     case 'n':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['n', null],
                                         )
                                     case 'ne':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['ne', null],
                                         )
                                     case 'e':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['e', null],
                                         )
                                     case 'se':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['se', null],
                                         )
                                     case 's':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['s', null],
                                         )
                                     case 'sw':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['sw', null],
                                         )
                                     case 'w':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['w', null],
                                         )
                                     case 'nw':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['nw', null],
                                         )
                                     case 'custom':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['custom', $],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -1301,169 +1305,169 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'headclip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['headclip', $],
                     )
                 case 'tailclip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['tailclip', $],
                     )
                 case 'lhead':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['lhead', $],
                     )
                 case 'ltail':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['ltail', $],
                     )
                 case 'samehead':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['samehead', $],
                     )
                 case 'sametail':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['sametail', $],
                     )
                 case 'edgeURL':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['edgeURL', $],
                     )
                 case 'headURL':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['headURL', $],
                     )
                 case 'tailURL':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['tailURL', $],
                     )
                 case 'labelURL':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['labelURL', $],
                     )
                 case 'edgehref':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['edgehref', $],
                     )
                 case 'headhref':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['headhref', $],
                     )
                 case 'tailhref':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['tailhref', $],
                     )
                 case 'labelhref':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['labelhref', $],
                     )
                 case 'edgetarget':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['edgetarget', $],
                     )
                 case 'headtarget':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['headtarget', $],
                     )
                 case 'tailtarget':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['tailtarget', $],
                     )
                 case 'edgetooltip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['edgetooltip', $],
                     )
                 case 'headtooltip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['headtooltip', $],
                     )
                 case 'tailtooltip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['tailtooltip', $],
                     )
                 case 'labeltooltip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['labeltooltip', $],
                     )
                 case 'radius':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['radius', $],
                     )
                 case 'splines':
-                    return _p.ss(
+                    return p_.ss(
                         $,
-                        ($) => ['splines', _p.decide.state(
+                        ($) => ['splines', p_decide_state(
                             $,
                             ($): t_out.Attributes.L.splines => {
                                 switch ($[0]) {
                                     case 'true':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['true', null],
                                         )
                                     case 'false':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['false', null],
                                         )
                                     case 'none':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['none', null],
                                         )
                                     case 'line':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['line', null],
                                         )
                                     case 'spline':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['spline', null],
                                         )
                                     case 'polyline':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['polyline', null],
                                         )
                                     case 'ortho':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['ortho', null],
                                         )
                                     case 'curved':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['curved', null],
                                         )
                                     case 'compound':
-                                        return _p.ss(
+                                        return p_.ss(
                                             $,
                                             ($) => ['compound', null],
                                         )
                                     default:
-                                        return _p.au(
+                                        return p_.au(
                                             $[0],
                                         )
                                 }
@@ -1471,22 +1475,22 @@ export const Attributes: t_signatures.Attributes = ($) => _p.list.from.list(
                         )],
                     )
                 case 'pos':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['pos', $],
                     )
                 case 'xlabel':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['xlabel', $],
                     )
                 case 'layer':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['layer', $],
                     )
                 default:
-                    return _p.au(
+                    return p_.au(
                         $[0],
                     )
             }

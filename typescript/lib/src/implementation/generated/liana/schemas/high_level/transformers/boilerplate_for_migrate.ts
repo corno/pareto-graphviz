@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/high_level/signatures/transformers/boilerplate_for_migrate"
 
@@ -10,49 +14,49 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/high
 import * as v_attributes from "../../attributes/transformers/boilerplate_for_migrate"
 
 export const Graph: t_signatures.Graph = ($) => ({
-    'name': _p_change_context(
+    'name': p_change_context(
         $['name'],
-        ($) => _p.optional.from.optional(
+        ($) => p_.from.optional(
             $,
         ).map(
             ($) => $,
         ),
     ),
-    'tree': _p_change_context(
+    'tree': p_change_context(
         $['tree'],
         ($) => Tree(
             $,
         ),
     ),
-    'type': _p_change_context(
+    'type': p_change_context(
         $['type'],
-        ($) => _p.decide.state(
+        ($) => p_decide_state(
             $,
             ($): t_out.Graph.type_ => {
                 switch ($[0]) {
                     case 'undirected':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['undirected', {
-                                'edges': _p_change_context(
+                                'edges': p_change_context(
                                     $['edges'],
-                                    ($) => _p.list.from.list(
+                                    ($) => p_.from.list(
                                         $,
                                     ).map(
                                         ($) => ({
-                                            'yin': _p_change_context(
+                                            'yin': p_change_context(
                                                 $['yin'],
                                                 ($) => End_Point_Specification(
                                                     $,
                                                 ),
                                             ),
-                                            'yang': _p_change_context(
+                                            'yang': p_change_context(
                                                 $['yang'],
                                                 ($) => End_Point_Specification(
                                                     $,
                                                 ),
                                             ),
-                                            'attributes': _p_change_context(
+                                            'attributes': p_change_context(
                                                 $['attributes'],
                                                 ($) => v_attributes.Attributes(
                                                     $,
@@ -64,28 +68,28 @@ export const Graph: t_signatures.Graph = ($) => ({
                             }],
                         )
                     case 'directed':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['directed', {
-                                'edges': _p_change_context(
+                                'edges': p_change_context(
                                     $['edges'],
-                                    ($) => _p.list.from.list(
+                                    ($) => p_.from.list(
                                         $,
                                     ).map(
                                         ($) => ({
-                                            'from': _p_change_context(
+                                            'from': p_change_context(
                                                 $['from'],
                                                 ($) => End_Point_Specification(
                                                     $,
                                                 ),
                                             ),
-                                            'to': _p_change_context(
+                                            'to': p_change_context(
                                                 $['to'],
                                                 ($) => End_Point_Specification(
                                                     $,
                                                 ),
                                             ),
-                                            'attributes': _p_change_context(
+                                            'attributes': p_change_context(
                                                 $['attributes'],
                                                 ($) => v_attributes.Attributes(
                                                     $,
@@ -97,7 +101,7 @@ export const Graph: t_signatures.Graph = ($) => ({
                             }],
                         )
                     default:
-                        return _p.au(
+                        return p_.au(
                             $[0],
                         )
                 }
@@ -107,26 +111,26 @@ export const Graph: t_signatures.Graph = ($) => ({
 })
 
 export const Tree: t_signatures.Tree = ($) => ({
-    'attributes': _p_change_context(
+    'attributes': p_change_context(
         $['attributes'],
         ($) => v_attributes.Attributes(
             $,
         ),
     ),
-    'elements': _p_change_context(
+    'elements': p_change_context(
         $['elements'],
-        ($) => _p.dictionary.from.dictionary(
+        ($) => p_.from.dictionary(
             $,
         ).map(
-            ($, id) => _p.decide.state(
+            ($, id) => p_decide_state(
                 $,
                 ($): t_out.Tree.elements.D => {
                     switch ($[0]) {
                         case 'node':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ['node', {
-                                    'attributes': _p_change_context(
+                                    'attributes': p_change_context(
                                         $['attributes'],
                                         ($) => v_attributes.Attributes(
                                             $,
@@ -135,39 +139,39 @@ export const Tree: t_signatures.Tree = ($) => ({
                                 }],
                             )
                         case 'sub':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ['sub', {
-                                    'type': _p_change_context(
+                                    'type': p_change_context(
                                         $['type'],
-                                        ($) => _p.decide.state(
+                                        ($) => p_decide_state(
                                             $,
                                             ($): t_out.Tree.elements.D.sub.type_ => {
                                                 switch ($[0]) {
                                                     case 'group':
-                                                        return _p.ss(
+                                                        return p_.ss(
                                                             $,
                                                             ($) => ['group', null],
                                                         )
                                                     case 'cluster':
-                                                        return _p.ss(
+                                                        return p_.ss(
                                                             $,
                                                             ($) => ['cluster', null],
                                                         )
                                                     case 'subgraph':
-                                                        return _p.ss(
+                                                        return p_.ss(
                                                             $,
                                                             ($) => ['subgraph', null],
                                                         )
                                                     default:
-                                                        return _p.au(
+                                                        return p_.au(
                                                             $[0],
                                                         )
                                                 }
                                             },
                                         ),
                                     ),
-                                    'tree': _p_change_context(
+                                    'tree': p_change_context(
                                         $['tree'],
                                         ($) => Tree(
                                             $,
@@ -176,7 +180,7 @@ export const Tree: t_signatures.Tree = ($) => ({
                                 }],
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }
@@ -187,31 +191,31 @@ export const Tree: t_signatures.Tree = ($) => ({
 })
 
 export const End_Point_Specification: t_signatures.End_Point_Specification = ($) => ({
-    'start': _p_change_context(
+    'start': p_change_context(
         $['start'],
         ($) => $,
     ),
-    'tail': _p_change_context(
+    'tail': p_change_context(
         $['tail'],
-        ($) => _p.list.from.list(
+        ($) => p_.from.list(
             $,
         ).map(
             ($) => $,
         ),
     ),
-    'port data': _p_change_context(
+    'port data': p_change_context(
         $['port data'],
-        ($) => _p.optional.from.optional(
+        ($) => p_.from.optional(
             $,
         ).map(
             ($) => ({
-                'port': _p_change_context(
+                'port': p_change_context(
                     $['port'],
                     ($) => $,
                 ),
-                'compass direction': _p_change_context(
+                'compass direction': p_change_context(
                     $['compass direction'],
-                    ($) => _p.optional.from.optional(
+                    ($) => p_.from.optional(
                         $,
                     ).map(
                         ($) => $,

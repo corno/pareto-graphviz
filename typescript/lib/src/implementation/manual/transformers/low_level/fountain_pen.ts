@@ -31,7 +31,7 @@ export const Graph: signatures.Graph = ($) => sh.pg.sentences([
         $.strict
             ? sh.ph.literal("strict ")
             : sh.ph.nothing(),
-        p_.decide.state($.type, ($) => {
+        p_.from.state($.type).decide(($) => {
             switch ($[0]) {
                 case 'digraph': return p_.ss($, () => sh.ph.literal("digraph "))
                 case 'graph': return p_.ss($, () => sh.ph.literal("graph "))
@@ -54,8 +54,8 @@ export const Graph: signatures.Graph = ($) => sh.pg.sentences([
 export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
     sh.ph.literal("{"),
     sh.ph.indent(
-        sh.pg.sentences($.__l_map(($) => sh.sentence([
-            p_.decide.state($, ($) => {
+        sh.pg.sentences($.__l_map_deprecated(($) => sh.sentence([
+            p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'attribute assignment': return p_.ss($, ($) => sh.ph.composed([
                         ID($.name),
@@ -64,7 +64,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                         sh.ph.literal(";"),
                     ]))
                     case 'attributes': return p_.ss($, ($) => sh.ph.composed([
-                        p_.decide.state($.type, ($) => {
+                        p_.from.state($.type).decide(($) => {
                             switch ($[0]) {
                                 case 'edge': return p_.ss($, () => sh.ph.literal("edge "))
                                 case 'node': return p_.ss($, () => sh.ph.literal("node "))
@@ -76,14 +76,14 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                         sh.ph.literal(";"),
                     ]))
                     case 'edge': return p_.ss($, ($) => sh.ph.composed([
-                        p_.decide.state($.left, ($) => {
+                        p_.from.state($.left).decide(($) => {
                             switch ($[0]) {
                                 case 'node': return p_.ss($, ($) => Node_ID($))
                                 case 'subgraph': return p_.ss($, ($) => Subgraph($, $p))
                                 default: return p_.au($[0])
                             }
                         }),
-                        p_.decide.state($p['graph type'], ($) => {
+                        p_.from.state($p['graph type']).decide(($) => {
                             switch ($[0]) {
                                 case 'digraph': return p_.ss($, () => sh.ph.literal(" -> "))
                                 case 'graph': return p_.ss($, () => sh.ph.literal(" -- "))
@@ -91,11 +91,11 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                             }
                         }),
                         sh.ph.rich(
-                            p_.list.from.list(
+                            p_.from.list(
                                 $.right,
                             ).map(
                                 ($) => sh.ph.composed([
-                                    p_.decide.state($, ($) => {
+                                    p_.from.state($).decide(($) => {
                                         switch ($[0]) {
                                             case 'node': return p_.ss($, ($) => Node_ID($))
                                             case 'subgraph': return p_.ss($, ($) => Subgraph($, $p))
@@ -114,7 +114,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                     ]))
                     case 'node': return p_.ss($, ($) => sh.ph.composed([
                         Node_ID($.node),
-                        p_.boolean.from.list($['attributes']).is_empty()
+                        p_.from.list($['attributes']).is_empty()
                             ? sh.ph.nothing()
                             : Attributes($['attributes']),
                         sh.ph.literal(";"),
@@ -128,7 +128,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
     sh.ph.literal("}"),
 ])
 
-export const ID: signatures.ID = ($) => p_.decide.state($, ($) => {
+export const ID: signatures.ID = ($) => p_.from.state($).decide(($) => {
     switch ($[0]) {
         case 'id': return p_.ss($, ($) => sh.ph.literal($)) //FIX escaping
         case 'string': return p_.ss($, ($) => sh.ph.serialize(t_primitives_to_list_of_characters.quoted($)))
@@ -140,7 +140,7 @@ export const ID: signatures.ID = ($) => p_.decide.state($, ($) => {
 
 export const Attributes: signatures.Attributes = ($) => sh.ph.composed([
     sh.ph.literal(" [ "),
-    sh.ph.composed($.__l_map(($) => sh.ph.composed([
+    sh.ph.composed($.__l_map_deprecated(($) => sh.ph.composed([
         ID($.name),
         sh.ph.literal("="),
         ID($.value),

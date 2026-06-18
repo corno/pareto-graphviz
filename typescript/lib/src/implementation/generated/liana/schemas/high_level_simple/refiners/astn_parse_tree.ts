@@ -1,11 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
-import _p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
+import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
 
-import _p_variables from 'pareto-core/dist/implementation/specials/variables'
+import p_variables from 'pareto-core/dist/implementation/specials/variables'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/high_level_simple/signatures/refiners/astn_parse_tree"
 
@@ -17,34 +17,34 @@ import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual
 
 import * as v_external_attributes from "../../attributes/refiners/astn_parse_tree"
 
-export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
+export const Graph: t_signatures.Graph = ($, abort) => p_change_context(
     v_unmarshalled_from_parse_tree.Verbose_Group(
         $,
         ($) => abort(
             $,
         ),
         {
-            'expected properties': _p.literal.dictionary(
+            'expected properties': p_.literal.dictionary(
                 {
                     "attributes": null,
                     "nodes": null,
                     "edges": null,
                 },
             ),
-            'subdocument context': _p.literal.not_set(),
+            'subdocument context': p_.literal.not_set(),
         },
     ),
-    ($) => _p_variables(
+    ($) => p_variables(
         () => {
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
                 {
-                    'subdocument context': _p.literal.not_set(),
+                    'subdocument context': p_.literal.not_set(),
                 },
             )
             return {
-                'attributes': _p_change_context(
+                'attributes': p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,
                         ($) => abort(
@@ -52,7 +52,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'attributes',
-                            'subdocument context': _p.literal.not_set(),
+                            'subdocument context': p_.literal.not_set(),
                         },
                     ),
                     ($) => v_external_attributes.Attributes(
@@ -62,7 +62,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                         ),
                     ),
                 ),
-                'nodes': _p_change_context(
+                'nodes': p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,
                         ($) => abort(
@@ -70,48 +70,48 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'nodes',
-                            'subdocument context': _p.literal.not_set(),
+                            'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => _p_change_context(
+                    ($) => p_change_context(
                         v_unmarshalled_from_parse_tree.Dictionary(
                             $,
                             ($) => abort(
                                 $,
                             ),
                             {
-                                'subdocument context': _p.literal.not_set(),
+                                'subdocument context': p_.literal.not_set(),
                             },
                         ),
-                        ($) => _p.dictionary.from.dictionary(
+                        ($) => p_.from.dictionary(
                             $['entries'],
                         ).map(
-                            ($, id) => _p_change_context(
+                            ($, id) => p_change_context(
                                 v_unmarshalled_from_parse_tree.Verbose_Group(
                                     $,
                                     ($) => abort(
                                         $,
                                     ),
                                     {
-                                        'expected properties': _p.literal.dictionary(
+                                        'expected properties': p_.literal.dictionary(
                                             {
                                                 "attributes": null,
                                             },
                                         ),
-                                        'subdocument context': _p.literal.not_set(),
+                                        'subdocument context': p_.literal.not_set(),
                                     },
                                 ),
-                                ($) => _p_variables(
+                                ($) => p_variables(
                                     () => {
                                         
                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                             $['value'],
                                             {
-                                                'subdocument context': _p.literal.not_set(),
+                                                'subdocument context': p_.literal.not_set(),
                                             },
                                         )
                                         return {
-                                            'attributes': _p_change_context(
+                                            'attributes': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -119,7 +119,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                                                     ),
                                                     {
                                                         'id': 'attributes',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_external_attributes.Attributes(
@@ -136,7 +136,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                         ),
                     ),
                 ),
-                'edges': _p_change_context(
+                'edges': p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,
                         ($) => abort(
@@ -144,50 +144,50 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'edges',
-                            'subdocument context': _p.literal.not_set(),
+                            'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => _p.list.from.list(
+                    ($) => p_.from.list(
                         v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,
                             ),
                             {
-                                'subdocument context': _p.literal.not_set(),
+                                'subdocument context': p_.literal.not_set(),
                             },
                         )['items'],
                     ).map(
-                        ($) => _p_change_context(
+                        ($) => p_change_context(
                             $['value'],
-                            ($) => _p_change_context(
+                            ($) => p_change_context(
                                 v_unmarshalled_from_parse_tree.Verbose_Group(
                                     $,
                                     ($) => abort(
                                         $,
                                     ),
                                     {
-                                        'expected properties': _p.literal.dictionary(
+                                        'expected properties': p_.literal.dictionary(
                                             {
                                                 "from": null,
                                                 "to": null,
                                                 "attributes": null,
                                             },
                                         ),
-                                        'subdocument context': _p.literal.not_set(),
+                                        'subdocument context': p_.literal.not_set(),
                                     },
                                 ),
-                                ($) => _p_variables(
+                                ($) => p_variables(
                                     () => {
                                         
                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                             $['value'],
                                             {
-                                                'subdocument context': _p.literal.not_set(),
+                                                'subdocument context': p_.literal.not_set(),
                                             },
                                         )
                                         return {
-                                            'from': _p_change_context(
+                                            'from': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -195,7 +195,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                                                     ),
                                                     {
                                                         'id': 'from',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -205,7 +205,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                                                     ),
                                                 ),
                                             ),
-                                            'to': _p_change_context(
+                                            'to': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -213,7 +213,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                                                     ),
                                                     {
                                                         'id': 'to',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -223,7 +223,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                                                     ),
                                                 ),
                                             ),
-                                            'attributes': _p_change_context(
+                                            'attributes': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -231,7 +231,7 @@ export const Graph: t_signatures.Graph = ($, abort) => _p_change_context(
                                                     ),
                                                     {
                                                         'id': 'attributes',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_external_attributes.Attributes(

@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,28 +17,28 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_html from "../../html/transformers/astn_sealed_target"
 
-export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.list(
+export const Attributes: t_signatures.Attributes = ($) => ['list', p_.from.list(
     $,
 ).map(
-    ($) => ['state', _p.decide.state(
+    ($) => ['state', p_decide_state(
         $,
         ($): t_out.Value.state => {
             switch ($[0]) {
                 case 'freeform':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'freeform',
-                            'value': ['group', ['verbose', _p.literal.dictionary(
+                            'value': ['group', ['verbose', p_.literal.dictionary(
                                 {
-                                    "key": _p_change_context(
+                                    "key": p_change_context(
                                         $['key'],
                                         ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
                                         }],
                                     ),
-                                    "value": _p_change_context(
+                                    "value": p_change_context(
                                         $['value'],
                                         ($) => ['text', {
                                             'delimiter': ['quote', null],
@@ -46,7 +50,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'color':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'color',
@@ -57,7 +61,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'fillcolor':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'fillcolor',
@@ -68,7 +72,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'penwidth':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'penwidth',
@@ -84,7 +88,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'label':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'label',
@@ -95,7 +99,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'fontcolor':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'fontcolor',
@@ -106,7 +110,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'fontname':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'fontname',
@@ -117,7 +121,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'fontsize':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'fontsize',
@@ -133,7 +137,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'URL':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'URL',
@@ -144,7 +148,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'href':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'href',
@@ -155,7 +159,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'target':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'target',
@@ -166,7 +170,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'tooltip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'tooltip',
@@ -177,7 +181,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'id':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'id',
@@ -188,7 +192,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'class':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'class',
@@ -199,7 +203,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'comment':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'comment',
@@ -210,16 +214,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'style':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'style',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'filled':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'filled',
@@ -227,7 +231,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'rounded':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'rounded',
@@ -235,7 +239,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'bold':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'bold',
@@ -243,7 +247,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'solid':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'solid',
@@ -251,7 +255,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'dashed':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'dashed',
@@ -259,7 +263,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'dotted':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'dotted',
@@ -267,7 +271,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'striped':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'striped',
@@ -275,7 +279,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'wedged':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'wedged',
@@ -283,7 +287,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'diagonals':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'diagonals',
@@ -291,7 +295,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'invis':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'invis',
@@ -299,7 +303,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'tapered':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'tapered',
@@ -307,7 +311,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'custom':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
@@ -318,7 +322,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -327,16 +331,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'layout':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'layout',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'dot':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'dot',
@@ -344,7 +348,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'neato':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'neato',
@@ -352,7 +356,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'fdp':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'fdp',
@@ -360,7 +364,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'sfdp':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'sfdp',
@@ -368,7 +372,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'twopi':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'twopi',
@@ -376,7 +380,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'circo':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'circo',
@@ -384,7 +388,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'custom':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
@@ -395,7 +399,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -404,16 +408,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'rankdir':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'rankdir',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'TB':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'TB',
@@ -421,7 +425,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'BT':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'BT',
@@ -429,7 +433,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'LR':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'LR',
@@ -437,7 +441,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'RL':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'RL',
@@ -445,7 +449,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -454,7 +458,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'bgcolor':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'bgcolor',
@@ -465,16 +469,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labelloc':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labelloc',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 't':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 't',
@@ -482,7 +486,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'b':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'b',
@@ -490,7 +494,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -499,16 +503,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labeljust':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labeljust',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'l':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'l',
@@ -516,7 +520,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'c':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'c',
@@ -524,7 +528,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'r':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'r',
@@ -532,7 +536,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -541,7 +545,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'size':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'size',
@@ -552,7 +556,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'ratio':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'ratio',
@@ -563,7 +567,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'pad':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'pad',
@@ -574,7 +578,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'nodesep':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'nodesep',
@@ -590,7 +594,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'ranksep':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'ranksep',
@@ -606,7 +610,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'dpi':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'dpi',
@@ -622,16 +626,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'overlap':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'overlap',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'true':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'true',
@@ -639,7 +643,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'false':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'false',
@@ -647,7 +651,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'scale':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'scale',
@@ -655,7 +659,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'scalexy':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'scalexy',
@@ -663,7 +667,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'orthoxy':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'orthoxy',
@@ -671,7 +675,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'orthoyx':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'orthoyx',
@@ -679,7 +683,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'compress':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'compress',
@@ -687,7 +691,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'vpsc':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'vpsc',
@@ -695,7 +699,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'ipsep':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'ipsep',
@@ -703,7 +707,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'prism':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'prism',
@@ -711,7 +715,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -720,16 +724,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'pack':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'pack',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'true':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'true',
@@ -737,7 +741,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'false':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'false',
@@ -745,7 +749,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'custom':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
@@ -758,7 +762,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -767,16 +771,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'packmode':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'packmode',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'node':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'node',
@@ -784,7 +788,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'clust':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'clust',
@@ -792,7 +796,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'graph':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'graph',
@@ -800,7 +804,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -809,7 +813,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'concentrate':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'concentrate',
@@ -822,7 +826,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'compound':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'compound',
@@ -835,7 +839,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'center':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'center',
@@ -848,7 +852,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'normalize':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'normalize',
@@ -861,7 +865,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'landscape':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'landscape',
@@ -874,16 +878,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'outputorder':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'outputorder',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'breadthfirst':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'breadthfirst',
@@ -891,7 +895,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'nodesfirst':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'nodesfirst',
@@ -899,7 +903,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'edgesfirst':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'edgesfirst',
@@ -907,7 +911,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -916,7 +920,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'charset':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'charset',
@@ -927,16 +931,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'clusterrank':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'clusterrank',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'local':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'local',
@@ -944,7 +948,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'global':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'global',
@@ -952,7 +956,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'none':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'none',
@@ -960,7 +964,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -969,16 +973,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'shape':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'shape',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'box':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'box',
@@ -986,7 +990,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'circle':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'circle',
@@ -994,7 +998,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'ellipse':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'ellipse',
@@ -1002,7 +1006,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'oval':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'oval',
@@ -1010,7 +1014,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'point':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'point',
@@ -1018,7 +1022,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'egg':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'egg',
@@ -1026,7 +1030,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'triangle':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'triangle',
@@ -1034,7 +1038,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'plaintext':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'plaintext',
@@ -1042,7 +1046,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'plain':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'plain',
@@ -1050,7 +1054,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'diamond':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'diamond',
@@ -1058,7 +1062,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'trapezium':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'trapezium',
@@ -1066,7 +1070,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'parallelogram':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'parallelogram',
@@ -1074,7 +1078,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'house':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'house',
@@ -1082,7 +1086,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'pentagon':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'pentagon',
@@ -1090,7 +1094,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'hexagon':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'hexagon',
@@ -1098,7 +1102,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'septagon':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'septagon',
@@ -1106,7 +1110,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'octagon':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'octagon',
@@ -1114,7 +1118,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'polygon':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'polygon',
@@ -1122,7 +1126,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'record':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'record',
@@ -1130,7 +1134,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'Mrecord':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'Mrecord',
@@ -1138,7 +1142,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'custom':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
@@ -1149,7 +1153,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -1158,7 +1162,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'width':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'width',
@@ -1174,7 +1178,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'height':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'height',
@@ -1190,7 +1194,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'fixedsize':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'fixedsize',
@@ -1203,7 +1207,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'regular':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'regular',
@@ -1216,7 +1220,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'sides':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'sides',
@@ -1229,7 +1233,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'skew':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'skew',
@@ -1245,7 +1249,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'distortion':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'distortion',
@@ -1261,7 +1265,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'orientation':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'orientation',
@@ -1277,7 +1281,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'peripheries':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'peripheries',
@@ -1290,7 +1294,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'pin':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'pin',
@@ -1303,7 +1307,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'image':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'image',
@@ -1314,16 +1318,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'imagepos':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'imagepos',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'tl':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'tl',
@@ -1331,7 +1335,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'tc':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'tc',
@@ -1339,7 +1343,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'tr':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'tr',
@@ -1347,7 +1351,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'ml':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'ml',
@@ -1355,7 +1359,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'mc':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'mc',
@@ -1363,7 +1367,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'mr':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'mr',
@@ -1371,7 +1375,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'bl':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'bl',
@@ -1379,7 +1383,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'bc':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'bc',
@@ -1387,7 +1391,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'br':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'br',
@@ -1395,7 +1399,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -1404,16 +1408,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'imagescale':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'imagescale',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'false':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'false',
@@ -1421,7 +1425,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'true':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'true',
@@ -1429,7 +1433,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'width':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'width',
@@ -1437,7 +1441,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'height':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'height',
@@ -1445,7 +1449,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'both':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'both',
@@ -1453,7 +1457,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -1462,7 +1466,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'group':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'group',
@@ -1473,7 +1477,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'sortv':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'sortv',
@@ -1486,7 +1490,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'area':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'area',
@@ -1502,7 +1506,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'z':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'z',
@@ -1518,7 +1522,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'margin':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'margin',
@@ -1529,16 +1533,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'arrowhead':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'arrowhead',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'normal':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'normal',
@@ -1546,7 +1550,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'box':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'box',
@@ -1554,7 +1558,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'crow':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'crow',
@@ -1562,7 +1566,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'diamond':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'diamond',
@@ -1570,7 +1574,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'dot':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'dot',
@@ -1578,7 +1582,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'inv':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'inv',
@@ -1586,7 +1590,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'none':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'none',
@@ -1594,7 +1598,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'tee':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'tee',
@@ -1602,7 +1606,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'vee':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'vee',
@@ -1610,7 +1614,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'open':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'open',
@@ -1618,7 +1622,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'halfopen':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'halfopen',
@@ -1626,7 +1630,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'empty':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'empty',
@@ -1634,7 +1638,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'invempty':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'invempty',
@@ -1642,7 +1646,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'odiamond':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'odiamond',
@@ -1650,7 +1654,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'odot':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'odot',
@@ -1658,7 +1662,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'obox':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'obox',
@@ -1666,7 +1670,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'custom':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
@@ -1677,7 +1681,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -1686,16 +1690,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'arrowtail':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'arrowtail',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'normal':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'normal',
@@ -1703,7 +1707,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'box':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'box',
@@ -1711,7 +1715,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'crow':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'crow',
@@ -1719,7 +1723,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'diamond':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'diamond',
@@ -1727,7 +1731,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'dot':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'dot',
@@ -1735,7 +1739,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'inv':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'inv',
@@ -1743,7 +1747,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'none':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'none',
@@ -1751,7 +1755,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'tee':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'tee',
@@ -1759,7 +1763,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'vee':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'vee',
@@ -1767,7 +1771,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'open':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'open',
@@ -1775,7 +1779,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'halfopen':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'halfopen',
@@ -1783,7 +1787,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'empty':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'empty',
@@ -1791,7 +1795,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'invempty':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'invempty',
@@ -1799,7 +1803,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'odiamond':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'odiamond',
@@ -1807,7 +1811,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'odot':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'odot',
@@ -1815,7 +1819,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'obox':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'obox',
@@ -1823,7 +1827,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'custom':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
@@ -1834,7 +1838,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -1843,7 +1847,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'arrowsize':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'arrowsize',
@@ -1859,16 +1863,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'dir':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'dir',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'forward':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'forward',
@@ -1876,7 +1880,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'back':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'back',
@@ -1884,7 +1888,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'both':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'both',
@@ -1892,7 +1896,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'none':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'none',
@@ -1900,7 +1904,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -1909,7 +1913,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'headlabel':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'headlabel',
@@ -1920,7 +1924,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'taillabel':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'taillabel',
@@ -1931,7 +1935,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labelfontcolor':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labelfontcolor',
@@ -1942,7 +1946,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labelfontname':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labelfontname',
@@ -1953,7 +1957,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labelfontsize':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labelfontsize',
@@ -1969,7 +1973,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labelangle':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labelangle',
@@ -1985,7 +1989,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labeldistance':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labeldistance',
@@ -2001,7 +2005,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labelfloat':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labelfloat',
@@ -2014,7 +2018,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'weight':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'weight',
@@ -2030,7 +2034,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'len':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'len',
@@ -2046,7 +2050,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'minlen':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'minlen',
@@ -2059,7 +2063,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'constraint':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'constraint',
@@ -2072,7 +2076,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'decorate':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'decorate',
@@ -2085,16 +2089,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'headport':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'headport',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'center':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'center',
@@ -2102,7 +2106,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'n':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'n',
@@ -2110,7 +2114,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'ne':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'ne',
@@ -2118,7 +2122,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'e':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'e',
@@ -2126,7 +2130,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'se':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'se',
@@ -2134,7 +2138,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 's':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 's',
@@ -2142,7 +2146,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'sw':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'sw',
@@ -2150,7 +2154,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'w':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'w',
@@ -2158,7 +2162,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'nw':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'nw',
@@ -2166,7 +2170,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'custom':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
@@ -2177,7 +2181,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -2186,16 +2190,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'tailport':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'tailport',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'center':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'center',
@@ -2203,7 +2207,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'n':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'n',
@@ -2211,7 +2215,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'ne':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'ne',
@@ -2219,7 +2223,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'e':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'e',
@@ -2227,7 +2231,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'se':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'se',
@@ -2235,7 +2239,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 's':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 's',
@@ -2243,7 +2247,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'sw':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'sw',
@@ -2251,7 +2255,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'w':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'w',
@@ -2259,7 +2263,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'nw':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'nw',
@@ -2267,7 +2271,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'custom':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'custom',
@@ -2278,7 +2282,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -2287,7 +2291,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'headclip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'headclip',
@@ -2300,7 +2304,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'tailclip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'tailclip',
@@ -2313,7 +2317,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'lhead':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'lhead',
@@ -2324,7 +2328,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'ltail':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'ltail',
@@ -2335,7 +2339,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'samehead':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'samehead',
@@ -2346,7 +2350,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'sametail':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'sametail',
@@ -2357,7 +2361,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'edgeURL':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'edgeURL',
@@ -2368,7 +2372,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'headURL':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'headURL',
@@ -2379,7 +2383,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'tailURL':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'tailURL',
@@ -2390,7 +2394,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labelURL':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labelURL',
@@ -2401,7 +2405,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'edgehref':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'edgehref',
@@ -2412,7 +2416,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'headhref':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'headhref',
@@ -2423,7 +2427,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'tailhref':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'tailhref',
@@ -2434,7 +2438,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labelhref':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labelhref',
@@ -2445,7 +2449,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'edgetarget':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'edgetarget',
@@ -2456,7 +2460,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'headtarget':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'headtarget',
@@ -2467,7 +2471,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'tailtarget':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'tailtarget',
@@ -2478,7 +2482,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'edgetooltip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'edgetooltip',
@@ -2489,7 +2493,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'headtooltip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'headtooltip',
@@ -2500,7 +2504,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'tailtooltip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'tailtooltip',
@@ -2511,7 +2515,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'labeltooltip':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'labeltooltip',
@@ -2522,7 +2526,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'radius':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'radius',
@@ -2538,16 +2542,16 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'splines':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'splines',
-                            'value': ['state', _p.decide.state(
+                            'value': ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'true':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'true',
@@ -2555,7 +2559,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'false':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'false',
@@ -2563,7 +2567,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'none':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'none',
@@ -2571,7 +2575,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'line':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'line',
@@ -2579,7 +2583,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'spline':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'spline',
@@ -2587,7 +2591,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'polyline':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'polyline',
@@ -2595,7 +2599,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'ortho':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'ortho',
@@ -2603,7 +2607,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'curved':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'curved',
@@ -2611,7 +2615,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         case 'compound':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'compound',
@@ -2619,7 +2623,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -2628,7 +2632,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'pos':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'pos',
@@ -2639,7 +2643,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'xlabel':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'xlabel',
@@ -2650,7 +2654,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'layer':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'layer',
@@ -2661,7 +2665,7 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
                         }),
                     )
                 default:
-                    return _p.au(
+                    return p_.au(
                         $[0],
                     )
             }

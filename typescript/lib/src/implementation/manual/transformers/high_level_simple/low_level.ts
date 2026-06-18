@@ -22,15 +22,15 @@ export const Graph: Graph = ($) => sh.Graph(
         [
             sh.s.attributes('graph', t_attributes_to_low_level.Attributes($.attributes)),
         ],
-        p_.list.from.dictionary(
+        p_.from.dictionary(
             $.nodes
-        ).convert(
+        ).convert_to_list(
             ($, id) => sh.s.node(
                 sh.node_id(sh.id.string(id), null),
                 t_attributes_to_low_level.Attributes($.attributes)
             )
         ),
-        p_.list.from.list(
+        p_.from.list(
             $.edges
         ).map(
             ($) => sh.s.edge(

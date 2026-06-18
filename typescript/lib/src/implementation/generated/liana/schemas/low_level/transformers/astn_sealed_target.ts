@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,9 +17,9 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_html from "../../html/transformers/astn_sealed_target"
 
-export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "strict": _p_change_context(
+        "strict": p_change_context(
             $['strict'],
             ($) => ['text', {
                 'delimiter': ['none', null],
@@ -24,14 +28,14 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal
                 ),
             }],
         ),
-        "type": _p_change_context(
+        "type": p_change_context(
             $['type'],
-            ($) => ['state', _p.decide.state(
+            ($) => ['state', p_decide_state(
                 $,
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'graph':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'graph',
@@ -39,7 +43,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'digraph':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'digraph',
@@ -47,16 +51,16 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }
                 },
             )],
         ),
-        "name": _p_change_context(
+        "name": p_change_context(
             $['name'],
-            ($) => ['optional', _p.decide.optional(
+            ($) => ['optional', p_decide_optional(
                 $,
                 ($): t_out.Value.optional => ['set', ID(
                     $,
@@ -64,7 +68,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal
                 () => ['not set', null],
             )],
         ),
-        "statements": _p_change_context(
+        "statements": p_change_context(
             $['statements'],
             ($) => Statements(
                 $,
@@ -73,27 +77,27 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal
     },
 )]]
 
-export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.list(
+export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
     $,
 ).map(
-    ($) => ['state', _p.decide.state(
+    ($) => ['state', p_decide_state(
         $,
         ($): t_out.Value.state => {
             switch ($[0]) {
                 case 'node':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'node',
-                            'value': ['group', ['verbose', _p.literal.dictionary(
+                            'value': ['group', ['verbose', p_.literal.dictionary(
                                 {
-                                    "node": _p_change_context(
+                                    "node": p_change_context(
                                         $['node'],
                                         ($) => Node_ID(
                                             $,
                                         ),
                                     ),
-                                    "attributes": _p_change_context(
+                                    "attributes": p_change_context(
                                         $['attributes'],
                                         ($) => Attributes(
                                             $,
@@ -104,21 +108,21 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'edge':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'edge',
-                            'value': ['group', ['verbose', _p.literal.dictionary(
+                            'value': ['group', ['verbose', p_.literal.dictionary(
                                 {
-                                    "left": _p_change_context(
+                                    "left": p_change_context(
                                         $['left'],
                                         ($) => End_Point(
                                             $,
                                         ),
                                     ),
-                                    "right": _p_change_context(
+                                    "right": p_change_context(
                                         $['right'],
-                                        ($) => ['list', _p.list.from.list(
+                                        ($) => ['list', p_.from.list(
                                             $,
                                         ).map(
                                             ($) => End_Point(
@@ -126,7 +130,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                                             ),
                                         )],
                                     ),
-                                    "attributes": _p_change_context(
+                                    "attributes": p_change_context(
                                         $['attributes'],
                                         ($) => Attributes(
                                             $,
@@ -137,20 +141,20 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'attributes':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'attributes',
-                            'value': ['group', ['verbose', _p.literal.dictionary(
+                            'value': ['group', ['verbose', p_.literal.dictionary(
                                 {
-                                    "type": _p_change_context(
+                                    "type": p_change_context(
                                         $['type'],
-                                        ($) => ['state', _p.decide.state(
+                                        ($) => ['state', p_decide_state(
                                             $,
                                             ($): t_out.Value.state => {
                                                 switch ($[0]) {
                                                     case 'graph':
-                                                        return _p.ss(
+                                                        return p_.ss(
                                                             $,
                                                             ($) => ({
                                                                 'option': 'graph',
@@ -158,7 +162,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                                                             }),
                                                         )
                                                     case 'node':
-                                                        return _p.ss(
+                                                        return p_.ss(
                                                             $,
                                                             ($) => ({
                                                                 'option': 'node',
@@ -166,7 +170,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                                                             }),
                                                         )
                                                     case 'edge':
-                                                        return _p.ss(
+                                                        return p_.ss(
                                                             $,
                                                             ($) => ({
                                                                 'option': 'edge',
@@ -174,14 +178,14 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                                                             }),
                                                         )
                                                     default:
-                                                        return _p.au(
+                                                        return p_.au(
                                                             $[0],
                                                         )
                                                 }
                                             },
                                         )],
                                     ),
-                                    "attributes": _p_change_context(
+                                    "attributes": p_change_context(
                                         $['attributes'],
                                         ($) => Attributes(
                                             $,
@@ -192,19 +196,19 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'attribute assignment':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'attribute assignment',
-                            'value': ['group', ['verbose', _p.literal.dictionary(
+                            'value': ['group', ['verbose', p_.literal.dictionary(
                                 {
-                                    "name": _p_change_context(
+                                    "name": p_change_context(
                                         $['name'],
                                         ($) => ID(
                                             $,
                                         ),
                                     ),
-                                    "value": _p_change_context(
+                                    "value": p_change_context(
                                         $['value'],
                                         ($) => ID(
                                             $,
@@ -215,7 +219,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                         }),
                     )
                 case 'subgraph':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'subgraph',
@@ -225,7 +229,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
                         }),
                     )
                 default:
-                    return _p.au(
+                    return p_.au(
                         $[0],
                     )
             }
@@ -233,12 +237,12 @@ export const Statements: t_signatures.Statements = ($) => ['list', _p.list.from.
     )],
 )]
 
-export const End_Point: t_signatures.End_Point = ($) => ['state', _p.decide.state(
+export const End_Point: t_signatures.End_Point = ($) => ['state', p_decide_state(
     $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'node':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'node',
@@ -248,7 +252,7 @@ export const End_Point: t_signatures.End_Point = ($) => ['state', _p.decide.stat
                     }),
                 )
             case 'subgraph':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'subgraph',
@@ -258,25 +262,25 @@ export const End_Point: t_signatures.End_Point = ($) => ['state', _p.decide.stat
                     }),
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }
     },
 )]
 
-export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.list(
+export const Attributes: t_signatures.Attributes = ($) => ['list', p_.from.list(
     $,
 ).map(
-    ($) => ['group', ['verbose', _p.literal.dictionary(
+    ($) => ['group', ['verbose', p_.literal.dictionary(
         {
-            "name": _p_change_context(
+            "name": p_change_context(
                 $['name'],
                 ($) => ID(
                     $,
                 ),
             ),
-            "value": _p_change_context(
+            "value": p_change_context(
                 $['value'],
                 ($) => ID(
                     $,
@@ -286,29 +290,29 @@ export const Attributes: t_signatures.Attributes = ($) => ['list', _p.list.from.
     )]],
 )]
 
-export const Node_ID: t_signatures.Node_ID = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Node_ID: t_signatures.Node_ID = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "id": _p_change_context(
+        "id": p_change_context(
             $['id'],
             ($) => ID(
                 $,
             ),
         ),
-        "port": _p_change_context(
+        "port": p_change_context(
             $['port'],
-            ($) => ['optional', _p.decide.optional(
+            ($) => ['optional', p_decide_optional(
                 $,
-                ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.literal.dictionary(
+                ($): t_out.Value.optional => ['set', ['group', ['verbose', p_.literal.dictionary(
                     {
-                        "port": _p_change_context(
+                        "port": p_change_context(
                             $['port'],
                             ($) => ID(
                                 $,
                             ),
                         ),
-                        "compass point": _p_change_context(
+                        "compass point": p_change_context(
                             $['compass point'],
-                            ($) => ['optional', _p.decide.optional(
+                            ($) => ['optional', p_decide_optional(
                                 $,
                                 ($): t_out.Value.optional => ['set', ID(
                                     $,
@@ -324,12 +328,12 @@ export const Node_ID: t_signatures.Node_ID = ($) => ['group', ['verbose', _p.lit
     },
 )]]
 
-export const ID: t_signatures.ID = ($) => ['state', _p.decide.state(
+export const ID: t_signatures.ID = ($) => ['state', p_decide_state(
     $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'id':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'id',
@@ -340,7 +344,7 @@ export const ID: t_signatures.ID = ($) => ['state', _p.decide.state(
                     }),
                 )
             case 'string':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'string',
@@ -351,7 +355,7 @@ export const ID: t_signatures.ID = ($) => ['state', _p.decide.state(
                     }),
                 )
             case 'html':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'html',
@@ -361,7 +365,7 @@ export const ID: t_signatures.ID = ($) => ['state', _p.decide.state(
                     }),
                 )
             case 'number':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'number',
@@ -374,20 +378,20 @@ export const ID: t_signatures.ID = ($) => ['state', _p.decide.state(
                     }),
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }
     },
 )]
 
-export const Subgraph: t_signatures.Subgraph = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Subgraph: t_signatures.Subgraph = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "subgraph": _p_change_context(
+        "subgraph": p_change_context(
             $['subgraph'],
-            ($) => ['optional', _p.decide.optional(
+            ($) => ['optional', p_decide_optional(
                 $,
-                ($): t_out.Value.optional => ['set', ['optional', _p.decide.optional(
+                ($): t_out.Value.optional => ['set', ['optional', p_decide_optional(
                     $,
                     ($): t_out.Value.optional => ['set', ID(
                         $,
@@ -397,7 +401,7 @@ export const Subgraph: t_signatures.Subgraph = ($) => ['group', ['verbose', _p.l
                 () => ['not set', null],
             )],
         ),
-        "statements": _p_change_context(
+        "statements": p_change_context(
             $['statements'],
             ($) => Statements(
                 $,

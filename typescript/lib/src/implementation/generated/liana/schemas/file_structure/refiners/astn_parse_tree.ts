@@ -1,11 +1,15 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
-import _p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
+import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
 
-import _p_variables from 'pareto-core/dist/implementation/specials/variables'
+import p_variables from 'pareto-core/dist/implementation/specials/variables'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/file_structure/signatures/refiners/astn_parse_tree"
 
@@ -17,32 +21,32 @@ import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual
 
 import * as v_external_high_level from "../../high_level/refiners/astn_parse_tree"
 
-export const Directory: t_signatures.Directory = ($, abort) => _p_change_context(
+export const Directory: t_signatures.Directory = ($, abort) => p_change_context(
     v_unmarshalled_from_parse_tree.Dictionary(
         $,
         ($) => abort(
             $,
         ),
         {
-            'subdocument context': _p.literal.not_set(),
+            'subdocument context': p_.literal.not_set(),
         },
     ),
-    ($) => _p.dictionary.from.dictionary(
+    ($) => p_.from.dictionary(
         $['entries'],
     ).map(
-        ($, id) => _p_change_context(
+        ($, id) => p_change_context(
             v_unmarshalled_from_parse_tree.State(
                 $,
                 ($) => abort(
                     $,
                 ),
             ),
-            ($) => _p.decide.text(
+            ($) => p_decide_text(
                 $['option']['token']['value'],
                 ($t): t_out.Directory.D => {
                     switch ($t) {
                         case 'file':
-                            return _p_change_context(
+                            return p_change_context(
                                 $['value'],
                                 ($) => ['file', v_external_high_level.Graph(
                                     $,
@@ -52,7 +56,7 @@ export const Directory: t_signatures.Directory = ($, abort) => _p_change_context
                                 )],
                             )
                         case 'directory':
-                            return _p_change_context(
+                            return p_change_context(
                                 $['value'],
                                 ($) => ['directory', Directory(
                                     $,
@@ -68,7 +72,7 @@ export const Directory: t_signatures.Directory = ($, abort) => _p_change_context
                                     'range': v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.literal.not_set(),
+                                            'subdocument context': p_.literal.not_set(),
                                         },
                                     ),
                                 }],

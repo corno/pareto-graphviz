@@ -13,7 +13,7 @@ import * as sh from "../../../../shorthands/low_level"
 
 const temp_boolean = ($: boolean): d_out.ID => sh.id.id($ ? "true" : "false")
 
-export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.decide.state($, ($): d_out.Attributes.L => {
+export const Attributes: Attributes = ($) => p_.from.list($).map(($) => p_.from.state($).decide(($): d_out.Attributes.L => {
     switch ($[0]) {
         case 'freeform': return p_.ss($, ($) => sh.attribute(sh.id.string($.key), sh.id.string($.value)))
         case 'color': return p_.ss($, ($) => sh.attribute(sh.id.id("color"), sh.id.string($)))
@@ -30,7 +30,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
         case 'id': return p_.ss($, ($) => sh.attribute(sh.id.id("id"), sh.id.string($)))
         case 'class': return p_.ss($, ($) => sh.attribute(sh.id.id("class"), sh.id.string($)))
         case 'comment': return p_.ss($, ($) => sh.attribute(sh.id.id("comment"), sh.id.string($)))
-        case 'style': return p_.ss($, ($) => sh.attribute(sh.id.id("style"), p_.decide.state($, ($) => {
+        case 'style': return p_.ss($, ($) => sh.attribute(sh.id.id("style"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'filled': return p_.ss($, ($) => sh.id.id("filled"))
                 case 'rounded': return p_.ss($, ($) => sh.id.id("rounded"))
@@ -47,7 +47,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
                 default: return p_.au($[0])
             }
         })))
-        case 'layout': return p_.ss($, ($) => sh.attribute(sh.id.id("layout"), p_.decide.state($, ($) => {
+        case 'layout': return p_.ss($, ($) => sh.attribute(sh.id.id("layout"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'dot': return p_.ss($, ($) => sh.id.id("dot"))
                 case 'neato': return p_.ss($, ($) => sh.id.id("neato"))
@@ -59,7 +59,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
                 default: return p_.au($[0])
             }
         })))
-        case 'rankdir': return p_.ss($, ($) => sh.attribute(sh.id.id("rankdir"), p_.decide.state($, ($) => {
+        case 'rankdir': return p_.ss($, ($) => sh.attribute(sh.id.id("rankdir"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'TB': return p_.ss($, ($) => sh.id.id("TB"))
                 case 'BT': return p_.ss($, ($) => sh.id.id("BT"))
@@ -69,14 +69,14 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
             }
         })))
         case 'bgcolor': return p_.ss($, ($) => sh.attribute(sh.id.id("bgcolor"), sh.id.string($)))
-        case 'labelloc': return p_.ss($, ($) => sh.attribute(sh.id.id("labelloc"), p_.decide.state($, ($) => {
+        case 'labelloc': return p_.ss($, ($) => sh.attribute(sh.id.id("labelloc"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 't': return p_.ss($, ($) => sh.id.id("t"))
                 case 'b': return p_.ss($, ($) => sh.id.id("b"))
                 default: return p_.au($[0])
             }
         })))
-        case 'labeljust': return p_.ss($, ($) => sh.attribute(sh.id.id("labeljust"), p_.decide.state($, ($) => {
+        case 'labeljust': return p_.ss($, ($) => sh.attribute(sh.id.id("labeljust"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'l': return p_.ss($, ($) => sh.id.id("l"))
                 case 'c': return p_.ss($, ($) => sh.id.id("c"))
@@ -90,7 +90,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
         case 'nodesep': return p_.ss($, ($) => sh.attribute(sh.id.id("nodesep"), sh.id.number($)))
         case 'ranksep': return p_.ss($, ($) => sh.attribute(sh.id.id("ranksep"), sh.id.number($)))
         case 'dpi': return p_.ss($, ($) => sh.attribute(sh.id.id("dpi"), sh.id.number($)))
-        case 'overlap': return p_.ss($, ($) => sh.attribute(sh.id.id("overlap"), p_.decide.state($, ($) => {
+        case 'overlap': return p_.ss($, ($) => sh.attribute(sh.id.id("overlap"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'true': return p_.ss($, ($) => sh.id.id("true"))
                 case 'false': return p_.ss($, ($) => sh.id.id("false"))
@@ -105,7 +105,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
                 default: return p_.au($[0])
             }
         })))
-        case 'pack': return p_.ss($, ($) => sh.attribute(sh.id.id("pack"), p_.decide.state($, ($) => {
+        case 'pack': return p_.ss($, ($) => sh.attribute(sh.id.id("pack"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'true': return p_.ss($, ($) => sh.id.id("true"))
                 case 'false': return p_.ss($, ($) => sh.id.id("false"))
@@ -113,7 +113,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
                 default: return p_.au($[0])
             }
         })))
-        case 'packmode': return p_.ss($, ($) => sh.attribute(sh.id.id("packmode"), p_.decide.state($, ($) => {
+        case 'packmode': return p_.ss($, ($) => sh.attribute(sh.id.id("packmode"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'node': return p_.ss($, ($) => sh.id.id("node"))
                 case 'clust': return p_.ss($, ($) => sh.id.id("clust"))
@@ -126,7 +126,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
         case 'center': return p_.ss($, ($) => sh.attribute(sh.id.id("center"), temp_boolean($)))
         case 'normalize': return p_.ss($, ($) => sh.attribute(sh.id.id("normalize"), temp_boolean($)))
         case 'landscape': return p_.ss($, ($) => sh.attribute(sh.id.id("landscape"), temp_boolean($)))
-        case 'outputorder': return p_.ss($, ($) => sh.attribute(sh.id.id("outputorder"), p_.decide.state($, ($) => {
+        case 'outputorder': return p_.ss($, ($) => sh.attribute(sh.id.id("outputorder"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'breadthfirst': return p_.ss($, ($) => sh.id.id("breadthfirst"))
                 case 'nodesfirst': return p_.ss($, ($) => sh.id.id("nodesfirst"))
@@ -135,7 +135,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
             }
         })))
         case 'charset': return p_.ss($, ($) => sh.attribute(sh.id.id("charset"), sh.id.string($)))
-        case 'clusterrank': return p_.ss($, ($) => sh.attribute(sh.id.id("clusterrank"), p_.decide.state($, ($) => {
+        case 'clusterrank': return p_.ss($, ($) => sh.attribute(sh.id.id("clusterrank"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'local': return p_.ss($, ($) => sh.id.id("local"))
                 case 'global': return p_.ss($, ($) => sh.id.id("global"))
@@ -143,7 +143,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
                 default: return p_.au($[0])
             }
         })))
-        case 'shape': return p_.ss($, ($) => p_.decide.state($, ($) => {
+        case 'shape': return p_.ss($, ($) => p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'box': return p_.ss($, ($) => sh.attribute(sh.id.id("shape"), sh.id.id("box")))
                 case 'circle': return p_.ss($, ($) => sh.attribute(sh.id.id("shape"), sh.id.id("circle")))
@@ -180,7 +180,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
         case 'peripheries': return p_.ss($, ($) => sh.attribute(sh.id.id("peripheries"), sh.id.number($)))
         case 'pin': return p_.ss($, ($) => sh.attribute(sh.id.id("pin"), temp_boolean($)))
         case 'image': return p_.ss($, ($) => sh.attribute(sh.id.id("image"), sh.id.string($)))
-        case 'imagepos': return p_.ss($, ($) => sh.attribute(sh.id.id("imagepos"), p_.decide.state($, ($) => {
+        case 'imagepos': return p_.ss($, ($) => sh.attribute(sh.id.id("imagepos"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'tl': return p_.ss($, ($) => sh.id.id("tl"))
                 case 'tc': return p_.ss($, ($) => sh.id.id("tc"))
@@ -194,7 +194,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
                 default: return p_.au($[0])
             }
         })))
-        case 'imagescale': return p_.ss($, ($) => sh.attribute(sh.id.id("imagescale"), p_.decide.state($, ($) => {
+        case 'imagescale': return p_.ss($, ($) => sh.attribute(sh.id.id("imagescale"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'false': return p_.ss($, ($) => sh.id.id("false"))
                 case 'true': return p_.ss($, ($) => sh.id.id("true"))
@@ -209,7 +209,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
         case 'area': return p_.ss($, ($) => sh.attribute(sh.id.id("area"), sh.id.number($)))
         case 'z': return p_.ss($, ($) => sh.attribute(sh.id.id("z"), sh.id.number($)))
         case 'margin': return p_.ss($, ($) => sh.attribute(sh.id.id("margin"), sh.id.string($)))
-        case 'arrowhead': return p_.ss($, ($) => p_.decide.state($, ($) => {
+        case 'arrowhead': return p_.ss($, ($) => p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'normal': return p_.ss($, ($) => sh.attribute(sh.id.id("arrowhead"), sh.id.id("normal")))
                 case 'box': return p_.ss($, ($) => sh.attribute(sh.id.id("arrowhead"), sh.id.id("box")))
@@ -231,7 +231,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
                 default: return p_.au($[0])
             }
         }))
-        case 'arrowtail': return p_.ss($, ($) => p_.decide.state($, ($) => {
+        case 'arrowtail': return p_.ss($, ($) => p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'normal': return p_.ss($, ($) => sh.attribute(sh.id.id("arrowtail"), sh.id.id("normal")))
                 case 'box': return p_.ss($, ($) => sh.attribute(sh.id.id("arrowtail"), sh.id.id("box")))
@@ -254,7 +254,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
             }
         }))
         case 'arrowsize': return p_.ss($, ($) => sh.attribute(sh.id.id("arrowsize"), sh.id.number($)))
-        case 'dir': return p_.ss($, ($) => sh.attribute(sh.id.id("dir"), p_.decide.state($, ($) => {
+        case 'dir': return p_.ss($, ($) => sh.attribute(sh.id.id("dir"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'forward': return p_.ss($, ($) => sh.id.id("forward"))
                 case 'back': return p_.ss($, ($) => sh.id.id("back"))
@@ -276,7 +276,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
         case 'minlen': return p_.ss($, ($) => sh.attribute(sh.id.id("minlen"), sh.id.number($)))
         case 'constraint': return p_.ss($, ($) => sh.attribute(sh.id.id("constraint"), temp_boolean($)))
         case 'decorate': return p_.ss($, ($) => sh.attribute(sh.id.id("decorate"), temp_boolean($)))
-        case 'headport': return p_.ss($, ($) => p_.decide.state($, ($) => {
+        case 'headport': return p_.ss($, ($) => p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'center': return p_.ss($, ($) => sh.attribute(sh.id.id("headport"), sh.id.id("center")))
                 case 'n': return p_.ss($, ($) => sh.attribute(sh.id.id("headport"), sh.id.id("n")))
@@ -291,7 +291,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
                 default: return p_.au($[0])
             }
         }))
-        case 'tailport': return p_.ss($, ($) => p_.decide.state($, ($) => {
+        case 'tailport': return p_.ss($, ($) => p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'center': return p_.ss($, ($) => sh.attribute(sh.id.id("tailport"), sh.id.id("center")))
                 case 'n': return p_.ss($, ($) => sh.attribute(sh.id.id("tailport"), sh.id.id("n")))
@@ -328,7 +328,7 @@ export const Attributes: Attributes = ($) => p_.list.from.list($).map(($) => p_.
         case 'tailtooltip': return p_.ss($, ($) => sh.attribute(sh.id.id("tailtooltip"), sh.id.string($)))
         case 'labeltooltip': return p_.ss($, ($) => sh.attribute(sh.id.id("labeltooltip"), sh.id.string($)))
         case 'radius': return p_.ss($, ($) => sh.attribute(sh.id.id("radius"), sh.id.number($)))
-        case 'splines': return p_.ss($, ($) => sh.attribute(sh.id.id("splines"), p_.decide.state($, ($) => {
+        case 'splines': return p_.ss($, ($) => sh.attribute(sh.id.id("splines"), p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'true': return p_.ss($, ($) => sh.id.id("true"))
                 case 'false': return p_.ss($, ($) => sh.id.id("false"))

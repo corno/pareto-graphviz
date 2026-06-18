@@ -1,7 +1,7 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,22 +13,22 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_attributes from "../../attributes/transformers/astn_sealed_target"
 
-export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "attributes": _p_change_context(
+        "attributes": p_change_context(
             $['attributes'],
             ($) => v_external_attributes.Attributes(
                 $,
             ),
         ),
-        "nodes": _p_change_context(
+        "nodes": p_change_context(
             $['nodes'],
-            ($) => ['dictionary', _p.dictionary.from.dictionary(
+            ($) => ['dictionary', p_.from.dictionary(
                 $,
             ).map(
-                ($, id) => ['group', ['verbose', _p.literal.dictionary(
+                ($, id) => ['group', ['verbose', p_.literal.dictionary(
                     {
-                        "attributes": _p_change_context(
+                        "attributes": p_change_context(
                             $['attributes'],
                             ($) => v_external_attributes.Attributes(
                                 $,
@@ -38,28 +38,28 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', _p.literal
                 )]],
             )],
         ),
-        "edges": _p_change_context(
+        "edges": p_change_context(
             $['edges'],
-            ($) => ['list', _p.list.from.list(
+            ($) => ['list', p_.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.literal.dictionary(
+                ($) => ['group', ['verbose', p_.literal.dictionary(
                     {
-                        "from": _p_change_context(
+                        "from": p_change_context(
                             $['from'],
                             ($) => ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
                             }],
                         ),
-                        "to": _p_change_context(
+                        "to": p_change_context(
                             $['to'],
                             ($) => ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
                             }],
                         ),
-                        "attributes": _p_change_context(
+                        "attributes": p_change_context(
                             $['attributes'],
                             ($) => v_external_attributes.Attributes(
                                 $,

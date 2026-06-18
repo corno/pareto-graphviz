@@ -12,8 +12,8 @@ import * as t_primitives_to_list_of_characters from "../primitives/list_of_chara
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh.sentence([
-    p_.decide.state($, ($) => {
+export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map_deprecated(($) => sh.sentence([
+    p_.from.state($).decide(($) => {
         switch ($[0]) {
             case 'freeform': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($.key)),
@@ -62,7 +62,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
             case 'comment': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("comment="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'style': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'style': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'filled': return p_.ss($, ($) => sh.ph.literal("style=filled"))
                     case 'rounded': return p_.ss($, ($) => sh.ph.literal("style=rounded"))
@@ -81,7 +81,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
                     default: return p_.au($[0])
                 }
             }))
-            case 'layout': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'layout': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'dot': return p_.ss($, ($) => sh.ph.literal("layout=dot"))
                     case 'neato': return p_.ss($, ($) => sh.ph.literal("layout=neato"))
@@ -95,7 +95,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
                     default: return p_.au($[0])
                 }
             }))
-            case 'rankdir': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'rankdir': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'TB': return p_.ss($, ($) => sh.ph.literal("rankdir=TB"))
                     case 'BT': return p_.ss($, ($) => sh.ph.literal("rankdir=BT"))
@@ -107,14 +107,14 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
             case 'bgcolor': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("bgcolor="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'labelloc': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'labelloc': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 't': return p_.ss($, ($) => sh.ph.literal("labelloc=t"))
                     case 'b': return p_.ss($, ($) => sh.ph.literal("labelloc=b"))
                     default: return p_.au($[0])
                 }
             }))
-            case 'labeljust': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'labeljust': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'l': return p_.ss($, ($) => sh.ph.literal("labeljust=l"))
                     case 'c': return p_.ss($, ($) => sh.ph.literal("labeljust=c"))
@@ -141,7 +141,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
             case 'dpi': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("dpi="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'overlap': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'overlap': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'true': return p_.ss($, ($) => sh.ph.literal("overlap=true"))
                     case 'false': return p_.ss($, ($) => sh.ph.literal("overlap=false"))
@@ -156,7 +156,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
                     default: return p_.au($[0])
                 }
             }))
-            case 'pack': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'pack': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'true': return p_.ss($, ($) => sh.ph.literal("pack=true"))
                     case 'false': return p_.ss($, ($) => sh.ph.literal("pack=false"))
@@ -166,7 +166,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
                     default: return p_.au($[0])
                 }
             }))
-            case 'packmode': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'packmode': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'node': return p_.ss($, ($) => sh.ph.literal("packmode=node"))
                     case 'clust': return p_.ss($, ($) => sh.ph.literal("packmode=clust"))
@@ -179,7 +179,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
             case 'center': return p_.ss($, ($) => sh.ph.literal($ ? "center=true" : "center=false"))
             case 'normalize': return p_.ss($, ($) => sh.ph.literal($ ? "normalize=true" : "normalize=false"))
             case 'landscape': return p_.ss($, ($) => sh.ph.literal($ ? "landscape=true" : "landscape=false"))
-            case 'outputorder': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'outputorder': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'breadthfirst': return p_.ss($, ($) => sh.ph.literal("outputorder=breadthfirst"))
                     case 'nodesfirst': return p_.ss($, ($) => sh.ph.literal("outputorder=nodesfirst"))
@@ -190,7 +190,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
             case 'charset': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("charset="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'clusterrank': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'clusterrank': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'local': return p_.ss($, ($) => sh.ph.literal("clusterrank=local"))
                     case 'global': return p_.ss($, ($) => sh.ph.literal("clusterrank=global"))
@@ -198,7 +198,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
                     default: return p_.au($[0])
                 }
             }))
-            case 'shape': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'shape': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'box': return p_.ss($, ($) => sh.ph.literal("shape=box"))
                     case 'circle': return p_.ss($, ($) => sh.ph.literal("shape=circle"))
@@ -253,7 +253,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
             case 'image': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("image="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'imagepos': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'imagepos': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'tl': return p_.ss($, ($) => sh.ph.literal("imagepos=tl"))
                     case 'tc': return p_.ss($, ($) => sh.ph.literal("imagepos=tc"))
@@ -267,7 +267,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
                     default: return p_.au($[0])
                 }
             }))
-            case 'imagescale': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'imagescale': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'false': return p_.ss($, ($) => sh.ph.literal("imagescale=false"))
                     case 'true': return p_.ss($, ($) => sh.ph.literal("imagescale=true"))
@@ -292,7 +292,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
             case 'margin': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("margin="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-            case 'arrowhead': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'arrowhead': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'normal': return p_.ss($, ($) => sh.ph.literal("arrowhead=normal"))
                     case 'box': return p_.ss($, ($) => sh.ph.literal("arrowhead=box"))
@@ -316,7 +316,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
                     default: return p_.au($[0])
                 }
             }))
-            case 'arrowtail': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'arrowtail': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'normal': return p_.ss($, ($) => sh.ph.literal("arrowtail=normal"))
                     case 'box': return p_.ss($, ($) => sh.ph.literal("arrowtail=box"))
@@ -343,7 +343,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
             case 'arrowsize': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("arrowsize="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'dir': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'dir': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'forward': return p_.ss($, ($) => sh.ph.literal("dir=forward"))
                     case 'back': return p_.ss($, ($) => sh.ph.literal("dir=back"))
@@ -385,7 +385,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
             case 'constraint': return p_.ss($, ($) => sh.ph.literal($ ? "constraint=true" : "constraint=false"))
             case 'decorate': return p_.ss($, ($) => sh.ph.literal($ ? "decorate=true" : "decorate=false"))
-            case 'headport': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'headport': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'center': return p_.ss($, ($) => sh.ph.literal("headport=center"))
                     case 'n': return p_.ss($, ($) => sh.ph.literal("headport=n"))
@@ -402,7 +402,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
                     default: return p_.au($[0])
                 }
             }))
-            case 'tailport': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'tailport': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'center': return p_.ss($, ($) => sh.ph.literal("tailport=center"))
                     case 'n': return p_.ss($, ($) => sh.ph.literal("tailport=n"))
@@ -481,7 +481,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map(($) => sh
             case 'radius': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("radius="),
                 sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-            case 'splines': return p_.ss($, ($) => p_.decide.state($, ($) => {
+            case 'splines': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'true': return p_.ss($, ($) => sh.ph.literal("splines=true"))
                     case 'false': return p_.ss($, ($) => sh.ph.literal("splines=false"))

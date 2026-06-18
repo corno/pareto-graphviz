@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,15 +17,15 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_high_level from "../../high_level/transformers/astn_sealed_target"
 
-export const Directory: t_signatures.Directory = ($) => ['dictionary', _p.dictionary.from.dictionary(
+export const Directory: t_signatures.Directory = ($) => ['dictionary', p_.from.dictionary(
     $,
 ).map(
-    ($, id) => ['state', _p.decide.state(
+    ($, id) => ['state', p_decide_state(
         $,
         ($): t_out.Value.state => {
             switch ($[0]) {
                 case 'file':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'file',
@@ -31,7 +35,7 @@ export const Directory: t_signatures.Directory = ($) => ['dictionary', _p.dictio
                         }),
                     )
                 case 'directory':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'directory',
@@ -41,7 +45,7 @@ export const Directory: t_signatures.Directory = ($) => ['dictionary', _p.dictio
                         }),
                     )
                 default:
-                    return _p.au(
+                    return p_.au(
                         $[0],
                     )
             }
