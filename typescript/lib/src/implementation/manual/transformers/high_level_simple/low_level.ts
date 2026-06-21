@@ -17,7 +17,7 @@ export const Graph: Graph = ($) => sh.Graph(
     true,
     null,
     'directed',
-    p_.literal.nested_list([
+    p_.literal.segmented_list([
 
         p_.literal.list([
             sh.s.attributes('graph', t_attributes_to_low_level.Attributes($.attributes)),

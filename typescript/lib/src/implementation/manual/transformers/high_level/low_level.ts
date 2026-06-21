@@ -69,7 +69,7 @@ export const Graph: interface_.Graph = ($) => ({
     ).map(
         ($) => ['string', $]
     ),
-    'statements': p_.literal.nested_list([
+    'statements': p_.literal.segmented_list([
         Tree($.tree, { 'path': p_.literal.list([]) }),
         p_.from.state($.type).decide(($): d_out.Graph.statements => {
             switch ($[0]) {
@@ -112,23 +112,19 @@ export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary(
     $.elements,
 ).flatten_to_list(
     ($, id): d_out.Statements => {
-        const path = p_.literal.nested_list([
+        const path = p_.literal.chain(
             $p.path,
-            p_.literal.list([
-                id
-            ])
-        ])
+            id
+        )
         return p_.from.state($).decide(($) => {
             switch ($[0]) {
                 case 'node': return p_.ss($, ($) => p_.literal.list([
                     sh.s.node(
                         sh.node_id(sh.id.string(temp_text_from_list_of_separated_texts(path, { 'separator': '>' })), null),
-                        p_.literal.nested_list([
+                        p_.literal.chain(
                             t_attributes_to_low_level.Attributes($.attributes),
-                            p_.literal.list([
-                                sh.attribute(sh.id.id("label"), sh.id.string(id))
-                            ])
-                        ])
+                            sh.attribute(sh.id.id("label"), sh.id.string(id))
+                        )
                     )
 
                     // ['node', {
@@ -136,7 +132,7 @@ export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary(
                     //         'id': ['string', s_list_of_separated_texts(path, { 'separator': '>' })],
                     //         'port': p_.literal.not_set()
                     //     },
-                    //     'attribute list': p_.literal.nested_list([
+                    //     'attribute list': p_.literal.nested_ list([
                     //         [
                     //             {
                     //                 'name': ['id', "label"],

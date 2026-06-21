@@ -71,7 +71,7 @@ export const escaped: p_i.Transformer_With_Parameter<
 
     )
 )
-export const quoted: p_i.Transformer<string, d_out.List_of_Characters> = ($) => p_.literal.nested_list([
+export const quoted: p_i.Transformer<string, d_out.List_of_Characters> = ($) => p_.literal.segmented_list([
     p_.literal.list([
         34, // "
     ]),
