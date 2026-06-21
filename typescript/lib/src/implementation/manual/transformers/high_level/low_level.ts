@@ -114,9 +114,9 @@ export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary(
     ($, id): d_out.Statements => {
         const path = p_.literal.nested_list([
             $p.path,
-            [
+            p_.literal.list([
                 id
-            ]
+            ])
         ])
         return p_.from.state($).decide(($) => {
             switch ($[0]) {
@@ -125,9 +125,9 @@ export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary(
                         sh.node_id(sh.id.string(temp_text_from_list_of_separated_texts(path, { 'separator': '>' })), null),
                         p_.literal.nested_list([
                             t_attributes_to_low_level.Attributes($.attributes),
-                            [
+                            p_.literal.list([
                                 sh.attribute(sh.id.id("label"), sh.id.string(id))
-                            ]
+                            ])
                         ])
                     )
 

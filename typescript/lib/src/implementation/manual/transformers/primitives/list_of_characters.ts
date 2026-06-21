@@ -71,14 +71,18 @@ export const escaped: p_i.Transformer_With_Parameter<
 
     )
 )
-export const quoted: p_i.Transformer<string, d_out.List_of_Characters> = ($) => p_list_build_deprecated(($i) => {
-    $i['add item'](34)
-    $i['add list'](escaped(
+export const quoted: p_i.Transformer<string, d_out.List_of_Characters> = ($) => p_.literal.nested_list([
+    p_.literal.list([
+        34, // "
+    ]),
+    escaped(
         $,
         {
             'character code': 34, // "
             'escape character code': 92, // \
         }
-    ))
-    $i['add item'](34)
-})
+    ),
+    p_.literal.list([
+        34, // "
+    ])
+])
