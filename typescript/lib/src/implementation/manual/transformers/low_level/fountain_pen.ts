@@ -38,7 +38,7 @@ export const Graph: signatures.Graph = ($) => sh.pg.sentences([
                 default: return p_.au($[0])
             }
         }),
-        $.name.__decide(
+        p_.from.optional($.name).decide(
             ($) => sh.ph.composed([
                 ID($),
                 sh.ph.literal(" "),
@@ -54,7 +54,7 @@ export const Graph: signatures.Graph = ($) => sh.pg.sentences([
 export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
     sh.ph.literal("{"),
     sh.ph.indent(
-        sh.pg.sentences($.__l_map_deprecated(($) => sh.sentence([
+        sh.pg.sentences(p_.from.list($).map(($) => sh.sentence([
             p_.from.state($).decide(($) => {
                 switch ($[0]) {
                     case 'attribute assignment': return p_.ss($, ($) => sh.ph.composed([
@@ -140,7 +140,7 @@ export const ID: signatures.ID = ($) => p_.from.state($).decide(($) => {
 
 export const Attributes: signatures.Attributes = ($) => sh.ph.composed([
     sh.ph.literal(" [ "),
-    sh.ph.composed($.__l_map_deprecated(($) => sh.ph.composed([
+    sh.ph.composed(p_.from.list($).map(($) => sh.ph.composed([
         ID($.name),
         sh.ph.literal("="),
         ID($.value),
@@ -151,11 +151,11 @@ export const Attributes: signatures.Attributes = ($) => sh.ph.composed([
 
 export const Node_ID: signatures.Node_ID = ($) => sh.ph.composed([
     ID($.id),
-    $.port.__decide(
+    p_.from.optional($.port).decide(
         ($) => sh.ph.composed([
             sh.ph.literal(":"),
             ID($.port),
-            $['compass point'].__decide(
+            p_.from.optional($['compass point']).decide(
                 ($) => sh.ph.composed([
                     sh.ph.literal(":"),
                     ID($),
@@ -168,10 +168,10 @@ export const Node_ID: signatures.Node_ID = ($) => sh.ph.composed([
 ])
 
 export const Subgraph: signatures.Subgraph = ($, $p) => sh.ph.composed([
-    $.subgraph.__decide(
+    p_.from.optional($.subgraph).decide(
         ($) => sh.ph.composed([
             sh.ph.literal("subgraph "),
-            $.__decide(
+            p_.from.optional($).decide(
                 ($) => sh.ph.composed([
                     ID($),
                     sh.ph.literal(" "),

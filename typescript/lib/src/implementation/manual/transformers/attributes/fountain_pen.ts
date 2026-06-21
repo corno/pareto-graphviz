@@ -12,7 +12,7 @@ import * as t_primitives_to_list_of_characters from "../primitives/list_of_chara
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const Attributes: Attributes = ($) => sh.pg.sentences($.__l_map_deprecated(($) => sh.sentence([
+export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map(($) => sh.sentence([
     p_.from.state($).decide(($) => {
         switch ($[0]) {
             case 'freeform': return p_.ss($, ($) => sh.ph.composed([

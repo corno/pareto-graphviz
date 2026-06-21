@@ -73,7 +73,7 @@ export const Graph: interface_.Graph = ($) => ({
         Tree($.tree, { 'path': p_.literal.list([]) }),
         p_.from.state($.type).decide(($): d_out.Graph.statements => {
             switch ($[0]) {
-                case 'directed': return p_.ss($, ($) => $.edges.__l_map_deprecated(
+                case 'directed': return p_.ss($, ($) => p_.from.list($.edges).map(
                     ($): d_out.Statements.L => ['edge', {
                         "left": ['node', {
                             'id': ['string', $.from.start],
@@ -88,7 +88,7 @@ export const Graph: interface_.Graph = ($) => ({
                         "attributes": t_attributes_to_low_level.Attributes($.attributes),
                     }]
                 ))
-                case 'undirected': return p_.ss($, ($) => $.edges.__l_map_deprecated(($): d_out.Statements.L => ['edge', {
+                case 'undirected': return p_.ss($, ($) => p_.from.list($.edges).map(($): d_out.Statements.L => ['edge', {
                     "left": ['node', {
                         'id': ['string', $.yin.start],
                         'port': p_.literal.not_set()

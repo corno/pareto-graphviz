@@ -28,7 +28,7 @@ export const decimal: p_i.Transformer<number, d_out.List_of_Characters> = ($) =>
     })
 
     for (let j = p_.from.list(digits).amount_of_items() - 1; j >= 0; j--) {
-        $i['add item'](48 + digits.__deprecated_get_possible_item_at(j).__decide(
+        $i['add item'](48 + p_.from.optional(digits.__deprecated_get_possible_item_at(j)).decide(
             ($) => $,
             () => p_unreachable_code_path("index cannot be out of bounds")
         ))
