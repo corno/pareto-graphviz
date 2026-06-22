@@ -114,9 +114,10 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                     ]))
                     case 'node': return p_.ss($, ($) => sh.ph.composed([
                         Node_ID($.node),
-                        p_.from.list($['attributes']).is_empty()
-                            ? sh.ph.nothing()
-                            : Attributes($['attributes']),
+                        p_.from.list($['attributes']).on_has_items(
+                            ($) => Attributes($),
+                            () => sh.ph.nothing()
+                        ),
                         sh.ph.literal(";"),
                     ]))
                     case 'subgraph': return p_.ss($, ($) => Subgraph($, $p))
