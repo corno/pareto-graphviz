@@ -23,8 +23,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal
         ),
         "nodes": p_change_context(
             $['nodes'],
-            ($) => ['dictionary', p_.from.dictionary(
-                $,
+            ($) => ['dictionary', p_.from.dictionary($,
             ).map(
                 ($, id) => ['group', ['verbose', p_.literal.dictionary(
                     {
@@ -40,8 +39,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal
         ),
         "edges": p_change_context(
             $['edges'],
-            ($) => ['list', p_.from.list(
-                $,
+            ($) => ['list', p_.from.list($,
             ).map(
                 ($) => ['group', ['verbose', p_.literal.dictionary(
                     {

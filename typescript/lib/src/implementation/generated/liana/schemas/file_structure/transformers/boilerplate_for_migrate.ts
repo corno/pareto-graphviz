@@ -13,8 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/file
 
 import * as v_high_level from "../../high_level/transformers/boilerplate_for_migrate"
 
-export const Directory: t_signatures.Directory = ($) => p_.from.dictionary(
-    $,
+export const Directory: t_signatures.Directory = ($) => p_.from.dictionary($,
 ).map(
     ($, id) => p_decide_state(
         $,

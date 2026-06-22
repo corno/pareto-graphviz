@@ -7,33 +7,35 @@ import * as p_i from 'pareto-core/dist/interface/transformer'
 
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
-export const decimal: p_i.Transformer<number, d_out.List_of_Characters> = ($) => p_list_build_deprecated(($i) => {
-    if ($ < 0) {
-        $i['add item'](45) // '-'
-        $ = -$
-    }
-    const digits = p_list_build_deprecated<number>(($i) => {
-        do {
-            const digit = $ % 10
-            $i['add item'](digit)
-            $ = p_.from.number($).divide(
-                10,
-                ['towards zero', null],
-                {
-                    divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 10")
-                }
-            )
-        } while ($ > 0)
+export const decimal: p_i.Transformer<number, d_out.List_of_Characters> = ($) => p_list_build_deprecated(
+    ($i) => {
+        if ($ < 0) {
+            $i['add item'](45) // '-'
+            $ = -$
+        }
+        const digits = p_list_build_deprecated<number>(
+            ($i) => {
+                do {
+                    const digit = $ % 10
+                    $i['add item'](digit)
+                    $ = p_.from.number($).divide(
+                        10,
+                        ['towards zero', null],
+                        {
+                            divided_by_zero: () => p_unreachable_code_path("the divisor is hardcoded to 10")
+                        }
+                    )
+                } while ($ > 0)
 
+            })
+
+        for (let j = p_.from.list(digits).amount_of_items() - 1; j >= 0; j--) {
+            $i['add item'](48 + p_.from.optional(digits.__deprecated_get_possible_item_at(j)).decide(
+                ($) => $,
+                () => p_unreachable_code_path("index cannot be out of bounds")
+            ))
+        }
     })
-
-    for (let j = p_.from.list(digits).amount_of_items() - 1; j >= 0; j--) {
-        $i['add item'](48 + p_.from.optional(digits.__deprecated_get_possible_item_at(j)).decide(
-            ($) => $,
-            () => p_unreachable_code_path("index cannot be out of bounds")
-        ))
-    }
-})
 
 
 export const escaped: p_i.Transformer_With_Parameter<
@@ -54,7 +56,8 @@ export const escaped: p_i.Transformer_With_Parameter<
             iter.list({
                 has_more_items: () => true,
                 handle: ($) => {
-                    iter.discard(() => null)
+                    iter.discard(
+                        () => null)
                     if ($ === $p['escape character code']) { // \
                         $i['add item']($p['escape character code'])
                         $i['add item']($p['escape character code'])

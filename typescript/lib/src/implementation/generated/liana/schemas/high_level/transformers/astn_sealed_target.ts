@@ -51,8 +51,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal
                                         {
                                             "edges": p_change_context(
                                                 $['edges'],
-                                                ($) => ['list', p_.from.list(
-                                                    $,
+                                                ($) => ['list', p_.from.list($,
                                                 ).map(
                                                     ($) => ['group', ['verbose', p_.literal.dictionary(
                                                         {
@@ -91,8 +90,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal
                                         {
                                             "edges": p_change_context(
                                                 $['edges'],
-                                                ($) => ['list', p_.from.list(
-                                                    $,
+                                                ($) => ['list', p_.from.list($,
                                                 ).map(
                                                     ($) => ['group', ['verbose', p_.literal.dictionary(
                                                         {
@@ -143,8 +141,7 @@ export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', p_.literal.d
         ),
         "elements": p_change_context(
             $['elements'],
-            ($) => ['dictionary', p_.from.dictionary(
-                $,
+            ($) => ['dictionary', p_.from.dictionary($,
             ).map(
                 ($, id) => ['state', p_decide_state(
                     $,
@@ -245,8 +242,7 @@ export const End_Point_Specification: t_signatures.End_Point_Specification = ($)
         ),
         "tail": p_change_context(
             $['tail'],
-            ($) => ['list', p_.from.list(
-                $,
+            ($) => ['list', p_.from.list($,
             ).map(
                 ($) => ['text', {
                     'delimiter': ['quote', null],

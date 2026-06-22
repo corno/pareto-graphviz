@@ -13,8 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/attr
 
 import * as v_html from "../../html/transformers/boilerplate_for_migrate"
 
-export const Attributes: t_signatures.Attributes = ($) => p_.from.list(
-    $,
+export const Attributes: t_signatures.Attributes = ($) => p_.from.list($,
 ).map(
     ($) => p_decide_state(
         $,

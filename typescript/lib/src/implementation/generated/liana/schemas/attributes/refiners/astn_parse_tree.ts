@@ -21,8 +21,7 @@ import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual
 
 import * as v_external_html from "../../html/refiners/astn_parse_tree"
 
-export const Attributes: t_signatures.Attributes = ($, abort) => p_.from.list(
-    v_unmarshalled_from_parse_tree.List(
+export const Attributes: t_signatures.Attributes = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             $,

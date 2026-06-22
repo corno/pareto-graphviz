@@ -17,8 +17,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_html from "../../html/transformers/astn_sealed_target"
 
-export const Attributes: t_signatures.Attributes = ($) => ['list', p_.from.list(
-    $,
+export const Attributes: t_signatures.Attributes = ($) => ['list', p_.from.list($,
 ).map(
     ($) => ['state', p_decide_state(
         $,

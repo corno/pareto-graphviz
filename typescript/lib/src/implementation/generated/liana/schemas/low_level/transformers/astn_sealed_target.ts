@@ -77,8 +77,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal
     },
 )]]
 
-export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
-    $,
+export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list($,
 ).map(
     ($) => ['state', p_decide_state(
         $,
@@ -122,8 +121,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
                                     ),
                                     "right": p_change_context(
                                         $['right'],
-                                        ($) => ['list', p_.from.list(
-                                            $,
+                                        ($) => ['list', p_.from.list($,
                                         ).map(
                                             ($) => End_Point(
                                                 $,
@@ -269,8 +267,7 @@ export const End_Point: t_signatures.End_Point = ($) => ['state', p_decide_state
     },
 )]
 
-export const Attributes: t_signatures.Attributes = ($) => ['list', p_.from.list(
-    $,
+export const Attributes: t_signatures.Attributes = ($) => ['list', p_.from.list($,
 ).map(
     ($) => ['group', ['verbose', p_.literal.dictionary(
         {

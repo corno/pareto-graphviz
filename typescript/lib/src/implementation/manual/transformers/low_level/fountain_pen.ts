@@ -31,13 +31,14 @@ export const Graph: signatures.Graph = ($) => sh.pg.sentences([
         $.strict
             ? sh.ph.literal("strict ")
             : sh.ph.nothing(),
-        p_.from.state($.type).decide(($) => {
-            switch ($[0]) {
-                case 'digraph': return p_.ss($, () => sh.ph.literal("digraph "))
-                case 'graph': return p_.ss($, () => sh.ph.literal("graph "))
-                default: return p_.au($[0])
-            }
-        }),
+        p_.from.state($.type).decide(
+            ($) => {
+                switch ($[0]) {
+                    case 'digraph': return p_.ss($, () => sh.ph.literal("digraph "))
+                    case 'graph': return p_.ss($, () => sh.ph.literal("graph "))
+                    default: return p_.au($[0])
+                }
+            }),
         p_.from.optional($.name).decide(
             ($) => sh.ph.composed([
                 ID($),
@@ -54,99 +55,106 @@ export const Graph: signatures.Graph = ($) => sh.pg.sentences([
 export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
     sh.ph.literal("{"),
     sh.ph.indent(
-        sh.pg.sentences(p_.from.list($).map(($) => sh.sentence([
-            p_.from.state($).decide(($) => {
-                switch ($[0]) {
-                    case 'attribute assignment': return p_.ss($, ($) => sh.ph.composed([
-                        ID($.name),
-                        sh.ph.literal(" = "),
-                        ID($.value),
-                        sh.ph.literal(";"),
-                    ]))
-                    case 'attributes': return p_.ss($, ($) => sh.ph.composed([
-                        p_.from.state($.type).decide(($) => {
-                            switch ($[0]) {
-                                case 'edge': return p_.ss($, () => sh.ph.literal("edge "))
-                                case 'node': return p_.ss($, () => sh.ph.literal("node "))
-                                case 'graph': return p_.ss($, () => sh.ph.literal("graph "))
-                                default: return p_.au($[0])
-                            }
-                        }),
-                        Attributes($.attributes),
-                        sh.ph.literal(";"),
-                    ]))
-                    case 'edge': return p_.ss($, ($) => sh.ph.composed([
-                        p_.from.state($.left).decide(($) => {
-                            switch ($[0]) {
-                                case 'node': return p_.ss($, ($) => Node_ID($))
-                                case 'subgraph': return p_.ss($, ($) => Subgraph($, $p))
-                                default: return p_.au($[0])
-                            }
-                        }),
-                        p_.from.state($p['graph type']).decide(($) => {
-                            switch ($[0]) {
-                                case 'digraph': return p_.ss($, () => sh.ph.literal(" -> "))
-                                case 'graph': return p_.ss($, () => sh.ph.literal(" -- "))
-                                default: return p_.au($[0])
-                            }
-                        }),
-                        sh.ph.rich(
-                            p_.from.list(
-                                $.right,
-                            ).map(
-                                ($) => sh.ph.composed([
-                                    p_.from.state($).decide(($) => {
+        sh.pg.sentences(p_.from.list($).map(
+            ($) => sh.sentence([
+                p_.from.state($).decide(
+                    ($) => {
+                        switch ($[0]) {
+                            case 'attribute assignment': return p_.ss($, ($) => sh.ph.composed([
+                                ID($.name),
+                                sh.ph.literal(" = "),
+                                ID($.value),
+                                sh.ph.literal(";"),
+                            ]))
+                            case 'attributes': return p_.ss($, ($) => sh.ph.composed([
+                                p_.from.state($.type).decide(
+                                    ($) => {
+                                        switch ($[0]) {
+                                            case 'edge': return p_.ss($, () => sh.ph.literal("edge "))
+                                            case 'node': return p_.ss($, () => sh.ph.literal("node "))
+                                            case 'graph': return p_.ss($, () => sh.ph.literal("graph "))
+                                            default: return p_.au($[0])
+                                        }
+                                    }),
+                                Attributes($.attributes),
+                                sh.ph.literal(";"),
+                            ]))
+                            case 'edge': return p_.ss($, ($) => sh.ph.composed([
+                                p_.from.state($.left).decide(
+                                    ($) => {
                                         switch ($[0]) {
                                             case 'node': return p_.ss($, ($) => Node_ID($))
                                             case 'subgraph': return p_.ss($, ($) => Subgraph($, $p))
                                             default: return p_.au($[0])
                                         }
                                     }),
+                                p_.from.state($p['graph type']).decide(
+                                    ($) => {
+                                        switch ($[0]) {
+                                            case 'digraph': return p_.ss($, () => sh.ph.literal(" -> "))
+                                            case 'graph': return p_.ss($, () => sh.ph.literal(" -- "))
+                                            default: return p_.au($[0])
+                                        }
+                                    }),
+                                sh.ph.rich(
+                                    p_.from.list($.right,
+                                    ).map(
+                                        ($) => sh.ph.composed([
+                                            p_.from.state($).decide(
+                                                ($) => {
+                                                    switch ($[0]) {
+                                                        case 'node': return p_.ss($, ($) => Node_ID($))
+                                                        case 'subgraph': return p_.ss($, ($) => Subgraph($, $p))
+                                                        default: return p_.au($[0])
+                                                    }
+                                                }),
 
-                                ]),
-                            ),
-                            sh.ph.nothing(),
-                            sh.ph.nothing(),
-                            sh.ph.literal(", "),
-                            sh.ph.nothing(),
-                        ),
-                        Attributes($.attributes),
-                    ]))
-                    case 'node': return p_.ss($, ($) => sh.ph.composed([
-                        Node_ID($.node),
-                        p_.from.list($['attributes']).on_has_items(
-                            ($) => Attributes($),
-                            () => sh.ph.nothing()
-                        ),
-                        sh.ph.literal(";"),
-                    ]))
-                    case 'subgraph': return p_.ss($, ($) => Subgraph($, $p))
-                    default: return p_.au($[0])
-                }
-            })
-        ]))),
+                                        ]),
+                                    ),
+                                    sh.ph.nothing(),
+                                    sh.ph.nothing(),
+                                    sh.ph.literal(", "),
+                                    sh.ph.nothing(),
+                                ),
+                                Attributes($.attributes),
+                            ]))
+                            case 'node': return p_.ss($, ($) => sh.ph.composed([
+                                Node_ID($.node),
+                                p_.from.list($['attributes']).on_has_items(
+                                    ($) => Attributes($),
+                                    () => sh.ph.nothing()
+                                ),
+                                sh.ph.literal(";"),
+                            ]))
+                            case 'subgraph': return p_.ss($, ($) => Subgraph($, $p))
+                            default: return p_.au($[0])
+                        }
+                    })
+            ]))),
     ),
     sh.ph.literal("}"),
 ])
 
-export const ID: signatures.ID = ($) => p_.from.state($).decide(($) => {
-    switch ($[0]) {
-        case 'id': return p_.ss($, ($) => sh.ph.literal($)) //FIX escaping
-        case 'string': return p_.ss($, ($) => sh.ph.serialize(t_primitives_to_list_of_characters.quoted($)))
-        case 'html': return p_.ss($, ($) => t_html_to_fountain_pen.Phrasing_Element($))
-        case 'number': return p_.ss($, ($) => sh.ph.literal("FIXME NUMBER"))
-        default: return p_.au($[0])
-    }
-})
+export const ID: signatures.ID = ($) => p_.from.state($).decide(
+    ($) => {
+        switch ($[0]) {
+            case 'id': return p_.ss($, ($) => sh.ph.literal($)) //FIX escaping
+            case 'string': return p_.ss($, ($) => sh.ph.serialize(t_primitives_to_list_of_characters.quoted($)))
+            case 'html': return p_.ss($, ($) => t_html_to_fountain_pen.Phrasing_Element($))
+            case 'number': return p_.ss($, ($) => sh.ph.literal("FIXME NUMBER"))
+            default: return p_.au($[0])
+        }
+    })
 
 export const Attributes: signatures.Attributes = ($) => sh.ph.composed([
     sh.ph.literal(" [ "),
-    sh.ph.composed(p_.from.list($).map(($) => sh.ph.composed([
-        ID($.name),
-        sh.ph.literal("="),
-        ID($.value),
-        sh.ph.literal(" "),
-    ]))),
+    sh.ph.composed(p_.from.list($).map(
+        ($) => sh.ph.composed([
+            ID($.name),
+            sh.ph.literal("="),
+            ID($.value),
+            sh.ph.literal(" "),
+        ]))),
     sh.ph.literal("]"),
 ])
 

@@ -44,8 +44,7 @@ export const Graph: t_signatures.Graph = ($) => ({
     ),
     'name': p_change_context(
         $['name'],
-        ($) => p_.from.optional(
-            $,
+        ($) => p_.from.optional($,
         ).map(
             ($) => ID(
                 $,
@@ -60,8 +59,7 @@ export const Graph: t_signatures.Graph = ($) => ({
     ),
 })
 
-export const Statements: t_signatures.Statements = ($) => p_.from.list(
-    $,
+export const Statements: t_signatures.Statements = ($) => p_.from.list($,
 ).map(
     ($) => p_decide_state(
         $,
@@ -97,8 +95,7 @@ export const Statements: t_signatures.Statements = ($) => p_.from.list(
                             ),
                             'right': p_change_context(
                                 $['right'],
-                                ($) => p_.from.list(
-                                    $,
+                                ($) => p_.from.list($,
                                 ).map(
                                     ($) => End_Point(
                                         $,
@@ -214,8 +211,7 @@ export const End_Point: t_signatures.End_Point = ($) => p_decide_state(
     },
 )
 
-export const Attributes: t_signatures.Attributes = ($) => p_.from.list(
-    $,
+export const Attributes: t_signatures.Attributes = ($) => p_.from.list($,
 ).map(
     ($) => ({
         'name': p_change_context(
@@ -242,8 +238,7 @@ export const Node_ID: t_signatures.Node_ID = ($) => ({
     ),
     'port': p_change_context(
         $['port'],
-        ($) => p_.from.optional(
-            $,
+        ($) => p_.from.optional($,
         ).map(
             ($) => ({
                 'port': p_change_context(
@@ -254,8 +249,7 @@ export const Node_ID: t_signatures.Node_ID = ($) => ({
                 ),
                 'compass point': p_change_context(
                     $['compass point'],
-                    ($) => p_.from.optional(
-                        $,
+                    ($) => p_.from.optional($,
                     ).map(
                         ($) => ID(
                             $,
@@ -304,11 +298,9 @@ export const ID: t_signatures.ID = ($) => p_decide_state(
 export const Subgraph: t_signatures.Subgraph = ($) => ({
     'subgraph': p_change_context(
         $['subgraph'],
-        ($) => p_.from.optional(
-            $,
+        ($) => p_.from.optional($,
         ).map(
-            ($) => p_.from.optional(
-                $,
+            ($) => p_.from.optional($,
             ).map(
                 ($) => ID(
                     $,

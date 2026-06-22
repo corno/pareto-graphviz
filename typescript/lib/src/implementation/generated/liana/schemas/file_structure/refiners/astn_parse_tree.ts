@@ -31,8 +31,7 @@ export const Directory: t_signatures.Directory = ($, abort) => p_change_context(
             'subdocument context': p_.literal.not_set(),
         },
     ),
-    ($) => p_.from.dictionary(
-        $['entries'],
+    ($) => p_.from.dictionary($['entries'],
     ).map(
         ($, id) => p_change_context(
             v_unmarshalled_from_parse_tree.State(

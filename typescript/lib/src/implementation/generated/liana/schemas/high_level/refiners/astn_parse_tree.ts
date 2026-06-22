@@ -59,8 +59,7 @@ export const Graph: t_signatures.Graph = ($, abort) => p_change_context(
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.optional(
-                        v_unmarshalled_from_parse_tree.Optional(
+                    ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                             $,
                             ($) => abort(
                                 $,
@@ -154,8 +153,7 @@ export const Graph: t_signatures.Graph = ($, abort) => p_change_context(
                                                                         'subdocument context': p_.literal.not_set(),
                                                                     },
                                                                 ),
-                                                                ($) => p_.from.list(
-                                                                    v_unmarshalled_from_parse_tree.List(
+                                                                ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                                         $,
                                                                         ($) => abort(
                                                                             $,
@@ -299,8 +297,7 @@ export const Graph: t_signatures.Graph = ($, abort) => p_change_context(
                                                                         'subdocument context': p_.literal.not_set(),
                                                                     },
                                                                 ),
-                                                                ($) => p_.from.list(
-                                                                    v_unmarshalled_from_parse_tree.List(
+                                                                ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                                         $,
                                                                         ($) => abort(
                                                                             $,
@@ -492,8 +489,7 @@ export const Tree: t_signatures.Tree = ($, abort) => p_change_context(
                                 'subdocument context': p_.literal.not_set(),
                             },
                         ),
-                        ($) => p_.from.dictionary(
-                            $['entries'],
+                        ($) => p_.from.dictionary($['entries'],
                         ).map(
                             ($, id) => p_change_context(
                                 v_unmarshalled_from_parse_tree.State(
@@ -758,8 +754,7 @@ export const End_Point_Specification: t_signatures.End_Point_Specification = ($,
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.list(
-                        v_unmarshalled_from_parse_tree.List(
+                    ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,
@@ -791,8 +786,7 @@ export const End_Point_Specification: t_signatures.End_Point_Specification = ($,
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.optional(
-                        v_unmarshalled_from_parse_tree.Optional(
+                    ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                             $,
                             ($) => abort(
                                 $,
@@ -854,8 +848,7 @@ export const End_Point_Specification: t_signatures.End_Point_Specification = ($,
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.optional(
-                                                v_unmarshalled_from_parse_tree.Optional(
+                                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                     $,
                                                     ($) => abort(
                                                         $,

@@ -18,8 +18,7 @@ export const Graph: t_signatures.Graph = ($) => ({
     ),
     'nodes': p_change_context(
         $['nodes'],
-        ($) => p_.from.dictionary(
-            $,
+        ($) => p_.from.dictionary($,
         ).map(
             ($, id) => ({
                 'attributes': p_change_context(
@@ -33,8 +32,7 @@ export const Graph: t_signatures.Graph = ($) => ({
     ),
     'edges': p_change_context(
         $['edges'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => ({
                 'from': p_change_context(

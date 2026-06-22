@@ -16,8 +16,7 @@ import * as v_attributes from "../../attributes/transformers/boilerplate_for_mig
 export const Graph: t_signatures.Graph = ($) => ({
     'name': p_change_context(
         $['name'],
-        ($) => p_.from.optional(
-            $,
+        ($) => p_.from.optional($,
         ).map(
             ($) => $,
         ),
@@ -40,8 +39,7 @@ export const Graph: t_signatures.Graph = ($) => ({
                             ($) => ['undirected', {
                                 'edges': p_change_context(
                                     $['edges'],
-                                    ($) => p_.from.list(
-                                        $,
+                                    ($) => p_.from.list($,
                                     ).map(
                                         ($) => ({
                                             'yin': p_change_context(
@@ -73,8 +71,7 @@ export const Graph: t_signatures.Graph = ($) => ({
                             ($) => ['directed', {
                                 'edges': p_change_context(
                                     $['edges'],
-                                    ($) => p_.from.list(
-                                        $,
+                                    ($) => p_.from.list($,
                                     ).map(
                                         ($) => ({
                                             'from': p_change_context(
@@ -119,8 +116,7 @@ export const Tree: t_signatures.Tree = ($) => ({
     ),
     'elements': p_change_context(
         $['elements'],
-        ($) => p_.from.dictionary(
-            $,
+        ($) => p_.from.dictionary($,
         ).map(
             ($, id) => p_decide_state(
                 $,
@@ -197,16 +193,14 @@ export const End_Point_Specification: t_signatures.End_Point_Specification = ($)
     ),
     'tail': p_change_context(
         $['tail'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => $,
         ),
     ),
     'port data': p_change_context(
         $['port data'],
-        ($) => p_.from.optional(
-            $,
+        ($) => p_.from.optional($,
         ).map(
             ($) => ({
                 'port': p_change_context(
@@ -215,8 +209,7 @@ export const End_Point_Specification: t_signatures.End_Point_Specification = ($)
                 ),
                 'compass direction': p_change_context(
                     $['compass direction'],
-                    ($) => p_.from.optional(
-                        $,
+                    ($) => p_.from.optional($,
                     ).map(
                         ($) => $,
                     ),

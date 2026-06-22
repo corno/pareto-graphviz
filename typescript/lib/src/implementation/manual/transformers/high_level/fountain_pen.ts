@@ -12,4 +12,4 @@ import * as t_to_low_level from "./low_level"
 export const Graph: p_i.Transformer<
     d_in.Graph,
     d_out.Paragraph
-> = ($) => t_low_level_to_fountain_pen.Graph(t_to_low_level.Graph(($)))
+> = ($) => t_low_level_to_fountain_pen.Graph(t_to_low_level.Graph($))
