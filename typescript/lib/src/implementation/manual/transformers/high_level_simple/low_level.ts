@@ -12,7 +12,7 @@ d_in.Graph, d_out.Graph
 import * as t_attributes_to_low_level from "../attributes/low_level"
 
 //shorthands
-import * as sh from "../../../../shorthands/low_level"
+import * as sh from "../../../../shorthands/low_level/target"
 
 
 export const Graph: Graph = ($) => sh.Graph(

@@ -11,7 +11,7 @@ d_in.Attributes, d_out.Attributes
 //dependencies
 
 //shorthands
-import * as sh from "../../../../shorthands/low_level"
+import * as sh from "../../../../shorthands/low_level/target"
 
 const temp_boolean = ($: boolean): d_out.ID => sh.id.id($ ? "true" : "false")
 

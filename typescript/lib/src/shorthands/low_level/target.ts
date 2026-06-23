@@ -1,14 +1,14 @@
-import * as p_ from 'pareto-core-shorthands/dist/unconstrained'
+import * as p_ from 'pareto-core-shorthands/dist/unconstrained_target'
 
-import * as d_target from "../interface/generated/liana/schemas/low_level/data"
-import * as d_target_html from "../interface/generated/liana/schemas/html/data"
+import * as d_target from "../../interface/generated/liana/schemas/low_level/data"
+import * as d_target_html from "../../interface/generated/liana/schemas/html/data"
 
 
 export const Graph = (
     strict: boolean,
     name: null | d_target.ID,
     type: 'directed' | 'undirected',
-    statements: p_.Raw_Or_Normal_List<d_target.Statements.L>,
+    statements: p_.Normal_List<d_target.Statements.L>,
 ): d_target.Graph => ({
     'strict': strict,
     'type': type === 'directed' ? ['digraph', null] : ['graph', null],
@@ -40,7 +40,7 @@ export namespace s {
 
     export const node = (
         id: d_target.Node_ID,
-        attributes: p_.Raw_Or_Normal_List<d_target.Attributes.L>,
+        attributes: p_.Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['node', {
         'node': id,
         'attributes': p_.list(attributes),
@@ -48,8 +48,8 @@ export namespace s {
 
     export const edge = (
         left: d_target.End_Point,
-        right: p_.Raw_Or_Normal_List<d_target.End_Point>,
-        attributes: p_.Raw_Or_Normal_List<d_target.Attributes.L>,
+        right: p_.Normal_List<d_target.End_Point>,
+        attributes: p_.Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['edge', {
         'left': left,
         'right': p_.list(right),
@@ -58,7 +58,7 @@ export namespace s {
 
     export const attributes = (
         type: 'graph' | 'node' | 'edge',
-        attributes: p_.Raw_Or_Normal_List<d_target.Attributes.L>,
+        attributes: p_.Normal_List<d_target.Attributes.L>,
     ): d_target.Statements.L => ['attributes', {
         'type': type === 'graph' ? ['graph', null] : type === 'node' ? ['node', null] : ['edge', null],
         'attributes': p_.list(attributes),

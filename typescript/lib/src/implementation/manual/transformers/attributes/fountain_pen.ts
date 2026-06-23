@@ -12,7 +12,7 @@ d_in.Attributes, d_out.Paragraph
 import * as t_primitives_to_list_of_characters from "../primitives/list_of_characters"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map(
     ($) => sh.sentence([

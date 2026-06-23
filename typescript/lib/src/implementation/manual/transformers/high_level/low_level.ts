@@ -29,8 +29,8 @@ import * as t_attributes_to_low_level from "../attributes/low_level"
 import * as t_fp_to_loc from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 
 //shorthands
-import * as sh from "../../../../shorthands/low_level"
-import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "../../../../shorthands/low_level/target"
+import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 const temp_text_from_list_of_separated_texts = (
     $: p_di.List<string>,
