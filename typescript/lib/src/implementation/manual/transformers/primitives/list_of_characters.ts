@@ -7,7 +7,9 @@ import * as p_i from 'pareto-core/dist/interface/transformer'
 
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
-export const decimal: p_i.Transformer<number, d_out.List_of_Characters> = ($) => p_list_build_deprecated(
+export const decimal: p_i.Transformer<
+number, d_out.List_of_Characters
+> = ($) => p_list_build_deprecated(
     ($i) => {
         if ($ < 0) {
             $i['add item'](45) // '-'
@@ -74,7 +76,9 @@ export const escaped: p_i.Transformer_With_Parameter<
 
     )
 )
-export const quoted: p_i.Transformer<string, d_out.List_of_Characters> = ($) => p_.literal.segmented_list([
+export const quoted: p_i.Transformer<
+string, d_out.List_of_Characters
+> = ($) => p_.literal.segmented_list([
     p_.literal.list([
         34, // "
     ]),
