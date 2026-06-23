@@ -19,7 +19,7 @@ import * as v_external_high_level from "../../high_level/transformers/astn_seale
 
 export const Directory: t_signatures.Directory = ($) => ['dictionary', p_.from.dictionary($,
 ).map(
-    ($, id) => ['state', p_decide_state(
+    ($, id): t_out.Value => ['state', p_decide_state(
         $,
         ($): t_out.Value.state => {
             switch ($[0]) {

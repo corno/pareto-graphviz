@@ -25,7 +25,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal
             $['nodes'],
             ($) => ['dictionary', p_.from.dictionary($,
             ).map(
-                ($, id) => ['group', ['verbose', p_.literal.dictionary(
+                ($, id): t_out.Value => ['group', ['verbose', p_.literal.dictionary(
                     {
                         "attributes": p_change_context(
                             $['attributes'],

@@ -143,7 +143,7 @@ export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', p_.literal.d
             $['elements'],
             ($) => ['dictionary', p_.from.dictionary($,
             ).map(
-                ($, id) => ['state', p_decide_state(
+                ($, id): t_out.Value => ['state', p_decide_state(
                     $,
                     ($): t_out.Value.state => {
                         switch ($[0]) {
