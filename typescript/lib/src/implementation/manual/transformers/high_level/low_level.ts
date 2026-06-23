@@ -66,8 +66,7 @@ export const Graph: interface_.Graph = ($) => ({
                 default: return p_.au($[0])
             }
         }),
-    'name': p_.from.optional($.name,
-    ).map(
+    'name': p_.from.optional($.name).map(
         ($) => ['string', $]
     ),
     'statements': p_.literal.segmented_list([
@@ -111,8 +110,7 @@ export const Graph: interface_.Graph = ($) => ({
 
 })
 
-export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary($.elements,
-).flatten_to_list(
+export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary($.elements).flatten_to_list(
     ($, id): d_out.Statements => {
         const path = p_.literal.chain(
             $p.path,

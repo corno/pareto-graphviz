@@ -97,8 +97,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                                         }
                                     }),
                                 sh.ph.rich(
-                                    p_.from.list($.right,
-                                    ).map(
+                                    p_.from.list($.right).map(
                                         ($) => sh.ph.composed([
                                             p_.from.state($).decide(
                                                 ($) => {
