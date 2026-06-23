@@ -121,10 +121,12 @@ export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary($.elements).f
                 switch ($[0]) {
                     case 'node': return p_.ss($, ($) => p_.literal.list([
                         sh.s.node(
-                            sh.node_id(sh.id.string(temp_text_from_list_of_separated_texts(path, { 'separator': '>' })), null),
+                            sh.node_id(
+sh.id.string(temp_text_from_list_of_separated_texts(path, { 'separator': '>' })), null),
                             p_.literal.chain(
                                 t_attributes_to_low_level.Attributes($.attributes),
-                                sh.attribute(sh.id.id("label"), sh.id.string(id))
+                                sh.attribute(
+sh.id.id("label"), sh.id.string(id))
                             )
                         )
 
