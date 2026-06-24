@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/dist/implementation/transformer'
 import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer/specials/unreachable_code_path'
-import p_iterate from 'pareto-core/dist/implementation/refiner/specials/iterate'
+import p_iterate_safe from 'pareto-core/dist/implementation/refiner/specials/iterate safe'
 import p_list_build_deprecated from 'pareto-core/dist/implementation/refiner/specials/list_build_deprecated'
 import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
 import * as p_i from 'pareto-core/dist/interface/transformer'
@@ -47,7 +47,7 @@ export const escaped: p_i.Transformer_With_Parameter<
         'escape character code': number
         'character code': number
     }
-> = ($, $p) => p_iterate(
+> = ($, $p) => p_iterate_safe(
     p_list_from_text(
         $,
         ($) => $
