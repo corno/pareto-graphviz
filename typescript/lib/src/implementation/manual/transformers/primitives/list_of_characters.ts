@@ -1,9 +1,9 @@
 import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_i from 'pareto-core/dist/interface/transformer'
 import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer/specials/unreachable_code_path'
-import p_iterate_safe from 'pareto-core/dist/implementation/refiner/specials/iterate safe'
+import p_iterate from 'pareto-core/dist/implementation/refiner/specials/iterate'
 import p_list_build_deprecated from 'pareto-core/dist/implementation/refiner/specials/list_build_deprecated'
 import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
-import * as p_i from 'pareto-core/dist/interface/transformer'
 
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
@@ -47,36 +47,47 @@ export const escaped: p_i.Transformer_With_Parameter<
         'escape character code': number
         'character code': number
     }
-> = ($, $p) => p_iterate_safe(
-    p_list_from_text(
+> = ($, $p) => p_iterate({
+    list: p_list_from_text(
         $,
         ($) => $
     ),
-    null,
-    (iterator) => p_list_build_deprecated(
-        ($i) => {
-            const this_is_an_unused_list = iterator.list({
-                has_more_items: () => true,
-                handle: ($) => {
-                    iterator.discard(
-                        () => null
-                    )
-                    if ($ === $p['escape character code']) { // \
-                        $i['add item']($p['escape character code'])
-                        $i['add item']($p['escape character code'])
-                    } else if ($ === $p['character code']) {
-                        $i['add item']($p['escape character code'])
-                        $i['add item']($p['character code'])
-                    } else {
-                        $i['add item']($)
-                    }
-                    return null
+    end_info: null,
+    on_dangling_item: null,
+    assign: (iterator) => iterator.build_list_with_segments({
+        has_more_items: () => true,
+        handle: () => iterator.peek(
+            ($) => {
+                if ($ === $p['escape character code']) { // \
+                    return p_.literal.list([
+                        $p['escape character code'],
+                        iterator.consume.number(
+                            ($) => $p['escape character code'],
+                            () => p_unreachable_code_path("has_more_items -> true")
+                        )
+                    ])
+                } else if ($ === $p['character code']) {
+                    return p_.literal.list([
+                        $p['escape character code'],
+                        iterator.consume.number(
+                            ($) => $p['character code'],
+                            () => p_unreachable_code_path("has_more_items -> true")
+                        )
+                    ])
+                } else {
+                    return p_.literal.list([
+                        iterator.consume.number(
+                            ($) => $,
+                            () => p_unreachable_code_path("has_more_items -> true")
+                        )
+                    ])
                 }
-            })
-        }
+            },
+            () => p_unreachable_code_path("has_more_items -> true")
+        )
+    })
+})
 
-    )
-)
 export const quoted: p_i.Transformer<
     string, d_out.List_of_Characters
 > = ($) => p_.literal.segmented_list([
