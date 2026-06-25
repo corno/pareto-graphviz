@@ -57,33 +57,33 @@ export const escaped: p_i.Transformer_With_Parameter<
     assign: (iterator) => iterator.build_list_with_segments({
         has_more_items: () => true,
         handle: () => iterator.peek(
+            () => p_unreachable_code_path("has_more_items -> true"),
             ($) => {
                 if ($ === $p['escape character code']) { // \
                     return p_.literal.list([
                         $p['escape character code'],
-                        iterator.consume.number(
+                        iterator.consume(
+                            () => p_unreachable_code_path("has_more_items -> true"),
                             ($) => $p['escape character code'],
-                            () => p_unreachable_code_path("has_more_items -> true")
                         )
                     ])
                 } else if ($ === $p['character code']) {
                     return p_.literal.list([
                         $p['escape character code'],
-                        iterator.consume.number(
+                        iterator.consume(
+                            () => p_unreachable_code_path("has_more_items -> true"),
                             ($) => $p['character code'],
-                            () => p_unreachable_code_path("has_more_items -> true")
                         )
                     ])
                 } else {
                     return p_.literal.list([
-                        iterator.consume.number(
+                        iterator.consume(
+                            () => p_unreachable_code_path("has_more_items -> true"),
                             ($) => $,
-                            () => p_unreachable_code_path("has_more_items -> true")
                         )
                     ])
                 }
             },
-            () => p_unreachable_code_path("has_more_items -> true")
         )
     })
 })
