@@ -53,7 +53,6 @@ export const escaped: p_i.Transformer_With_Parameter<
         ($) => $
     ),
     end_info: null,
-    on_dangling_item: null,
     assign: (iterator) => iterator.build_list_with_segments({
         has_more_items: () => true,
         handle: () => iterator.peek(
@@ -85,7 +84,8 @@ export const escaped: p_i.Transformer_With_Parameter<
                 }
             },
         )
-    })
+    }),
+    on_dangling_item: null,
 })
 
 export const quoted: p_i.Transformer<
