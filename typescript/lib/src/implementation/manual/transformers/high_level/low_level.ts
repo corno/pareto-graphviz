@@ -61,8 +61,8 @@ export const Graph: interface_.Graph = ($) => ({
     'type': p_.from.state($.type).decide(
         ($) => {
             switch ($[0]) {
-                case 'directed': return p_.ss($, () => ['digraph', null])
-                case 'undirected': return p_.ss($, () => ['graph', null])
+                case 'directed': return p_.option($, () => ['digraph', null])
+                case 'undirected': return p_.option($, () => ['graph', null])
                 default: return p_.au($[0])
             }
         }),
@@ -74,7 +74,7 @@ export const Graph: interface_.Graph = ($) => ({
         p_.from.state($.type).decide(
             ($): d_out.Graph.statements => {
                 switch ($[0]) {
-                    case 'directed': return p_.ss($, ($) => p_.from.list($.edges).map(
+                    case 'directed': return p_.option($, ($) => p_.from.list($.edges).map(
                         ($): d_out.Statements.L => ['edge', {
                             "left": ['node', {
                                 'id': ['string', $.from.start],
@@ -89,7 +89,7 @@ export const Graph: interface_.Graph = ($) => ({
                             "attributes": t_attributes_to_low_level.Attributes($.attributes),
                         }]
                     ))
-                    case 'undirected': return p_.ss($, ($) => p_.from.list($.edges).map(
+                    case 'undirected': return p_.option($, ($) => p_.from.list($.edges).map(
                         ($): d_out.Statements.L => ['edge', {
                             "left": ['node', {
                                 'id': ['string', $.yin.start],
@@ -119,7 +119,7 @@ export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary($.elements).f
         return p_.from.state($).decide(
             ($) => {
                 switch ($[0]) {
-                    case 'node': return p_.ss($, ($) => p_.literal.list([
+                    case 'node': return p_.option($, ($) => p_.literal.list([
                         sh.s.node(
                             sh.node_id(
 sh.id.string(temp_text_from_list_of_separated_texts(path, { 'separator': '>' })), null),
@@ -147,7 +147,7 @@ sh.id.id("label"), sh.id.string(id))
 
                         // }]
                     ]))
-                    case 'sub': return p_.ss($, ($) => Tree($.tree, { 'path': path }))
+                    case 'sub': return p_.option($, ($) => Tree($.tree, { 'path': path }))
                     default: return p_.au($[0])
                 }
             })

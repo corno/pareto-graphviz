@@ -20,14 +20,14 @@ export const Directory: t_signatures.Directory = ($) => p_.from.dictionary($,
         ($): t_out.Directory.D => {
             switch ($[0]) {
                 case 'file':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ['file', v_high_level.Graph(
                             $,
                         )],
                     )
                 case 'directory':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ['directory', Directory(
                             $,

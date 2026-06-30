@@ -34,7 +34,7 @@ export const Graph: t_signatures.Graph = ($) => ({
             ($): t_out.Graph.type_ => {
                 switch ($[0]) {
                     case 'undirected':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['undirected', {
                                 'edges': p_change_context(
@@ -66,7 +66,7 @@ export const Graph: t_signatures.Graph = ($) => ({
                             }],
                         )
                     case 'directed':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['directed', {
                                 'edges': p_change_context(
@@ -123,7 +123,7 @@ export const Tree: t_signatures.Tree = ($) => ({
                 ($): t_out.Tree.elements.D => {
                     switch ($[0]) {
                         case 'node':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ['node', {
                                     'attributes': p_change_context(
@@ -135,7 +135,7 @@ export const Tree: t_signatures.Tree = ($) => ({
                                 }],
                             )
                         case 'sub':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ['sub', {
                                     'type': p_change_context(
@@ -145,17 +145,17 @@ export const Tree: t_signatures.Tree = ($) => ({
                                             ($): t_out.Tree.elements.D.sub.type_ => {
                                                 switch ($[0]) {
                                                     case 'group':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ['group', null],
                                                         )
                                                     case 'cluster':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ['cluster', null],
                                                         )
                                                     case 'subgraph':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ['subgraph', null],
                                                         )

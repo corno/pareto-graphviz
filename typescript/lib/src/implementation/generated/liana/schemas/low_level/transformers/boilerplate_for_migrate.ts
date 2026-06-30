@@ -25,12 +25,12 @@ export const Graph: t_signatures.Graph = ($) => ({
             ($): t_out.Graph.type_ => {
                 switch ($[0]) {
                     case 'graph':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['graph', null],
                         )
                     case 'digraph':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['digraph', null],
                         )
@@ -66,7 +66,7 @@ export const Statements: t_signatures.Statements = ($) => p_.from.list($,
         ($): t_out.Statements.L => {
             switch ($[0]) {
                 case 'node':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ['node', {
                             'node': p_change_context(
@@ -84,7 +84,7 @@ export const Statements: t_signatures.Statements = ($) => p_.from.list($,
                         }],
                     )
                 case 'edge':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ['edge', {
                             'left': p_change_context(
@@ -111,7 +111,7 @@ export const Statements: t_signatures.Statements = ($) => p_.from.list($,
                         }],
                     )
                 case 'attributes':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ['attributes', {
                             'type': p_change_context(
@@ -121,17 +121,17 @@ export const Statements: t_signatures.Statements = ($) => p_.from.list($,
                                     ($): t_out.Statements.L.attributes.type_ => {
                                         switch ($[0]) {
                                             case 'graph':
-                                                return p_.ss(
+                                                return p_.option(
                                                     $,
                                                     ($) => ['graph', null],
                                                 )
                                             case 'node':
-                                                return p_.ss(
+                                                return p_.option(
                                                     $,
                                                     ($) => ['node', null],
                                                 )
                                             case 'edge':
-                                                return p_.ss(
+                                                return p_.option(
                                                     $,
                                                     ($) => ['edge', null],
                                                 )
@@ -152,7 +152,7 @@ export const Statements: t_signatures.Statements = ($) => p_.from.list($,
                         }],
                     )
                 case 'attribute assignment':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ['attribute assignment', {
                             'name': p_change_context(
@@ -170,7 +170,7 @@ export const Statements: t_signatures.Statements = ($) => p_.from.list($,
                         }],
                     )
                 case 'subgraph':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ['subgraph', Subgraph(
                             $,
@@ -190,14 +190,14 @@ export const End_Point: t_signatures.End_Point = ($) => p_decide_state(
     ($): t_out.End_Point => {
         switch ($[0]) {
             case 'node':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['node', Node_ID(
                         $,
                     )],
                 )
             case 'subgraph':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['subgraph', Subgraph(
                         $,
@@ -266,24 +266,24 @@ export const ID: t_signatures.ID = ($) => p_decide_state(
     ($): t_out.ID => {
         switch ($[0]) {
             case 'id':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['id', $],
                 )
             case 'string':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['string', $],
                 )
             case 'html':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['html', v_html.Phrasing_Element(
                         $,
                     )],
                 )
             case 'number':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['number', $],
                 )

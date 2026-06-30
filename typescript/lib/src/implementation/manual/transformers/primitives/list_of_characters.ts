@@ -15,7 +15,7 @@ export const decimal: p_i.Transformer<
             $i['add item'](45) // '-'
             $ = -$
         }
-        const digits = p_list_build_deprecated<number>(
+        const $v_digits = p_list_build_deprecated<number>(
             ($i) => {
                 do {
                     const digit = $ % 10
@@ -31,8 +31,8 @@ export const decimal: p_i.Transformer<
 
             })
 
-        for (let j = p_.from.list(digits).amount_of_items() - 1; j >= 0; j--) {
-            $i['add item'](48 + p_.from.optional(digits.__deprecated_get_possible_item_at(j)).decide(
+        for (let j = p_.from.list($v_digits).amount_of_items() - 1; j >= 0; j--) {
+            $i['add item'](48 + p_.from.optional($v_digits.__deprecated_get_possible_item_at(j)).decide(
                 ($) => $,
                 () => p_unreachable_code_path("index cannot be out of bounds")
             ))

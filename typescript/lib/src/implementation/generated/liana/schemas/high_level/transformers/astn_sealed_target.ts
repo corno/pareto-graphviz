@@ -43,7 +43,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'undirected':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'undirected',
@@ -82,7 +82,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal
                                 }),
                             )
                         case 'directed':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'directed',
@@ -148,7 +148,7 @@ export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', p_.literal.d
                     ($): t_out.Value.state => {
                         switch ($[0]) {
                             case 'node':
-                                return p_.ss(
+                                return p_.option(
                                     $,
                                     ($) => ({
                                         'option': 'node',
@@ -165,7 +165,7 @@ export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', p_.literal.d
                                     }),
                                 )
                             case 'sub':
-                                return p_.ss(
+                                return p_.option(
                                     $,
                                     ($) => ({
                                         'option': 'sub',
@@ -178,7 +178,7 @@ export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', p_.literal.d
                                                         ($): t_out.Value.state => {
                                                             switch ($[0]) {
                                                                 case 'group':
-                                                                    return p_.ss(
+                                                                    return p_.option(
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'group',
@@ -186,7 +186,7 @@ export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', p_.literal.d
                                                                         }),
                                                                     )
                                                                 case 'cluster':
-                                                                    return p_.ss(
+                                                                    return p_.option(
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'cluster',
@@ -194,7 +194,7 @@ export const Tree: t_signatures.Tree = ($) => ['group', ['verbose', p_.literal.d
                                                                         }),
                                                                     )
                                                                 case 'subgraph':
-                                                                    return p_.ss(
+                                                                    return p_.option(
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'subgraph',

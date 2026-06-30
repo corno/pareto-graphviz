@@ -35,7 +35,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'graph':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'graph',
@@ -43,7 +43,7 @@ export const Graph: t_signatures.Graph = ($) => ['group', ['verbose', p_.literal
                                 }),
                             )
                         case 'digraph':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'digraph',
@@ -84,7 +84,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
         ($): t_out.Value.state => {
             switch ($[0]) {
                 case 'node':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ({
                             'option': 'node',
@@ -107,7 +107,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
                         }),
                     )
                 case 'edge':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ({
                             'option': 'edge',
@@ -139,7 +139,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
                         }),
                     )
                 case 'attributes':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ({
                             'option': 'attributes',
@@ -152,7 +152,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
                                             ($): t_out.Value.state => {
                                                 switch ($[0]) {
                                                     case 'graph':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ({
                                                                 'option': 'graph',
@@ -160,7 +160,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
                                                             }),
                                                         )
                                                     case 'node':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ({
                                                                 'option': 'node',
@@ -168,7 +168,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
                                                             }),
                                                         )
                                                     case 'edge':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ({
                                                                 'option': 'edge',
@@ -194,7 +194,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
                         }),
                     )
                 case 'attribute assignment':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ({
                             'option': 'attribute assignment',
@@ -217,7 +217,7 @@ export const Statements: t_signatures.Statements = ($) => ['list', p_.from.list(
                         }),
                     )
                 case 'subgraph':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ({
                             'option': 'subgraph',
@@ -240,7 +240,7 @@ export const End_Point: t_signatures.End_Point = ($) => ['state', p_decide_state
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'node':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'node',
@@ -250,7 +250,7 @@ export const End_Point: t_signatures.End_Point = ($) => ['state', p_decide_state
                     }),
                 )
             case 'subgraph':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'subgraph',
@@ -330,7 +330,7 @@ export const ID: t_signatures.ID = ($) => ['state', p_decide_state(
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'id':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'id',
@@ -341,7 +341,7 @@ export const ID: t_signatures.ID = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'string':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'string',
@@ -352,7 +352,7 @@ export const ID: t_signatures.ID = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'html':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'html',
@@ -362,7 +362,7 @@ export const ID: t_signatures.ID = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'number':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'number',

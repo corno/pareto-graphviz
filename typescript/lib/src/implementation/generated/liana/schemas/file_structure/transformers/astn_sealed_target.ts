@@ -24,7 +24,7 @@ export const Directory: t_signatures.Directory = ($) => ['dictionary', p_.from.d
         ($): t_out.Value.state => {
             switch ($[0]) {
                 case 'file':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ({
                             'option': 'file',
@@ -34,7 +34,7 @@ export const Directory: t_signatures.Directory = ($) => ['dictionary', p_.from.d
                         }),
                     )
                 case 'directory':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ({
                             'option': 'directory',
