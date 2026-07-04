@@ -42,7 +42,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 
 //dependencies
-import * as t_primitives_to_list_of_characters from "../primitives/list_of_characters"
+import * as t_primitives_to_list_of_characters from "../primitives/deprecated_list_of_characters"
 import * as t_html_to_prose from "pareto-static-html/dist/implementation/manual/transformers/static_html/fountain_pen"
 
 
