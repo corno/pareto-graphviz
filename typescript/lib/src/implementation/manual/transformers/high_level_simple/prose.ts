@@ -8,7 +8,7 @@ d_in.Graph, d_out.Paragraph
 >
 
 //dependencies
-import * as t_low_level_to_fountain_pen from "../low_level/fountain_pen"
+import * as t_low_level_to_fountain_pen from "../low_level/prose"
 import * as t_to_low_level from "./low_level"
 
 export const Graph: Graph = ($) => t_low_level_to_fountain_pen.Graph(
