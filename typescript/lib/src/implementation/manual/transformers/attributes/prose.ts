@@ -5,7 +5,8 @@ import * as d_in from "../../../../interface/generated/liana/schemas/attributes/
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 type Attributes = p_i.Transformer<
-d_in.Attributes, d_out.Paragraph
+    d_in.Attributes,
+    d_out.Paragraph
 >
 
 //dependencies

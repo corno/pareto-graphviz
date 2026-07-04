@@ -4,7 +4,8 @@ import * as d_in from "../../../../interface/generated/liana/schemas/high_level_
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 type Graph = p_i.Transformer<
-d_in.Graph, d_out.Paragraph
+    d_in.Graph,
+    d_out.Paragraph
 >
 
 //dependencies
