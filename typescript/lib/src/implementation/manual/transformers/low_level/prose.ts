@@ -43,7 +43,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 //dependencies
 import * as t_primitives_to_list_of_characters from "../primitives/list_of_characters"
-import * as t_html_to_fountain_pen from "pareto-static-html/dist/implementation/manual/transformers/static_html/fountain_pen"
+import * as t_html_to_prose from "pareto-static-html/dist/implementation/manual/transformers/static_html/fountain_pen"
 
 
 export const Graph: signatures.Graph = ($) => sh.pg.sentences([
@@ -159,7 +159,7 @@ export const ID: signatures.ID = ($) => p_.from.state($).decide(
         switch ($[0]) {
             case 'id': return p_.option($, ($) => sh.ph.literal($)) //FIX escaping
             case 'string': return p_.option($, ($) => sh.ph.serialize(t_primitives_to_list_of_characters.quoted($)))
-            case 'html': return p_.option($, ($) => t_html_to_fountain_pen.Phrasing_Element($))
+            case 'html': return p_.option($, ($) => t_html_to_prose.Phrasing_Element($))
             case 'number': return p_.option($, ($) => sh.ph.literal("FIXME NUMBER"))
             default: return p_.au($[0])
         }
