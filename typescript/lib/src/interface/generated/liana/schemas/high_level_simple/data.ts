@@ -1,8 +1,8 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_attributes from "../attributes/data"
+import * as i_imports_attributes from "../attributes/data.js"
 
 export namespace Graph_ {
     
@@ -54,6 +54,6 @@ export type Graph_ = {
     readonly 'edges': Graph_.edges
 }
 
-export { 
+export type { 
     Graph_ as Graph, 
 }

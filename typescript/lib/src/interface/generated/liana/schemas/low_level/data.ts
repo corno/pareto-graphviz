@@ -1,8 +1,8 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_html from "../html/data"
+import * as i_imports_html from "../html/data.js"
 
 export namespace Graph_ {
     
@@ -242,7 +242,7 @@ export type Subgraph_ = {
     readonly 'statements': Subgraph_.statements
 }
 
-export { 
+export type { 
     Graph_ as Graph, 
     Statements_ as Statements, 
     End_Point_ as End_Point, 

@@ -1,9 +1,9 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
+import * as i_out from "astn-core/interface/generated/liana/schemas/sealed_target/data"
 
-import * as i_in from "../../data"
+import * as i_in from "../../data.js"
 
 export namespace Graph_ {
     
@@ -53,7 +53,7 @@ export type End_Point_Specification_ = (
     context: End_Point_Specification_.I,
 ) => End_Point_Specification_.O
 
-export { 
+export type { 
     Graph_ as Graph, 
     Tree_ as Tree, 
     End_Point_Specification_ as End_Point_Specification, 

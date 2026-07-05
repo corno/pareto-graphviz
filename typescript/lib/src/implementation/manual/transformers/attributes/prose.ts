@@ -1,8 +1,8 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
 
-import * as d_in from "../../../../interface/generated/liana/schemas/attributes/data"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
+import * as d_in from "../../../../interface/generated/liana/schemas/attributes/data.js"
+import * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
 type Attributes = p_i.Transformer<
     d_in.Attributes,
@@ -10,10 +10,10 @@ type Attributes = p_i.Transformer<
 >
 
 //dependencies
-import * as t_primitives_to_list_of_characters from "../primitives/deprecated_list_of_characters"
+import * as t_primitives_to_list_of_characters from "../primitives/deprecated_list_of_characters.js"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map(
     ($) => sh.sentence([

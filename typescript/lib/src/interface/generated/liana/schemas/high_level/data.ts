@@ -1,8 +1,8 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_attributes from "../attributes/data"
+import * as i_imports_attributes from "../attributes/data.js"
 
 export namespace Graph_ {
     
@@ -198,7 +198,7 @@ export type End_Point_Specification_ = {
     readonly 'port data': End_Point_Specification_.port_data
 }
 
-export { 
+export type { 
     Graph_ as Graph, 
     Tree_ as Tree, 
     End_Point_Specification_ as End_Point_Specification, 

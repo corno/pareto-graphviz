@@ -1,8 +1,8 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_high_level from "../high_level/data"
+import * as i_imports_high_level from "../high_level/data.js"
 
 export namespace Directory_ {
     
@@ -22,6 +22,6 @@ export namespace Directory_ {
 
 export type Directory_ = p_di.Dictionary<Directory_.D>
 
-export { 
+export type { 
     Directory_ as Directory, 
 }

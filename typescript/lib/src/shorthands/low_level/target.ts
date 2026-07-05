@@ -1,7 +1,7 @@
-import * as p_ from 'pareto-core-shorthands/dist/unconstrained_target'
+import * as p_ from 'pareto-core-shorthands/unconstrained_target'
 
-import * as d_target from "../../interface/generated/liana/schemas/low_level/data"
-import * as d_target_html from "../../interface/generated/liana/schemas/html/data"
+import * as d_target from "../../interface/generated/liana/schemas/low_level/data.js"
+import * as d_target_html from "../../interface/generated/liana/schemas/html/data.js"
 
 
 export const Graph = (

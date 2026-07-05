@@ -1,11 +1,11 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_generic from "liana-core/dist/interface/data/unmarshall"
+import * as i_generic from "liana-core/interface/data/unmarshall"
 
-import * as i_out from "../../data"
+import * as i_out from "../../data.js"
 
-import * as i_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
+import * as i_in from "astn-core/interface/generated/liana/schemas/parse_tree/data"
 
 export namespace Graph_ {
     
@@ -64,7 +64,7 @@ export type End_Point_Specification_ = (
     abort: p_i.Abort<End_Point_Specification_.E>,
 ) => End_Point_Specification_.O
 
-export { 
+export type { 
     Graph_ as Graph, 
     Tree_ as Tree, 
     End_Point_Specification_ as End_Point_Specification, 

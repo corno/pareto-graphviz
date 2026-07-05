@@ -1,11 +1,11 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
-import * as p_di from 'pareto-core/dist/interface/data'
-import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
+import * as p_di from 'pareto-core/interface/data'
+import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
 //data types
-import * as d_in from "../../../../interface/generated/liana/schemas/high_level/data"
-import * as d_out from "../../../../interface/generated/liana/schemas/low_level/data"
+import * as d_in from "../../../../interface/generated/liana/schemas/high_level/data.js"
+import * as d_out from "../../../../interface/generated/liana/schemas/low_level/data.js"
 
 namespace interface_ {
 
@@ -25,12 +25,12 @@ namespace interface_ {
 }
 
 //dependencies
-import * as t_attributes_to_low_level from "../attributes/low_level"
-import * as t_fp_to_loc from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
+import * as t_attributes_to_low_level from "../attributes/low_level.js"
+import * as t_fp_to_loc from "pareto-fountain-pen/implementation/manual/transformers/prose/list_of_characters"
 
 //shorthands
-import * as sh from "../../../../shorthands/low_level/target"
-import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
+import * as sh from "../../../../shorthands/low_level/target.js"
+import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 const temp_text_from_list_of_separated_texts = (
     $: p_di.List<string>,

@@ -1,8 +1,8 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
 
-import * as d_in from "../../../../interface/generated/liana/schemas/low_level/data"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
+import * as d_in from "../../../../interface/generated/liana/schemas/low_level/data.js"
+import * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
 type Parameters = {
     'graph type': d_in.Graph.type_
@@ -38,12 +38,12 @@ namespace signatures {
 }
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 
 //dependencies
-import * as t_primitives_to_list_of_characters from "../primitives/deprecated_list_of_characters"
-import * as t_html_to_prose from "pareto-static-html/dist/implementation/manual/transformers/static_html/prose"
+import * as t_primitives_to_list_of_characters from "../primitives/deprecated_list_of_characters.js"
+import * as t_html_to_prose from "pareto-static-html/implementation/manual/transformers/static_html/prose"
 
 
 export const Graph: signatures.Graph = ($) => sh.pg.sentences([
