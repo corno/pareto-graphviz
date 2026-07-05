@@ -84,7 +84,8 @@ export const escaped: p_i.Transformer_With_Parameter<
                     ])
                 }
             },
-        )
+        ),
+        on_no_progression: () => p_unreachable_code_path("'handle' is expected to consume at least one item"),
     }),
     on_dangling_item: null,
 })
