@@ -4,8 +4,11 @@ import type * as p_i from 'pareto-core/interface/transformer'
 import type * as d_in from "../../../../interface/generated/liana/schemas/low_level/data.js"
 import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
-type Parameters = {
-    'graph type': d_in.Graph.type_
+export namespace d_parameters {
+    export type Parameters = {
+        'graph type': d_in.Graph.type_
+    }
+
 }
 
 export namespace interface_ {
@@ -16,7 +19,7 @@ export namespace interface_ {
     export type Statements = p_i.Transformer_With_Parameter<
         d_in.Statements,
         d_out.Phrase,
-        Parameters
+        d_parameters.Parameters
     >
     export type ID = p_i.Transformer<
         d_in.ID,
@@ -33,7 +36,7 @@ export namespace interface_ {
     export type Subgraph = p_i.Transformer_With_Parameter<
         d_in.Subgraph,
         d_out.Phrase,
-        Parameters
+        d_parameters.Parameters
     >
 }
 import * as temp_interface_ from "../../../../interface/declarations/transformers/low_level/prose.js"
