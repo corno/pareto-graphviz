@@ -8,7 +8,7 @@ type Parameters = {
     'graph type': d_in.Graph.type_
 }
 
-namespace signatures {
+export namespace interface_ {
     export type Graph = p_i.Transformer<
         d_in.Graph,
         d_out.Paragraph
@@ -46,7 +46,7 @@ import * as t_primitives_to_list_of_characters from "../primitives/deprecated_li
 import * as t_html_to_prose from "pareto-static-html/implementation/manual/transformers/static_html/prose"
 
 
-export const Graph: signatures.Graph = ($) => sh.pg.sentences([
+export const Graph: interface_.Graph = ($) => sh.pg.sentences([
     sh.sentence([
         $.strict
             ? sh.ph.literal("strict ")
@@ -72,7 +72,7 @@ export const Graph: signatures.Graph = ($) => sh.pg.sentences([
     ]),
 ])
 
-export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
+export const Statement_List: interface_.Statements = ($, $p) => sh.ph.composed([
     sh.ph.literal("{"),
     sh.ph.indent(
         sh.pg.sentences(p_.from.list($).map(
@@ -154,7 +154,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
     sh.ph.literal("}"),
 ])
 
-export const ID: signatures.ID = ($) => p_.from.state($).decide(
+export const ID: interface_.ID = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'id': return p_.option($, ($) => sh.ph.literal($)) //FIX escaping
@@ -165,7 +165,7 @@ export const ID: signatures.ID = ($) => p_.from.state($).decide(
         }
     })
 
-export const Attributes: signatures.Attributes = ($) => sh.ph.composed([
+export const Attributes: interface_.Attributes = ($) => sh.ph.composed([
     sh.ph.literal(" [ "),
     sh.ph.composed(p_.from.list($).map(
         ($) => sh.ph.composed([
@@ -177,7 +177,7 @@ export const Attributes: signatures.Attributes = ($) => sh.ph.composed([
     sh.ph.literal("]"),
 ])
 
-export const Node_ID: signatures.Node_ID = ($) => sh.ph.composed([
+export const Node_ID: interface_.Node_ID = ($) => sh.ph.composed([
     ID($.id),
     p_.from.optional($.port).decide(
         ($) => sh.ph.composed([
@@ -195,7 +195,7 @@ export const Node_ID: signatures.Node_ID = ($) => sh.ph.composed([
     ),
 ])
 
-export const Subgraph: signatures.Subgraph = ($, $p) => sh.ph.composed([
+export const Subgraph: interface_.Subgraph = ($, $p) => sh.ph.composed([
     p_.from.optional($.subgraph).decide(
         ($) => sh.ph.composed([
             sh.ph.literal("subgraph "),
