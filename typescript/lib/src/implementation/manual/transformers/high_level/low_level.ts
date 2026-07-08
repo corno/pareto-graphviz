@@ -63,7 +63,7 @@ export const Graph: interface_.Graph = ($) => ({
             switch ($[0]) {
                 case 'directed': return p_.option($, () => ['digraph', null])
                 case 'undirected': return p_.option($, () => ['graph', null])
-                default: return p_.au($[0])
+                default: return p_.exhaustive($[0])
             }
         }),
     'name': p_.from.optional($.name).map(
@@ -103,7 +103,7 @@ export const Graph: interface_.Graph = ($) => ({
                             ]),
                             "attributes": p_.literal.list([]), //FIXME: attributes
                         }]))
-                    default: return p_.au($[0])
+                    default: return p_.exhaustive($[0])
                 }
             })
     ])
@@ -148,7 +148,7 @@ sh.id.id("label"), sh.id.string(id))
                         // }]
                     ]))
                     case 'sub': return p_.option($, ($) => Tree($.tree, { 'path': path }))
-                    default: return p_.au($[0])
+                    default: return p_.exhaustive($[0])
                 }
             })
     }

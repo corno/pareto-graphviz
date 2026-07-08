@@ -56,7 +56,7 @@ export const Graph: signatures.Graph = ($) => sh.pg.sentences([
                 switch ($[0]) {
                     case 'digraph': return p_.option($, () => sh.ph.literal("digraph "))
                     case 'graph': return p_.option($, () => sh.ph.literal("graph "))
-                    default: return p_.au($[0])
+                    default: return p_.exhaustive($[0])
                 }
             }),
         p_.from.optional($.name).decide(
@@ -93,7 +93,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                                             case 'edge': return p_.option($, () => sh.ph.literal("edge "))
                                             case 'node': return p_.option($, () => sh.ph.literal("node "))
                                             case 'graph': return p_.option($, () => sh.ph.literal("graph "))
-                                            default: return p_.au($[0])
+                                            default: return p_.exhaustive($[0])
                                         }
                                     }),
                                 Attributes($.attributes),
@@ -105,7 +105,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                                         switch ($[0]) {
                                             case 'node': return p_.option($, ($) => Node_ID($))
                                             case 'subgraph': return p_.option($, ($) => Subgraph($, $p))
-                                            default: return p_.au($[0])
+                                            default: return p_.exhaustive($[0])
                                         }
                                     }),
                                 p_.from.state($p['graph type']).decide(
@@ -113,7 +113,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                                         switch ($[0]) {
                                             case 'digraph': return p_.option($, () => sh.ph.literal(" -> "))
                                             case 'graph': return p_.option($, () => sh.ph.literal(" -- "))
-                                            default: return p_.au($[0])
+                                            default: return p_.exhaustive($[0])
                                         }
                                     }),
                                 sh.ph.rich(
@@ -124,7 +124,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                                                     switch ($[0]) {
                                                         case 'node': return p_.option($, ($) => Node_ID($))
                                                         case 'subgraph': return p_.option($, ($) => Subgraph($, $p))
-                                                        default: return p_.au($[0])
+                                                        default: return p_.exhaustive($[0])
                                                     }
                                                 }),
 
@@ -146,7 +146,7 @@ export const Statement_List: signatures.Statements = ($, $p) => sh.ph.composed([
                                 sh.ph.literal(";"),
                             ]))
                             case 'subgraph': return p_.option($, ($) => Subgraph($, $p))
-                            default: return p_.au($[0])
+                            default: return p_.exhaustive($[0])
                         }
                     })
             ]))),
@@ -161,7 +161,7 @@ export const ID: signatures.ID = ($) => p_.from.state($).decide(
             case 'string': return p_.option($, ($) => sh.ph.serialize(t_primitives_to_list_of_characters.quoted($)))
             case 'html': return p_.option($, ($) => t_html_to_prose.Phrasing_Element($))
             case 'number': return p_.option($, ($) => sh.ph.literal("FIXME NUMBER"))
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     })
 

@@ -65,7 +65,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'invis': return p_.option($, ($) => sh.id.id("invis"))
                                 case 'tapered': return p_.option($, ($) => sh.id.id("tapered"))
                                 case 'custom': return p_.option($, ($) => sh.id.string($))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'layout': return p_.option($, ($) => sh.attribute(
@@ -79,7 +79,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'twopi': return p_.option($, ($) => sh.id.id("twopi"))
                                 case 'circo': return p_.option($, ($) => sh.id.id("circo"))
                                 case 'custom': return p_.option($, ($) => sh.id.string($))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'rankdir': return p_.option($, ($) => sh.attribute(
@@ -90,7 +90,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'BT': return p_.option($, ($) => sh.id.id("BT"))
                                 case 'LR': return p_.option($, ($) => sh.id.id("LR"))
                                 case 'RL': return p_.option($, ($) => sh.id.id("RL"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'bgcolor': return p_.option($, ($) => sh.attribute(
@@ -101,7 +101,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                             switch ($[0]) {
                                 case 't': return p_.option($, ($) => sh.id.id("t"))
                                 case 'b': return p_.option($, ($) => sh.id.id("b"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'labeljust': return p_.option($, ($) => sh.attribute(
@@ -111,7 +111,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'l': return p_.option($, ($) => sh.id.id("l"))
                                 case 'c': return p_.option($, ($) => sh.id.id("c"))
                                 case 'r': return p_.option($, ($) => sh.id.id("r"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'size': return p_.option($, ($) => sh.attribute(
@@ -140,7 +140,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'vpsc': return p_.option($, ($) => sh.id.id("vpsc"))
                                 case 'ipsep': return p_.option($, ($) => sh.id.id("ipsep"))
                                 case 'prism': return p_.option($, ($) => sh.id.id("prism"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'pack': return p_.option($, ($) => sh.attribute(
@@ -150,7 +150,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'true': return p_.option($, ($) => sh.id.id("true"))
                                 case 'false': return p_.option($, ($) => sh.id.id("false"))
                                 case 'custom': return p_.option($, ($) => sh.id.number($))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'packmode': return p_.option($, ($) => sh.attribute(
@@ -160,7 +160,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'node': return p_.option($, ($) => sh.id.id("node"))
                                 case 'clust': return p_.option($, ($) => sh.id.id("clust"))
                                 case 'graph': return p_.option($, ($) => sh.id.id("graph"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'concentrate': return p_.option($, ($) => sh.attribute(
@@ -180,7 +180,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'breadthfirst': return p_.option($, ($) => sh.id.id("breadthfirst"))
                                 case 'nodesfirst': return p_.option($, ($) => sh.id.id("nodesfirst"))
                                 case 'edgesfirst': return p_.option($, ($) => sh.id.id("edgesfirst"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'charset': return p_.option($, ($) => sh.attribute(
@@ -192,7 +192,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'local': return p_.option($, ($) => sh.id.id("local"))
                                 case 'global': return p_.option($, ($) => sh.id.id("global"))
                                 case 'none': return p_.option($, ($) => sh.id.id("none"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'shape': return p_.option($, ($) => p_.from.state($).decide(
@@ -240,7 +240,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 sh.id.id("shape"), sh.id.id("Mrecord")))
                             case 'custom': return p_.option($, ($) => sh.attribute(
                                 sh.id.id("shape"), sh.id.string($)))
-                            default: return p_.au($[0])
+                            default: return p_.exhaustive($[0])
                         }
                     }))
                 case 'width': return p_.option($, ($) => sh.attribute(
@@ -278,7 +278,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'bl': return p_.option($, ($) => sh.id.id("bl"))
                                 case 'bc': return p_.option($, ($) => sh.id.id("bc"))
                                 case 'br': return p_.option($, ($) => sh.id.id("br"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'imagescale': return p_.option($, ($) => sh.attribute(
@@ -290,7 +290,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'width': return p_.option($, ($) => sh.id.id("width"))
                                 case 'height': return p_.option($, ($) => sh.id.id("height"))
                                 case 'both': return p_.option($, ($) => sh.id.id("both"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'group': return p_.option($, ($) => sh.attribute(
@@ -340,7 +340,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 sh.id.id("arrowhead"), sh.id.id("obox")))
                             case 'custom': return p_.option($, ($) => sh.attribute(
                                 sh.id.id("arrowhead"), sh.id.string($)))
-                            default: return p_.au($[0])
+                            default: return p_.exhaustive($[0])
                         }
                     }))
                 case 'arrowtail': return p_.option($, ($) => p_.from.state($).decide(
@@ -380,7 +380,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 sh.id.id("arrowtail"), sh.id.id("obox")))
                             case 'custom': return p_.option($, ($) => sh.attribute(
                                 sh.id.id("arrowtail"), sh.id.string($)))
-                            default: return p_.au($[0])
+                            default: return p_.exhaustive($[0])
                         }
                     }))
                 case 'arrowsize': return p_.option($, ($) => sh.attribute(
@@ -393,7 +393,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'back': return p_.option($, ($) => sh.id.id("back"))
                                 case 'both': return p_.option($, ($) => sh.id.id("both"))
                                 case 'none': return p_.option($, ($) => sh.id.id("none"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'headlabel': return p_.option($, ($) => sh.attribute(
@@ -445,7 +445,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 sh.id.id("headport"), sh.id.id("nw")))
                             case 'custom': return p_.option($, ($) => sh.attribute(
                                 sh.id.id("headport"), sh.id.string($)))
-                            default: return p_.au($[0])
+                            default: return p_.exhaustive($[0])
                         }
                     }))
                 case 'tailport': return p_.option($, ($) => p_.from.state($).decide(
@@ -471,7 +471,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 sh.id.id("tailport"), sh.id.id("nw")))
                             case 'custom': return p_.option($, ($) => sh.attribute(
                                 sh.id.id("tailport"), sh.id.string($)))
-                            default: return p_.au($[0])
+                            default: return p_.exhaustive($[0])
                         }
                     }))
                 case 'headclip': return p_.option($, ($) => sh.attribute(
@@ -531,7 +531,7 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                                 case 'ortho': return p_.option($, ($) => sh.id.id("ortho"))
                                 case 'curved': return p_.option($, ($) => sh.id.id("curved"))
                                 case 'compound': return p_.option($, ($) => sh.id.id("compound"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })))
                 case 'pos': return p_.option($, ($) => sh.attribute(
@@ -540,6 +540,6 @@ export const Attributes: Attributes = ($) => p_.from.list($).map(
                     sh.id.id("xlabel"), sh.id.string($)))
                 case 'layer': return p_.option($, ($) => sh.attribute(
                     sh.id.id("layer"), sh.id.string($)))
-                default: return p_.au($[0])
+                default: return p_.exhaustive($[0])
             }
         }))

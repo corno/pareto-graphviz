@@ -84,7 +84,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("style="),
                                     sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'layout': return p_.option($, ($) => p_.from.state($).decide(
@@ -99,7 +99,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("layout="),
                                     sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'rankdir': return p_.option($, ($) => p_.from.state($).decide(
@@ -109,7 +109,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'BT': return p_.option($, ($) => sh.ph.literal("rankdir=BT"))
                                 case 'LR': return p_.option($, ($) => sh.ph.literal("rankdir=LR"))
                                 case 'RL': return p_.option($, ($) => sh.ph.literal("rankdir=RL"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'bgcolor': return p_.option($, ($) => sh.ph.composed([
@@ -120,7 +120,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                             switch ($[0]) {
                                 case 't': return p_.option($, ($) => sh.ph.literal("labelloc=t"))
                                 case 'b': return p_.option($, ($) => sh.ph.literal("labelloc=b"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'labeljust': return p_.option($, ($) => p_.from.state($).decide(
@@ -129,7 +129,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'l': return p_.option($, ($) => sh.ph.literal("labeljust=l"))
                                 case 'c': return p_.option($, ($) => sh.ph.literal("labeljust=c"))
                                 case 'r': return p_.option($, ($) => sh.ph.literal("labeljust=r"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'size': return p_.option($, ($) => sh.ph.composed([
@@ -164,7 +164,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'vpsc': return p_.option($, ($) => sh.ph.literal("overlap=vpsc"))
                                 case 'ipsep': return p_.option($, ($) => sh.ph.literal("overlap=ipsep"))
                                 case 'prism': return p_.option($, ($) => sh.ph.literal("overlap=prism"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'pack': return p_.option($, ($) => p_.from.state($).decide(
@@ -175,7 +175,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("pack="),
                                     sh.ph.serialize(t_primitives_to_list_of_characters.decimal($))]))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'packmode': return p_.option($, ($) => p_.from.state($).decide(
@@ -184,7 +184,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'node': return p_.option($, ($) => sh.ph.literal("packmode=node"))
                                 case 'clust': return p_.option($, ($) => sh.ph.literal("packmode=clust"))
                                 case 'graph': return p_.option($, ($) => sh.ph.literal("packmode=graph"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'concentrate': return p_.option($, ($) => sh.ph.literal($ ? "concentrate=true" : "concentrate=false"))
@@ -198,7 +198,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'breadthfirst': return p_.option($, ($) => sh.ph.literal("outputorder=breadthfirst"))
                                 case 'nodesfirst': return p_.option($, ($) => sh.ph.literal("outputorder=nodesfirst"))
                                 case 'edgesfirst': return p_.option($, ($) => sh.ph.literal("outputorder=edgesfirst"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'charset': return p_.option($, ($) => sh.ph.composed([
@@ -210,7 +210,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'local': return p_.option($, ($) => sh.ph.literal("clusterrank=local"))
                                 case 'global': return p_.option($, ($) => sh.ph.literal("clusterrank=global"))
                                 case 'none': return p_.option($, ($) => sh.ph.literal("clusterrank=none"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'shape': return p_.option($, ($) => p_.from.state($).decide(
@@ -239,7 +239,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("shape="),
                                     sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'width': return p_.option($, ($) => sh.ph.composed([
@@ -281,7 +281,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'bl': return p_.option($, ($) => sh.ph.literal("imagepos=bl"))
                                 case 'bc': return p_.option($, ($) => sh.ph.literal("imagepos=bc"))
                                 case 'br': return p_.option($, ($) => sh.ph.literal("imagepos=br"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'imagescale': return p_.option($, ($) => p_.from.state($).decide(
@@ -292,7 +292,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'width': return p_.option($, ($) => sh.ph.literal("imagescale=width"))
                                 case 'height': return p_.option($, ($) => sh.ph.literal("imagescale=height"))
                                 case 'both': return p_.option($, ($) => sh.ph.literal("imagescale=both"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'group': return p_.option($, ($) => sh.ph.composed([
@@ -332,7 +332,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("arrowhead="),
                                     sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'arrowtail': return p_.option($, ($) => p_.from.state($).decide(
@@ -357,7 +357,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("arrowtail="),
                                     sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'arrowsize': return p_.option($, ($) => sh.ph.composed([
@@ -370,7 +370,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'back': return p_.option($, ($) => sh.ph.literal("dir=back"))
                                 case 'both': return p_.option($, ($) => sh.ph.literal("dir=both"))
                                 case 'none': return p_.option($, ($) => sh.ph.literal("dir=none"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'headlabel': return p_.option($, ($) => sh.ph.composed([
@@ -421,7 +421,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("headport="),
                                     sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'tailport': return p_.option($, ($) => p_.from.state($).decide(
@@ -439,7 +439,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("tailport="),
                                     sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'headclip': return p_.option($, ($) => sh.ph.literal($ ? "headclip=true" : "headclip=false"))
@@ -516,7 +516,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                                 case 'ortho': return p_.option($, ($) => sh.ph.literal("splines=ortho"))
                                 case 'curved': return p_.option($, ($) => sh.ph.literal("splines=curved"))
                                 case 'compound': return p_.option($, ($) => sh.ph.literal("splines=compound"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'pos': return p_.option($, ($) => sh.ph.composed([
@@ -528,7 +528,7 @@ export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map
                     case 'layer': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.literal("layer="),
                         sh.ph.serialize(t_primitives_to_list_of_characters.quoted($))]))
-                    default: return p_.au($[0])
+                    default: return p_.exhaustive($[0])
                 }
             })
     ])
