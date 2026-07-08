@@ -8,8 +8,6 @@ type Attributes = p_i.Transformer<
     d_in.Attributes, d_out.Attributes
 >
 
-//dependencies
-
 //shorthands
 import * as sh from "../../../../shorthands/low_level/target.js"
 
