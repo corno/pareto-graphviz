@@ -36,6 +36,7 @@ export namespace interface_ {
         Parameters
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/low_level/prose.js"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
