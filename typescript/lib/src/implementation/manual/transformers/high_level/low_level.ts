@@ -4,8 +4,8 @@ import * as p_di from 'pareto-core/interface/data'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
 //data types
-import * as d_in from "../../../../interface/generated/liana/schemas/high_level/data.js"
-import * as d_out from "../../../../interface/generated/liana/schemas/low_level/data.js"
+import type * as d_in from "../../../../interface/generated/liana/schemas/high_level/data.js"
+import type * as d_out from "../../../../interface/generated/liana/schemas/low_level/data.js"
 
 namespace interface_ {
 
