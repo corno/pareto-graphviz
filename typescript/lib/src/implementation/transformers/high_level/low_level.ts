@@ -4,8 +4,8 @@ import type * as p_di from 'pareto-core/interface/data'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
 //data types
-import type * as d_in from "../../../../interface/generated/liana/schemas/high_level/data.js"
-import type * as d_out from "../../../../interface/generated/liana/schemas/low_level/data.js"
+import type * as d_in from "../../../interface/generated/liana/schemas/high_level/data.js"
+import type * as d_out from "../../../interface/generated/liana/schemas/low_level/data.js"
 
 namespace interface_ {
 
@@ -29,7 +29,7 @@ import * as t_attributes_to_low_level from "../attributes/low_level.js"
 import * as t_fp_to_loc from "pareto-fountain-pen/implementation/manual/transformers/prose/list_of_characters"
 
 //shorthands
-import * as sh from "../../../../shorthands/low_level/target.js"
+import * as sh from "../../../shorthands/low_level/target.js"
 import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 const temp_text_from_list_of_separated_texts = (

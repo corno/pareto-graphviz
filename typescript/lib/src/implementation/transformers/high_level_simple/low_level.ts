@@ -1,8 +1,8 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
 
-import type * as d_in from "../../../../interface/generated/liana/schemas/high_level_simple/data.js"
-import type * as d_out from "../../../../interface/generated/liana/schemas/low_level/data.js"
+import type * as d_in from "../../../interface/generated/liana/schemas/high_level_simple/data.js"
+import type * as d_out from "../../../interface/generated/liana/schemas/low_level/data.js"
 
 type Graph = p_i.Transformer<
     d_in.Graph,
@@ -13,7 +13,7 @@ type Graph = p_i.Transformer<
 import * as t_attributes_to_low_level from "../attributes/low_level.js"
 
 //shorthands
-import * as sh from "../../../../shorthands/low_level/target.js"
+import * as sh from "../../../shorthands/low_level/target.js"
 
 
 export const Graph: Graph = ($) => sh.Graph(

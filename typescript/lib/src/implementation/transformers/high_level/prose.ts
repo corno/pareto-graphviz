@@ -1,7 +1,7 @@
 import type * as p_i from 'pareto-core/interface/transformer'
 
 //data types
-import type * as d_in from "../../../../interface/generated/liana/schemas/high_level/data.js"
+import type * as d_in from "../../../interface/generated/liana/schemas/high_level/data.js"
 import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
 //dependencies
