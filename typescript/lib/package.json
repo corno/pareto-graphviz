@@ -1,6 +1,6 @@
 {
   "name": "pareto-graphviz",
-  "version": "0.2.50",
+  "version": "0.2.51",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "A library that provides a Liana-frontend for Graphviz, allowing you to generate Graphviz diagrams using Liana's syntax and features, both programmatically and manually in a Liana editing environment",
