@@ -7,7 +7,7 @@ import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 //dependencies
 import * as t_primitives_to_list_of_characters from "../primitives/deprecated_list_of_characters.js"
-import * as t_html_to_prose from "pareto-static-html/implementation/manual/transformers/static_html/prose"
+import * as t_html_to_prose from "pareto-static-html/implementation/transformers/static_html/prose"
 
 
 export const Graph: interface_.Graph = ($) => sh.pg.sentences([

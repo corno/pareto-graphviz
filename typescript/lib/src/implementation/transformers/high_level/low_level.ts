@@ -26,7 +26,7 @@ namespace interface_ {
 
 //dependencies
 import * as t_attributes_to_low_level from "../attributes/low_level.js"
-import * as t_fp_to_loc from "pareto-fountain-pen/implementation/manual/transformers/prose/list_of_characters"
+import * as t_fp_to_loc from "pareto-fountain-pen/implementation/transformers/prose/list_of_characters"
 
 //shorthands
 import * as sh from "../../../shorthands/low_level/target.js"
