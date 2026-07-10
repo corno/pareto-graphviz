@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core-shorthands/unconstrained_target'
 
-import type * as d_target from "../../interface/generated/liana/schemas/high_level_simple/data.js"
-import type * as d_target_attributes from "../../interface/generated/liana/schemas/attributes/data.js"
+import type * as d_target from "../../interface/data/high_level_simple.js"
+import type * as d_target_attributes from "../../interface/data/attributes.js"
 
 
 export const Graph = (
