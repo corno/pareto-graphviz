@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core-shorthands/unconstrained_target'
 
-import type * as d_target from "../../interface/data/low_level.js"
-import type * as d_target_html from "../../interface/data/html.js"
+import type * as d_target from "../../interface/schemas/low_level.js"
+import type * as d_target_html from "../../interface/schemas/html.js"
 
 
 export const Graph = (

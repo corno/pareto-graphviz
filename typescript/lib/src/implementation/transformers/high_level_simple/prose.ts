@@ -1,6 +1,6 @@
 import type * as p_i from 'pareto-core/interface/transformer'
 
-import type * as d_in from "../../../interface/data/high_level_simple.js"
+import type * as d_in from "../../../interface/schemas/high_level_simple.js"
 import type * as d_out from "pareto-fountain-pen/interface/data/prose"
 
 type Graph = p_i.Transformer<
