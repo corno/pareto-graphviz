@@ -1,21 +1,21 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
 
-import type * as d_in from "../../../interface/schemas/attributes.js"
-import type * as d_out from "../../../interface/schemas/low_level.js"
+import type * as s_in from "../../../interface/schemas/attributes.js"
+import type * as s_out from "../../../interface/schemas/low_level.js"
 
 type Attributes = p_i.Transformer<
-    d_in.Attributes, d_out.Attributes
+    s_in.Attributes, s_out.Attributes
 >
 
 //shorthands
 import * as sh from "../../../shorthands/low_level/target.js"
 
-const temp_boolean = ($: boolean): d_out.ID => sh.id.id($ ? "true" : "false")
+const temp_boolean = ($: boolean): s_out.ID => sh.id.id($ ? "true" : "false")
 
 export const Attributes: Attributes = ($) => p_.from.list($).map(
     ($) => p_.from.state($).decide(
-        ($): d_out.Attributes.L => {
+        ($): s_out.Attributes.L => {
             switch ($[0]) {
                 case 'freeform': return p_.option($, ($) => sh.attribute(
                     sh.id.string($.key), sh.id.string($.value)))

@@ -1,15 +1,15 @@
 import * as p_ from 'pareto-core-shorthands/unconstrained_target'
 
-import type * as d_target from "../../interface/schemas/low_level.js"
-import type * as d_target_html from "../../interface/schemas/html.js"
+import type * as s_target from "../../interface/schemas/low_level.js"
+import type * as s_target_html from "../../interface/schemas/html.js"
 
 
 export const Graph = (
     strict: boolean,
-    name: null | d_target.ID,
+    name: null | s_target.ID,
     type: 'directed' | 'undirected',
-    statements: p_.Normal_List<d_target.Statements.L>,
-): d_target.Graph => ({
+    statements: p_.Normal_List<s_target.Statements.L>,
+): s_target.Graph => ({
     'strict': strict,
     'type': type === 'directed' ? ['digraph', null] : ['graph', null],
     'name': p_.optional.null_or_value(name),
@@ -20,37 +20,37 @@ export namespace id {
 
     export const id = (
         value: string,
-    ): d_target.ID => ['id', value]
+    ): s_target.ID => ['id', value]
 
     export const string = (
         value: string,
-    ): d_target.ID => ['string', value]
+    ): s_target.ID => ['string', value]
 
     export const number = (
         value: number,
-    ): d_target.ID => ['number', value]
+    ): s_target.ID => ['number', value]
 
     export const html = (
-        value: d_target_html.Phrasing_Element,
-    ): d_target.ID => ['html', value]   
+        value: s_target_html.Phrasing_Element,
+    ): s_target.ID => ['html', value]   
 
 }
 
 export namespace s {
 
     export const node = (
-        id: d_target.Node_ID,
-        attributes: p_.Normal_List<d_target.Attributes.L>,
-    ): d_target.Statements.L => ['node', {
+        id: s_target.Node_ID,
+        attributes: p_.Normal_List<s_target.Attributes.L>,
+    ): s_target.Statements.L => ['node', {
         'node': id,
         'attributes': p_.list(attributes),
     }]
 
     export const edge = (
-        left: d_target.End_Point,
-        right: p_.Normal_List<d_target.End_Point>,
-        attributes: p_.Normal_List<d_target.Attributes.L>,
-    ): d_target.Statements.L => ['edge', {
+        left: s_target.End_Point,
+        right: p_.Normal_List<s_target.End_Point>,
+        attributes: p_.Normal_List<s_target.Attributes.L>,
+    ): s_target.Statements.L => ['edge', {
         'left': left,
         'right': p_.list(right),
         'attributes': p_.list(attributes),
@@ -58,30 +58,30 @@ export namespace s {
 
     export const attributes = (
         type: 'graph' | 'node' | 'edge',
-        attributes: p_.Normal_List<d_target.Attributes.L>,
-    ): d_target.Statements.L => ['attributes', {
+        attributes: p_.Normal_List<s_target.Attributes.L>,
+    ): s_target.Statements.L => ['attributes', {
         'type': type === 'graph' ? ['graph', null] : type === 'node' ? ['node', null] : ['edge', null],
         'attributes': p_.list(attributes),
     }]
 
     export const attribute_assignment = (
-        name: d_target.ID,
-        value: d_target.ID,
-    ): d_target.Statements.L => ['attribute assignment', {
+        name: s_target.ID,
+        value: s_target.ID,
+    ): s_target.Statements.L => ['attribute assignment', {
         'name': name,
         'value': value,
     }]
 
     export const subgraph = (
-        subgraph: d_target.Subgraph,
-    ): d_target.Statements.L => ['subgraph', subgraph]
+        subgraph: s_target.Subgraph,
+    ): s_target.Statements.L => ['subgraph', subgraph]
 
 }
 
 export const attribute = (
-    name: d_target.ID,
-    value: d_target.ID,
-): d_target.Attributes.L => ({
+    name: s_target.ID,
+    value: s_target.ID,
+): s_target.Attributes.L => ({
     'name': name,
     'value': value,
 })
@@ -89,19 +89,19 @@ export const attribute = (
 export namespace end_point {
 
     export const node = (
-        id: d_target.Node_ID,
-    ): d_target.End_Point => ['node', id]
+        id: s_target.Node_ID,
+    ): s_target.End_Point => ['node', id]
 
     export const subgraph = (
-        subgraph: d_target.Subgraph,
-    ): d_target.End_Point => ['subgraph', subgraph]
+        subgraph: s_target.Subgraph,
+    ): s_target.End_Point => ['subgraph', subgraph]
 
 }
 
 export const node_id = (
-    id: d_target.ID,
-    port: null | d_target.Node_ID.port.O,
-): d_target.Node_ID => ({
+    id: s_target.ID,
+    port: null | s_target.Node_ID.port.O,
+): s_target.Node_ID => ({
     'id': id,
     'port': p_.optional.null_or_value(port),
 })

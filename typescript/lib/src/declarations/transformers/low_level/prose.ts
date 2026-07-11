@@ -1,41 +1,41 @@
 
 import type * as p_ from 'pareto-core/interface/transformer'
 
-import type * as d_in from "../../../interface/schemas/low_level.js"
-import type * as d_out from "pareto-fountain-pen/interface/data/prose"
+import type * as s_in from "../../../interface/schemas/low_level.js"
+import type * as s_out from "pareto-fountain-pen/interface/data/prose"
 
-export namespace d_parameters {
+export namespace s_parameters {
     export type Parameters = {
-        'graph type': d_in.Graph.type_
+        'graph type': s_in.Graph.type_
     }
 
 }
 
 
 export type Graph = p_.Transformer<
-    d_in.Graph,
-    d_out.Paragraph
+    s_in.Graph,
+    s_out.Paragraph
 >
 export type Statements = p_.Transformer_With_Parameter<
-    d_in.Statements,
-    d_out.Phrase,
-    d_parameters.Parameters
+    s_in.Statements,
+    s_out.Phrase,
+    s_parameters.Parameters
 >
 export type ID = p_.Transformer<
-    d_in.ID,
-    d_out.Phrase
+    s_in.ID,
+    s_out.Phrase
 >
 export type Attributes = p_.Transformer<
-    d_in.Attributes,
-    d_out.Phrase
+    s_in.Attributes,
+    s_out.Phrase
 >
 export type Node_ID = p_.Transformer<
-    d_in.Node_ID,
-    d_out.Phrase
+    s_in.Node_ID,
+    s_out.Phrase
 >
 export type Subgraph = p_.Transformer_With_Parameter<
-    d_in.Subgraph,
-    d_out.Phrase,
-    d_parameters.Parameters
+    s_in.Subgraph,
+    s_out.Phrase,
+    s_parameters.Parameters
 >
 

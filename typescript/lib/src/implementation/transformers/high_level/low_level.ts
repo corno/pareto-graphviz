@@ -4,19 +4,19 @@ import type * as p_di from 'pareto-core/interface/data'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
 //data types
-import type * as d_in from "../../../interface/schemas/high_level.js"
-import type * as d_out from "../../../interface/schemas/low_level.js"
+import type * as s_in from "../../../interface/schemas/high_level.js"
+import type * as s_out from "../../../interface/schemas/low_level.js"
 
 namespace interface_ {
 
     export type Graph = p_i.Transformer<
-        d_in.Graph,
-        d_out.Graph
+        s_in.Graph,
+        s_out.Graph
     >
 
     export type Tree = p_i.Transformer_With_Parameter<
-        d_in.Tree,
-        d_out.Statements,
+        s_in.Tree,
+        s_out.Statements,
         {
             'path': p_di.List<string>
         }
@@ -72,15 +72,15 @@ export const Graph: interface_.Graph = ($) => ({
     'statements': p_.literal.segmented_list([
         Tree($.tree, { 'path': p_.literal.list([]) }),
         p_.from.state($.type).decide(
-            ($): d_out.Graph.statements => {
+            ($): s_out.Graph.statements => {
                 switch ($[0]) {
                     case 'directed': return p_.option($, ($) => p_.from.list($.edges).map(
-                        ($): d_out.Statements.L => ['edge', {
+                        ($): s_out.Statements.L => ['edge', {
                             "left": ['node', {
                                 'id': ['string', $.from.start],
                                 'port': p_.literal.not_set()
                             }],
-                            "right": p_.literal.list<d_out.Statements.L.edge.right.L>([
+                            "right": p_.literal.list<s_out.Statements.L.edge.right.L>([
                                 ['node', {
                                     'id': ['string', $.to.start],
                                     'port': p_.literal.not_set()
@@ -90,12 +90,12 @@ export const Graph: interface_.Graph = ($) => ({
                         }]
                     ))
                     case 'undirected': return p_.option($, ($) => p_.from.list($.edges).map(
-                        ($): d_out.Statements.L => ['edge', {
+                        ($): s_out.Statements.L => ['edge', {
                             "left": ['node', {
                                 'id': ['string', $.yin.start],
                                 'port': p_.literal.not_set()
                             }],
-                            "right": p_.literal.list<d_out.Statements.L.edge.right.L>([
+                            "right": p_.literal.list<s_out.Statements.L.edge.right.L>([
                                 ['node', {
                                     'id': ['string', $.yang.start],
                                     'port': p_.literal.not_set()
@@ -111,7 +111,7 @@ export const Graph: interface_.Graph = ($) => ({
 })
 
 export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary($.elements).flatten_to_list(
-    ($, id): d_out.Statements => {
+    ($, id): s_out.Statements => {
         const path = p_.literal.chain(
             $p.path,
             id

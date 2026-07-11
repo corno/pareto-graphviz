@@ -6,10 +6,10 @@ import p_list_build_deprecated from 'pareto-core/implementation/refiner/specials
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
 //data types
-import type * as d_out from "pareto-fountain-pen/interface/data/list_of_characters"
+import type * as s_out from "pareto-fountain-pen/interface/data/list_of_characters"
 
 export const decimal: p_i.Transformer<
-    number, d_out.List_of_Characters
+    number, s_out.List_of_Characters
 > = ($) => p_list_build_deprecated(
     ($i) => {
         if ($ < 0) {
@@ -43,7 +43,7 @@ export const decimal: p_i.Transformer<
 
 export const escaped: p_i.Transformer_With_Parameter<
     string,
-    d_out.List_of_Characters,
+    s_out.List_of_Characters,
     {
         'escape character code': number
         'character code': number
@@ -91,7 +91,7 @@ export const escaped: p_i.Transformer_With_Parameter<
 })
 
 export const quoted: p_i.Transformer<
-    string, d_out.List_of_Characters
+    string, s_out.List_of_Characters
 > = ($) => p_.literal.segmented_list([
     p_.literal.list([
         34, // "
