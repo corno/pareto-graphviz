@@ -5,7 +5,7 @@ import p_iterate from 'pareto-core/implementation/refiner/specials/iterate'
 import p_list_build_deprecated from 'pareto-core/implementation/refiner/specials/list_build_deprecated'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
-//data types
+//schemas
 import type * as s_out from "pareto-fountain-pen/interface/data/list_of_characters"
 
 export const decimal: p_i.Transformer<

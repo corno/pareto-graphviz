@@ -1,6 +1,6 @@
 import type * as p_i from 'pareto-core/interface/transformer'
 
-//data types
+//schemas
 import type * as s_in from "../../../interface/schemas/high_level.js"
 import type * as s_out from "pareto-fountain-pen/interface/data/prose"
 

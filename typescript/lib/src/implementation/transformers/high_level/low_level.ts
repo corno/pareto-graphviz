@@ -3,7 +3,7 @@ import type * as p_i from 'pareto-core/interface/transformer'
 import type * as p_di from 'pareto-core/interface/data'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
-//data types
+//schemas
 import type * as s_in from "../../../interface/schemas/high_level.js"
 import type * as s_out from "../../../interface/schemas/low_level.js"
 
