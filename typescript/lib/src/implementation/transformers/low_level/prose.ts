@@ -1,6 +1,43 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../declarations/transformers/low_level/prose.js"
+//schemas
+import type * as s_in from "../../../interface/schemas/low_level.js"
+import type * as s_out from "../../../interface/schemas/prose.js"
+namespace s_parameters {
+    export type Parameters = {
+        'graph type': s_in.Graph.type_
+    }
+
+}
+
+namespace declarations {
+    export type Graph = p_.Transformer<
+        s_in.Graph,
+        s_out.Paragraph
+    >
+    export type Statements = p_.Transformer_With_Parameter<
+        s_in.Statements,
+        s_out.Phrase,
+        s_parameters.Parameters
+    >
+    export type ID = p_.Transformer<
+        s_in.ID,
+        s_out.Phrase
+    >
+    export type Attributes = p_.Transformer<
+        s_in.Attributes,
+        s_out.Phrase
+    >
+    export type Node_ID = p_.Transformer<
+        s_in.Node_ID,
+        s_out.Phrase
+    >
+    export type Subgraph = p_.Transformer_With_Parameter<
+        s_in.Subgraph,
+        s_out.Phrase,
+        s_parameters.Parameters
+    >
+}
 
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
@@ -10,7 +47,7 @@ import * as t_primitives_to_list_of_characters from "../primitives/deprecated_li
 import * as t_html_to_prose from "pareto-static-html/implementation/transformers/static_html/prose"
 
 
-export const Graph: interface_.Graph = ($) => sh.pg.sentences([
+export const Graph: declarations.Graph = ($) => sh.pg.sentences([
     sh.sentence([
         $.strict
             ? sh.ph.literal("strict ")
@@ -36,7 +73,7 @@ export const Graph: interface_.Graph = ($) => sh.pg.sentences([
     ]),
 ])
 
-export const Statement_List: interface_.Statements = ($, $p) => sh.ph.composed([
+export const Statement_List: declarations.Statements = ($, $p) => sh.ph.composed([
     sh.ph.literal("{"),
     sh.ph.indent(
         sh.pg.sentences(p_.from.list($).map(
@@ -118,7 +155,7 @@ export const Statement_List: interface_.Statements = ($, $p) => sh.ph.composed([
     sh.ph.literal("}"),
 ])
 
-export const ID: interface_.ID = ($) => p_.from.state($).decide(
+export const ID: declarations.ID = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'id': return p_.option($, ($) => sh.ph.literal($)) //FIX escaping
@@ -129,7 +166,7 @@ export const ID: interface_.ID = ($) => p_.from.state($).decide(
         }
     })
 
-export const Attributes: interface_.Attributes = ($) => sh.ph.composed([
+export const Attributes: declarations.Attributes = ($) => sh.ph.composed([
     sh.ph.literal(" [ "),
     sh.ph.composed(p_.from.list($).map(
         ($) => sh.ph.composed([
@@ -141,7 +178,7 @@ export const Attributes: interface_.Attributes = ($) => sh.ph.composed([
     sh.ph.literal("]"),
 ])
 
-export const Node_ID: interface_.Node_ID = ($) => sh.ph.composed([
+export const Node_ID: declarations.Node_ID = ($) => sh.ph.composed([
     ID($.id),
     p_.from.optional($.port).decide(
         ($) => sh.ph.composed([
@@ -159,7 +196,7 @@ export const Node_ID: interface_.Node_ID = ($) => sh.ph.composed([
     ),
 ])
 
-export const Subgraph: interface_.Subgraph = ($, $p) => sh.ph.composed([
+export const Subgraph: declarations.Subgraph = ($, $p) => sh.ph.composed([
     p_.from.optional($.subgraph).decide(
         ($) => sh.ph.composed([
             sh.ph.literal("subgraph "),

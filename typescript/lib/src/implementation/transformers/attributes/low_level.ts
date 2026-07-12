@@ -1,19 +1,24 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
 
+//schemas
 import type * as s_in from "../../../interface/schemas/attributes.js"
 import type * as s_out from "../../../interface/schemas/low_level.js"
 
-type Attributes = p_i.Transformer<
-    s_in.Attributes, s_out.Attributes
->
+namespace declarations {
+
+    export type Attributes = p_i.Transformer<
+        s_in.Attributes, s_out.Attributes
+    >
+
+}
 
 //shorthands
 import * as sh from "../../../shorthands/low_level/target.js"
 
 const temp_boolean = ($: boolean): s_out.ID => sh.id.id($ ? "true" : "false")
 
-export const Attributes: Attributes = ($) => p_.from.list($).map(
+export const Attributes: declarations.Attributes = ($) => p_.from.list($).map(
     ($) => p_.from.state($).decide(
         ($): s_out.Attributes.L => {
             switch ($[0]) {

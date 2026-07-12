@@ -1,8 +1,9 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
 
+//schemas
 import type * as s_in from "../../../interface/schemas/attributes.js"
-import type * as s_out from "pareto-fountain-pen/interface/data/prose"
+import type * as s_out from "../../../interface/schemas/prose.js"
 
 type Attributes = p_i.Transformer<
     s_in.Attributes,

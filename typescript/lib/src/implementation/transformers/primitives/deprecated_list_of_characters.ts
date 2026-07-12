@@ -6,7 +6,7 @@ import p_list_build_deprecated from 'pareto-core/implementation/refiner/specials
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
 //schemas
-import type * as s_out from "pareto-fountain-pen/interface/data/list_of_characters"
+import type * as s_out from "../../../interface/schemas/list_of_characters.js"
 
 export const decimal: p_i.Transformer<
     number, s_out.List_of_Characters

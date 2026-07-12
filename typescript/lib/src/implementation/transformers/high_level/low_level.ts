@@ -7,7 +7,7 @@ import p_text_from_list from 'pareto-core/implementation/transformer/specials/te
 import type * as s_in from "../../../interface/schemas/high_level.js"
 import type * as s_out from "../../../interface/schemas/low_level.js"
 
-namespace interface_ {
+namespace declarations {
 
     export type Graph = p_i.Transformer<
         s_in.Graph,
@@ -56,7 +56,7 @@ const temp_text_from_list_of_separated_texts = (
     )
 }
 
-export const Graph: interface_.Graph = ($) => ({
+export const Graph: declarations.Graph = ($) => ({
     'strict': true,
     'type': p_.from.state($.type).decide(
         ($) => {
@@ -110,7 +110,7 @@ export const Graph: interface_.Graph = ($) => ({
 
 })
 
-export const Tree: interface_.Tree = ($, $p) => p_.from.dictionary($.elements).flatten_to_list(
+export const Tree: declarations.Tree = ($, $p) => p_.from.dictionary($.elements).flatten_to_list(
     ($, id): s_out.Statements => {
         const path = p_.literal.chain(
             $p.path,
