@@ -67,9 +67,12 @@ export const Graph: declarations.Graph = ($) => sh.pg.sentences([
             ]),
             () => sh.ph.nothing()
         ),
-        Statement_List($.statements, {
-            'graph type': $.type
-        }),
+        Statement_List(
+            $.statements,
+            {
+                'graph type': $.type
+            }
+        ),
     ]),
 ])
 
@@ -96,7 +99,8 @@ export const Statement_List: declarations.Statements = ($, $p) => sh.ph.composed
                                             case 'graph': return p_.option($, () => sh.ph.literal("graph "))
                                             default: return p_.exhaustive($[0])
                                         }
-                                    }),
+                                    }
+                                ),
                                 Attributes($.attributes),
                                 sh.ph.literal(";"),
                             ]))
@@ -108,7 +112,8 @@ export const Statement_List: declarations.Statements = ($, $p) => sh.ph.composed
                                             case 'subgraph': return p_.option($, ($) => Subgraph($, $p))
                                             default: return p_.exhaustive($[0])
                                         }
-                                    }),
+                                    }
+                                ),
                                 p_.from.state($p['graph type']).decide(
                                     ($) => {
                                         switch ($[0]) {
@@ -116,8 +121,9 @@ export const Statement_List: declarations.Statements = ($, $p) => sh.ph.composed
                                             case 'graph': return p_.option($, () => sh.ph.literal(" -- "))
                                             default: return p_.exhaustive($[0])
                                         }
-                                    }),
-                                sh.ph.rich(
+                                    }
+                                ),
+                                sh.ph.rich_phrase(
                                     p_.from.list($.right).map(
                                         ($) => sh.ph.composed([
                                             p_.from.state($).decide(
@@ -168,13 +174,16 @@ export const ID: declarations.ID = ($) => p_.from.state($).decide(
 
 export const Attributes: declarations.Attributes = ($) => sh.ph.composed([
     sh.ph.literal(" [ "),
-    sh.ph.composed(p_.from.list($).map(
-        ($) => sh.ph.composed([
-            ID($.name),
-            sh.ph.literal("="),
-            ID($.value),
-            sh.ph.literal(" "),
-        ]))),
+    sh.ph.composed(
+        p_.from.list($).map(
+            ($) => sh.ph.composed([
+                ID($.name),
+                sh.ph.literal("="),
+                ID($.value),
+                sh.ph.literal(" "),
+            ])
+        )
+    ),
     sh.ph.literal("]"),
 ])
 
@@ -210,7 +219,10 @@ export const Subgraph: declarations.Subgraph = ($, $p) => sh.ph.composed([
         ]),
         () => sh.ph.nothing()
     ),
-    Statement_List($.statements, {
-        'graph type': $p['graph type']
-    }),
+    Statement_List(
+        $.statements,
+        {
+            'graph type': $p['graph type']
+        }
+    ),
 ])

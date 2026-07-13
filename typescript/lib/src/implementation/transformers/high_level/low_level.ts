@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
-import type * as p_di from 'pareto-core/interface/data'
+import type * as p_di from 'pareto-core/interface/schema'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
 //schemas
@@ -32,29 +32,6 @@ import * as t_fp_to_loc from "pareto-fountain-pen/implementation/transformers/pr
 import * as sh from "../../../shorthands/low_level/target.js"
 import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-const temp_text_from_list_of_separated_texts = (
-    $: p_di.List<string>,
-    $p: { 'separator': string }
-): string => {
-
-    return p_text_from_list(
-        t_fp_to_loc.Phrase(
-            sh_fp.ph.rich(
-                p_.from.list($).map(
-                    ($) => sh_fp.ph.literal($)),
-                sh_fp.ph.nothing(),
-                sh_fp.ph.nothing(),
-                sh_fp.ph.literal($p.separator),
-                sh_fp.ph.nothing(),
-            ),
-            {
-                'indentation': "    ",
-                'newline': "\n",
-            }
-        ),
-        ($) => $
-    )
-}
 
 export const Graph: declarations.Graph = ($) => ({
     'strict': true,
@@ -122,11 +99,31 @@ export const Tree: declarations.Tree = ($, $p) => p_.from.dictionary($.elements)
                     case 'node': return p_.option($, ($) => p_.literal.list([
                         sh.s.node(
                             sh.node_id(
-sh.id.string(temp_text_from_list_of_separated_texts(path, { 'separator': '>' })), null),
+                                sh.id.string(
+                                    p_text_from_list(
+                                        t_fp_to_loc.Phrase(
+                                            sh_fp.ph.rich_phrase(
+                                                p_.from.list(path).map(
+                                                    ($) => sh_fp.ph.literal($)),
+                                                sh_fp.ph.nothing(),
+                                                sh_fp.ph.nothing(),
+                                                sh_fp.ph.literal(">"),
+                                                sh_fp.ph.nothing(),
+                                            ),
+                                            {
+                                                'indentation': "    ",
+                                                'newline': "\n",
+                                            }
+                                        ),
+                                        ($) => $
+                                    ),
+                                ),
+                                null
+                            ),
                             p_.literal.chain(
                                 t_attributes_to_low_level.Attributes($.attributes),
                                 sh.attribute(
-sh.id.id("label"), sh.id.string(id))
+                                    sh.id.id("label"), sh.id.string(id))
                             )
                         )
 
