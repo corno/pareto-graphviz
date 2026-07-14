@@ -1,8 +1,8 @@
-import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_ from 'pareto-core/implementation/serializer'
 
 //schemas
-import type * as s_in from "../../../interface/schemas/low_level.js"
-import type * as s_out from "../../../interface/schemas/prose.js"
+import type * as s_in from "../../interface/schemas/low_level.js"
+
 namespace s_parameters {
     export type Parameters = {
         'graph type': s_in.Graph.type_
@@ -11,30 +11,24 @@ namespace s_parameters {
 }
 
 namespace declarations {
-    export type Graph = p_.Transformer<
-        s_in.Graph,
-        s_out.Paragraph
+    export type Graph = p_.Paragraph_Serializer<
+        s_in.Graph
     >
-    export type Statements = p_.Transformer_With_Parameter<
+    export type Statements = p_.Phrase_Serializer_With_Parameter<
         s_in.Statements,
-        s_out.Phrase,
         s_parameters.Parameters
     >
-    export type ID = p_.Transformer<
-        s_in.ID,
-        s_out.Phrase
+    export type ID = p_.Phrase_Serializer<
+        s_in.ID
     >
-    export type Attributes = p_.Transformer<
-        s_in.Attributes,
-        s_out.Phrase
+    export type Attributes = p_.Phrase_Serializer<
+        s_in.Attributes
     >
-    export type Node_ID = p_.Transformer<
-        s_in.Node_ID,
-        s_out.Phrase
+    export type Node_ID = p_.Phrase_Serializer<
+        s_in.Node_ID
     >
-    export type Subgraph = p_.Transformer_With_Parameter<
+    export type Subgraph = p_.Phrase_Serializer_With_Parameter<
         s_in.Subgraph,
-        s_out.Phrase,
         s_parameters.Parameters
     >
 }
@@ -43,8 +37,8 @@ namespace declarations {
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 //dependencies
-import * as t_primitives_to_list_of_characters from "../primitives/deprecated_list_of_characters.js"
-import * as t_html_to_prose from "pareto-static-html/implementation/transformers/static_html/prose"
+import * as t_primitives_to_list_of_characters from "./primitives.js"
+import * as ser_html from "pareto-static-html/_implementation/serializers/static_html"
 
 
 export const Graph: declarations.Graph = ($) => sh.pg.sentences([
@@ -165,8 +159,8 @@ export const ID: declarations.ID = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'id': return p_.option($, ($) => sh.ph.literal($)) //FIX escaping
-            case 'string': return p_.option($, ($) => sh.ph.serialize(t_primitives_to_list_of_characters.quoted($)))
-            case 'html': return p_.option($, ($) => t_html_to_prose.Phrasing_Element($))
+            case 'string': return p_.option($, ($) => t_primitives_to_list_of_characters.quoted($))
+            case 'html': return p_.option($, ($) => ser_html.Phrasing_Element($))
             case 'number': return p_.option($, ($) => sh.ph.literal("FIXME NUMBER"))
             default: return p_.exhaustive($[0])
         }

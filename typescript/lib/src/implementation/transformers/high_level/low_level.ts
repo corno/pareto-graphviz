@@ -1,4 +1,5 @@
 import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_s from 'pareto-core/implementation/serializer'
 import type * as p_i from 'pareto-core/interface/transformer'
 import type * as p_di from 'pareto-core/interface/schema'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
@@ -26,7 +27,6 @@ namespace declarations {
 
 //dependencies
 import * as t_attributes_to_low_level from "../attributes/low_level.js"
-import * as t_fp_to_loc from "pareto-fountain-pen/implementation/transformers/prose/list_of_characters"
 
 //shorthands
 import * as sh from "../../../shorthands/low_level/target.js"
@@ -100,9 +100,8 @@ export const Tree: declarations.Tree = ($, $p) => p_.from.dictionary($.elements)
                         sh.s.node(
                             sh.node_id(
                                 sh.id.string(
-                                    p_text_from_list(
-                                        t_fp_to_loc.Phrase(
-                                            sh_fp.ph.rich_phrase(
+                                    p_s.text_from_phrase(
+                                        sh_fp.ph.rich_phrase(
                                                 p_.from.list(path).map(
                                                     ($) => sh_fp.ph.literal($)),
                                                 sh_fp.ph.nothing(),
@@ -110,13 +109,9 @@ export const Tree: declarations.Tree = ($, $p) => p_.from.dictionary($.elements)
                                                 sh_fp.ph.literal(">"),
                                                 sh_fp.ph.nothing(),
                                             ),
-                                            {
-                                                'indentation': "    ",
-                                                'newline': "\n",
-                                            }
-                                        ),
-                                        ($) => $
-                                    ),
+                                            "",
+                                            ""
+                                    )
                                 ),
                                 null
                             ),
