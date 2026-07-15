@@ -5,7 +5,7 @@ import p_list_build_deprecated from 'pareto-core/implementation/refiner/specials
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_simple/deprecated"
 
 export const decimal: p_.Phrase_Serializer<
     number

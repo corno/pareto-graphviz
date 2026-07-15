@@ -11,7 +11,7 @@ type Attributes = p_.Paragraph_Serializer<
 import * as ser_primitives from "./primitives.js"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_extended/deprecated"
 
 export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map(
     ($) => sh.sentence([

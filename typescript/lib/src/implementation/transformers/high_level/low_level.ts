@@ -30,7 +30,7 @@ import * as t_attributes_to_low_level from "../attributes/low_level.js"
 
 //shorthands
 import * as sh from "../../../shorthands/low_level/target.js"
-import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh_fp from "pareto-fountain-pen/shorthands/prose_simple_with_rich/deprecated"
 
 
 export const Graph: declarations.Graph = ($) => ({
@@ -104,10 +104,10 @@ export const Tree: declarations.Tree = ($, $p) => p_.from.dictionary($.elements)
                                         sh_fp.ph.rich_phrase(
                                                 p_.from.list(path).map(
                                                     ($) => sh_fp.ph.literal($)),
-                                                sh_fp.ph.nothing(),
-                                                sh_fp.ph.nothing(),
+                                                null,
+                                                null,
                                                 sh_fp.ph.literal(">"),
-                                                sh_fp.ph.nothing(),
+                                                null,
                                             ),
                                             "",
                                             ""
