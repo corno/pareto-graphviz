@@ -1,7 +1,8 @@
-import * as p_ from 'pareto-core/implementation/serializer'
+import * as p_ from 'pareto-core/implementation/transformer'
 
 //schemas
-import type * as s_in from "../../interface/schemas/low_level.js"
+import type * as s_in from "../../../interface/schemas/low_level.js"
+import type * as s_out from "../../../interface/schemas/paragraph.js"
 
 namespace s_parameters {
     export type Parameters = {
@@ -11,53 +12,60 @@ namespace s_parameters {
 }
 
 namespace declarations {
-    export type Graph = p_.Paragraph_Serializer<
-        s_in.Graph
+    export type Graph = p_.Transformer<
+        s_in.Graph,
+        s_out.Paragraph
     >
-    export type Statements = p_.Phrase_Serializer_With_Parameter<
+    export type Statements = p_.Transformer_With_Parameter<
         s_in.Statements,
+        s_out.Phrase,
+        
         s_parameters.Parameters
     >
-    export type ID = p_.Phrase_Serializer<
-        s_in.ID
+    export type ID = p_.Transformer<
+        s_in.ID,
+        s_out.Phrase
     >
-    export type Attributes = p_.Phrase_Serializer<
-        s_in.Attributes
+    export type Attributes = p_.Transformer<
+        s_in.Attributes,
+        s_out.Phrase
     >
-    export type Node_ID = p_.Phrase_Serializer<
-        s_in.Node_ID
+    export type Node_ID = p_.Transformer<
+        s_in.Node_ID,
+        s_out.Phrase
     >
-    export type Subgraph = p_.Phrase_Serializer_With_Parameter<
+    export type Subgraph = p_.Transformer_With_Parameter<
         s_in.Subgraph,
+        s_out.Phrase,
         s_parameters.Parameters
     >
 }
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose_extended/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/paragraph/deprecated"
 
 //dependencies
-import * as t_primitives_to_list_of_characters from "./primitives.js"
-import * as ser_html from "pareto-static-html/_implementation/serializers/static_html"
+import * as ser_primitives from "../../serializers/primitives.js"
+import * as t_html_to_paragraph from "pareto-static-html/_implementation/transformers/static_html/paragraph"
 
 
 export const Graph: declarations.Graph = ($) => sh.pg.sentences([
     sh.sentence([
         $.strict
-            ? sh.ph.literal("strict ")
+            ? sh.ph.text("strict ")
             : sh.ph.nothing(),
         p_.from.state($.type).decide(
             ($) => {
                 switch ($[0]) {
-                    case 'digraph': return p_.option($, () => sh.ph.literal("digraph "))
-                    case 'graph': return p_.option($, () => sh.ph.literal("graph "))
+                    case 'digraph': return p_.option($, () => sh.ph.text("digraph "))
+                    case 'graph': return p_.option($, () => sh.ph.text("graph "))
                     default: return p_.exhaustive($[0])
                 }
             }),
         p_.from.optional($.name).decide(
             ($) => sh.ph.composed([
                 ID($),
-                sh.ph.literal(" "),
+                sh.ph.text(" "),
             ]),
             () => sh.ph.nothing()
         ),
@@ -71,7 +79,7 @@ export const Graph: declarations.Graph = ($) => sh.pg.sentences([
 ])
 
 export const Statement_List: declarations.Statements = ($, $p) => sh.ph.composed([
-    sh.ph.literal("{"),
+    sh.ph.text("{"),
     sh.ph.indent(
         sh.pg.sentences(p_.from.list($).map(
             ($) => sh.sentence([
@@ -80,23 +88,23 @@ export const Statement_List: declarations.Statements = ($, $p) => sh.ph.composed
                         switch ($[0]) {
                             case 'attribute assignment': return p_.option($, ($) => sh.ph.composed([
                                 ID($.name),
-                                sh.ph.literal(" = "),
+                                sh.ph.text(" = "),
                                 ID($.value),
-                                sh.ph.literal(";"),
+                                sh.ph.text(";"),
                             ]))
                             case 'attributes': return p_.option($, ($) => sh.ph.composed([
                                 p_.from.state($.type).decide(
                                     ($) => {
                                         switch ($[0]) {
-                                            case 'edge': return p_.option($, () => sh.ph.literal("edge "))
-                                            case 'node': return p_.option($, () => sh.ph.literal("node "))
-                                            case 'graph': return p_.option($, () => sh.ph.literal("graph "))
+                                            case 'edge': return p_.option($, () => sh.ph.text("edge "))
+                                            case 'node': return p_.option($, () => sh.ph.text("node "))
+                                            case 'graph': return p_.option($, () => sh.ph.text("graph "))
                                             default: return p_.exhaustive($[0])
                                         }
                                     }
                                 ),
                                 Attributes($.attributes),
-                                sh.ph.literal(";"),
+                                sh.ph.text(";"),
                             ]))
                             case 'edge': return p_.option($, ($) => sh.ph.composed([
                                 p_.from.state($.left).decide(
@@ -111,8 +119,8 @@ export const Statement_List: declarations.Statements = ($, $p) => sh.ph.composed
                                 p_.from.state($p['graph type']).decide(
                                     ($) => {
                                         switch ($[0]) {
-                                            case 'digraph': return p_.option($, () => sh.ph.literal(" -> "))
-                                            case 'graph': return p_.option($, () => sh.ph.literal(" -- "))
+                                            case 'digraph': return p_.option($, () => sh.ph.text(" -> "))
+                                            case 'graph': return p_.option($, () => sh.ph.text(" -- "))
                                             default: return p_.exhaustive($[0])
                                         }
                                     }
@@ -133,7 +141,7 @@ export const Statement_List: declarations.Statements = ($, $p) => sh.ph.composed
                                     ),
                                     sh.ph.nothing(),
                                     sh.ph.nothing(),
-                                    sh.ph.literal(", "),
+                                    sh.ph.text(", "),
                                     sh.ph.nothing(),
                                 ),
                                 Attributes($.attributes),
@@ -144,7 +152,7 @@ export const Statement_List: declarations.Statements = ($, $p) => sh.ph.composed
                                     ($) => Attributes($),
                                     () => sh.ph.nothing()
                                 ),
-                                sh.ph.literal(";"),
+                                sh.ph.text(";"),
                             ]))
                             case 'subgraph': return p_.option($, ($) => Subgraph($, $p))
                             default: return p_.exhaustive($[0])
@@ -152,44 +160,44 @@ export const Statement_List: declarations.Statements = ($, $p) => sh.ph.composed
                     })
             ]))),
     ),
-    sh.ph.literal("}"),
+    sh.ph.text("}"),
 ])
 
 export const ID: declarations.ID = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'id': return p_.option($, ($) => sh.ph.literal($)) //FIX escaping
-            case 'string': return p_.option($, ($) => t_primitives_to_list_of_characters.quoted($))
-            case 'html': return p_.option($, ($) => ser_html.Phrasing_Element($))
-            case 'number': return p_.option($, ($) => sh.ph.literal("FIXME NUMBER"))
+            case 'id': return p_.option($, ($) => sh.ph.text($)) //FIX escaping
+            case 'string': return p_.option($, ($) => sh.ph.text(ser_primitives.quoted($)))
+            case 'html': return p_.option($, ($) => t_html_to_paragraph.Phrasing_Element($))
+            case 'number': return p_.option($, ($) => sh.ph.text("FIXME NUMBER"))
             default: return p_.exhaustive($[0])
         }
     })
 
 export const Attributes: declarations.Attributes = ($) => sh.ph.composed([
-    sh.ph.literal(" [ "),
+    sh.ph.text(" [ "),
     sh.ph.composed(
         p_.from.list($).map(
             ($) => sh.ph.composed([
                 ID($.name),
-                sh.ph.literal("="),
+                sh.ph.text("="),
                 ID($.value),
-                sh.ph.literal(" "),
+                sh.ph.text(" "),
             ])
         )
     ),
-    sh.ph.literal("]"),
+    sh.ph.text("]"),
 ])
 
 export const Node_ID: declarations.Node_ID = ($) => sh.ph.composed([
     ID($.id),
     p_.from.optional($.port).decide(
         ($) => sh.ph.composed([
-            sh.ph.literal(":"),
+            sh.ph.text(":"),
             ID($.port),
             p_.from.optional($['compass point']).decide(
                 ($) => sh.ph.composed([
-                    sh.ph.literal(":"),
+                    sh.ph.text(":"),
                     ID($),
                 ]),
                 () => sh.ph.nothing()
@@ -202,11 +210,11 @@ export const Node_ID: declarations.Node_ID = ($) => sh.ph.composed([
 export const Subgraph: declarations.Subgraph = ($, $p) => sh.ph.composed([
     p_.from.optional($.subgraph).decide(
         ($) => sh.ph.composed([
-            sh.ph.literal("subgraph "),
+            sh.ph.text("subgraph "),
             p_.from.optional($).decide(
                 ($) => sh.ph.composed([
                     ID($),
-                    sh.ph.literal(" "),
+                    sh.ph.text(" "),
                 ]),
                 () => sh.ph.nothing()
             ),

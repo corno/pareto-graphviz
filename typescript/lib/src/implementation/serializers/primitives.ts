@@ -4,12 +4,10 @@ import p_iterate from 'pareto-core/implementation/refiner/specials/iterate'
 import p_list_build_deprecated from 'pareto-core/implementation/refiner/specials/list_build_deprecated'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
-//shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose_simple/deprecated"
 
-export const decimal: p_.Phrase_Serializer<
+export const decimal: p_.Serializer<
     number
-> = ($) => sh.ph.list_of_characters(
+> = ($) => p_.ph.list_of_characters(
     p_list_build_deprecated(
         ($i) => {
             if ($ < 0) {
@@ -42,13 +40,13 @@ export const decimal: p_.Phrase_Serializer<
 )
 
 
-export const escaped: p_.Phrase_Serializer_With_Parameter<
+export const escaped: p_.Serializer_With_Parameter<
     string,
     {
         'escape character code': number
         'character code': number
     }
-> = ($, $p) => sh.ph.list_of_characters(
+> = ($, $p) => p_.ph.list_of_characters(
     p_iterate({
         list: p_list_from_text(
             $,
@@ -92,10 +90,10 @@ export const escaped: p_.Phrase_Serializer_With_Parameter<
     })
 )
 
-export const quoted: p_.Phrase_Serializer<
+export const quoted: p_.Serializer<
     string
-> = ($) => sh.ph.composed([
-    sh.ph.literal("\""),
+> = ($) => p_.ph.composed([
+    p_.ph.literal("\""),
     escaped(
         $,
         {
@@ -103,5 +101,5 @@ export const quoted: p_.Phrase_Serializer<
             'escape character code': 92, // \
         }
     ),
-    sh.ph.literal("\""),
+    p_.ph.literal("\""),
 ])

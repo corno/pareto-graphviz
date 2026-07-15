@@ -27,10 +27,11 @@ namespace declarations {
 
 //dependencies
 import * as t_attributes_to_low_level from "../attributes/low_level.js"
+import * as ser_rich_phrase from "pareto-fountain-pen/_implementation/serializers/rich_phrase"
 
 //shorthands
 import * as sh from "../../../shorthands/low_level/target.js"
-import * as sh_fp from "pareto-fountain-pen/shorthands/prose_simple_with_rich/deprecated"
+import * as sh_fp from "pareto-fountain-pen/shorthands/rich_phrase/deprecated"
 
 
 export const Graph: declarations.Graph = ($) => ({
@@ -100,17 +101,15 @@ export const Tree: declarations.Tree = ($, $p) => p_.from.dictionary($.elements)
                         sh.s.node(
                             sh.node_id(
                                 sh.id.string(
-                                    p_s.text_from_phrase(
+                                    ser_rich_phrase.Phrase(
                                         sh_fp.ph.rich_phrase(
-                                                p_.from.list(path).map(
-                                                    ($) => sh_fp.ph.literal($)),
-                                                null,
-                                                null,
-                                                sh_fp.ph.literal(">"),
-                                                null,
-                                            ),
-                                            "",
-                                            ""
+                                            p_.from.list(path).map(
+                                                ($) => sh_fp.ph.text($)),
+                                            null,
+                                            null,
+                                            sh_fp.ph.text(">"),
+                                            null,
+                                        ),
                                     )
                                 ),
                                 null
