@@ -13,7 +13,7 @@ type Attributes = p_.Transformer<
 import * as ser_primitives from "./primitives.js"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/paragraph/deprecated"
+import * as sh from "pareto-fountain-pen/modules/paragraph/shorthands/deprecated"
 
 export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map(
     ($) => sh.sentence([

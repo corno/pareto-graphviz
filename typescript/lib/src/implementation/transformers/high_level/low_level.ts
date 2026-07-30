@@ -27,11 +27,11 @@ namespace declarations {
 
 //dependencies
 import * as t_attributes_to_low_level from "../attributes/low_level.js"
-import * as ser_rich_phrase from "pareto-fountain-pen/_implementation/serializers/rich_phrase"
+import * as ser_rich_phrase from "pareto-fountain-pen/modules/rich_phrase/implementation/serializers/rich_phrase"
 
 //shorthands
 import * as sh from "../../../shorthands/low_level/target.js"
-import * as sh_fp from "pareto-fountain-pen/shorthands/rich_phrase/deprecated"
+import * as sh_fp from "pareto-fountain-pen/modules/rich_phrase/shorthands/deprecated"
 
 
 export const Graph: declarations.Graph = ($) => ({
