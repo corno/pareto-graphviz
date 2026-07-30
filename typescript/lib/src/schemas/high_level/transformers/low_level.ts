@@ -5,8 +5,8 @@ import type * as p_di from 'pareto-core/interface/schema'
 import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
 //schemas
-import type * as s_in from "../../../interface/schemas/high_level.js"
-import type * as s_out from "../../../interface/schemas/low_level.js"
+import type * as s_in from "../schema.js"
+import type * as s_out from "../../low_level/schema.js"
 
 namespace declarations {
 
@@ -26,12 +26,12 @@ namespace declarations {
 }
 
 //dependencies
-import * as t_attributes_to_low_level from "../attributes/low_level.js"
-import * as ser_rich_phrase from "pareto-fountain-pen/modules/rich_phrase/implementation/serializers/rich_phrase"
+import * as t_attributes_to_low_level from "../../attributes/transformers/low_level.js"
+import * as ser_rich_phrase from "pareto-fountain-pen/modules/rich_phrase/schemas/rich_phrase/serializers"
 
 //shorthands
-import * as sh from "../../../shorthands/low_level/target.js"
-import * as sh_fp from "pareto-fountain-pen/modules/rich_phrase/shorthands/deprecated"
+import * as sh from "../../low_level/shorthands/target.js"
+import * as sh_fp from "pareto-fountain-pen/modules/rich_phrase/schemas/rich_phrase/shorthands/deprecated"
 
 
 export const Graph: declarations.Graph = ($) => ({

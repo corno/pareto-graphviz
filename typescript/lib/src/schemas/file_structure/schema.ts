@@ -2,7 +2,7 @@
 import * as p_i from 'pareto-core/interface/__internal/Abort'
 import * as p_di from 'pareto-core/interface/schema'
 
-import * as i_imports_high_level from "./high_level.js"
+import * as i_imports_high_level from "../high_level/schema.js"
 
 export namespace Directory_ {
     

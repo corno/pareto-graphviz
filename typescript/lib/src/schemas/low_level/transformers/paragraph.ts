@@ -1,8 +1,8 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
 //schemas
-import type * as s_in from "../../../interface/schemas/low_level.js"
-import type * as s_out from "../../../interface/schemas/paragraph.js"
+import type * as s_in from "../schema.js"
+import type * as s_out from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/schema"
 
 namespace s_parameters {
     export type Parameters = {
@@ -42,11 +42,11 @@ namespace declarations {
 }
 
 //shorthands
-import * as sh from "pareto-fountain-pen/modules/paragraph/shorthands/deprecated"
+import * as sh from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/shorthands/deprecated"
 
 //dependencies
-import * as ser_primitives from "../../serializers/primitives.js"
-import * as t_html_to_paragraph from "pareto-static-html/_implementation/transformers/static_html/paragraph"
+import * as ser_primitives from "../../primitives/serializers.js"
+import * as t_html_to_paragraph from "pareto-static-html/schemas/static_html/transformers/paragraph"
 
 
 export const Graph: declarations.Graph = ($) => sh.pg.sentences([

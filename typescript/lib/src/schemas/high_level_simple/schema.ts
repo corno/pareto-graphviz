@@ -2,7 +2,7 @@
 import * as p_i from 'pareto-core/interface/__internal/Abort'
 import * as p_di from 'pareto-core/interface/schema'
 
-import * as i_imports_attributes from "./attributes.js"
+import * as i_imports_attributes from "../attributes/schema.js"
 
 export namespace Graph_ {
     
