@@ -4,10 +4,13 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as s_in from "./schema.js"
 import type * as s_out from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/schema"
 
-type Attributes = p_.Transformer<
-    s_in.Attributes,
-    s_out.Paragraph
->
+namespace declarations {
+
+    export type Attributes = p_.Transformer<
+        s_in.Attributes,
+        s_out.Paragraph
+    >
+}
 
 //dependencies
 import * as ser_primitives from "../primitives/serializers.js"
@@ -15,7 +18,7 @@ import * as ser_primitives from "../primitives/serializers.js"
 //shorthands
 import * as sh from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/shorthands/deprecated"
 
-export const Attributes: Attributes = ($) => sh.pg.sentences(p_.from.list($).map(
+export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.from.list($).map(
     ($) => sh.sentence([
         p_.from.state($).decide(
             ($) => {
