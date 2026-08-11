@@ -5,10 +5,12 @@ import type * as p_i from 'pareto-core/interface/transformer'
 import type * as s_in from "../schema.js"
 import type * as s_out from "../../low_level/schema.js"
 
-type Graph = p_i.Transformer<
-    s_in.Graph,
-    s_out.Graph
->
+namespace declarations {
+    export type Graph = p_i.Transformer<
+        s_in.Graph,
+        s_out.Graph
+    >
+}
 
 //dependencies
 import * as t_attributes_to_low_level from "../../attributes/transformers/low_level.js"
@@ -17,7 +19,7 @@ import * as t_attributes_to_low_level from "../../attributes/transformers/low_le
 import * as sh from "../../low_level/shorthands/target.js"
 
 
-export const Graph: Graph = ($) => sh.Graph(
+export const Graph: declarations.Graph = ($) => sh.Graph(
     true,
     null,
     'directed',
