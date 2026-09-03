@@ -4,9 +4,10 @@ import p_iterate from 'pareto-core/implementation/refiner/specials/iterate'
 import p_list_build_deprecated from 'pareto-core/implementation/refiner/specials/list_build_deprecated'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
+import * as s_schema from "./schema.js"
 
-export const decimal: p_.Serializer<
-    number
+export const Decimal: p_.Serializer<
+    s_schema.Decimal
 > = ($) => p_.ph.list_of_characters(
     p_list_build_deprecated(
         ($i) => {
@@ -40,8 +41,8 @@ export const decimal: p_.Serializer<
 )
 
 
-export const escaped: p_.Serializer_With_Parameter<
-    string,
+export const Escaped: p_.Serializer_With_Parameter<
+    s_schema.Escaped,
     {
         'escape character code': number
         'character code': number
@@ -90,11 +91,11 @@ export const escaped: p_.Serializer_With_Parameter<
     })
 )
 
-export const quoted: p_.Serializer<
-    string
+export const Quoted: p_.Serializer<
+    s_schema.Quoted
 > = ($) => p_.ph.composed([
     p_.ph.literal("\""),
-    escaped(
+    Escaped(
         $,
         {
             'character code': 34, // "

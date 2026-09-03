@@ -24,65 +24,65 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
             ($) => {
                 switch ($[0]) {
                     case 'freeform': return p_.option($, ($) => sh.ph.composed([
-                        sh.ph.text(ser_primitives.quoted($.key)),
+                        sh.ph.text(ser_primitives.Quoted($.key)),
                         sh.ph.text("="),
-                        sh.ph.text(ser_primitives.quoted($.value))
+                        sh.ph.text(ser_primitives.Quoted($.value))
                     ]))
                     case 'color': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("color="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'fillcolor': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("fillcolor="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'penwidth': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("penwidth="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'label': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("label="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'fontcolor': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("fontcolor="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'fontname': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("fontname="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'fontsize': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("fontsize="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'URL': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("URL="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'href': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("href="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'target': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("target="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'tooltip': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("tooltip="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'id': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("id="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'class': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("class="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'comment': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("comment="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'style': return p_.option($, ($) => p_.from.state($).decide(
                         ($) => {
@@ -100,7 +100,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                                 case 'tapered': return p_.option($, ($) => sh.ph.text("style=tapered"))
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.text("style="),
-                                    sh.ph.text(ser_primitives.quoted($))
+                                    sh.ph.text(ser_primitives.Quoted($))
                                 ]))
                                 default: return p_.exhaustive($[0])
                             }
@@ -117,7 +117,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                                 case 'circo': return p_.option($, ($) => sh.ph.text("layout=circo"))
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.text("layout="),
-                                    sh.ph.text(ser_primitives.quoted($))
+                                    sh.ph.text(ser_primitives.Quoted($))
                                 ]))
                                 default: return p_.exhaustive($[0])
                             }
@@ -136,7 +136,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                     ))
                     case 'bgcolor': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("bgcolor="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'labelloc': return p_.option($, ($) => p_.from.state($).decide(
                         ($) => {
@@ -159,27 +159,27 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                     ))
                     case 'size': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("size="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'ratio': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("ratio="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'pad': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("pad="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'nodesep': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("nodesep="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'ranksep': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("ranksep="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'dpi': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("dpi="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'overlap': return p_.option($, ($) => p_.from.state($).decide(
                         ($) => {
@@ -205,7 +205,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                                 case 'false': return p_.option($, ($) => sh.ph.text("pack=false"))
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.text("pack="),
-                                    sh.ph.text(ser_primitives.decimal($))
+                                    sh.ph.text(ser_primitives.Decimal($))
                                 ]))
                                 default: return p_.exhaustive($[0])
                             }
@@ -238,7 +238,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                     ))
                     case 'charset': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("charset="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'clusterrank': return p_.option($, ($) => p_.from.state($).decide(
                         ($) => {
@@ -275,7 +275,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                                 case 'Mrecord': return p_.option($, ($) => sh.ph.text("shape=Mrecord"))
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.text("shape="),
-                                    sh.ph.text(ser_primitives.quoted($))
+                                    sh.ph.text(ser_primitives.Quoted($))
                                 ]))
                                 default: return p_.exhaustive($[0])
                             }
@@ -283,38 +283,38 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                     ))
                     case 'width': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("width="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'height': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("height="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'fixedsize': return p_.option($, ($) => sh.ph.text($ ? "fixedsize=true" : "fixedsize=false"))
                     case 'regular': return p_.option($, ($) => sh.ph.text($ ? "regular=true" : "regular=false"))
                     case 'sides': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("sides="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'skew': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("skew="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'distortion': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("distortion="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'orientation': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("orientation="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'peripheries': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("peripheries="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'pin': return p_.option($, ($) => sh.ph.text($ ? "pin=true" : "pin=false"))
                     case 'image': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("image="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'imagepos': return p_.option($, ($) => p_.from.state($).decide(
                         ($) => {
@@ -346,23 +346,23 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                     ))
                     case 'group': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("group="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'sortv': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("sortv="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'area': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("area="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'z': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("z="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'margin': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("margin="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'arrowhead': return p_.option($, ($) => p_.from.state($).decide(
                         ($) => {
@@ -385,7 +385,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                                 case 'obox': return p_.option($, ($) => sh.ph.text("arrowhead=obox"))
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.text("arrowhead="),
-                                    sh.ph.text(ser_primitives.quoted($))
+                                    sh.ph.text(ser_primitives.Quoted($))
                                 ]))
                                 default: return p_.exhaustive($[0])
                             }
@@ -412,7 +412,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                                 case 'obox': return p_.option($, ($) => sh.ph.text("arrowtail=obox"))
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.text("arrowtail="),
-                                    sh.ph.text(ser_primitives.quoted($))
+                                    sh.ph.text(ser_primitives.Quoted($))
                                 ]))
                                 default: return p_.exhaustive($[0])
                             }
@@ -420,7 +420,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                     ))
                     case 'arrowsize': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("arrowsize="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'dir': return p_.option($, ($) => p_.from.state($).decide(
                         ($) => {
@@ -435,44 +435,44 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                     ))
                     case 'headlabel': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("headlabel="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'taillabel': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("taillabel="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'labelfontcolor': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("labelfontcolor="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'labelfontname': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("labelfontname="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'labelfontsize': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("labelfontsize="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'labelangle': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("labelangle="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'labeldistance': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("labeldistance="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'labelfloat': return p_.option($, ($) => sh.ph.text($ ? "labelfloat=true" : "labelfloat=false"))
                     case 'weight': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("weight="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'len': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("len="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'minlen': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("minlen="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'constraint': return p_.option($, ($) => sh.ph.text($ ? "constraint=true" : "constraint=false"))
                     case 'decorate': return p_.option($, ($) => sh.ph.text($ ? "decorate=true" : "decorate=false"))
@@ -490,7 +490,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                                 case 'nw': return p_.option($, ($) => sh.ph.text("headport=nw"))
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.text("headport="),
-                                    sh.ph.text(ser_primitives.quoted($))
+                                    sh.ph.text(ser_primitives.Quoted($))
                                 ]))
                                 default: return p_.exhaustive($[0])
                             }
@@ -510,7 +510,7 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                                 case 'nw': return p_.option($, ($) => sh.ph.text("tailport=nw"))
                                 case 'custom': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.text("tailport="),
-                                    sh.ph.text(ser_primitives.quoted($))
+                                    sh.ph.text(ser_primitives.Quoted($))
                                 ]))
                                 default: return p_.exhaustive($[0])
                             }
@@ -520,83 +520,83 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                     case 'tailclip': return p_.option($, ($) => sh.ph.text($ ? "tailclip=true" : "tailclip=false"))
                     case 'lhead': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("lhead="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'ltail': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("ltail="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'samehead': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("samehead="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'sametail': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("sametail="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'edgeURL': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("edgeURL="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'headURL': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("headURL="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'tailURL': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("tailURL="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'labelURL': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("labelURL="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'edgehref': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("edgehref="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'headhref': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("headhref="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'tailhref': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("tailhref="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'labelhref': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("labelhref="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'edgetarget': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("edgetarget="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'headtarget': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("headtarget="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'tailtarget': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("tailtarget="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'edgetooltip': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("edgetooltip="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'headtooltip': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("headtooltip="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'tailtooltip': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("tailtooltip="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'labeltooltip': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("labeltooltip="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'radius': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("radius="),
-                        sh.ph.text(ser_primitives.decimal($))
+                        sh.ph.text(ser_primitives.Decimal($))
                     ]))
                     case 'splines': return p_.option($, ($) => p_.from.state($).decide(
                         ($) => {
@@ -616,15 +616,15 @@ export const Attributes: declarations.Attributes = ($) => sh.pg.sentences(p_.fro
                     ))
                     case 'pos': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("pos="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'xlabel': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("xlabel="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     case 'layer': return p_.option($, ($) => sh.ph.composed([
                         sh.ph.text("layer="),
-                        sh.ph.text(ser_primitives.quoted($))
+                        sh.ph.text(ser_primitives.Quoted($))
                     ]))
                     default: return p_.exhaustive($[0])
                 }

@@ -167,7 +167,7 @@ export const ID: declarations.ID = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'id': return p_.option($, ($) => sh.ph.text($)) //FIX escaping
-            case 'string': return p_.option($, ($) => sh.ph.text(ser_primitives.quoted($)))
+            case 'string': return p_.option($, ($) => sh.ph.text(ser_primitives.Quoted($)))
             case 'html': return p_.option($, ($) => t_html_to_paragraph.Phrasing_Element($))
             case 'number': return p_.option($, ($) => sh.ph.text("FIXME NUMBER"))
             default: return p_.exhaustive($[0])
