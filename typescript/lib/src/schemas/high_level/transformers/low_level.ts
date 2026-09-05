@@ -1,8 +1,8 @@
-import * as p_ from 'pareto-core/implementation/transformer'
-import * as p_s from 'pareto-core/implementation/serializer'
-import type * as p_i from 'pareto-core/interface/transformer'
-import type * as p_di from 'pareto-core/interface/schema'
-import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
+import * as p_ from 'pareto-core/transformer'
+import * as p_s from 'pareto-core/serializer'
+import type * as p_i from 'pareto-core/transformer'
+import type * as p_di from 'pareto-core/schema'
+import p_text_from_list from 'pareto-core/transformer/specials/text_from_list'
 
 //schemas
 import type * as s_in from "../schema.js"

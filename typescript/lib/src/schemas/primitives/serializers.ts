@@ -1,8 +1,8 @@
-import * as p_ from 'pareto-core/implementation/serializer'
-import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
-import p_iterate from 'pareto-core/implementation/refiner/specials/iterate'
-import p_list_build_deprecated from 'pareto-core/implementation/refiner/specials/list_build_deprecated'
-import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
+import * as p_ from 'pareto-core/serializer'
+import p_unreachable_code_path from 'pareto-core/transformer/specials/unreachable_code_path'
+import p_iterate from 'pareto-core/refiner/specials/iterate'
+import p_list_build_deprecated from 'pareto-core/refiner/specials/list_build_deprecated'
+import p_list_from_text from 'pareto-core/refiner/specials/list_from_text'
 
 import * as s_schema from "./schema.js"
 
