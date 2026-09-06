@@ -11,12 +11,17 @@ namespace declarations {
         s_in.Attributes, s_out.Attributes
     >
 
+    export type Boolean = p_i.Transformer<
+        s_in.Boolean, s_out.ID
+    >
+
 }
 
 //shorthands
 import * as sh from "../../low_level/shorthands/target.js"
 
-const temp_boolean = ($: boolean): s_out.ID => sh.id.id($ ? "true" : "false")
+//dependencies
+import * as ser_primitives from "../../primitives/serializers.js"
 
 export const Attributes: declarations.Attributes = ($) => p_.from.list($).map(
     ($) => p_.from.state($).decide(
@@ -167,15 +172,15 @@ export const Attributes: declarations.Attributes = ($) => p_.from.list($).map(
                             }
                         })))
                 case 'concentrate': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("concentrate"), temp_boolean($)))
+                    sh.id.id("concentrate"), Boolean($)))
                 case 'compound': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("compound"), temp_boolean($)))
+                    sh.id.id("compound"), Boolean($)))
                 case 'center': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("center"), temp_boolean($)))
+                    sh.id.id("center"), Boolean($)))
                 case 'normalize': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("normalize"), temp_boolean($)))
+                    sh.id.id("normalize"), Boolean($)))
                 case 'landscape': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("landscape"), temp_boolean($)))
+                    sh.id.id("landscape"), Boolean($)))
                 case 'outputorder': return p_.option($, ($) => sh.attribute(
                     sh.id.id("outputorder"), p_.from.state($).decide(
                         ($) => {
@@ -251,9 +256,9 @@ export const Attributes: declarations.Attributes = ($) => p_.from.list($).map(
                 case 'height': return p_.option($, ($) => sh.attribute(
                     sh.id.id("height"), sh.id.number($)))
                 case 'fixedsize': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("fixedsize"), temp_boolean($)))
+                    sh.id.id("fixedsize"), Boolean($)))
                 case 'regular': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("regular"), temp_boolean($)))
+                    sh.id.id("regular"), Boolean($)))
                 case 'sides': return p_.option($, ($) => sh.attribute(
                     sh.id.id("sides"), sh.id.number($)))
                 case 'skew': return p_.option($, ($) => sh.attribute(
@@ -265,7 +270,7 @@ export const Attributes: declarations.Attributes = ($) => p_.from.list($).map(
                 case 'peripheries': return p_.option($, ($) => sh.attribute(
                     sh.id.id("peripheries"), sh.id.number($)))
                 case 'pin': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("pin"), temp_boolean($)))
+                    sh.id.id("pin"), Boolean($)))
                 case 'image': return p_.option($, ($) => sh.attribute(
                     sh.id.id("image"), sh.id.string($)))
                 case 'imagepos': return p_.option($, ($) => sh.attribute(
@@ -414,7 +419,7 @@ export const Attributes: declarations.Attributes = ($) => p_.from.list($).map(
                 case 'labeldistance': return p_.option($, ($) => sh.attribute(
                     sh.id.id("labeldistance"), sh.id.number($)))
                 case 'labelfloat': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("labelfloat"), temp_boolean($)))
+                    sh.id.id("labelfloat"), Boolean($)))
                 case 'weight': return p_.option($, ($) => sh.attribute(
                     sh.id.id("weight"), sh.id.number($)))
                 case 'len': return p_.option($, ($) => sh.attribute(
@@ -422,9 +427,9 @@ export const Attributes: declarations.Attributes = ($) => p_.from.list($).map(
                 case 'minlen': return p_.option($, ($) => sh.attribute(
                     sh.id.id("minlen"), sh.id.number($)))
                 case 'constraint': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("constraint"), temp_boolean($)))
+                    sh.id.id("constraint"), Boolean($)))
                 case 'decorate': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("decorate"), temp_boolean($)))
+                    sh.id.id("decorate"), Boolean($)))
                 case 'headport': return p_.option($, ($) => p_.from.state($).decide(
                     ($) => {
                         switch ($[0]) {
@@ -478,9 +483,9 @@ export const Attributes: declarations.Attributes = ($) => p_.from.list($).map(
                         }
                     }))
                 case 'headclip': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("headclip"), temp_boolean($)))
+                    sh.id.id("headclip"), Boolean($)))
                 case 'tailclip': return p_.option($, ($) => sh.attribute(
-                    sh.id.id("tailclip"), temp_boolean($)))
+                    sh.id.id("tailclip"), Boolean($)))
                 case 'lhead': return p_.option($, ($) => sh.attribute(
                     sh.id.id("lhead"), sh.id.string($)))
                 case 'ltail': return p_.option($, ($) => sh.attribute(
@@ -545,4 +550,9 @@ export const Attributes: declarations.Attributes = ($) => p_.from.list($).map(
                     sh.id.id("layer"), sh.id.string($)))
                 default: return p_.exhaustive($[0])
             }
-        }))
+        }
+    )
+)
+
+
+export const Boolean: declarations.Boolean = ($) => sh.id.id(ser_primitives.Boolean($))

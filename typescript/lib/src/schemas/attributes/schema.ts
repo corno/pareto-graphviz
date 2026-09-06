@@ -4,6 +4,8 @@ import * as p_di from 'pareto-core/schema'
 
 import * as i_imports_html from "pareto-static-html/schemas/static_html/schema"
 
+export type Boolean = boolean
+
 export namespace Attributes_ {
     
     export namespace L {
@@ -243,15 +245,15 @@ export namespace Attributes_ {
             | readonly ['clust', packmode.clust]
             | readonly ['graph', packmode.graph]
         
-        export type concentrate = boolean
+        export type concentrate = Boolean
         
-        export type compound = boolean
+        export type compound = Boolean
         
-        export type center = boolean
+        export type center = Boolean
         
-        export type normalize = boolean
+        export type normalize = Boolean
         
-        export type landscape = boolean
+        export type landscape = Boolean
         
         export namespace outputorder {
             
@@ -358,9 +360,9 @@ export namespace Attributes_ {
         
         export type height = number
         
-        export type fixedsize = boolean
+        export type fixedsize = Boolean
         
-        export type regular = boolean
+        export type regular = Boolean
         
         export type sides = number
         
@@ -372,7 +374,7 @@ export namespace Attributes_ {
         
         export type peripheries = number
         
-        export type pin = boolean
+        export type pin = Boolean
         
         export type image = string
         
@@ -588,7 +590,7 @@ export namespace Attributes_ {
         
         export type labeldistance = number
         
-        export type labelfloat = boolean
+        export type labelfloat = Boolean
         
         export type weight = number
         
@@ -596,9 +598,9 @@ export namespace Attributes_ {
         
         export type minlen = number
         
-        export type constraint = boolean
+        export type constraint = Boolean
         
-        export type decorate = boolean
+        export type decorate = Boolean
         
         export namespace headport {
             
@@ -672,9 +674,9 @@ export namespace Attributes_ {
             | readonly ['nw', tailport.nw]
             | readonly ['custom', tailport.custom]
         
-        export type headclip = boolean
+        export type headclip = Boolean
         
-        export type tailclip = boolean
+        export type tailclip = Boolean
         
         export type lhead = string
         
